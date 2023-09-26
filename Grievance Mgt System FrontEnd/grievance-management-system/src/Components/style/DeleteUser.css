@@ -1,0 +1,75 @@
+/* DeleteUser.css */
+
+.DUmain-div {
+  padding: 20px;
+}
+
+.user-table {
+  width: 100%;
+  border-collapse: collapse;
+  border-spacing: 0;
+  border: 1px solid #ddd;
+  margin-bottom: 20px;
+}
+
+.user-table th,
+.user-table td {
+  text-align: left;
+  padding: 8px;
+  font-family: 'Arial', sans-serif;
+}
+
+.user-table th {
+  background-color: #333;
+  color: #fff;
+}
+
+.user-table tr:nth-child(even) {
+  background-color: #f2f2f2;
+}
+
+.user-table tr:hover {
+  background-color: #ddd;
+}
+
+.delete-button {
+  border: none;
+  border-radius: 20px;
+  background-color: #ff6347;
+  color: #fff;
+  padding: 8px 16px;
+  cursor: pointer;
+  font-family: 'Arial', sans-serif;
+}
+
+.delete-button:hover {
+  background-color: #ff473a;
+}
+
+@media screen and (max-width: 600px) {
+  .user-table {
+    overflow-x: auto;
+    display: block;
+  }
+
+  .user-table thead,
+  .user-table tbody,
+  .user-table th,
+  .user-table td,
+  .user-table tr {
+    display: block;
+  }
+
+  .user-table tr {
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+  }
+
+  .user-table td {
+    border-bottom: 1px solid #ddd;
+  }
+
+  .user-table td:last-child {
+    border-bottom: none;
+  }
+}

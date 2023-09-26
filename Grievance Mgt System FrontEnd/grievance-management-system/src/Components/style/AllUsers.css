@@ -1,0 +1,92 @@
+/* 
+}
+.user-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+    margin: 20px;
+  }
+  
+  .user-card {
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    padding: 16px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    max-width: 300px;
+    text-align: center;
+    background-color: #ffffffbb;
+    box-shadow: 10px 10px 10px rgba(0.5, 0, 0, 0.6); 
+  
+  }
+  
+  .user-title {
+    font-size: 1.5rem;
+    margin-bottom: 16px;
+  }
+  
+  .user-body {
+    font-size: 1rem;
+  }
+  
+ 
+  .user-body p:nth-child(4) {
+    display: none;
+  }
+   */
+
+
+
+   .AU-main {
+    padding: 20px;
+  }
+  
+  .user-table {
+    width: 100%;
+    border-collapse: collapse;
+    border-spacing: 0;
+    border: 1px solid #ddd;
+    margin-bottom: 20px;
+  }
+  
+  .user-table th, .user-table td {
+    text-align: left;
+    padding: 8px;
+  }
+  
+  .user-table th {
+    background-color: #333;
+    color: #fff;
+  }
+  
+  .user-table tr:nth-child(even) {
+    background-color: #f2f2f2;
+  }
+  
+  .user-table tr:hover {
+    background-color: #ddd;
+  }
+  
+  @media screen and (max-width: 600px) {
+    .user-table {
+      overflow-x: auto;
+      display: block;
+    }
+    
+    .user-table thead, .user-table tbody, .user-table th, .user-table td, .user-table tr {
+      display: block;
+    }
+    
+    .user-table tr {
+      margin-bottom: 15px;
+      border: 1px solid #ccc;
+    }
+    
+    .user-table td {
+      border-bottom: 1px solid #ddd;
+    }
+    
+    .user-table td:last-child {
+      border-bottom: none;
+    }
+  }

@@ -1,0 +1,22 @@
+.modal-wrapper{
+    position:fixed;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    top:0;
+    background-color: rgba(189,189,189,0.9);
+}
+.modal-container{
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    /* background-color: #fff;
+    padding: 2rem 3rem;
+    border-radius: 0.5rem; */
+}
+.modal-dialog {
+    max-width: fit-content;
+    margin-left: auto;
+    margin-right: auto;
+}

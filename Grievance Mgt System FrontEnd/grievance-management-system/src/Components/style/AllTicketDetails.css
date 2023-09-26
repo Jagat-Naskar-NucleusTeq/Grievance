@@ -1,0 +1,96 @@
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+  }
+  
+  th, td {
+    padding: 10px;
+    text-align: left;
+    border-bottom: 1px solid #cccccc;
+  }
+  
+  th {
+    background-color: #514b4b35; /* Greyish tone for header */
+  }
+  
+  button {
+    padding: 8px 16px;
+    font-size: 14px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  
+  /* Greenish tone for buttons */
+  button.edit-btn {
+    background-color: #4caf4f3b;
+    color: black;
+    border: solid 1px black;
+  }
+  
+  button.expand-btn {
+    background-color: #0080806e;
+    color: #000000;
+    border: solid 1px black;
+  }
+  
+  .AT-Empty-list{
+    font: italic;
+    text-align: center;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+  }
+  
+  .full-details {
+    background-color: #f0f0f0ce; 
+    padding: 10px;
+    border-radius: 4px;
+    margin-top: 10px;
+  }
+  
+  /* .full-details table {
+    margin-top: 10px;
+  } */
+
+  .full-details .all-button {
+    background-image: url("C:\Users\jagat\Downloads\New folder\Grivence Mgt System BackEnd\GrievanceManagementSystem\Images\header2.jpg");
+    /* background-color: red; */
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin-bottom: 5px;
+    border-radius: 4%;
+  }
+
+  .full-details .all-button .statusFilter{
+    margin-left: 5vw;
+    background-color: rgba(34, 34, 37, 0.3);
+    flex: 1;
+    color: rgb(250, 119, 11);
+    margin: 3px;
+  }
+  
+  .paging-btn {
+    background-color: rgba(0, 47, 255, 0.778);
+    border: 1px solid blue;
+    color: white;
+    margin: 2%;
+  }
+  .full-details .all-button .AT-allTickets, .AT-deptTickets, .AT-myTickets{
+    margin: 3px;
+    margin-left: 2vh;
+    margin-right: 3vh;
+    height: 6vh;
+    color: rgb(223, 19, 87);
+    background-color: rgba(0, 0, 0, 0.588);
+    border: 1px solid rgb(136, 12, 12);
+    
+  }
+
+  
+  /* Media queries for responsiveness */
+  @media (max-width: 767px) {
+    th, td {
+      font-size: 14px;
+    }
+  }

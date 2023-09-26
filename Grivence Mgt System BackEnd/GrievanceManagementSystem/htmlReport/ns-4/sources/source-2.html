@@ -1,0 +1,120 @@
+
+
+
+<!DOCTYPE html>
+<html id="htmlId">
+<head>
+  <title>Coverage Report > UserService</title>
+  <style type="text/css">
+    @import "../../css/coverage.css";
+    @import "../../css/idea.min.css";
+  </style>
+  <script type="text/javascript" src="../../js/highlight.min.js"></script>
+  <script type="text/javascript" src="../../js/highlightjs-line-numbers.min.js"></script>
+</head>
+
+<body>
+<div class="content">
+<div class="breadCrumbs">
+Current scope:     <a href="../../index.html">all classes</a>
+    <span class="separator">|</span>
+    <a href="../index.html">com.feedback.service</a>
+</div>
+
+<h1>Coverage Summary for Class: UserService (com.feedback.service)</h1>
+
+<table class="coverageStats">
+
+<tr>
+  <th class="name">Class</th>
+</tr>
+  <tr>
+    <td class="name">UserService$MockitoMock$ghvhVmq0</td>
+  </tr>
+  <tr>
+    <td class="name">UserService$MockitoMock$ghvhVmq0$auxiliary$3l3h4KLJ</td>
+  </tr>
+  <tr>
+    <td class="name">UserService$MockitoMock$ghvhVmq0$auxiliary$NGItsqpX</td>
+  </tr>
+<tr>
+  <td class="name"><strong>Total</strong></td>
+</tr>
+</table>
+
+<br/>
+<br/>
+
+
+<pre>
+<code class="sourceCode" id="sourceCode">&nbsp;package com.feedback.service;
+&nbsp;
+&nbsp;import com.feedback.entities.User;
+&nbsp;import java.util.List;
+&nbsp;
+&nbsp;/**
+&nbsp; * User service interface to declare all the class.
+&nbsp; */
+&nbsp;public interface UserService {
+&nbsp;	/**
+&nbsp;   *
+&nbsp;   * @param user
+&nbsp;   * @return user to save
+&nbsp;   */
+&nbsp;  User saveUser(User user);
+&nbsp;
+&nbsp;  /**
+&nbsp;   *
+&nbsp;   * @return list of user
+&nbsp;   */
+&nbsp;  List&lt;User&gt; getAllUsers();
+&nbsp;
+&nbsp;  /**
+&nbsp;   *
+&nbsp;   * @param id
+&nbsp;   * @return user
+&nbsp;   */
+&nbsp;  User getUserById(Integer id);
+&nbsp;
+&nbsp;  /**
+&nbsp;   *
+&nbsp;   * @param id
+&nbsp;   * @return true or false based on the action
+&nbsp;   */
+&nbsp;  Boolean deleteUser(Integer id);
+&nbsp;
+&nbsp;  /**
+&nbsp;   *
+&nbsp;   * @param userName
+&nbsp;   * @param Password
+&nbsp;   * @return true or false
+&nbsp;   */
+&nbsp;  String getByUserAndPassword(String userName, String Password);
+&nbsp;}
+</code>
+</pre>
+</div>
+
+<script type="text/javascript">
+(function() {
+    var msie = false, msie9 = false;
+    /*@cc_on
+      msie = true;
+      @if (@_jscript_version >= 9)
+        msie9 = true;
+      @end
+    @*/
+
+    if (!msie || msie && msie9) {
+      hljs.highlightAll()
+      hljs.initLineNumbersOnLoad();
+    }
+})();
+</script>
+
+<div class="footer">
+    
+    <div style="float:right;">generated on 2023-08-29 10:35</div>
+</div>
+</body>
+</html>

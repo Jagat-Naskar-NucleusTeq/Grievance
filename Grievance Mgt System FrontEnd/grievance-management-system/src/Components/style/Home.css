@@ -1,0 +1,35 @@
+.home-container {
+    display: flex;
+    background-color: #3a86c4; 
+}
+  
+  .content {
+    flex: 1;
+    padding: 20px;
+    background-color: #0373ce;
+    width: auto;
+    height: auto;
+    border-color: red;
+  }
+
+  
+  .sidebar-toggle {
+    position: fixed;
+    top: 50%;
+    left: 0;
+    background-color: #021848;
+    color: white;
+    padding: 10px;
+    cursor: pointer;
+    transition: transform 0.3s;
+    z-index: 1000;
+  }
+  
+  .arrow-icon {
+    font-size: 24px;
+  }
+  
+  .arrow-left {
+    transform: rotate(180deg);
+  }
+  

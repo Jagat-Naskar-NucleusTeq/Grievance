@@ -1,0 +1,86 @@
+.NU-parent {
+  background-color: #9c8b8be0;
+  padding: 20px;
+  margin: auto;
+  border-radius: 10px;
+  box-shadow: 10px 10px 10px rgba(25, 22, 22, 0.706); /* X-offset, Y-offset, blur radius, color */
+  
+}
+
+.NU-reg-form {
+  display: flex;
+  flex-direction: row;
+}
+
+.NU-container1 {
+  flex: 1;
+  float: left;
+  gap: 10px;
+  margin-right: 2vw;
+}
+.NU-container2 {
+  flex: 1;
+  float: right;
+}
+
+.NU-label-user {
+  font-weight: bold;
+}
+
+.NU-reg-heading {
+  font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
+  font-size: large;
+  margin-left: 8vw;
+}
+
+.NU-input-user {
+  width: 100%;
+  padding: 8px;
+  border: 1px solid #ccc; /* Light grey border */
+  border-radius: 5px;
+  box-sizing: border-box;
+}
+
+.NU-input-user:focus {
+  outline: none;
+  border-color: #007bff;
+}
+
+.NU-error1 {
+  color: #dc3545;
+  font-size: smaller;
+}
+
+.NU-button {
+  padding: 10px;
+  background-color: #202a36db;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-top: 5vh;
+  width: calc(100% - 8px);
+}
+
+button:hover {
+  background-color: #0056b3;
+}
+
+.alert {
+  padding: 15px;
+  background-color: #f8d7da;
+  border: 1px solid #f5c6cb;
+  border-radius: 5px;
+  color: #721c24;
+  margin-bottom: 10px;
+}
+
+.close-btn {
+  cursor: pointer;
+}
+
+@media (min-width: 768px) {
+  .NU-parent {
+    max-width: 800px;
+  }
+}

@@ -1,0 +1,284 @@
+
+
+
+<!DOCTYPE html>
+<html id="htmlId">
+<head>
+  <title>Coverage Report > Ticket</title>
+  <style type="text/css">
+    @import "../../css/coverage.css";
+    @import "../../css/idea.min.css";
+  </style>
+  <script type="text/javascript" src="../../js/highlight.min.js"></script>
+  <script type="text/javascript" src="../../js/highlightjs-line-numbers.min.js"></script>
+</head>
+
+<body>
+<div class="content">
+<div class="breadCrumbs">
+Current scope:     <a href="../../index.html">all classes</a>
+    <span class="separator">|</span>
+    <a href="../index.html">com.feedback.entities</a>
+</div>
+
+<h1>Coverage Summary for Class: Ticket (com.feedback.entities)</h1>
+
+<table class="coverageStats">
+<tr>
+  <th class="name">Class</th>
+<th class="coverageStat 
+">
+  Class, %
+</th>
+<th class="coverageStat 
+">
+  Method, %
+</th>
+<th class="coverageStat 
+">
+  Line, %
+</th>
+</tr>
+<tr>
+  <td class="name">Ticket</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/1)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/14)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/20)
+  </span>
+</td>
+</tr>
+
+</table>
+
+<br/>
+<br/>
+
+
+<pre>
+<code class="sourceCode" id="sourceCode">&nbsp;package com.feedback.entities;
+&nbsp;
+&nbsp;/**
+&nbsp; * Represents a ticket entity in the system.
+&nbsp; */
+&nbsp;public class Ticket {
+&nbsp;    /**
+&nbsp;     * The title of the ticket.
+&nbsp;     */
+&nbsp;    private String ticketTitle;
+&nbsp;
+&nbsp;    /**
+&nbsp;     * The type of the ticket.
+&nbsp;     */
+&nbsp;    private String ticketType;
+&nbsp;
+&nbsp;    /**
+&nbsp;     * The status of the ticket.
+&nbsp;     */
+&nbsp;    private EStatus ticketStatus;
+&nbsp;
+&nbsp;    /**
+&nbsp;     * The user who assigned the ticket.
+&nbsp;     */
+&nbsp;    private String ticketAssignedBy;
+&nbsp;
+&nbsp;    /**
+&nbsp;     * The creation time of the ticket.
+&nbsp;     */
+&nbsp;    private String ticketCreationTime;
+&nbsp;
+&nbsp;    /**
+&nbsp;     * The last updated time of the ticket.
+&nbsp;     */
+&nbsp;    private String lastUpdatedTime;
+&nbsp;
+&nbsp;    // Description
+&nbsp;    // Comments (Can be a tabular representation)
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Default constructor.
+&nbsp;     */
+<b class="nc">&nbsp;    public Ticket() {</b>
+&nbsp;        // Empty constructor
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Parameterized constructor to initialize ticket details.
+&nbsp;     *
+&nbsp;     * @param ticketTitlee       The title of the ticket.
+&nbsp;     * @param ticketTypee       The type of the ticket.
+&nbsp;     * @param ticketStatuss      The status of the ticket.
+&nbsp;     * @param ticketAssignedByy  The user who assigned the ticket.
+&nbsp;     * @param ticketCreationTimee The creation time of the ticket.
+&nbsp;     * @param lastUpdatedTimee   The last updated time of the ticket.
+&nbsp;     */
+&nbsp;    public Ticket(
+&nbsp;            final String ticketTitlee,
+&nbsp;            final String ticketTypee,
+&nbsp;            final EStatus ticketStatuss,
+&nbsp;            final String ticketAssignedByy,
+&nbsp;            final String ticketCreationTimee,
+&nbsp;            final String lastUpdatedTimee
+<b class="nc">&nbsp;    ) {</b>
+<b class="nc">&nbsp;        this.ticketTitle = ticketTitlee;</b>
+<b class="nc">&nbsp;        this.ticketType = ticketTypee;</b>
+<b class="nc">&nbsp;        this.ticketStatus = ticketStatuss;</b>
+<b class="nc">&nbsp;        this.ticketAssignedBy = ticketAssignedByy;</b>
+<b class="nc">&nbsp;        this.ticketCreationTime = ticketCreationTimee;</b>
+<b class="nc">&nbsp;        this.lastUpdatedTime = lastUpdatedTimee;</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Get the title of the ticket.
+&nbsp;     *
+&nbsp;     * @return The ticket title.
+&nbsp;     */
+&nbsp;    public String getTicketTitle() {
+<b class="nc">&nbsp;        return ticketTitle;</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Set the title of the ticket.
+&nbsp;     *
+&nbsp;     * @param ticketTitlee The new ticket title.
+&nbsp;     */
+&nbsp;    public void setTicketTitle(final String ticketTitlee) {
+<b class="nc">&nbsp;        this.ticketTitle = ticketTitlee;</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Get the type of the ticket.
+&nbsp;     *
+&nbsp;     * @return The ticket type.
+&nbsp;     */
+&nbsp;    public String getTicketType() {
+<b class="nc">&nbsp;        return ticketType;</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Set the type of the ticket.
+&nbsp;     *
+&nbsp;     * @param ticketTypee The new ticket type.
+&nbsp;     */
+&nbsp;    public void setTicketType(final String ticketTypee) {
+<b class="nc">&nbsp;        this.ticketType = ticketTypee;</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Get the status of the ticket.
+&nbsp;     *
+&nbsp;     * @return The ticket status.
+&nbsp;     */
+&nbsp;    public EStatus getTicketStatus() {
+<b class="nc">&nbsp;        return ticketStatus;</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Set the status of the ticket.
+&nbsp;     *
+&nbsp;     * @param ticketStatuss The new ticket status.
+&nbsp;     */
+&nbsp;    public void setTicketStatus(final EStatus ticketStatuss) {
+<b class="nc">&nbsp;        this.ticketStatus = ticketStatuss;</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Get the user who assigned the ticket.
+&nbsp;     *
+&nbsp;     * @return The user who assigned the ticket.
+&nbsp;     */
+&nbsp;    public String getTicketAssignedBy() {
+<b class="nc">&nbsp;        return ticketAssignedBy;</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Set the user who assigned the ticket.
+&nbsp;     *
+&nbsp;     * @param ticketAssignedByy The user who assigned the ticket.
+&nbsp;     */
+&nbsp;    public void setTicketAssignedBy(final String ticketAssignedByy) {
+<b class="nc">&nbsp;        this.ticketAssignedBy = ticketAssignedByy;</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Get the creation time of the ticket.
+&nbsp;     *
+&nbsp;     * @return The ticket creation time.
+&nbsp;     */
+&nbsp;    public String getTicketCreationTime() {
+<b class="nc">&nbsp;        return ticketCreationTime;</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Set the creation time of the ticket.
+&nbsp;     *
+&nbsp;     * @param ticketCreationTimee The new ticket creation time.
+&nbsp;     */
+&nbsp;    public void setTicketCreationTime(final String ticketCreationTimee) {
+<b class="nc">&nbsp;        this.ticketCreationTime = ticketCreationTimee;</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Get the last updated time of the ticket.
+&nbsp;     *
+&nbsp;     * @return The ticket&#39;s last updated time.
+&nbsp;     */
+&nbsp;    public String getLastUpdatedTime() {
+<b class="nc">&nbsp;        return lastUpdatedTime;</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Set the last updated time of the ticket.
+&nbsp;     *
+&nbsp;     * @param lastUpdatedTimee The new ticket&#39;s last updated time.
+&nbsp;     */
+&nbsp;    public void setLastUpdatedTime(final String lastUpdatedTimee) {
+<b class="nc">&nbsp;        this.lastUpdatedTime = lastUpdatedTimee;</b>
+&nbsp;    }
+&nbsp;
+&nbsp;}
+</code>
+</pre>
+</div>
+
+<script type="text/javascript">
+(function() {
+    var msie = false, msie9 = false;
+    /*@cc_on
+      msie = true;
+      @if (@_jscript_version >= 9)
+        msie9 = true;
+      @end
+    @*/
+
+    if (!msie || msie && msie9) {
+      hljs.highlightAll()
+      hljs.initLineNumbersOnLoad();
+    }
+})();
+</script>
+
+<div class="footer">
+    
+    <div style="float:right;">generated on 2023-08-29 10:35</div>
+</div>
+</body>
+</html>

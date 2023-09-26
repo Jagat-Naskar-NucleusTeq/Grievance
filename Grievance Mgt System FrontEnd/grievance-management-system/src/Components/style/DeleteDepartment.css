@@ -1,0 +1,59 @@
+
+.DD-department-list {
+    margin-top: 20px;
+    max-height: 300px; 
+    /* overflow-y: auto;  */
+    width: 40vw;
+  }
+  
+
+
+  .DD-table {
+    border-collapse: collapse;
+    width: 100%;
+  }
+  
+  .DD-table-head th,
+  .DD-table tbody tr td {
+    border: 1px solid #dddddd;
+    text-align: left;
+    padding: 8px;
+  }
+  
+  .DD-table-head th {
+    background-color: rgba(20, 20, 20, 0.897);
+    font-weight: bold;
+    color: white;
+  }
+  
+  .DD-table tbody tr:nth-child(even) {
+    background-color: #f9f9f9; 
+  }
+  
+  .DD-table tbody tr:hover {
+    background-color: #cceeff;
+  }
+  
+  .DD-table tbody tr td button {
+    padding: 5px 10px;
+    border: none;
+    cursor: pointer;
+  }
+  
+  /* Alternate button color for even rows */
+  .DD-table tbody tr:nth-child(even) td button:nth-child(odd) {
+    background-color: #26db96cd; 
+  }
+  
+  /* Alternate button color for odd rows */
+  .DD-table tbody tr:nth-child(odd) td button:nth-child(even) {
+    background-color: #473aa5d8; 
+  }
+  
+  /* fixing header position */
+  .DD-table-head {
+    /* position: sticky; */
+    top: 0;
+    z-index: 1;
+    background-color: #f2f2f2;
+  }

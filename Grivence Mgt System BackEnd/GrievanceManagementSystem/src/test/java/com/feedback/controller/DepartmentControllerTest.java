@@ -1,0 +1,121 @@
+package com.feedback.controller;
+
+
+import static org.junit.Assert.assertEquals;
+import static org.mockito.Mockito.*;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import org.junit.jupiter.api.Test;
+import org.springframework.data.domain.Page;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+
+import com.feedback.entities.Department;
+import com.feedback.payloads.department_dto.AddDepartemntDTO;
+import com.feedback.payloads.department_dto.DepartmentListDTO;
+import com.feedback.service.DepartmentService;
+
+class DepartmentControllerTest {
+ @Test
+    void testAddDept() {
+        // Arrange
+        DepartmentService departmentService = mock(DepartmentService.class);
+        DepartmentController departmentController = new DepartmentController(departmentService);
+
+        AddDepartemntDTO deptDTO = new AddDepartemntDTO();
+        deptDTO.setDeptName("HR");
+        Department department = new Department(1, "HR");
+
+        when(departmentService.checkAlreadyExist(deptDTO)).thenReturn(false);
+        when(departmentService.addDept(deptDTO)).thenReturn(department);
+
+        // Act
+        ResponseEntity<?> responseEntity = departmentController.addDept(deptDTO);
+
+        // Assert
+        assertEquals(HttpStatus.OK, responseEntity.getStatusCode());
+//        assertEquals("Department HRsaved successfully!!!", responseEntity.getBody());
+        assertEquals("Department HR saved successfully!!!".trim(), responseEntity.getBody().toString().trim());
+ }
+
+    @Test
+    void testGetAllDepartments() {
+        DepartmentService departmentService = mock(DepartmentService.class);
+        DepartmentController departmentController = new DepartmentController(departmentService);
+
+        List<DepartmentListDTO> departmentList = new ArrayList<>();
+        departmentList.add(new DepartmentListDTO(1, "TestDept"));
+
+        when(departmentService.getAllDepartments()).thenReturn(departmentList);
+
+        ResponseEntity<List<DepartmentListDTO>> responseEntity = departmentController.getAllDepartments();
+
+        assertEquals(HttpStatus.OK, responseEntity.getStatusCode());
+        assertEquals(departmentList, responseEntity.getBody());
+    }
+
+    @Test
+    void testGetAllDepartmentss() {
+        // Arrange
+        DepartmentService departmentService = mock(DepartmentService.class);
+        DepartmentController departmentController = new DepartmentController(departmentService);
+
+        List<DepartmentListDTO> departmentList = new ArrayList<>();
+        departmentList.add(new DepartmentListDTO(1, "TestDept"));
+
+        when(departmentService.getAllDepartments(anyInt())).thenReturn(departmentList);
+
+        ResponseEntity<List<DepartmentListDTO>> responseEntity = departmentController.GetAllDepartments(1);
+
+        assertEquals(HttpStatus.OK, responseEntity.getStatusCode());
+        assertEquals(departmentList, responseEntity.getBody());
+    }
+
+    @Test
+    void testDeleteDeptByName() {
+        DepartmentService departmentService = mock(DepartmentService.class);
+        DepartmentController departmentController = new DepartmentController(departmentService);
+
+        when(departmentService.deleteDept("TestDept")).thenReturn("Deleted Successfully");
+
+        ResponseEntity<?> responseEntity = departmentController.deleteDeptByName("TestDept");
+
+        assertEquals(HttpStatus.OK, responseEntity.getStatusCode());
+        assertEquals("Deleted Successfully", responseEntity.getBody());
+    }
+
+    @Test
+    void testAddDeptDepartmentAlreadyExists() {
+        DepartmentService departmentService = mock(DepartmentService.class);
+        DepartmentController departmentController = new DepartmentController(departmentService);
+
+        AddDepartemntDTO deptDTO = new AddDepartemntDTO();
+        deptDTO.setDeptName("TestDept");
+
+        when(departmentService.checkAlreadyExist(deptDTO)).thenReturn(true);
+
+        ResponseEntity<?> responseEntity = departmentController.addDept(deptDTO);
+
+        assertEquals(HttpStatus.OK, responseEntity.getStatusCode());
+        assertEquals("Department already exists", responseEntity.getBody());
+    }
+
+    @Test
+    void testAddDeptDatabaseError() {
+        DepartmentService departmentService = mock(DepartmentService.class);
+        DepartmentController departmentController = new DepartmentController(departmentService);
+
+        AddDepartemntDTO deptDTO = new AddDepartemntDTO();
+        deptDTO.setDeptName("TestDept");
+
+        when(departmentService.checkAlreadyExist(deptDTO)).thenReturn(false);
+        when(departmentService.addDept(deptDTO)).thenReturn(null);
+
+        ResponseEntity<?> responseEntity = departmentController.addDept(deptDTO);
+
+        assertEquals(HttpStatus.INTERNAL_SERVER_ERROR, responseEntity.getStatusCode());
+        assertEquals("Problem saving in the database: Database save problem", responseEntity.getBody());
+    }
+}

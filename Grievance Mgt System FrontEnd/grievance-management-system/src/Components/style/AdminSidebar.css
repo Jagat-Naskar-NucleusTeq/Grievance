@@ -1,0 +1,74 @@
+
+.sidebar-parent {
+  display: flex; 
+  
+}
+
+.admin-content {
+  /* height: 89.3vh; */
+  height: 97vh;
+  flex: 1 1;
+  padding: 0% 4% 4% 4%;
+  background-color: #01091663;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  overflow: scroll;
+  /* background-image: url("../images/spiderman7.jpg"); */
+  /* background-image: url("c:\Users\jagat\Downloads\New folder\Grivence Mgt System BackEnd\GrievanceManagementSystem\Images\cloud2.jpg"); */
+}
+
+/* Menu */
+.sidebar-parent .menu {
+  width: 17%; 
+  height: 102.vh;
+  background-color: #000000;
+}
+
+.menu li {
+  margin-bottom: 10px;
+  background-color: #06030f;
+  color: rgb(255, 255, 255);
+  font-style: italic;
+  font-size:medium;
+}
+
+.menu a {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  color: #e30000;
+  padding: 10px;
+  border-radius: 5px;
+  /* transition: background-color 0.3s, color 0.3s; */
+}
+
+
+
+/* Danger (Logout) Option */
+.menu a.danger {
+  color: #ffb8b0; /* Red color for danger items */
+}
+
+.menu a.danger:hover {
+  background-color: #45d02c;
+}
+
+.menu svg {
+  margin-right: 10px;
+}
+
+.menu span {
+  display: inline-block;
+  margin-left: 5px;
+}
+
+@media screen and (max-width: 768px) {
+  .menu a {
+    padding: 8px;
+  }
+}
+.ant-menu{
+  background-color: #000000;
+}

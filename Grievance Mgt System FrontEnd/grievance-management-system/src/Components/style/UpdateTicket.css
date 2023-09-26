@@ -1,0 +1,156 @@
+.updateDeptMainDiv {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: #221d1db3;
+  box-shadow: 5%;
+  padding: 20px;
+  box-shadow: 0px 2px 4px rgba(255, 255, 255, 0.2);
+  padding-top: 10%;
+  padding-left: 10%;
+  border-radius: 3px;
+  width: 100vw;
+  height: 100vh;
+}
+
+.tickets-container {
+  margin-left: 15%;
+  display: flex;
+  /* max-width: 600px; */
+  margin: auto;
+  padding: 20px;
+  font-family: Arial, sans-serif;
+  background-color: #010f17;
+  /* background-image: url('../images/whatsweb-image.jpg'); */
+  /* max-height: 80vh; */
+  border-radius: 10px;
+  box-shadow: 10px 10px 10px rgba(0.5, 0, 0, 0.6);
+  width: 100vw;
+}
+.main-div {
+  display: flex;
+}
+.div1 {
+  margin-bottom: 2%;
+  margin-right: 4%;
+  margin-left: 2%;
+  width: 43%;
+}
+
+.ticket-form {
+  background-color: rgba(35, 89, 72, 0.958);
+  /* background-image: url('../images/whatsweb-image5.jpg'); */
+  box-shadow: 10px 10px 10px rgba(0.5, 0, 0, 0.6);
+  border-radius: 5%;
+  padding: 3%;
+  flex: 1;
+  margin: 2vw;
+  gap: 10px;
+  padding-right: 10px;
+  width: 43%;
+}
+
+.UT-status {
+  margin-top: 6%;
+}
+
+label {
+  font-weight: bold;
+  margin-top: 4%;
+}
+
+input,
+select,
+textarea {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #f39461;
+  border-radius: 8px;
+  box-sizing: border-box;
+  background-color: #fff4d3;
+  box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+/* .comment1{ margin-top: 4%;
+    color: #ffffff;
+    padding: 3%;
+    border-radius: 10px;
+    background-color: rgba(128, 128, 128, 0.296);
+  } */
+
+.comment1 {
+  margin-top: 4%;
+  color: #ffffff;
+  padding: 3%;
+  border-radius: 10px;
+  background-color: rgba(0, 0, 0, 0.591);
+  max-height: 150px;
+  overflow: auto;
+}
+
+.error {
+  color: #ff0000;
+  font-size: 14px;
+  margin-top: 5px;
+}
+
+@media (max-width: 767px) {
+  .tickets-container {
+    max-width: 100%;
+  }
+
+  .ticket-form {
+    grid-template-columns: 1fr;
+  }
+}
+.Ut-nevigate-back {
+  background-color: rgba(205, 107, 9, 0.954);
+  color: white;
+  width: 97%;
+  border-color: 1px solid rgb(0, 0, 0);
+  font-style: italic;
+  font-size: smaller;
+}
+
+.comment-box {
+  /* background-image: url('../images/whatsweb-image.jpg'); */
+  /* background-color: red; */
+  border-radius: 10px;
+  flex: 1;
+  width: 43%;
+  padding: 10px;
+  box-shadow: 1px 12px 12px 0px rgba(24, 23, 23, 0.098);
+  overflow-y: scroll;
+  height: 70vh;
+}
+
+.UT-h2 {
+  font-family: cursive;
+}
+.commentedBy {
+  position: sticky;
+  color: rgb(255, 43, 255);
+  font-size: small;
+  font-style: oblique;
+}
+.commentMessage {
+  color: white;
+  font-size: small;
+  font-style: oblique;
+  padding-left: 4%;
+  padding-right: 15%;
+}
+
+.editButton1 {
+  background-color: #7318e369;
+  margin-bottom: 1%;
+  margin-top: 2px;
+  width: 97%;
+  border: 1px solid black;
+  /* margin-top: 10%; */
+}
+.editButton1[disabled] {
+  background-color: rgba(0, 0, 0, 0.066);
+  color: rgb(5, 2, 2); /* Optionally change text color */
+  border: 1px solid black;
+}

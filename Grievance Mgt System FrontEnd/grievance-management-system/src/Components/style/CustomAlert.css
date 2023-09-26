@@ -1,0 +1,54 @@
+ .modal-wrapper{
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #5163db1a;
+    box-shadow: 5%;
+    padding: 20px;
+    box-shadow: 0px 2px 4px rgba(62, 50, 50, 0.2);
+    border-radius: 3px;
+    width: 100vw;
+    height: 100vh;
+
+   }
+   /* .custom-alert {
+    position: fixed;
+     top: 50%;
+     left: 50%;
+     border: solid #000000;
+     box-shadow: 5%;
+     transform: translate(-50%, -50%);
+     background-color: rgb(16, 21, 20);
+     padding-top: 8%;
+     width: 25vw;
+     height: 25vh;
+     color: red;
+
+     } */
+
+     .custom-alert {
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      background-color: rgb(16, 21, 20);
+      padding: 20px;
+      max-width: 80vw;
+      max-height: 80vh;
+      overflow: auto;
+      color: rgb(244, 244, 244);
+      border: 2px solid #000000;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1), 0 8px 16px rgba(0, 0, 0, 0.1);
+    }
+     .custom-alert-content {
+       display: flex;
+       flex-direction: column;
+       align-items: center;
+     }
+     .AlertMessage{
+      color: white;
+      font-style: initial;
+     }
+    
+   

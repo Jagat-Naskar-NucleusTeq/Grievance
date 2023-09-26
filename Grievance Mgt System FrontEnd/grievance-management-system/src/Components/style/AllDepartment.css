@@ -1,0 +1,34 @@
+.AD-department-list {
+  margin-top: 20px;
+  max-height: 300px; 
+  /* overflow-y: scroll; */
+}
+
+.AD-table {
+  border-collapse: collapse;
+  width: 50%;
+  table-layout: fixed;
+  width: 40vw;
+}
+
+.AD-table-head th,
+.AD-table tbody tr td {
+  border: 1px solid #dddddd;
+  text-align: left;
+  padding: 8px;
+}
+
+.AD-table-head th {
+  background-color: #f2f2f2;
+  font-weight: bold;
+  position: sticky;
+  top: 0;
+}
+
+.AD-table tbody tr:nth-child(even) {
+  background-color: #f9f9f9;
+}
+
+.AD-table tbody tr:hover {
+  background-color: #cceeff;
+}
