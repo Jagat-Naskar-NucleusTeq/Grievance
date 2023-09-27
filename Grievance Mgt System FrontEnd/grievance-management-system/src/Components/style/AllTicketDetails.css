@@ -53,7 +53,20 @@ table {
   } */
 
   .full-details .all-button {
-    background-image: url("C:\Users\jagat\Downloads\New folder\Grivence Mgt System BackEnd\GrievanceManagementSystem\Images\header2.jpg");
+    background-image: url("../images//header2.1.jpg");
+
+
+
+
+
+
+
+
+
+
+
+
+
     /* background-color: red; */
     display: flex;
     flex-direction: row;

@@ -3,7 +3,7 @@
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  background-color: #221d1db3;
+  background-color: #21282c;
   box-shadow: 5%;
   padding: 20px;
   box-shadow: 0px 2px 4px rgba(255, 255, 255, 0.2);
@@ -21,9 +21,8 @@
   margin: auto;
   padding: 20px;
   font-family: Arial, sans-serif;
-  background-color: #010f17;
+  background-color: #6193af00;
   /* background-image: url('../images/whatsweb-image.jpg'); */
-  /* max-height: 80vh; */
   border-radius: 10px;
   box-shadow: 10px 10px 10px rgba(0.5, 0, 0, 0.6);
   width: 100vw;
@@ -39,7 +38,7 @@
 }
 
 .ticket-form {
-  background-color: rgba(35, 89, 72, 0.958);
+  background-color: rgba(35, 89, 84, 0.958);
   /* background-image: url('../images/whatsweb-image5.jpg'); */
   box-shadow: 10px 10px 10px rgba(0.5, 0, 0, 0.6);
   border-radius: 5%;
