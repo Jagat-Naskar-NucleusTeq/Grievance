@@ -32,7 +32,7 @@
     display: inline-block;
     margin: 10px;
     padding: 10px 20px;
-    background-color: #223447; 
+    background-color: #0f0925; 
     color: #ffffff; 
     border-radius: 5px; 
     text-decoration: none; 
@@ -73,7 +73,7 @@
   
   /* Alternate button color for even rows */
   .DD-table tbody tr:nth-child(even) td button:nth-child(odd) {
-    background-color: #7b9cd8cd; 
+    background-color: #142138cd; 
   }
   
   /* Alternate button color for odd rows */

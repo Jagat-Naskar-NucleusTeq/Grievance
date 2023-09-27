@@ -1,10 +1,10 @@
 .NU-parent {
-  background-color: #9c8b8be0;
+  background-color: #8b8ca1;
   padding: 20px;
   margin: auto;
   border-radius: 10px;
   box-shadow: 10px 10px 10px rgba(25, 22, 22, 0.706); /* X-offset, Y-offset, blur radius, color */
-  
+  border: 1px solid white;
 }
 
 .NU-reg-form {

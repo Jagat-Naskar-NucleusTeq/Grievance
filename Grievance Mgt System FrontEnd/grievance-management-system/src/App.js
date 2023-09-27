@@ -9,6 +9,7 @@ import {
   BrowserRouter,
   Router,
   Navigate,
+  useNavigate,
 } from "react-router-dom";
 import AdminHome from "./Components/AdminHome";
 import NewUser from "../src/Components/NewUser";
@@ -29,9 +30,24 @@ import UpdateTicket from "./Components/UpdateTicket";
 import AllTicketDetails from "./Components/AllTicketDetails";
 import PasswordChange from "./Components/PasswordChange";
 import MemberHome from "./Components/MemberHome";
+import { useEffect } from "react";
 
 function App() {
-  // const { isLoggedIn } = useAuth();
+
+  let nevigatee = useNavigate();
+  
+  console.log("------admin ="+(localStorage.getItem("Admin_Role") === "admin") );
+  console.log("****member ="+(localStorage.getItem("Admin_Role") === "member"))
+  console.log("@@@@@Logendin ="+(localStorage.getItem("LoggendIn22") === "true"))
+  useEffect(() => {
+    if (localStorage.getItem("LoggendIn22") === "true") {
+      if (localStorage.getItem("Admin_Role") === "member") {
+        nevigatee("/admin/tickets");
+      } else if (localStorage.getItem("LoggendIn22") === "true") {
+        nevigatee("/member/tickets");
+      }
+    }
+  }, []);
   return (
     <div className="App">
       {
@@ -45,25 +61,23 @@ function App() {
               <Route path="adminProfile" element={<AdminHome />} />
               <Route path="addUser" element={<NewUser />} />
               <Route path="allUsers" element={<DeleteUser />} />
-              <Route path="viewDept" element={<DeleteDepartment />} >
+              <Route path="viewDept" element={<DeleteDepartment />}>
                 <Route path="createDept" element={<NewDepartment />} />
               </Route>
               <Route path="createTicket" element={<Ticket />} />
               <Route path="changePassword" element={<PasswordChange />} />
               <Route path="tickets" element={<AllTicketDetails />} />
-              <Route path="update-ticket" element={<UpdateTicket />}/>
+              <Route path="update-ticket" element={<UpdateTicket />} />
               <Route
                 path="allFeedback"
                 element={<div>All Feedback & Greviance Page</div>}
               />
             </Route>
             <Route path="member" element={<MemberSidebar />}>
-              <Route index element={<MemberHome/>} />
-              <Route path="memberProfile" element={<MemberHome/>} />
-              <Route path="tickets" element={<AllTicketDetails />}>
-               
-              </Route>
-              <Route path="update-ticket" element={<UpdateTicket />}/>
+              <Route index element={<MemberHome />} />
+              <Route path="memberProfile" element={<MemberHome />} />
+              <Route path="tickets" element={<AllTicketDetails />}></Route>
+              <Route path="update-ticket" element={<UpdateTicket />} />
               <Route path="createTicket" element={<Ticket />} />
               <Route path="changePassword" element={<PasswordChange />} />
             </Route>

@@ -33,12 +33,12 @@ function NewDepartment() {
     } else {
       try {
         const addNewDeptUrl = "http://localhost:8080/api/dept/addDept";
-        console.log("=>"+btoa(sessionStorage.getItem("session_user_name")));
-        console.log("=>"+sessionStorage.getItem("session_password"));
+        console.log("=>"+btoa(localStorage.getItem("session_user_name")));
+        console.log("=>"+localStorage.getItem("session_password"));
         const response = await axios.post(addNewDeptUrl, formData, {
           headers: {
-            Email: btoa(sessionStorage.getItem("session_user_name")),
-            Password: sessionStorage.getItem("session_password"),
+            Email: btoa(localStorage.getItem("session_user_name")),
+            Password: localStorage.getItem("session_password"),
           },
         });
         setFormData({ ...formData, deptName: "" });
@@ -55,7 +55,7 @@ function NewDepartment() {
   return (
     <div className="modal-wrapper">
       <div className="new-department-card">
-        <h1 className="new-department-title">Add a New Department</h1>
+        <h1 className="new-department-title">Create a Department</h1>
         <form onSubmit={handleSubmit}>
           <label>
             Department Name: <p className="error">{departmentNameError}</p>{" "}
@@ -78,7 +78,7 @@ function NewDepartment() {
             />
           )}
           <button className="NDsubmit" type="submit">
-            Add Department
+            Add
           </button>
           
         </form>

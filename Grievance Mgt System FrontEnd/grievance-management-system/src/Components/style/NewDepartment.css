@@ -2,7 +2,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: #474747ba;
+  background-color: #5a5659b2;
   box-shadow: 5%;
   padding: 20px;
   box-shadow: 0px 2px 4px rgba(62, 50, 50, 0.2);
@@ -16,7 +16,7 @@
   border-radius: 8px;
   padding: 16px;
   max-width: 400px;
-  background-color: #577e7e;
+  background-color: #c6a4e6;
   box-shadow: 10px 10px 10px rgba(1, 0, 0, 0.961);
 }
   
@@ -45,8 +45,9 @@
   .ND-close-btn {
     width: 100%;
     margin-top: 3px;
-    background-color: black;
+    background-color: rgb(245, 28, 28);
     color: white;
+    border: 1px solid black;
   }
   
   .ND-input {

@@ -13,13 +13,17 @@ const AllTicketDetails = () => {
   const [selectedTicket, setSelectedTicket] = useState(null);
   const [editButtonsDisabled, setEditButtonsDisabled] = useState(false);
 
-  const [ticketList, setTicketList] = useState([]); // list of ticket
+  const [ticketList, setTicketList] = useState([]);
   const [selectedStatus, setSelectedStatus] = useState("");
   const [deptWise, setDeptWise] = useState("true");
   const [OwnWise, setOwnWise] = useState("false");
 
   const [currentPage, setCurrentPage] = useState(0);
-  const [itemsPerPage] = useState(3); // Number of items per page
+  const [activeButton, setActiveButton] = useState("AT-deptTickets");
+
+  const handleButtonClick = (buttonName) => {
+    setActiveButton(buttonName);
+  };
 
   const handleNextPage = () => {
     setCurrentPage(currentPage + 1);
@@ -34,7 +38,7 @@ const AllTicketDetails = () => {
   const fetchData = async () => {
     try {
       const dataToSend = {
-        email: btoa(sessionStorage.getItem("session_user_name")),
+        email: btoa(localStorage.getItem("session_user_name")),
         departmentBased: deptWise,
         assignByOwn: OwnWise,
         filterStatus: selectedStatus,
@@ -87,7 +91,7 @@ const AllTicketDetails = () => {
     setSelectedStatus(e.target.value);
   };
 
-  const AdminRole = sessionStorage.getItem("Admin_Role");
+  const AdminRole = localStorage.getItem("Admin_Role");
 
   return (
     <div className="full-details">
@@ -95,13 +99,16 @@ const AllTicketDetails = () => {
         <div>
           {AdminRole === "admin" && (
             <button
-              className="AT-allTickets"
+              className={`AT-allTickets ${
+                activeButton === "AT-allTickets" ? "active" : ""
+              }`}
               onClick={() => {
                 setCurrentPage(0);
                 setOwnWise("false");
                 setDeptWise("false");
                 setSelectedStatus("Select status");
                 setEditButtonsDisabled(true);
+                handleButtonClick("AT-allTickets"); //active
               }}
             >
               All Tickets
@@ -110,26 +117,32 @@ const AllTicketDetails = () => {
         </div>
 
         <button
-          className="AT-deptTickets"
+          className={`AT-deptTickets ${
+            activeButton === "AT-deptTickets" ? "active" : ""
+          }`}
           onClick={() => {
             setCurrentPage(0);
             setDeptWise("true");
             setOwnWise("false");
             setSelectedStatus("Select status");
             setEditButtonsDisabled(false);
+            handleButtonClick("AT-deptTickets");
           }}
         >
           Dept Based
         </button>
 
         <button
-          className="AT-myTickets"
+          className={`AT-myTickets ${
+            activeButton === "AT-myTickets" ? "active" : ""
+          }`}
           onClick={() => {
             setCurrentPage(0);
             setDeptWise("false");
             setOwnWise("true");
             setSelectedStatus("Select status");
             setEditButtonsDisabled(false);
+            handleButtonClick("AT-myTickets");
           }}
         >
           My Tickets
@@ -190,7 +203,7 @@ const AllTicketDetails = () => {
                       className="expand-btn"
                       onClick={() => openModal(ticket)}
                     >
-                      View Details
+                      View
                     </button>
                   </td>
                 </tr>
@@ -213,7 +226,7 @@ const AllTicketDetails = () => {
         <button
           className="paging-btn"
           onClick={handleNextPage}
-          disabled={currentPage > ticketList.length / 5}
+          disabled={5 > ticketList.length }
         >
           Next
         </button>

@@ -11,7 +11,7 @@ table {
   }
   
   th {
-    background-color: #514b4b35; /* Greyish tone for header */
+    background-color: #514b4b35; 
   }
   
   button {
@@ -22,7 +22,7 @@ table {
     cursor: pointer;
   }
   
-  /* Greenish tone for buttons */
+
   button.edit-btn {
     background-color: #4caf4f3b;
     color: black;
@@ -48,26 +48,10 @@ table {
     margin-top: 10px;
   }
   
-  /* .full-details table {
-    margin-top: 10px;
-  } */
+
 
   .full-details .all-button {
-    background-image: url("../images//header2.1.jpg");
-
-
-
-
-
-
-
-
-
-
-
-
-
-    /* background-color: red; */
+    /* background-image: url("../images//header2.1.jpg"); */
     display: flex;
     flex-direction: row;
     justify-content: space-between;
@@ -79,13 +63,13 @@ table {
     margin-left: 5vw;
     background-color: rgba(34, 34, 37, 0.3);
     flex: 1;
-    color: rgb(250, 119, 11);
+    color: #0f0925;
     margin: 3px;
   }
   
   .paging-btn {
-    background-color: rgba(0, 47, 255, 0.778);
-    border: 1px solid blue;
+    background-color: #0f0925;
+    border: 1px solid white;
     color: white;
     margin: 2%;
   }
@@ -93,17 +77,25 @@ table {
     margin: 3px;
     margin-left: 2vh;
     margin-right: 3vh;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     height: 6vh;
-    color: rgb(223, 19, 87);
-    background-color: rgba(0, 0, 0, 0.588);
-    border: 1px solid rgb(136, 12, 12);
+    color: white;
+    background-color: #0f0925;
     
   }
 
   
-  /* Media queries for responsiveness */
   @media (max-width: 767px) {
     th, td {
       font-size: 14px;
     }
+  }
+
+
+
+  
+  button.active {
+    /* margin-top: 8px; */
+    background-color: #3d0852; 
+    color: white;
   }

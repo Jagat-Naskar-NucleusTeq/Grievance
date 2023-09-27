@@ -1,10 +1,10 @@
 import React from "react";
-import { Navigate, Outlet, Route, Routes } from "react-router-dom";
+import { Navigate, Outlet} from "react-router-dom";
 
 const PrivateRoute = () => {
-  const isLoggedInng = sessionStorage.getItem("isLoggedIn");
+  const isLoggedInng =localStorage.getItem("LoggendIn22");
 
-  if (isLoggedInng == "true") {
+  if (isLoggedInng === "true") {
     return <Outlet />;
   } else {
     return <Navigate to={"/"} />;

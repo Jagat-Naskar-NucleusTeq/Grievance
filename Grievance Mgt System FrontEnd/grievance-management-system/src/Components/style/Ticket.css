@@ -2,9 +2,10 @@
   max-width: 800px;
   margin: 0 auto;
   padding: 20px;
-  background-color: rgba(91, 110, 110, 0.428);
+  background-color: #8b8ca1;
   border-radius: 5px;
   box-shadow: 10px 10px 10px rgba(0.5, 0, 0, 0.6);
+  border: 1px solid white;
   justify-content: center;
 }
 
@@ -47,7 +48,7 @@
 }
 
 .Tticket-form button {
-  background-color: #071866cb;
+  background-color: #0f0925;
   color: white;
   padding: 10px 20px;
   border: none;

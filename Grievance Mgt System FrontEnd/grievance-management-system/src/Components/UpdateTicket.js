@@ -172,6 +172,7 @@ function UpdateTicket(props) {
 
               <label className="comment">Comment</label>
               <input
+              className="input-comment"
                 id="comment"
                 name="comment"
                 value={comment}

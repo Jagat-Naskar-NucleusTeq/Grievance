@@ -1,3 +1,9 @@
 .astrix{
     color: red;
 }
+
+.Data-not-available{
+    color: rgb(11, 3, 34);
+    font-size: medium;
+    text-align: center;
+}

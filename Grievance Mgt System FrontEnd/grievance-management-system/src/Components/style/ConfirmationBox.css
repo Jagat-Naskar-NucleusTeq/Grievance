@@ -1,0 +1,19 @@
+.confirmation-box {
+    position: fixed;
+    top: 0;
+    right: 0;
+    background-color: #fff;
+    border: 1px solid #ccc;
+    padding: 10px;
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease;
+  }
+  
+  .message {
+    margin-bottom: 10px;
+  }
+  
+  .confirm-btn,
+  .cancel-btn {
+    margin: 0 5px;
+  }

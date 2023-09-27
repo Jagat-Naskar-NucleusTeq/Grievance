@@ -3,12 +3,12 @@
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  background-color: #21282c;
+  background-color: #8B8DA1;
   box-shadow: 5%;
-  padding: 20px;
+  /* padding: 20px; */
   box-shadow: 0px 2px 4px rgba(255, 255, 255, 0.2);
-  padding-top: 10%;
-  padding-left: 10%;
+  /* padding-top: 10%; */
+  /* padding-left: 10%; */
   border-radius: 3px;
   width: 100vw;
   height: 100vh;
@@ -19,9 +19,10 @@
   display: flex;
   /* max-width: 600px; */
   margin: auto;
-  padding: 20px;
+  /* padding: 20px; */
   font-family: Arial, sans-serif;
-  background-color: #6193af00;
+  /* background-color: #6193af00; */
+  background-color: #8B8DA1;
   /* background-image: url('../images/whatsweb-image.jpg'); */
   border-radius: 10px;
   box-shadow: 10px 10px 10px rgba(0.5, 0, 0, 0.6);
@@ -37,17 +38,35 @@
   width: 43%;
 }
 
+.comment-box {
+  /* background-image: url('../images/whatsweb-image.jpg'); */
+  /* background-color: red; */
+  border-radius: 10px;
+  flex: 1;
+  width: 43%;
+  padding: 10px;
+  margin-top: 2%;
+  box-shadow: 1px 12px 12px 0px rgba(24, 23, 23, 0.098);
+  overflow-y: scroll;
+  height: 70vh;
+  /* height: 100vh; */
+}
+
 .ticket-form {
-  background-color: rgba(35, 89, 84, 0.958);
+  background-color: rgba(11, 78, 72, 0.205);
   /* background-image: url('../images/whatsweb-image5.jpg'); */
   box-shadow: 10px 10px 10px rgba(0.5, 0, 0, 0.6);
   border-radius: 5%;
-  padding: 3%;
+  padding: 1.2%;
   flex: 1;
   margin: 2vw;
   gap: 10px;
-  padding-right: 10px;
+  /* padding-right: 10px; */
   width: 43%;
+  height: fit-content;
+  border: 1px solid black;
+  /* background-color: yellow; */
+
 }
 
 .UT-status {
@@ -64,7 +83,7 @@ select,
 textarea {
   width: 100%;
   padding: 10px;
-  border: 1px solid #f39461;
+  border: 1px solid #4127d8;
   border-radius: 8px;
   box-sizing: border-box;
   background-color: #fff4d3;
@@ -85,8 +104,12 @@ textarea {
   background-color: rgba(0, 0, 0, 0.591);
   max-height: 150px;
   overflow: auto;
+  
 }
 
+.input-comment {
+  border: 1px solid #4127d8;
+}
 .error {
   color: #ff0000;
   font-size: 14px;
@@ -103,28 +126,19 @@ textarea {
   }
 }
 .Ut-nevigate-back {
-  background-color: rgba(205, 107, 9, 0.954);
+  background-color: rgb(205, 9, 9);
   color: white;
   width: 97%;
-  border-color: 1px solid rgb(0, 0, 0);
+  border: 1px solid black;
   font-style: italic;
   font-size: smaller;
 }
 
-.comment-box {
-  /* background-image: url('../images/whatsweb-image.jpg'); */
-  /* background-color: red; */
-  border-radius: 10px;
-  flex: 1;
-  width: 43%;
-  padding: 10px;
-  box-shadow: 1px 12px 12px 0px rgba(24, 23, 23, 0.098);
-  overflow-y: scroll;
-  height: 70vh;
-}
+
 
 .UT-h2 {
   font-family: cursive;
+  text-align: center;
 }
 .commentedBy {
   position: sticky;
@@ -141,7 +155,8 @@ textarea {
 }
 
 .editButton1 {
-  background-color: #7318e369;
+  color: white;
+  background-color: #0f0925;
   margin-bottom: 1%;
   margin-top: 2px;
   width: 97%;

@@ -10,7 +10,7 @@ function Header(props) {
       <p className="role">{role}</p>
 
       <h3>
-        {sessionStorage.getItem("session_user_name")}
+        {localStorage.getItem("session_user_name")}
       </h3>
     </div>
   );

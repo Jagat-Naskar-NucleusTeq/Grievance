@@ -94,10 +94,10 @@ function Ticket() {
           ticketStatus: "Open",
           ticketDescription: description,
           deptName: assignTo,
-          senderEmail: btoa(sessionStorage.getItem("session_user_name")),
+          senderEmail: btoa(localStorage.getItem("session_user_name")),
         })
         .then((res) => {
-          setMessage("Tickets add successfully!!!");
+          setMessage("Ticket added successfully!!!");
           handleShowAlert();
           resetFormError();
           resetAllFields();

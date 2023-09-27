@@ -14,7 +14,7 @@ function AdminHome() {
   useEffect(() => {
     const fetchUserDetails = async () => {
       try {
-        const userName = sessionStorage.getItem('session_user_name');
+        const userName = localStorage.getItem('session_user_name');
         const response = await axios.get(`http://localhost:8080/api/users/getByUsrName/${userName}`);
         setUser(response.data);
       } catch (error) {

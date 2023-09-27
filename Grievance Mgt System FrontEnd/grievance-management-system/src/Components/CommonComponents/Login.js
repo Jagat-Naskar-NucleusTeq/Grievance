@@ -54,24 +54,38 @@ const Login = () => {
           }
         );
         const decodedEmail = atob(post.email);
+        localStorage.setItem("LoggendIn22", "true")
+        localStorage.setItem("session_user_name", decodedEmail)
         if (res.data === "true_admin_cp") {
-          sessionStorage.setItem("session_user_name", decodedEmail);
-          sessionStorage.setItem("session_password", post.password)
+          // sessionStorage.setItem("session_user_name", decodedEmail);
+          // sessionStorage.setItem("session_password", post.password);
+          localStorage.setItem("session_user_name", decodedEmail);
+          localStorage.setItem("session_password", post.password);
+          localStorage.setItem("Admin_Role", "admin")
           setLoggedIn("true");
           navigatee("/changePassword");
         } else if (res.data === "true_admin") {
-          sessionStorage.setItem("session_user_name", decodedEmail);
-          sessionStorage.setItem("session_password", post.password)
+          // sessionStorage.setItem("session_user_name", decodedEmail);
+          // sessionStorage.setItem("session_password", post.password);
+          localStorage.setItem("session_user_name", decodedEmail);
+          localStorage.setItem("session_password", post.password);
+          localStorage.setItem("Admin_Role", "admin")
           setLoggedIn("true"); //for private route
           navigatee("/admin/tickets");
         } else if (res.data === "true_member_cp") {
-          sessionStorage.setItem("session_user_name", decodedEmail);
-          sessionStorage.setItem("session_password", post.password)
+          // sessionStorage.setItem("session_user_name", decodedEmail);
+          // sessionStorage.setItem("session_password", post.password);
+          localStorage.setItem("session_user_name", decodedEmail);
+          localStorage.setItem("session_password", post.password);
+          localStorage.setItem("Admin_Role", "member")
           setLoggedIn("true");
           navigatee("/changePassword");
         } else if (res.data === "true_member") {
-          sessionStorage.setItem("session_user_name", decodedEmail);
-          sessionStorage.setItem("session_password", post.password)
+          // sessionStorage.setItem("session_user_name", decodedEmail);
+          // sessionStorage.setItem("session_password", post.password);
+          localStorage.setItem("session_user_name", decodedEmail);
+          localStorage.setItem("session_password", post.password);
+          localStorage.setItem("Admin_Role", "member")
           setLoggedIn("true");
           navigatee("/member/tickets");
         } else {
@@ -132,7 +146,9 @@ const Login = () => {
             />
           )}
 
-          <button className="Login-btn" type="submit">Login</button>
+          <button className="Login-btn" type="submit">
+            Login
+          </button>
         </form>
       </div>
     </div>
