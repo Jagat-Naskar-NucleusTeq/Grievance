@@ -1,4 +1,4 @@
-/* FullscreenDiv.css */
+/* FullscreenDiv.css
 .login-body {
   width: 100vw;
   height: 100vh; 
@@ -42,8 +42,7 @@
     justify-content: center;
     margin: 0 auto;
     padding: 3%;
-    /* padding: 20px; */
-    /* padding-right: 37px; */
+    
     border: 2px solid rgb(11, 15, 255);
     background: linear-gradient(to right, #000, #240961, rgb(21, 21, 85),#240961, #000);
     text-align: center;
@@ -96,4 +95,83 @@
     color: rgb(255, 12, 12);
     font-style: italic;
     font-size: smaller;
+  } */
+
+
+  .login-body {
+    background-color: #222029ab; 
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    font-family: Arial, sans-serif;
+  }
+  
+  .head {
+    background-color: #333333cc; 
+    color: white;
+    font-family: "Arial Black", sans-serif;
+    font-weight: bold;
+    padding: 10px 20px;
+    border-radius: 5px;
+    margin-bottom: 20px;
+    height: 10vh;
+    width: 100%;
+    text-align: center;
+  }
+  
+  .head h1 {
+    margin: 0;
+  }
+  
+  .login-page {
+    width: 15%;
+    min-width: 240px;
+    background-color: #686060; /* Dark grey background */
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 10px 10px 10px rgba(0.5, 0, 0, 0.6); 
+    border: 3px solid white;
+  }
+  
+  .form-group {
+    margin-bottom: 15px;
+  }
+  
+  .form-group label {
+    color: rgba(255, 251, 251, 0.932);
+  }
+  
+  .form-group input {
+    width: 100%;
+    padding: 8px;
+    border: none;
+    background-color: white;
+    border: 1px solid grey;
+    border-radius: 5px;
+    box-sizing: border-box;
+  }
+  
+  .error1 {
+    color: red; /* Red color for error messages */
+    margin-bottom: 10px;
+    font-size: small;
+  }
+  
+  .Login-btn {
+    background-color: #0f0925; /* Green button */
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: bold;
+    width: 100%;
+  }
+  
+  button:hover {
+    background-color: #45a049; /* Darker green on hover */
   }

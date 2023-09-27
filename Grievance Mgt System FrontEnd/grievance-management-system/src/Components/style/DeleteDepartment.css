@@ -26,8 +26,39 @@
     color: white;
   }
   
+  /* Add department css */
+  .DD-addDept-btn {
+    border: 1px solid white;
+    display: inline-block;
+    margin: 10px;
+    padding: 10px 20px;
+    background-color: #223447; 
+    color: #ffffff; 
+    border-radius: 5px; 
+    text-decoration: none; 
+    text-align: center; 
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+  
+  /* Add department css2 */
+  .DD-addDept-btn:hover {
+    background-color: #16222e; /* Change background color on hover */
+  }
+  
+  /* Add department css3 */
+  .add-dept-btn {
+    color: #ffffff;
+    text-decoration: none;
+  }
+
+
   .DD-table tbody tr:nth-child(even) {
     background-color: #f9f9f9; 
+  }
+
+  .DD-table tbody tr:nth-child(even) {
+    background-color: #f9f9f962; 
   }
   
   .DD-table tbody tr:hover {
@@ -42,7 +73,7 @@
   
   /* Alternate button color for even rows */
   .DD-table tbody tr:nth-child(even) td button:nth-child(odd) {
-    background-color: #26db96cd; 
+    background-color: #7b9cd8cd; 
   }
   
   /* Alternate button color for odd rows */

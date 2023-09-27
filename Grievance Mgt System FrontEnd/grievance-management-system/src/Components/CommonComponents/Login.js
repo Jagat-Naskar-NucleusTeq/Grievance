@@ -100,7 +100,7 @@ const Login = () => {
         </div>
         <form onSubmit={handleLogin} method="post">
           <div className="form-group">
-            <label id="label-username">Username</label>
+            <label id="label-username">Username*</label>
             <input
               type="text"
               id="username"
@@ -113,7 +113,7 @@ const Login = () => {
             )}
           </div>
           <div className="form-group">
-            <label id="label-password">Password</label>
+            <label id="label-password">Password*</label>
             <input
               type="password"
               id="password"
@@ -132,7 +132,7 @@ const Login = () => {
             />
           )}
 
-          <button type="submit">Login</button>
+          <button className="Login-btn" type="submit">Login</button>
         </form>
       </div>
     </div>

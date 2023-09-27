@@ -82,9 +82,9 @@ function NewDepartment() {
           </button>
           
         </form>
-        
+        <button className="ND-close-btn" onClick={handleClose}>Close</button>
       </div>
-      <button className="close-btn" onClick={handleClose}>Close</button>
+     
     </div>
   );
 }

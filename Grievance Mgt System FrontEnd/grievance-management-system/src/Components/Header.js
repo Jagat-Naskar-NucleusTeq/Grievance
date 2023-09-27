@@ -1,6 +1,5 @@
 import React from "react";
 import "../Components/style/Header.css";
-import { UserOutlined } from "@ant-design/icons";
 
 function Header(props) {
   const { name, role } = props;
@@ -11,7 +10,6 @@ function Header(props) {
       <p className="role">{role}</p>
 
       <h3>
-        <UserOutlined />
         {sessionStorage.getItem("session_user_name")}
       </h3>
     </div>

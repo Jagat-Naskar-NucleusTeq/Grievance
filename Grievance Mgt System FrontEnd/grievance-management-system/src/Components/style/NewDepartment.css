@@ -1,32 +1,24 @@
-
-  .modal-wrapper{
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    background-color: #474747ba;
-    box-shadow: 5%;
-    padding: 20px;
-    box-shadow: 0px 2px 4px rgba(62, 50, 50, 0.2);
-    border-radius: 3px;
-    width: 100vw;
-    height: 100vh;
-    
-   }
-
-
+.modal-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #474747ba;
+  box-shadow: 5%;
+  padding: 20px;
+  box-shadow: 0px 2px 4px rgba(62, 50, 50, 0.2);
+  border-radius: 3px;
+  width: 100vw;
+  height: 100vh;
+}
 
 .new-department-card {
-    /* display: flex;  */
-    /* flex-direction: column; */
-    justify-content: center;
-    align-items: center; 
-    border: 1px solid #9f5b5b;
-    border-radius: 8px;
-    padding: 16px;
-    max-width: 400px;
-    background-color: #5a8787;
-    box-shadow: 10px 10px 10px rgba(1, 0, 0, 0.961);
-  }
+  border: 1px solid #000000;
+  border-radius: 8px;
+  padding: 16px;
+  max-width: 400px;
+  background-color: #577e7e;
+  box-shadow: 10px 10px 10px rgba(1, 0, 0, 0.961);
+}
   
   .error {
     color: rgb(255, 0, 0);
@@ -48,6 +40,13 @@
   
   .new-department-form label {
     margin-bottom: 8px;
+  }
+
+  .ND-close-btn {
+    width: 100%;
+    margin-top: 3px;
+    background-color: black;
+    color: white;
   }
   
   .ND-input {
