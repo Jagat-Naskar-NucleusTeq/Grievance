@@ -7,8 +7,17 @@ import ConfirmationBox from "./CommonComponents/ConfirmationBox";
 function AllDepartment() {
   const [delete1, setDelete1] = useState(false);
   const [currentPage, setCurrentPage] = useState(0);
-  const [deleteState, setDeleteState]= useState('');
+  const [deleteState, setDeleteState] = useState("");
   const [showConfirmation, setShowConfirmation] = useState(false);
+  const [showAlert, setShowAlert] = useState(false);
+  const [message, setMessage] = useState("");
+
+  const handleShowAlert = () => {
+    setShowAlert(true);
+  };
+  const handleCloseAlert = () => {
+    setShowAlert(false);
+  };
 
   const handleNextPage = () => {
     setCurrentPage(currentPage + 1);
@@ -22,15 +31,6 @@ function AllDepartment() {
   const [departmentList, setDepartmentList] = useState([
     { deptId: "", deptName: "" },
   ]);
-  // const backendUrl = 'http://localhost:8080/api/dept/allDepartment';
-
-  // useEffect(() => {
-  //   // Fetching department data
-  //   fetch(backendUrl)
-  //     .then((response) => response.json())
-  //     .then((data) => setDepartmentList(data))
-  //     .catch((error) => console.error('Error fetching data:', error));
-  // }, [backendUrl]);
 
   const getAllDept = (currentPage) => {
     fetch(`http://localhost:8080/api/dept/allDepartment/${currentPage}`)
@@ -44,12 +44,11 @@ function AllDepartment() {
   }, [currentPage, delete1]);
 
   const handleConfirm = () => {
-    handleDelete()
+    handleDelete();
     setShowConfirmation(false);
   };
 
   const handleCancel = () => {
-    
     setShowConfirmation(false);
   };
 
@@ -62,6 +61,9 @@ function AllDepartment() {
           setDepartmentList((prevDepartments) =>
             prevDepartments.filter((dept) => dept.deptName !== deleteState)
           );
+          setMessage("Deleted Successfully...");
+          handleShowAlert();
+          setCurrentPage(0);
         } else {
           console.error("Error deleting department:", response.statusText);
         }
@@ -70,10 +72,10 @@ function AllDepartment() {
     setDelete1(false);
   };
 
-  const openConfirmBox = (name) =>{
-    setShowConfirmation(true)
-    setDeleteState(name)
-  }
+  const openConfirmBox = (name) => {
+    setShowConfirmation(true);
+    setDeleteState(name);
+  };
 
   const departmentTableRows =
     departmentList.length > 0 ? (
@@ -83,9 +85,7 @@ function AllDepartment() {
           <td>{department.deptName}</td>
           <td>
             <button
-              onClick={() =>
-                openConfirmBox(department.deptName)
-                }
+              onClick={() => openConfirmBox(department.deptName)}
               className="delete-button"
             >
               Delete
@@ -96,7 +96,9 @@ function AllDepartment() {
     ) : (
       <tr>
         <td colSpan="3">
-          <p className="Data-not-available">No Data available in this page...</p>
+          <p className="Data-not-available">
+            No Data available in this page...
+          </p>
         </td>
       </tr>
     );
@@ -115,7 +117,7 @@ function AllDepartment() {
             <tr className="DD-table-row">
               <th>Department Id</th>
               <th>Department Name</th>
-              <th>Edit</th>
+              <th>Action</th>
             </tr>
           </thead>
           <tbody>{departmentTableRows}</tbody>
@@ -145,6 +147,12 @@ function AllDepartment() {
               message="Are you sure you want to proceed?"
               onConfirm={handleConfirm}
               onCancel={handleCancel}
+            />
+          )}
+          {showAlert && (
+            <CustomAlert
+              message={message}
+              handleCloseAlert={handleCloseAlert}
             />
           )}
         </div>

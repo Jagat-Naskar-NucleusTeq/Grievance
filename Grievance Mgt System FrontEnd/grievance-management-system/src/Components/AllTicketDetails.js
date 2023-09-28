@@ -94,9 +94,11 @@ const AllTicketDetails = () => {
   const AdminRole = localStorage.getItem("Admin_Role");
 
   return (
+    
     <div className="full-details">
+      
       <div className="all-button">
-        <div>
+        {/* <div> */}
           {AdminRole === "admin" && (
             <button
               className={`AT-allTickets ${
@@ -114,7 +116,7 @@ const AllTicketDetails = () => {
               All Tickets
             </button>
           )}
-        </div>
+        {/* </div> */}
 
         <button
           className={`AT-deptTickets ${

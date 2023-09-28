@@ -95,14 +95,15 @@ function UpdateTicket(props) {
           <h2 className="UT-h2">Update Ticket Details</h2>
           <div className="main-div">
             <div className="div1">
-              <label className="ticketType">Ticket Type</label>
+              <label className="UT-ticketType">Ticket Type</label>
               <select
                 id="ticketType"
                 name="ticketType"
+                className="UT-select"
                 value={ticket.ticketType}
                 disabled
               >
-                <option>{ticket.ticketType}</option>
+                <option className="UT-option">{ticket.ticketType}</option>
               </select>
 
               <label className="currentTitle">Ticket Title</label>
@@ -125,7 +126,9 @@ function UpdateTicket(props) {
                 <option>{ticket.ticketStatus}</option>
               </select>
 
-              <label className="UT-status">Change Status</label>
+              <label className="UT-status">
+                Change Status<span className="astrix">*</span>
+              </label>
 
               <select
                 id="status"
@@ -170,9 +173,11 @@ function UpdateTicket(props) {
                 disabled
               />
 
-              <label className="comment">Comment</label>
-              <input
-              className="input-comment"
+              <label className="comment">
+                Comment<span className="astrix">*</span>
+              </label>
+              <textarea
+                className="input-comment"
                 id="comment"
                 name="comment"
                 value={comment}

@@ -111,7 +111,9 @@ function Ticket() {
         <h2>Add Ticket</h2>
         <div className="Tsub-structure">
           <div className="Tsub-structure1">
-            <label className="TticketType">Ticket Type</label>
+            <label className="TticketType">
+              Ticket Type<span className="astrix">*</span>
+            </label>
 
             <select
               id="ticketType"
@@ -126,7 +128,9 @@ function Ticket() {
 
             {ticketTypeError && <p className="Terror">{ticketTypeError}</p>}
 
-            <label className="Ttitle">Title</label>
+            <label className="Ttitle">
+              Title<span className="astrix">*</span>
+            </label>
             <input
               type="text"
               id="title"
@@ -136,7 +140,9 @@ function Ticket() {
             />
             {titleError && <p className="Terror">{titleError}</p>}
 
-            <label className="Tdescription">Description</label>
+            <label className="Tdescription">
+              Description<span className="astrix">*</span>
+            </label>
             <textarea
               id="description"
               name="description"
@@ -147,7 +153,9 @@ function Ticket() {
           </div>
 
           <div className="Tsub-structure1">
-            <label className="TassignTo">Assign To</label>
+            <label className="TassignTo">
+              Assign To<span className="astrix">*</span>
+            </label>
             <select
               id="assignTo"
               name="assignTo"

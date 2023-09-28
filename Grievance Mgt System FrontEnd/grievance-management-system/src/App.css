@@ -1,9 +1,78 @@
 .astrix{
     color: red;
 }
+/* <span className="astrix">*</span></label> */
 
 .Data-not-available{
     color: rgb(11, 3, 34);
     font-size: medium;
     text-align: center;
 }
+
+
+
+
+
+
+
+
+
+
+
+
+/* Style the dropdown container */
+.select-container {
+    position: relative;
+    width: 200px; /* Adjust width as needed */
+  }
+  
+  /* Style the select element */
+  .select-menu {
+    width: 100%;
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    appearance: none; /* Hide default arrow icon in some browsers */
+    cursor: pointer;
+  }
+  
+  /* Style the dropdown arrow */
+  .select-arrow {
+    position: absolute;
+    top: 50%;
+    right: 10px;
+    transform: translateY(-50%);
+    pointer-events: none;
+  }
+  
+  /* Style the dropdown options */
+  .select-options {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    max-height: 150px; /* Set a maximum height for options */
+    overflow-y: auto; /* Add a scrollbar for overflow */
+    border: 1px solid #ccc;
+    border-top: none;
+    border-radius: 0 0 5px 5px;
+    background-color: #fff;
+    display: none; /* Initially hide options */
+  }
+  
+  /* Style individual options */
+  .select-option {
+    padding: 10px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+  
+  .select-option:hover {
+    background-color: #da0000; /* Highlight on hover */
+  }
+  
+  /* Show options when select is focused */
+  .select-menu:focus + .select-options {
+    display: block;
+  }

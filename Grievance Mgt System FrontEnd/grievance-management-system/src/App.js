@@ -42,9 +42,9 @@ function App() {
   useEffect(() => {
     if (localStorage.getItem("LoggendIn22") === "true") {
       if (localStorage.getItem("Admin_Role") === "member") {
-        nevigatee("/admin/tickets");
-      } else if (localStorage.getItem("LoggendIn22") === "true") {
         nevigatee("/member/tickets");
+      } else if (localStorage.getItem("Admin_Role") === "admin") {
+        nevigatee("/admin/tickets");
       }
     }
   }, []);
