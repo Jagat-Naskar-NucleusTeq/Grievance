@@ -8,13 +8,11 @@ import static org.mockito.Mockito.never;
 import static org.mockito.Mockito.times;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
-
 import java.util.Arrays;
 import java.util.Base64;
 import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
-
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -30,9 +28,9 @@ import com.feedback.entities.Department;
 import com.feedback.entities.ERole;
 import com.feedback.entities.User;
 import com.feedback.payloads.user_dto.AddUserDto;
-import com.feedback.payloads.user_dto.PasswordChangeDTOin;
-import com.feedback.payloads.user_dto.UserProfileDTOout;
-import com.feedback.payloads.user_dto.getAllUsersDTOout;
+import com.feedback.payloads.user_dto.PasswordChangeDtoin;
+import com.feedback.payloads.user_dto.UserProfileDtoOut;
+import com.feedback.payloads.user_dto.GetAllUsersDtoOut;
 import com.feedback.repository.DepartmentRepository;
 import com.feedback.repository.UserRepository;
 import com.feedback.service.UserService;
@@ -130,8 +128,8 @@ void testGetAllUsers() {
     
     when(userRepository.findAll(pageable)).thenReturn(expectedUsers);
 
-    List<getAllUsersDTOout> expectedDTOList = expectedUsers.stream()
-            .map(user -> new getAllUsersDTOout(
+    List<GetAllUsersDtoOut> expectedDTOList = expectedUsers.stream()
+            .map(user -> new GetAllUsersDtoOut(
                     user.getUserId(),
                     user.getName(),
                     user.getUserName(),
@@ -140,7 +138,7 @@ void testGetAllUsers() {
             ))
             .collect(Collectors.toList());
 
-    List<getAllUsersDTOout> result = userService.getAllUsers(0);
+    List<GetAllUsersDtoOut> result = userService.getAllUsers(0);
 
     assertEquals(expectedDTOList, result);
 }
@@ -298,7 +296,7 @@ public void testCheckAlreadyExist_UserDoesNotExist() {
       when(userRepository.getUserByUsername(userName)).thenReturn(user);
 
       // Act
-      UserProfileDTOout userProfileDTOout = userService.getByUserByUserName(userName);
+      UserProfileDtoOut userProfileDTOout = userService.getByUserByUserName(userName);
 
       // Assert
       assertNotNull(userProfileDTOout);
@@ -315,34 +313,11 @@ public void testCheckAlreadyExist_UserDoesNotExist() {
 
       when(userRepository.existsByUserName(userName)).thenReturn(false);
 
-      UserProfileDTOout userProfileDTOout = userService.getByUserByUserName(userName);
+      UserProfileDtoOut userProfileDTOout = userService.getByUserByUserName(userName);
 
       assertNull(userProfileDTOout);
   }
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
+
   @Test
   void testGetByUserAndPassword() {
       // Mocking userRepository to return a user with username "jagat" and password "password123"
@@ -371,7 +346,7 @@ public void testCheckAlreadyExist_UserDoesNotExist() {
       when(userRepository.existsByUserName("jme@nucleusteq.com")).thenReturn(true); // Use the Base64 encoded username
       when(userRepository.getUserByUsername("jme@nucleusteq.com")).thenReturn(user); // Use the Base64 encoded username
 
-      PasswordChangeDTOin request = new PasswordChangeDTOin();
+      PasswordChangeDtoin request = new PasswordChangeDtoin();
       request.setUserName("am1lQG51Y2xldXN0ZXEuY29t"); // Use the Base64 encoded username
       request.setOldPassword("oldPassword");
       request.setNewPassword("newPassword");

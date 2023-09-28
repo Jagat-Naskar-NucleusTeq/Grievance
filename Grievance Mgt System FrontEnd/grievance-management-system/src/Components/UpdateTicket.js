@@ -185,7 +185,7 @@ function UpdateTicket(props) {
           {/* <button type="submit" className = "editButton1"  >Submit</button> */}
           {props.editButtonsDisabled ? null : (
             <button className="editButton1" type="submit">
-              Edit
+              Save
             </button>
           )}
 
@@ -207,14 +207,3 @@ function UpdateTicket(props) {
   );
 }
 export default UpdateTicket;
-
-// theese should be visibe in the ticket
-
-// Title
-// Ticket Type
-// Department
-// Comments (Can be a tabular representation)
-// Status
-// Assigned By
-// Creation time
-// Last updated time

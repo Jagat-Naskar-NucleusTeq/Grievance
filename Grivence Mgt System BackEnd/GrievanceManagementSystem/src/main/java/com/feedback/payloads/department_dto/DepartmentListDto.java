@@ -5,7 +5,7 @@ import java.util.Objects;
 /**
  * DepartmentListDTO class.
  */
-public class DepartmentListDTO {
+public class DepartmentListDto {
 
   /**
    * deptId variable.
@@ -73,7 +73,7 @@ public class DepartmentListDTO {
    * @param deptNamee
    *
    */
-  public DepartmentListDTO(final int l, final String deptNamee) {
+  public DepartmentListDto(final int l, final String deptNamee) {
     super();
     this.deptId = l;
     this.deptName = deptNamee;
@@ -82,7 +82,7 @@ public class DepartmentListDTO {
   /**
    * DepartmentListDTO.
    */
-  public DepartmentListDTO() {
+  public DepartmentListDto() {
     super();
   }
 
@@ -108,7 +108,7 @@ public class DepartmentListDTO {
     if (getClass() != obj.getClass()) {
       return false;
     }
-    DepartmentListDTO other = (DepartmentListDTO) obj;
+    DepartmentListDto other = (DepartmentListDto) obj;
     return deptId == other.deptId && Objects.equals(deptName, other.deptName);
   }
 }

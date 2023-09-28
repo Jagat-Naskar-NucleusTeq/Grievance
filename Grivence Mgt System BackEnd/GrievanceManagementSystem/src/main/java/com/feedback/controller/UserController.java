@@ -2,10 +2,10 @@ package com.feedback.controller;
 
 import com.feedback.entities.User;
 import com.feedback.payloads.user_dto.AddUserDto;
-import com.feedback.payloads.user_dto.LoginDTO;
-import com.feedback.payloads.user_dto.PasswordChangeDTOin;
-import com.feedback.payloads.user_dto.UserProfileDTOout;
-import com.feedback.payloads.user_dto.getAllUsersDTOout;
+import com.feedback.payloads.user_dto.LoginDto;
+import com.feedback.payloads.user_dto.PasswordChangeDtoin;
+import com.feedback.payloads.user_dto.UserProfileDtoOut;
+import com.feedback.payloads.user_dto.GetAllUsersDtoOut;
 import com.feedback.service.UserService;
 import java.util.Base64;
 import java.util.List;
@@ -90,7 +90,7 @@ public class UserController {
    */
   @PostMapping("/changePassword")
   public ResponseEntity<String> changePassword(
-      @RequestBody final PasswordChangeDTOin request) throws Exception {
+      @RequestBody final PasswordChangeDtoin request) throws Exception {
     System.out.println("___________change_password__________________________");
     if (request == null) {
       return ResponseEntity
@@ -117,7 +117,7 @@ public class UserController {
    * @return logined or not.
    */
   @PostMapping("/login")
-  public ResponseEntity<?> Login(@RequestBody final LoginDTO user) {
+  public ResponseEntity<?> login(@RequestBody final LoginDto user) {
     System.out.println("______________login______________________");
     String decodedEmail = new String(Base64.getDecoder()
         .decode(user.getEmail()));
@@ -143,7 +143,7 @@ public class UserController {
   public ResponseEntity<?> getAllUsers(
       @PathVariable final Integer currentPage) {
     System.out.println("get all users controller 1");
-    List<getAllUsersDTOout> userList = userService.getAllUsers(currentPage);
+    List<GetAllUsersDtoOut> userList = userService.getAllUsers(currentPage);
     return ResponseEntity.status(HttpStatus.OK).body(userList);
   }
 
@@ -172,10 +172,10 @@ public class UserController {
   public ResponseEntity<?> getUserByUserName(
       @PathVariable final String userName) {
     System.out.println("GetUserProfile_________________controller");
-    UserProfileDTOout userProfileDTOout = userService
+    UserProfileDtoOut userProfileDtoOut = userService
         .getByUserByUserName(userName);
-    if (userProfileDTOout != null) {
-      return ResponseEntity.status(HttpStatus.OK).body(userProfileDTOout);
+    if (userProfileDtoOut != null) {
+      return ResponseEntity.status(HttpStatus.OK).body(userProfileDtoOut);
     }
     return ResponseEntity.status(HttpStatus.OK).body("User not found");
   }

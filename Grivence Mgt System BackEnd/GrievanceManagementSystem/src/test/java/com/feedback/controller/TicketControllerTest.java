@@ -20,10 +20,10 @@ import org.springframework.http.ResponseEntity;
 import com.feedback.custom_exception.NullPointerFromFrontendException;
 import com.feedback.entities.EStatus;
 import com.feedback.entities.Ticket;
-import com.feedback.payloads.ticket_dto.GetTicketsDTOin;
-import com.feedback.payloads.ticket_dto.NewTicketDTO;
+import com.feedback.payloads.ticket_dto.GetTicketsDtoIn;
+import com.feedback.payloads.ticket_dto.TicketDto;
 import com.feedback.payloads.ticket_dto.UpdateTicketDTOin;
-import com.feedback.payloads.ticket_dto.getTicketDTOout;
+import com.feedback.payloads.ticket_dto.GetTicketDtoOut;
 import com.feedback.service.TicketService;
 
 class TicketControllerTest {
@@ -44,12 +44,12 @@ void setUp() {
     public void testAddTickets() {
 //      ticketController.ticketService = ticketService;
 
-      NewTicketDTO newTicketDTO = new NewTicketDTO();
-      newTicketDTO.setTicketDescription("Sample Description");
+      TicketDto ticketDto = new TicketDto();
+      ticketDto.setTicketDescription("Sample Description");
 
-      when(ticketService.saveTicket(newTicketDTO)).thenReturn(new Ticket());
+      when(ticketService.saveTicket(ticketDto)).thenReturn(new Ticket());
 
-      ResponseEntity<?> responseEntity = ticketController.addTickets(newTicketDTO);
+      ResponseEntity<?> responseEntity = ticketController.addTickets(ticketDto);
 
       assertNotNull(responseEntity);
       assertEquals(HttpStatus.OK, responseEntity.getStatusCode());
@@ -59,16 +59,16 @@ void setUp() {
 
     @Test
     public void testAddTicketsWithNullTicket() {
-      NewTicketDTO newTicketDTO = null;
+      TicketDto ticketDto = null;
       
       assertThrows(NullPointerFromFrontendException.class, () -> {
-        ticketController.addTickets(newTicketDTO);
+        ticketController.addTickets(ticketDto);
       });
     }
 
     @Test
     void testGetTickets() {
-        GetTicketsDTOin getTicketsDTOin = new GetTicketsDTOin();
+        GetTicketsDtoIn getTicketsDTOin = new GetTicketsDtoIn();
         getTicketsDTOin.setEmail("jme@nucleusteq.com");
         getTicketsDTOin.setDepartmentBased("true");
         getTicketsDTOin.setAssignByOwn("false");
@@ -76,7 +76,7 @@ void setUp() {
         getTicketsDTOin.setPageNumber(1);
 
         LocalDateTime dummyCreationTime = LocalDateTime.of(2023, 9, 15, 12, 30);
-        getTicketDTOout dummyTicket = new getTicketDTOout(
+        GetTicketDtoOut dummyTicket = new GetTicketDtoOut(
             1L,
             "Ticket title",
             dummyCreationTime,
@@ -89,7 +89,7 @@ void setUp() {
             null
         );
 
-        List<getTicketDTOout> expectedTicketList = Collections.singletonList(dummyTicket);
+        List<GetTicketDtoOut> expectedTicketList = Collections.singletonList(dummyTicket);
 
         when(ticketService.getTickets(getTicketsDTOin)).thenReturn(expectedTicketList);
 
@@ -102,7 +102,7 @@ void setUp() {
     @Test
     void testGetTickets_NoTicketsFound() {
         // Arrange
-        GetTicketsDTOin getTicketsDTOin = new GetTicketsDTOin();
+        GetTicketsDtoIn getTicketsDTOin = new GetTicketsDtoIn();
         getTicketsDTOin.setEmail("jme@nucleusteq.com");
         getTicketsDTOin.setDepartmentBased("true");
         getTicketsDTOin.setAssignByOwn("false");

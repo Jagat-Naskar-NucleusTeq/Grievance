@@ -4,11 +4,11 @@ import static org.junit.jupiter.api.Assertions.*;
 
 import org.junit.jupiter.api.Test;
 
-class UserProfileDTOoutTest {
+class UserProfileDtoOutTest {
 
 	@Test
     public void testGettersAndSetters() {
-        UserProfileDTOout userProfile = new UserProfileDTOout();
+        UserProfileDtoOut userProfile = new UserProfileDtoOut();
         userProfile.setName("Jagat Naskar");
         userProfile.setUserName("jagatnaskar@nucleusteq.com");
         userProfile.setPassword("password123");
@@ -24,8 +24,8 @@ class UserProfileDTOoutTest {
 
     @Test
     public void testEqualsAndHashCode() {
-        UserProfileDTOout userProfile1 = new UserProfileDTOout("Jagat Naskar", "jagatnaskar@nucleusteq.com", "password123", "Admin", "IT");
-        UserProfileDTOout userProfile2 = new UserProfileDTOout("Jagat Naskar", "jagatnaskar@nucleusteq.com", "password123", "Admin", "IT");
+        UserProfileDtoOut userProfile1 = new UserProfileDtoOut("Jagat Naskar", "jagatnaskar@nucleusteq.com", "password123", "Admin", "IT");
+        UserProfileDtoOut userProfile2 = new UserProfileDtoOut("Jagat Naskar", "jagatnaskar@nucleusteq.com", "password123", "Admin", "IT");
 
         assertTrue(userProfile1.equals(userProfile2));
         assertTrue(userProfile2.equals(userProfile1));
@@ -40,7 +40,7 @@ class UserProfileDTOoutTest {
 
     @Test
     public void testConstructor() {
-        UserProfileDTOout userProfile = new UserProfileDTOout("Jagat Naskar", "jagatnaskar@nucleusteq.com", "password123", "Admin", "IT");
+        UserProfileDtoOut userProfile = new UserProfileDtoOut("Jagat Naskar", "jagatnaskar@nucleusteq.com", "password123", "Admin", "IT");
 
         assertEquals("Jagat Naskar", userProfile.getName());
         assertEquals("jagatnaskar@nucleusteq.com", userProfile.getUserName());
@@ -51,7 +51,7 @@ class UserProfileDTOoutTest {
 
     @Test
     public void testFieldConstructor() {
-        UserProfileDTOout userProfile = new UserProfileDTOout("Jagat Naskar", "jagatnaskar@nucleusteq.com", "password123", "Admin", "IT");
+        UserProfileDtoOut userProfile = new UserProfileDtoOut("Jagat Naskar", "jagatnaskar@nucleusteq.com", "password123", "Admin", "IT");
 
         assertEquals("Jagat Naskar", userProfile.getName());
         assertEquals("jagatnaskar@nucleusteq.com", userProfile.getUserName());

@@ -5,12 +5,12 @@ import java.util.List;
 import java.util.Objects;
 
 import com.feedback.entities.EStatus;
-import com.feedback.payloads.comment_dto.getCommentDTOout;
+import com.feedback.payloads.comment_dto.GetCommentDtoOut;
 
 /**
  * DTO class for retrieving ticket information.
  */
-public class getTicketDTOout {
+public class GetTicketDtoOut {
 
   /**
    * ticketId variable.
@@ -58,9 +58,9 @@ public class getTicketDTOout {
   private String ticketDescription;
 
   /**
-   * List of getCommentDTOout.
+   * List of GetCommentDtoOut.
    */
-  private List<getCommentDTOout> comments;
+  private List<GetCommentDtoOut> comments;
 
   /**
   * Getter for ticket ID.
@@ -153,7 +153,7 @@ public class getTicketDTOout {
    * @param ticketDescription
    *
    */
-  public void setTicketDescription(String ticketDescription) {
+  public void setTicketDescription(final String ticketDescription) {
     this.ticketDescription = ticketDescription;
   }
 
@@ -238,7 +238,7 @@ public class getTicketDTOout {
   *
   * @return The list of comments.
   */
-  public List<getCommentDTOout> getComments() {
+  public List<GetCommentDtoOut> getComments() {
     return comments;
   }
 
@@ -249,7 +249,7 @@ public class getTicketDTOout {
   *
   */
   public void setComments(
-      final List<getCommentDTOout> commentDTOss) {
+      final List<GetCommentDtoOut> commentDTOss) {
     this.comments = commentDTOss;
   }
 
@@ -277,7 +277,7 @@ public class getTicketDTOout {
   * @param commentss The list of comments associated with the ticket.
   *
   */
-  public getTicketDTOout(final Long ticketIdd,
+  public GetTicketDtoOut(final Long ticketIdd,
       final String titlee,
       final LocalDateTime creationTimee,
       final LocalDateTime updationTimee,
@@ -286,7 +286,7 @@ public class getTicketDTOout {
       final String createdByy,
       final String ticketDescriptionn,
       final String departmentNamee,
-      final List<getCommentDTOout> commentss) {
+      final List<GetCommentDtoOut> commentss) {
     super();
     this.ticketId = ticketIdd;
     this.title = titlee;
@@ -303,7 +303,7 @@ public class getTicketDTOout {
   /**
    * Default constructor.
    */
-  public getTicketDTOout() {
+  public GetTicketDtoOut() {
     super();
   }
 
@@ -312,7 +312,7 @@ public class getTicketDTOout {
    */
   @Override
   public String toString() {
-      return "getTicketDTOout [ticketId=" + ticketId
+      return "GetTicketDtoOut [ticketId=" + ticketId
           + ", title=" + title
           + ", creationTime=" + creationTime
           + ", updationTime=" + updationTime
@@ -338,14 +338,17 @@ public class getTicketDTOout {
   * equals method.
   */
 @Override
-  public boolean equals(Object obj) {
-    if (this == obj)
+  public boolean equals(final Object obj) {
+    if (this == obj) {
         return true;
-    if (obj == null)
+    }
+    if (obj == null) {
         return false;
-    if (getClass() != obj.getClass())
+    }
+    if (getClass() != obj.getClass()) {
         return false;
-    getTicketDTOout other = (getTicketDTOout) obj;
+    }
+    GetTicketDtoOut other = (GetTicketDtoOut) obj;
     return Objects.equals(comments, other.comments)
         && Objects.equals(createdBy, other.createdBy)
         && Objects.equals(creationTime, other.creationTime)

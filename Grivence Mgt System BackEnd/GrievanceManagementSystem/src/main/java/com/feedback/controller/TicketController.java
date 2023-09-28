@@ -2,10 +2,10 @@ package com.feedback.controller;
 
 import com.feedback.custom_exception.NullPointerFromFrontendException;
 import com.feedback.entities.Ticket;
-import com.feedback.payloads.ticket_dto.GetTicketsDTOin;
-import com.feedback.payloads.ticket_dto.NewTicketDTO;
+import com.feedback.payloads.ticket_dto.GetTicketsDtoIn;
+import com.feedback.payloads.ticket_dto.TicketDto;
 import com.feedback.payloads.ticket_dto.UpdateTicketDTOin;
-import com.feedback.payloads.ticket_dto.getTicketDTOout;
+import com.feedback.payloads.ticket_dto.GetTicketDtoOut;
 import com.feedback.service.TicketService;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -42,7 +42,7 @@ public class TicketController {
    * @return saved ticket string.
    */
   @PostMapping("/addTicket")
-  public ResponseEntity<?> addTickets(@RequestBody final NewTicketDTO ticket) {
+  public ResponseEntity<?> addTickets(@RequestBody final TicketDto ticket) {
     System.out.println("____________Controller ticket = " + ticket);
 
     if (ticket == null) {
@@ -72,10 +72,10 @@ public class TicketController {
    */
   @PostMapping("/getAllTicket")
   public ResponseEntity<?> getTickets(
-      @RequestBody final GetTicketsDTOin getTicketsDTOin
+      @RequestBody final GetTicketsDtoIn getTicketsDTOin
   ) {
-    System.out.println("________________get ticket controller____________________");
-    List<getTicketDTOout> allTicketList = ticketService
+    System.out.println("________get ticket controller________");
+    List<GetTicketDtoOut> allTicketList = ticketService
         .getTickets(getTicketsDTOin);
     return ResponseEntity.status(HttpStatus.OK).body(allTicketList);
   }
@@ -114,7 +114,7 @@ public class TicketController {
    * @param ticketServicee
    *
    */
-  public void setTicketService(TicketService ticketServicee) {
+  public void setTicketService(final TicketService ticketServicee) {
     this.ticketService = ticketServicee;
   }
 
@@ -128,7 +128,7 @@ public class TicketController {
   @GetMapping("/getIcketById/{ticketId}")
   public ResponseEntity<?> getTicketById(
       @PathVariable("ticketId") final Long ticketId) {
-    getTicketDTOout ticketDTOout = ticketService.getByTicketById(ticketId);
+    GetTicketDtoOut ticketDTOout = ticketService.getByTicketById(ticketId);
     if (ticketDTOout != null) {
       return ResponseEntity.status(HttpStatus.OK).body(ticketDTOout);
     }

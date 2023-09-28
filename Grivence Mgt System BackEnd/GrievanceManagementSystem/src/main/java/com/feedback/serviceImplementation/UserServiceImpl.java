@@ -6,9 +6,9 @@ import com.feedback.entities.Department;
 import com.feedback.entities.ERole;
 import com.feedback.entities.User;
 import com.feedback.payloads.user_dto.AddUserDto;
-import com.feedback.payloads.user_dto.PasswordChangeDTOin;
-import com.feedback.payloads.user_dto.UserProfileDTOout;
-import com.feedback.payloads.user_dto.getAllUsersDTOout;
+import com.feedback.payloads.user_dto.PasswordChangeDtoin;
+import com.feedback.payloads.user_dto.UserProfileDtoOut;
+import com.feedback.payloads.user_dto.GetAllUsersDtoOut;
 import com.feedback.repository.DepartmentRepository;
 import com.feedback.repository.UserRepository;
 import com.feedback.service.UserService;
@@ -100,14 +100,15 @@ public class UserServiceImpl implements UserService {
    * @return A list of all users.
    */
   @Override
-  public List<getAllUsersDTOout> getAllUsers(final Integer pageNo) {
-    Pageable pageable = PageRequest.of(pageNo, 5);
+  public List<GetAllUsersDtoOut> getAllUsers(final Integer pageNo) {
+    final int totalNumberOfContent = 5;
+    Pageable pageable = PageRequest.of(pageNo, totalNumberOfContent);
     Page<User> usersPage = userRepository.findAll(pageable);
     List<User> users = usersPage.getContent();
-    List<getAllUsersDTOout> dtoList = new ArrayList<>();
+    List<GetAllUsersDtoOut> dtoList = new ArrayList<>();
 
     for (User user : users) {
-      getAllUsersDTOout dto = new getAllUsersDTOout(
+      GetAllUsersDtoOut dto = new GetAllUsersDtoOut(
             user.getUserId(),
             user.getName(),
             user.getUserName(),
@@ -199,7 +200,7 @@ public class UserServiceImpl implements UserService {
    *
    * @return Success or not not.
    */
-  public String passwordChangedSuccess(final PasswordChangeDTOin request) {
+  public String passwordChangedSuccess(final PasswordChangeDtoin request) {
     System.out.println("change pass service 1");
     String userName = new String(Base64.getDecoder()
         .decode(request.getUserName()));
@@ -247,17 +248,17 @@ public class UserServiceImpl implements UserService {
    *
    * @return userProfileDTOout
    */
-  public UserProfileDTOout getByUserByUserName(final String userName) {
+  public UserProfileDtoOut getByUserByUserName(final String userName) {
     User user = new User();
-    UserProfileDTOout userProfileDTOout = new UserProfileDTOout();
+    UserProfileDtoOut userProfileDtoOut = new UserProfileDtoOut();
     if (userRepository.existsByUserName(userName)) {
       user = userRepository.getUserByUsername(userName);
-      userProfileDTOout.setName(user.getName());
-      userProfileDTOout.setUserName(user.getUserName());
-      userProfileDTOout.setPassword(user.getPassword());
-      userProfileDTOout.setUserType(user.getUserType().toString());
-      userProfileDTOout.setDepartmentName(user.getDepartment().getDeptName());
-      return userProfileDTOout;
+      userProfileDtoOut.setName(user.getName());
+      userProfileDtoOut.setUserName(user.getUserName());
+      userProfileDtoOut.setPassword(user.getPassword());
+      userProfileDtoOut.setUserType(user.getUserType().toString());
+      userProfileDtoOut.setDepartmentName(user.getDepartment().getDeptName());
+      return userProfileDtoOut;
     }
     return null;
   }

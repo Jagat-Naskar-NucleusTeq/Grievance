@@ -9,7 +9,7 @@ import javax.validation.constraints.Size;
 /**
  * Data Transfer Object for user login information.
  */
-public class LoginDTO {
+public class LoginDto {
 
   /**
    * email variable.
@@ -92,12 +92,12 @@ public class LoginDTO {
   /**
    * Override of toString method.
    *
-   * @return A string representation of the LoginDTO object.
+   * @return A string representation of the LoginDto object.
    *
    */
   @Override
   public String toString() {
-    return "LoginDTO [email=" + email
+    return "LoginDto [email=" + email
       + ", password=" + password
       + "]";
   }
@@ -129,24 +129,39 @@ public class LoginDTO {
     if (getClass() != obj.getClass()) {
       return false;
     }
-    LoginDTO other = (LoginDTO) obj;
+    LoginDto other = (LoginDto) obj;
     return Objects.equals(email, other.email)
       && Objects.equals(password, other.password);
   }
 
   /**
-   * Constructor for LoginDTO with email and password.
+   * email minimum length.
+   */
+  private final int minEmailLength = 16;
+
+  /**
+   * email max length.
+   */
+  private final int maxEmailLength = 35;
+
+  /**
+   * email max length.
+   */
+  private final int minPasswordLength = 8;
+
+  /**
+   * Constructor for LoginDto with email and password.
    *
    * @param emaill The user's emaill.
    *
    * @param passwordd The user's password.
    *
    */
-  public LoginDTO(@Email @Size(min = 16, max = 35)
+  public LoginDto(@Email @Size(min = minEmailLength, max = maxEmailLength)
       @Pattern(regexp = "^[A-Za-z0-9_.-]+@nucleusteq\\.com$",
       message = "email format: ...@nucleusteq.com")
       final String emaill,
-      @NotEmpty @Size(min = 8,
+      @NotEmpty @Size(min = minPasswordLength,
       message = "Password should be greater than 8 char.")
       final String passwordd) {
     super();
@@ -155,9 +170,9 @@ public class LoginDTO {
   }
 
   /**
-   * Default constructor for LoginDTO.
+   * Default constructor for LoginDto.
    */
-  public LoginDTO() {
+  public LoginDto() {
     super();
   }
 }

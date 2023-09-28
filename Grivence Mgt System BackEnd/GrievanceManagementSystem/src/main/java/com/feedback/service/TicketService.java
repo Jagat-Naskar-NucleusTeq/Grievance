@@ -1,10 +1,10 @@
 package com.feedback.service;
 
 import com.feedback.entities.Ticket;
-import com.feedback.payloads.ticket_dto.GetTicketsDTOin;
-import com.feedback.payloads.ticket_dto.NewTicketDTO;
+import com.feedback.payloads.ticket_dto.GetTicketsDtoIn;
+import com.feedback.payloads.ticket_dto.TicketDto;
 import com.feedback.payloads.ticket_dto.UpdateTicketDTOin;
-import com.feedback.payloads.ticket_dto.getTicketDTOout;
+import com.feedback.payloads.ticket_dto.GetTicketDtoOut;
 import java.util.List;
 
 /**
@@ -19,7 +19,7 @@ public interface TicketService {
    *
    * @return Ticket
    */
-  Ticket saveTicket(NewTicketDTO ticket);
+  Ticket saveTicket(TicketDto ticket);
 
   /**
    * Get a list of tickets based on the provided criteria.
@@ -28,7 +28,7 @@ public interface TicketService {
    *
    * @return A list of ticket information.
    */
-  List<getTicketDTOout> getTickets(GetTicketsDTOin getTicketsDTOin);
+  List<GetTicketDtoOut> getTickets(GetTicketsDtoIn getTicketsDTOin);
 
   /**
    * Update a ticket with the provided information.
@@ -46,5 +46,5 @@ public interface TicketService {
    *
    * @return The ticket information.
    */
-  getTicketDTOout getByTicketById(Long ticketId);
+  GetTicketDtoOut getByTicketById(Long ticketId);
 }

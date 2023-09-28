@@ -7,13 +7,13 @@ import org.junit.jupiter.api.Test;
 import com.feedback.entities.EStatus;
 import com.feedback.entities.Ticket;
 
-class NewTicketDTOTest {
+class TicketDtoTest {
 
 	 @Test
   void testEquals() {
-      NewTicketDTO ticket1 = new NewTicketDTO(1L, "Title", "Type", EStatus.Open, "Description", "email@example.com", "IT");
-      NewTicketDTO ticket2 = new NewTicketDTO(1L, "Title", "Type", EStatus.Open, "Description", "email@example.com", "IT");
-      NewTicketDTO ticket3 = new NewTicketDTO(2L, "Title", "Type", EStatus.Open, "Description", "email@example.com", "IT");
+      TicketDto ticket1 = new TicketDto(1L, "Title", "Type", EStatus.Open, "Description", "email@example.com", "IT");
+      TicketDto ticket2 = new TicketDto(1L, "Title", "Type", EStatus.Open, "Description", "email@example.com", "IT");
+      TicketDto ticket3 = new TicketDto(2L, "Title", "Type", EStatus.Open, "Description", "email@example.com", "IT");
 
       assertEquals(ticket1, ticket2);
       assertNotEquals(ticket1, ticket3);
@@ -21,15 +21,15 @@ class NewTicketDTOTest {
 
   @Test
   void testHashCode() {
-      NewTicketDTO ticket1 = new NewTicketDTO(1L, "Title", "Type", EStatus.Open, "Description", "email@example.com", "IT");
-      NewTicketDTO ticket2 = new NewTicketDTO(1L, "Title", "Type", EStatus.Open, "Description", "email@example.com", "IT");
+      TicketDto ticket1 = new TicketDto(1L, "Title", "Type", EStatus.Open, "Description", "email@example.com", "IT");
+      TicketDto ticket2 = new TicketDto(1L, "Title", "Type", EStatus.Open, "Description", "email@example.com", "IT");
 
       assertEquals(ticket1.hashCode(), ticket2.hashCode());
   }
 
   @Test
   void testToString() {
-      NewTicketDTO ticket = new NewTicketDTO(1L, "Title", "Type", EStatus.Open, "Description", "email@example.com", "IT");
+      TicketDto ticket = new TicketDto(1L, "Title", "Type", EStatus.Open, "Description", "email@example.com", "IT");
       String expected = "NewTicketDTO [ticketId=1, ticketTitle=Title, ticketType=Type, ticketStatus=Open, " +
               "ticketDescription=Description, senderEmail=email@example.com, deptName=IT]";
 
@@ -58,9 +58,9 @@ class NewTicketDTOTest {
 
   @Test
   void testEqualss() {
-      NewTicketDTO dto1 = new NewTicketDTO(1L, "Title", "Type", EStatus.Open, "Description", "email@example.com", "DeptA");
-      NewTicketDTO dto2 = new NewTicketDTO(1L, "Title", "Type", EStatus.Open, "Description", "email@example.com", "DeptA");
-      NewTicketDTO differentDto = new NewTicketDTO(2L, "Different Title", "Different Type", EStatus.Resolved, "Different Description", "email2@example.com", "DeptB");
+      TicketDto dto1 = new TicketDto(1L, "Title", "Type", EStatus.Open, "Description", "email@example.com", "DeptA");
+      TicketDto dto2 = new TicketDto(1L, "Title", "Type", EStatus.Open, "Description", "email@example.com", "DeptA");
+      TicketDto differentDto = new TicketDto(2L, "Different Title", "Different Type", EStatus.Resolved, "Different Description", "email2@example.com", "DeptB");
 
       assertTrue(dto1.equals(dto1));
 

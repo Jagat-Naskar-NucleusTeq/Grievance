@@ -108,7 +108,7 @@ function Ticket() {
   return (
     <div className="Ttickets-container">
       <form className="Tticket-form" onSubmit={handleSubmit}>
-        <h2>Add Ticket Details</h2>
+        <h2>Add Ticket</h2>
         <div className="Tsub-structure">
           <div className="Tsub-structure1">
             <label className="TticketType">Ticket Type</label>

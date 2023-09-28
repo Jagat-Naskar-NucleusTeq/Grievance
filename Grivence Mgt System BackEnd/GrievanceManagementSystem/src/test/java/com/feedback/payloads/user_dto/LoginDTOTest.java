@@ -1,96 +1,100 @@
 package com.feedback.payloads.user_dto;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertNotEquals;
+import static org.junit.jupiter.api.Assertions.assertNull;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-class LoginDTOTest {
+class LoginDtoTest {
 
-  private LoginDTO loginDTO;
+  private LoginDto loginDto;
 
   @BeforeEach
   public void setUp() {
-    loginDTO = new LoginDTO();
+    loginDto = new LoginDto();
   }
 
   @Test
   public void testDefaultConstructor() {
-    assertNull(loginDTO.getEmail());
-    assertNull(loginDTO.getPassword());
-    assertNull(loginDTO.getIsFirstLogin());
+    assertNull(loginDto.getEmail());
+    assertNull(loginDto.getPassword());
+    assertNull(loginDto.getIsFirstLogin());
   }
 
   @Test
   public void testParameterizedConstructor() {
-    LoginDTO loginDTO = new LoginDTO("jagat@nucleusteq.com", "password123@Jme");
+    LoginDto loginDto = new LoginDto("jagat@nucleusteq.com", "password123@Jme");
 
-    assertEquals("jagat@nucleusteq.com", loginDTO.getEmail());
-    assertEquals("password123@Jme", loginDTO.getPassword());
-    assertNull(loginDTO.getIsFirstLogin());
+    assertEquals("jagat@nucleusteq.com", loginDto.getEmail());
+    assertEquals("password123@Jme", loginDto.getPassword());
+    assertNull(loginDto.getIsFirstLogin());
   }
 
   @Test
   public void testSettersAndGetters() {
-    loginDTO.setEmail("jagat@nucleusteq.com");
-    loginDTO.setPassword("password123@Jme");
-    loginDTO.setIsFirstLogin(true);
+    loginDto.setEmail("jagat@nucleusteq.com");
+    loginDto.setPassword("password123@Jme");
+    loginDto.setIsFirstLogin(true);
 
-    assertEquals("jagat@nucleusteq.com", loginDTO.getEmail());
-    assertEquals("password123@Jme", loginDTO.getPassword());
-    assertTrue(loginDTO.getIsFirstLogin());
+    assertEquals("jagat@nucleusteq.com", loginDto.getEmail());
+    assertEquals("password123@Jme", loginDto.getPassword());
+    assertTrue(loginDto.getIsFirstLogin());
   }
 
   @Test
   public void testEqualsAndHashCode() {
-    LoginDTO loginDTO1 = new LoginDTO("jme@nucleusteq.com", "password123@Jme");
-    LoginDTO loginDTO2 = new LoginDTO("jme@nucleusteq.com", "password123@Jme");
-    LoginDTO loginDTO3 = new LoginDTO("jmejagat@nucleusteq.com", "password456");
+    LoginDto loginDto1 = new LoginDto("jme@nucleusteq.com", "password123@Jme");
+    LoginDto loginDto2 = new LoginDto("jme@nucleusteq.com", "password123@Jme");
+    LoginDto loginDto3 = new LoginDto("jmejagat@nucleusteq.com", "password456");
 
-    assertEquals(loginDTO1, loginDTO2);
-    assertNotEquals(loginDTO1, loginDTO3);
+    assertEquals(loginDto1, loginDto2);
+    assertNotEquals(loginDto1, loginDto3);
 
-    assertEquals(loginDTO1.hashCode(), loginDTO2.hashCode());
-    assertNotEquals(loginDTO1.hashCode(), loginDTO3.hashCode());
+    assertEquals(loginDto1.hashCode(), loginDto2.hashCode());
+    assertNotEquals(loginDto1.hashCode(), loginDto3.hashCode());
   }
 
   @Test
   public void testToString() {
-    LoginDTO loginDTO = new LoginDTO("jagat@nucleusteq.com", "password123@Jme");
-    String expectedToString = "LoginDTO [email=jagat@nucleusteq.com, password=password123@Jme]";
-    assertEquals(expectedToString, loginDTO.toString());
+    LoginDto loginDto = new LoginDto("jagat@nucleusteq.com", "password123@Jme");
+    String expectedToString = "LoginDto [email=jagat@nucleusteq.com, password=password123@Jme]";
+    assertEquals(expectedToString, loginDto.toString());
   }
 
   @Test
   void testEquals_SameObject() {
-      LoginDTO loginDTO = new LoginDTO("jmejagat@nucleusteq.com", "password123");
-      assertTrue(loginDTO.equals(loginDTO));
+      LoginDto loginDto = new LoginDto("jmejagat@nucleusteq.com", "password123");
+      assertTrue(loginDto.equals(loginDto));
   }
 
   @Test
   void testEquals_NullObject() {
-      LoginDTO loginDTO = new LoginDTO("jmejagat@nucleusteq.com", "password@123");
-      assertFalse(loginDTO.equals(null));
+      LoginDto loginDto = new LoginDto("jmejagat@nucleusteq.com", "password@123");
+      assertFalse(loginDto.equals(null));
   }
 
   @Test
   void testEquals_DifferentClass() {
-      LoginDTO loginDTO = new LoginDTO("jmejagat@nucleusteq.com", "jagat@123");
-      assertFalse(loginDTO.equals("false_Object"));
+      LoginDto loginDto = new LoginDto("jmejagat@nucleusteq.com", "jagat@123");
+      assertFalse(loginDto.equals("false_Object"));
   }
 
   @Test
   void testEquals_EqualObjects() {
-      LoginDTO loginDTO1 = new LoginDTO("jmejagat@nucleusteq.com", "passwordR");
-      LoginDTO loginDTO2 = new LoginDTO("jmejagat@nucleusteq.com", "passwordR");
-      assertTrue(loginDTO1.equals(loginDTO2));
+      LoginDto loginDto1 = new LoginDto("jmejagat@nucleusteq.com", "passwordR");
+      LoginDto loginDto2 = new LoginDto("jmejagat@nucleusteq.com", "passwordR");
+      assertTrue(loginDto1.equals(loginDto2));
   }
 
   @Test
   void testEquals_UnequalObjects() {
-      LoginDTO loginDTO1 = new LoginDTO("jmejagat@nucleusteq.com", "password");
-      LoginDTO loginDTO2 = new LoginDTO("jmejagat@nucleusteq.com", "false_password");
-      assertFalse(loginDTO1.equals(loginDTO2));
+      LoginDto loginDto1 = new LoginDto("jmejagat@nucleusteq.com", "password");
+      LoginDto loginDto2 = new LoginDto("jmejagat@nucleusteq.com", "false_password");
+      assertFalse(loginDto1.equals(loginDto2));
   }
 
 }

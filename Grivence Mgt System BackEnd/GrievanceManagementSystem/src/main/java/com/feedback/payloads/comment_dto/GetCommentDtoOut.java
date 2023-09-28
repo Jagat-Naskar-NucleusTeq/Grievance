@@ -3,9 +3,9 @@ package com.feedback.payloads.comment_dto;
 import java.util.Objects;
 
 /**
- * getCommentDTOout class.
+ * GetCommentDtoOut class.
  */
-public class getCommentDTOout {
+public class GetCommentDtoOut {
 
   /**
    * commentedByUser variable.
@@ -84,7 +84,7 @@ public class getCommentDTOout {
    */
   @Override
   public String toString() {
-    return "getCommentDTOout [commentedByUser=" + commentedByUser
+    return "GetCommentDtoOut [commentedByUser=" + commentedByUser
       + ", commentMessage=" + commentMessage
       + ", commentId=" + commentId + "]";
   }
@@ -111,7 +111,7 @@ public class getCommentDTOout {
     if (getClass() != obj.getClass()) {
       return false;
     }
-    getCommentDTOout other = (getCommentDTOout) obj;
+    GetCommentDtoOut other = (GetCommentDtoOut) obj;
     return commentId == other.commentId
             && Objects.equals(commentMessage, other.commentMessage)
             && Objects.equals(commentedByUser, other.commentedByUser);
@@ -127,7 +127,7 @@ public class getCommentDTOout {
    * @param commentIdd
    *
    */
-  public getCommentDTOout(final String commentedByUserr,
+  public GetCommentDtoOut(final String commentedByUserr,
           final String commentMessagee,
           final int commentIdd) {
     super();
@@ -139,7 +139,7 @@ public class getCommentDTOout {
   /**
    * Default constructor.
    */
-  public getCommentDTOout() {
+  public GetCommentDtoOut() {
     super();
   }
 }

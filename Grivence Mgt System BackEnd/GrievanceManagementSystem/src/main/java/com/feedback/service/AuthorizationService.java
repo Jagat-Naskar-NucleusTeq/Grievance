@@ -3,7 +3,7 @@ package com.feedback.service;
 /**
  * Service interface for authorization.
  */
-public interface authorization_service {
+public interface AuthorizationService {
 
   /**
   * Authenticate an admin user.
@@ -14,6 +14,6 @@ public interface authorization_service {
   *
   * @return True if authentication is successful, otherwise false.
   */
-  public boolean authenticateAdmin(
-      final String username, final String password);
+  boolean authenticateAdmin(
+      String username, String password);
 }

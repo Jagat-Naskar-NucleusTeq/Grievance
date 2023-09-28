@@ -3,21 +3,19 @@
  */
 package com.feedback.serviceImplementation;
 
+import com.feedback.custom_exception.DepartmentNotFoundException;
+import com.feedback.entities.Department;
+import com.feedback.payloads.department_dto.AddDepartemntDTO;
+import com.feedback.payloads.department_dto.DepartmentListDto;
+import com.feedback.repository.DepartmentRepository;
+import com.feedback.service.DepartmentService;
 import java.util.List;
 import java.util.stream.Collectors;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
-
-import com.feedback.custom_exception.DepartmentNotFoundException;
-import com.feedback.entities.Department;
-import com.feedback.payloads.department_dto.AddDepartemntDTO;
-import com.feedback.payloads.department_dto.DepartmentListDTO;
-import com.feedback.repository.DepartmentRepository;
-import com.feedback.service.DepartmentService;
 
 /**
  * DepartmentServiceImpl class.
@@ -69,15 +67,15 @@ public class DepartmentServiceImpl implements DepartmentService {
    * @return A list of department information.
    */
   @Override
-  public List<DepartmentListDTO> getAllDepartments() {
+  public List<DepartmentListDto> getAllDepartments() {
     System.out.println("getting All Department using Effect");
     List<Department> departments = departmentRepository.findAll();
     return departments.stream()
         .map(department -> {
-          DepartmentListDTO deptDTO = new DepartmentListDTO();
-          deptDTO.setDeptId(department.getDeptId());
-          deptDTO.setDeptName(department.getDeptName());
-          return deptDTO;
+          DepartmentListDto deptDto = new DepartmentListDto();
+          deptDto.setDeptId(department.getDeptId());
+          deptDto.setDeptName(department.getDeptName());
+          return deptDto;
         })
           .collect(Collectors.toList());
   }
@@ -102,22 +100,23 @@ public class DepartmentServiceImpl implements DepartmentService {
 
   /**
    * getAllDepartments.
-   * 
+   *
    *@param currentPage
    *
    *@return list of department.
    */
   @Override
-  public List<DepartmentListDTO> getAllDepartments(Integer currentPage) {
-    Pageable pageable = PageRequest.of(currentPage, 5);
+  public List<DepartmentListDto> getAllDepartments(final Integer currentPage) {
+    final int noOfElement = 5;
+    Pageable pageable = PageRequest.of(currentPage, noOfElement);
     Page<Department> departmentPage = departmentRepository.findAll(pageable);
     List<Department> departments = departmentPage.getContent();
     return departments.stream()
         .map(department -> {
-          DepartmentListDTO deptDTO = new DepartmentListDTO();
-          deptDTO.setDeptId(department.getDeptId());
-          deptDTO.setDeptName(department.getDeptName());
-          return deptDTO;
+          DepartmentListDto deptDto = new DepartmentListDto();
+          deptDto.setDeptId(department.getDeptId());
+          deptDto.setDeptName(department.getDeptName());
+          return deptDto;
         })
           .collect(Collectors.toList());
   }

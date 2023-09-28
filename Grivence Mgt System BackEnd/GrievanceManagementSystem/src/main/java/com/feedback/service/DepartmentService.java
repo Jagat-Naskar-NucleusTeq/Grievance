@@ -2,7 +2,7 @@ package com.feedback.service;
 
 import com.feedback.entities.Department;
 import com.feedback.payloads.department_dto.AddDepartemntDTO;
-import com.feedback.payloads.department_dto.DepartmentListDTO;
+import com.feedback.payloads.department_dto.DepartmentListDto;
 import java.util.List;
 
 /**
@@ -17,7 +17,7 @@ public interface DepartmentService {
    *
    * @return True if a department with the name already exists.
    */
-  public boolean checkAlreadyExist(AddDepartemntDTO dept1);
+  boolean checkAlreadyExist(AddDepartemntDTO dept1);
 
   /**
    * Add a new department.
@@ -26,14 +26,23 @@ public interface DepartmentService {
    *
    * @return The added department.
    */
-  public Department addDept(AddDepartemntDTO dept);
+  Department addDept(AddDepartemntDTO dept);
 
   /**
    * Get a list of all departments.
    *
    * @return A list of department information.
    */
-  List<DepartmentListDTO> getAllDepartments();
+  List<DepartmentListDto> getAllDepartments();
+
+  /**
+   * Get a list of all departments.
+   *
+   *@param currentPage
+   *
+   * @return A list of department information.
+   */
+  List<DepartmentListDto> getAllDepartments(Integer currentPage);
 
   /**
    * Delete a department by its name.
@@ -43,13 +52,4 @@ public interface DepartmentService {
    * @return A message indicating the result of the deletion.
    */
   String deleteDept(String deptName);
-
-  /**
-   * Get a list of all departments.
-   *
-   *@param currentPAge
-   *
-   * @return A list of department information.
-   */
-  List<DepartmentListDTO> getAllDepartments(Integer currentPage);
 }

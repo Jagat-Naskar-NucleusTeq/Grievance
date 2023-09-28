@@ -5,11 +5,11 @@ import static org.junit.jupiter.api.Assertions.*;
 import org.junit.jupiter.api.Test;
 
 
-public class getCommentDTOoutTest {
+public class GetCommentDtoOutTest {
 
  @Test
     public void testGettersAndSetters() {
-        getCommentDTOout comment = new getCommentDTOout();
+        GetCommentDtoOut comment = new GetCommentDtoOut();
         comment.setCommentedByUser("Jagat Naskar");
         comment.setCommentMessage("This is my first comment");
         comment.setCommentId(1);
@@ -21,12 +21,12 @@ public class getCommentDTOoutTest {
 
     @Test
     public void testEqualsAndHashCode() {
-        getCommentDTOout comment1 = new getCommentDTOout();
+        GetCommentDtoOut comment1 = new GetCommentDtoOut();
         comment1.setCommentedByUser("Jagat Naskar");
         comment1.setCommentMessage("This is my first comment");
         comment1.setCommentId(1);
 
-        getCommentDTOout comment2 = new getCommentDTOout();
+        GetCommentDtoOut comment2 = new GetCommentDtoOut();
         comment2.setCommentedByUser("Jagat Naskar");
         comment2.setCommentMessage("This is my first comment");
         comment2.setCommentId(1);
@@ -44,7 +44,7 @@ public class getCommentDTOoutTest {
     
     @Test
      public void testConstructor() {
-        getCommentDTOout comment = new getCommentDTOout("Jagat Naskar", "This is my first comment", 1);
+        GetCommentDtoOut comment = new GetCommentDtoOut("Jagat Naskar", "This is my first comment", 1);
 
         assertEquals("Jagat Naskar", comment.getCommentedByUser());
         assertEquals("This is my first comment", comment.getCommentMessage());

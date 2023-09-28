@@ -13,7 +13,7 @@ import org.junit.jupiter.api.Test;
 import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
 
-import com.feedback.serviceImplementation.AuthenticationService;
+import com.feedback.serviceImplementation.AuthenticationServiceImpl;
 
 import static org.mockito.ArgumentMatchers.anyString;
 import static org.mockito.Mockito.verify;
@@ -33,14 +33,14 @@ class AuthenticationFilterTest {
     private FilterChain chain;
 
     @Mock
-    private AuthenticationService authenticationService;
+    private AuthenticationServiceImpl authenticationServiceImpl;
 
     private AuthenticationFilter filter;
 
     @BeforeEach
     void setUp() {
         MockitoAnnotations.openMocks(this);
-        filter = new AuthenticationFilter(authenticationService);
+        filter = new AuthenticationFilter(authenticationServiceImpl);
     }
 
     @Test
@@ -49,7 +49,7 @@ class AuthenticationFilterTest {
         when(request.getMethod()).thenReturn("GET");
         when(request.getHeader("Email")).thenReturn("am1lQG51Y2xldXN0ZXFjb20="); // Original string
         when(request.getHeader("Password")).thenReturn("Sm1lQDEyMzQ="); // Original string
-        when(authenticationService.authenticateAdmin(anyString(), anyString())).thenReturn(true);
+        when(authenticationServiceImpl.authenticateAdmin(anyString(), anyString())).thenReturn(true);
 
         // Act
         filter.doFilter(request, response, chain);
@@ -65,7 +65,7 @@ class AuthenticationFilterTest {
         when(request.getHeader("Email")).thenReturn("am1lQG51Y2xldXN0ZXFjb20");
         when(request.getHeader("Password")).thenReturn("Sm1lQDEyMzQ=");
 
-        when(authenticationService.authenticateAdmin(anyString(), anyString())).thenReturn(false);
+        when(authenticationServiceImpl.authenticateAdmin(anyString(), anyString())).thenReturn(false);
 
         // Act
         filter.doFilter(request, response, chain);

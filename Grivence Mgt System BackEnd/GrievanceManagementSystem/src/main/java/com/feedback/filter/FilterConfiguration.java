@@ -5,7 +5,7 @@ import org.springframework.boot.web.servlet.FilterRegistrationBean;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
-import com.feedback.serviceImplementation.AuthenticationService;
+import com.feedback.serviceImplementation.AuthenticationServiceImpl;
 
 /**
  * Configuration class for setting up filters.
@@ -16,18 +16,18 @@ public class FilterConfiguration {
   /**
    * AuthenticationService object.
    */
-  private final AuthenticationService authenticationService;
+  private final AuthenticationServiceImpl authenticationServiceImpl;
 
   /**
    * Constructor for FilterConfiguration.
    *
-   * @param authenticationService The AuthenticationService to be injected.
+   * @param authenticationServiceImpl The AuthenticationService to be injected.
    *
    */
   @Autowired
   public FilterConfiguration(
-      final AuthenticationService authenticationService) {
-    this.authenticationService = authenticationService;
+      final AuthenticationServiceImpl authenticationServiceImpl) {
+    this.authenticationServiceImpl = authenticationServiceImpl;
   }
 
   /**
@@ -39,7 +39,7 @@ public class FilterConfiguration {
   public FilterRegistrationBean<AuthenticationFilter> registrationBean() {
     FilterRegistrationBean<AuthenticationFilter> regBean
           = new FilterRegistrationBean<AuthenticationFilter>();
-    regBean.setFilter(new AuthenticationFilter(authenticationService));
+    regBean.setFilter(new AuthenticationFilter(authenticationServiceImpl));
     regBean.addUrlPatterns("/api/dept/addDept");
     // Uncomment the following line if needed for additional URL patterns.
     // regBean.addUrlPatterns("/api/users/addUser");

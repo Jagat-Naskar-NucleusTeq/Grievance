@@ -9,7 +9,7 @@ import java.util.List;
 import org.junit.jupiter.api.Test;
 
 import com.feedback.entities.EStatus;
-import com.feedback.payloads.comment_dto.getCommentDTOout;
+import com.feedback.payloads.comment_dto.GetCommentDtoOut;
 
 class GetTicketDTOoutTest {
 
@@ -17,11 +17,11 @@ class GetTicketDTOoutTest {
     void testGettersAndSetters() {
         LocalDateTime now = LocalDateTime.now();
 
-        List<getCommentDTOout> comments = new ArrayList<>();
-        comments.add(new getCommentDTOout());
-        comments.add(new getCommentDTOout());
+        List<GetCommentDtoOut> comments = new ArrayList<>();
+        comments.add(new GetCommentDtoOut());
+        comments.add(new GetCommentDtoOut());
 
-        getTicketDTOout dto = new getTicketDTOout(1L, "Title", now, now,
+        GetTicketDtoOut dto = new GetTicketDtoOut(1L, "Title", now, now,
                 EStatus.Open, "Type", "Creator", "Description", "Department", comments);
 
         assertEquals(1L, dto.getTicketId());
@@ -36,8 +36,8 @@ class GetTicketDTOoutTest {
         assertEquals(comments, dto.getComments());
 
         LocalDateTime newTime = now.plusHours(1);
-        List<getCommentDTOout> newComments = new ArrayList<>();
-        newComments.add(new getCommentDTOout());
+        List<GetCommentDtoOut> newComments = new ArrayList<>();
+        newComments.add(new GetCommentDtoOut());
 
         dto.setTicketId(2L);
         dto.setTitle("New Title");
@@ -65,10 +65,10 @@ class GetTicketDTOoutTest {
     @Test
     void testEqualsAndHashCode() {
         LocalDateTime dummyDateTime = LocalDateTime.of(2023, 9, 13, 12, 30);
-        getTicketDTOout dto1 = new getTicketDTOout(1L, "Title", dummyDateTime,
+        GetTicketDtoOut dto1 = new GetTicketDtoOut(1L, "Title", dummyDateTime,
                 dummyDateTime, EStatus.Open, "Type", "Creator", "Department", "Description", new ArrayList<>());
 
-        getTicketDTOout dto2 = new getTicketDTOout(1L, "Title", dummyDateTime,
+        GetTicketDtoOut dto2 = new GetTicketDtoOut(1L, "Title", dummyDateTime,
                 dummyDateTime, EStatus.Open, "Type", "Creator", "Department", "Description", new ArrayList<>());
 
         assertEquals(dto1, dto2);
@@ -80,16 +80,16 @@ class GetTicketDTOoutTest {
 
     @Test
     void testToString() {
-        getCommentDTOout commentDTO = new getCommentDTOout("Jagat", "This is a comment", 1);
-        String expected = "getCommentDTOout [commentedByUser=Jagat, commentMessage=This is a comment, commentId=1]";
+        GetCommentDtoOut commentDTO = new GetCommentDtoOut("Jagat", "This is a comment", 1);
+        String expected = "GetCommentDtoOut [commentedByUser=Jagat, commentMessage=This is a comment, commentId=1]";
         assertEquals(expected, commentDTO.toString());
     }
 
     @Test
     void testEquals() {
-        getCommentDTOout commentDTO1 = new getCommentDTOout("Jagat", "This is a comment", 1);
-        getCommentDTOout commentDTO2 = new getCommentDTOout("Jagat", "This is a comment", 1);
-        getCommentDTOout differentCommentDTO = new getCommentDTOout("JagatNaskar", "This is a different comment", 2);
+        GetCommentDtoOut commentDTO1 = new GetCommentDtoOut("Jagat", "This is a comment", 1);
+        GetCommentDtoOut commentDTO2 = new GetCommentDtoOut("Jagat", "This is a comment", 1);
+        GetCommentDtoOut differentCommentDTO = new GetCommentDtoOut("JagatNaskar", "This is a different comment", 2);
 
         assertTrue(commentDTO1.equals(commentDTO1));
 

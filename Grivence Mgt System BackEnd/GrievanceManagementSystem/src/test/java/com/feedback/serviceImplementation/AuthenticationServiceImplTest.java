@@ -14,10 +14,10 @@ import com.feedback.entities.User;
 import com.feedback.repository.UserRepository;
 
 @SpringBootTest
-class AuthenticationServiceTest {
+class AuthenticationServiceImplTest {
 
     @Autowired
-    private final AuthenticationService authenticationService = new AuthenticationService();
+    private final AuthenticationServiceImpl authenticationServiceImpl = new AuthenticationServiceImpl();
 
     @Autowired
     @MockBean
@@ -33,7 +33,7 @@ class AuthenticationServiceTest {
         when(userRepository.existsByUserName("jme@nucleusteq.com")).thenReturn(true);
         when(userRepository.getUserByUsername("jme@nucleusteq.com")).thenReturn(adminUser);
 
-        boolean result = authenticationService.authenticateAdmin("jme@nucleusteq.com", "password123");
+        boolean result = authenticationServiceImpl.authenticateAdmin("jme@nucleusteq.com", "password123");
 
         assertTrue(result);
     }
@@ -42,7 +42,7 @@ class AuthenticationServiceTest {
     void testAuthenticateAdmin_InvalidUsername() {
         when(userRepository.existsByUserName(anyString())).thenReturn(false);
 
-        boolean result = authenticationService.authenticateAdmin("nonexistent", "password123");
+        boolean result = authenticationServiceImpl.authenticateAdmin("nonexistent", "password123");
 
         assertFalse(result);
     }
@@ -57,7 +57,7 @@ class AuthenticationServiceTest {
         when(userRepository.existsByUserName("jme@nucleusteq.com")).thenReturn(true);
         when(userRepository.getUserByUsername("jme@nucleusteq.com")).thenReturn(adminUser);
 
-        boolean result = authenticationService.authenticateAdmin("jme@nucleusteq.com", "wrongPassword");
+        boolean result = authenticationServiceImpl.authenticateAdmin("jme@nucleusteq.com", "wrongPassword");
 
         assertFalse(result);
     }
@@ -72,7 +72,7 @@ class AuthenticationServiceTest {
         when(userRepository.existsByUserName("user")).thenReturn(true);
         when(userRepository.getUserByUsername("user")).thenReturn(nonAdminUser);
 
-        boolean result = authenticationService.authenticateAdmin("user", "password123");
+        boolean result = authenticationServiceImpl.authenticateAdmin("user", "password123");
 
         assertFalse(result);
     }

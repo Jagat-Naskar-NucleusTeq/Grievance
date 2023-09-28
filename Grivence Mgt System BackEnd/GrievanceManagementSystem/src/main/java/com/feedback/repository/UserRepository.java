@@ -26,7 +26,7 @@ public interface UserRepository extends JpaRepository<User, Integer> {
    */
   @Query(
       value = MQ, nativeQuery = true) User
-  getUserByUsername(@Param("userName") final String userName);
+  getUserByUsername(@Param("userName") String userName);
 
   /**
    * check if the user exist or not by userName.
@@ -41,5 +41,5 @@ public interface UserRepository extends JpaRepository<User, Integer> {
           + "AS user_exists",
       nativeQuery = true
   )
-  boolean existsByUserName(@Param("userName") final String userName);
+  boolean existsByUserName(@Param("userName") String userName);
 }

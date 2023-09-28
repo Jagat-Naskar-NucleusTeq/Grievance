@@ -35,32 +35,20 @@ export default function NewUser() {
     setShowAlert(false);
   };
 
-  // //setting deptList from backend
-  // useEffect(() => {
-  //   fetch('http://localhost:8080/api/dept/allDepartment')
-  //     .then(response => response.json())
-  //     .then(data => setDepartmentList(data))
-  //     .catch(error => console.error('Error:', error));
-
-  // }, []);
-
   useEffect(() => {
-    // Start by setting "SELECT" as the initial value
-
     fetch("http://localhost:8080/api/dept/allDepartment")
       .then((response) => response.json())
-      .then((data) => setDepartmentList((prevList) => [...prevList, ...data])) // Add "SELECT" before the fetched data
+      .then((data) => setDepartmentList((prevList) => [...prevList, ...data]))
       .catch((error) => console.error("deptList Error:", error));
   }, []);
 
   const resetForm = () => {
-    //resetting field
     setName("");
     setUsername("");
     setPassword("");
     setUserType("Select User Type");
     setDepartmentName("Select Department");
-    //resetting error
+
     setUsernameError("");
     setNameError("");
     setDeptNameError("");
@@ -68,10 +56,8 @@ export default function NewUser() {
     setUserTypeError("");
   };
 
-  // const departmentList = ["Select Department", "HR", "Finance", "Sales"];
   const UserTypeList = ["Select User Type", "admin", "member"];
 
-  //handling form after submission
   const handleSubmit = async (e) => {
     e.preventDefault();
 
@@ -88,7 +74,6 @@ export default function NewUser() {
       !userTypeError &&
       !deptNameError
     ) {
-      // Form is valid, proceed with submission
       const encodedPassword = btoa(password);
       const postObject = {
         name: name,

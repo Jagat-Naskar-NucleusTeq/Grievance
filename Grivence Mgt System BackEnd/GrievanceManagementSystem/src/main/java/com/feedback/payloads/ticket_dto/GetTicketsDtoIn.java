@@ -8,7 +8,7 @@ import java.util.Objects;
  * @author jagat.
  * @version 001.
  */
-public class GetTicketsDTOin {
+public class GetTicketsDtoIn {
 
   /**
    * email address variable.
@@ -131,9 +131,9 @@ public class GetTicketsDTOin {
   }
 
   /**
-   * GetTicketsDTOin.
+   * GetTicketsDtoIn.
    */
-  public GetTicketsDTOin() {
+  public GetTicketsDtoIn() {
     super();
   }
 
@@ -142,7 +142,7 @@ public class GetTicketsDTOin {
    */
   @Override
   public String toString() {
-    return "GetTicketsDTOin [email=" + email
+    return "GetTicketsDtoIn [email=" + email
         + ", departmentBased=" + departmentBased
         + ", assignByOwn=" + assignByOwn
         + ", filterStatus=" + filterStatus
@@ -150,7 +150,7 @@ public class GetTicketsDTOin {
   }
 
   /**
-   * GetTicketsDTOin field constructor.
+   * GetTicketsDtoIn field constructor.
    *
    * @param emaill
    *
@@ -163,7 +163,7 @@ public class GetTicketsDTOin {
    * @param pageNumberr
    *
    */
-  public GetTicketsDTOin(final String emaill,
+  public GetTicketsDtoIn(final String emaill,
       final String departmentBasedd,
       final String assignByOwnn,
       final String filterStatuss,
@@ -204,7 +204,7 @@ public class GetTicketsDTOin {
     if (getClass() != obj.getClass()) {
       return false;
     }
-    GetTicketsDTOin other = (GetTicketsDTOin) obj;
+    GetTicketsDtoIn other = (GetTicketsDtoIn) obj;
     return Objects.equals(assignByOwn, other.assignByOwn)
         && Objects.equals(departmentBased, other.departmentBased)
         && Objects.equals(email, other.email)

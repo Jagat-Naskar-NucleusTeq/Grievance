@@ -27,7 +27,7 @@ import org.springframework.data.domain.Pageable;
 import com.feedback.custom_exception.DepartmentNotFoundException;
 import com.feedback.entities.Department;
 import com.feedback.payloads.department_dto.AddDepartemntDTO;
-import com.feedback.payloads.department_dto.DepartmentListDTO;
+import com.feedback.payloads.department_dto.DepartmentListDto;
 import com.feedback.repository.DepartmentRepository;;
 
 @TestInstance(Lifecycle.PER_CLASS)
@@ -108,11 +108,11 @@ class DepartmentServiceImplTest {
 
     when(departmentRepository.findAll()).thenReturn(sampleDepartments);
 
-    List<DepartmentListDTO> result = departmentService.getAllDepartments();
+    List<DepartmentListDto> result = departmentService.getAllDepartments();
 
-    List<DepartmentListDTO> expected = sampleDepartments.stream()
+    List<DepartmentListDto> expected = sampleDepartments.stream()
       .map(department -> {
-        DepartmentListDTO deptDTO = new DepartmentListDTO();
+        DepartmentListDto deptDTO = new DepartmentListDto();
         deptDTO.setDeptId(department.getDeptId());
         deptDTO.setDeptName(department.getDeptName());
         return deptDTO;
@@ -173,11 +173,11 @@ class DepartmentServiceImplTest {
 
       when(departmentRepository.findAll(any(Pageable.class))).thenReturn(samplePage);
 
-      List<DepartmentListDTO> result = departmentService.getAllDepartments(0);
+      List<DepartmentListDto> result = departmentService.getAllDepartments(0);
 
-      List<DepartmentListDTO> expected = sampleDepartments.stream()
+      List<DepartmentListDto> expected = sampleDepartments.stream()
               .map(department -> {
-                  DepartmentListDTO deptDTO = new DepartmentListDTO();
+                  DepartmentListDto deptDTO = new DepartmentListDto();
                   deptDTO.setDeptId(department.getDeptId());
                   deptDTO.setDeptName(department.getDeptName());
                   return deptDTO;

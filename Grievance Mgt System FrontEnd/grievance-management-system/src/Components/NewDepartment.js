@@ -55,7 +55,7 @@ function NewDepartment() {
   return (
     <div className="modal-wrapper">
       <div className="new-department-card">
-        <h1 className="new-department-title">Create a Department</h1>
+        <h1 className="new-department-title">Add Department</h1>
         <form onSubmit={handleSubmit}>
           <label>
             Department Name: <p className="error">{departmentNameError}</p>{" "}

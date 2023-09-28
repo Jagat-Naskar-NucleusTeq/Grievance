@@ -6,7 +6,7 @@ import java.util.Objects;
 /**
  * DTO class for representing a new ticket.
  */
-public class NewTicketDTO {
+public class TicketDto {
 
   /**
    * The ID of the ticket.
@@ -208,7 +208,7 @@ public class NewTicketDTO {
    * @param deptNamee The department name.
    *
    */
-  public NewTicketDTO(final Long ticketIdd,
+  public TicketDto(final Long ticketIdd,
           final String ticketTitlee,
           final String ticketTypee,
           final EStatus ticketStatuss,
@@ -227,7 +227,7 @@ public class NewTicketDTO {
   /**
    * Default constructor.
    */
-  public NewTicketDTO() {
+  public TicketDto() {
     // Default constructor
   }
 
@@ -259,7 +259,7 @@ public class NewTicketDTO {
     if (getClass() != obj.getClass()) {
       return false;
     }
-    NewTicketDTO other = (NewTicketDTO) obj;
+    TicketDto other = (TicketDto) obj;
     return Objects.equals(deptName, other.deptName)
       && Objects.equals(senderEmail, other.senderEmail)
       && Objects.equals(ticketDescription, other.ticketDescription)

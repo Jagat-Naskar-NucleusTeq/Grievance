@@ -22,12 +22,11 @@ import com.feedback.entities.EStatus;
 import com.feedback.entities.Ticket;
 import com.feedback.entities.User;
 import com.feedback.mapper.EStatusConverter;
-import com.feedback.payloads.comment_dto.getCommentDTOout;
-import com.feedback.payloads.ticket_dto.GetTicketsDTOin;
-import com.feedback.payloads.ticket_dto.NewTicketDTO;
+import com.feedback.payloads.comment_dto.GetCommentDtoOut;
+import com.feedback.payloads.ticket_dto.GetTicketsDtoIn;
+import com.feedback.payloads.ticket_dto.TicketDto;
 import com.feedback.payloads.ticket_dto.UpdateTicketDTOin;
-import com.feedback.payloads.ticket_dto.getTicketDTOout;
-import com.feedback.repository.CommentRepository;
+import com.feedback.payloads.ticket_dto.GetTicketDtoOut;
 import com.feedback.repository.DepartmentRepository;
 import com.feedback.repository.TicketRepository;
 import com.feedback.repository.UserRepository;
@@ -57,11 +56,8 @@ public class TicketServiceImpl implements TicketService {
   @Autowired
   private UserRepository userRepository;
 
-  /**
-   * CommentRepository object.
-   */
-  @Autowired
-  CommentRepository commentRepository;
+  //@Autowired
+//  private CommentRepository commentRepository;
 
   /**
    * saving a new ticket.
@@ -71,7 +67,7 @@ public class TicketServiceImpl implements TicketService {
    * @return saved ticket.
    */
   @Override
-  public Ticket saveTicket(final NewTicketDTO ticket) {
+  public Ticket saveTicket(final TicketDto ticket) {
     LocalDateTime currentDateTime = LocalDateTime.now();
     Ticket newTicket = new Ticket();
     newTicket.setTicketCreationTime(currentDateTime);
@@ -103,8 +99,9 @@ public class TicketServiceImpl implements TicketService {
    * @return list of ticket.
    */
   @Override
-  public List<getTicketDTOout> getTickets(
-      final GetTicketsDTOin getTicketsDTOin) {
+  public List<GetTicketDtoOut> getTickets(
+      final GetTicketsDtoIn getTicketsDTOin) {
+    final int noOfElementInPage = 5;
     boolean isDepartmentBased = false;
     boolean isAssignByOwn = false;
     EStatus filterStatus = null;
@@ -125,7 +122,7 @@ public class TicketServiceImpl implements TicketService {
             .decode(getTicketsDTOin.getEmail()));
     if (userRepository.existsByUserName(decodedSenderEmail)) {
       User user = userRepository.getUserByUsername(decodedSenderEmail);
-      Pageable pageable = PageRequest.of(getTicketsDTOin.getPageNumber(), 5);
+      Pageable pageable = PageRequest.of(getTicketsDTOin.getPageNumber(), noOfElementInPage);
       List<Ticket> outPutlist = null;
       int departId = user.getDepartment().getDeptId();
       if (isDepartmentBased) {
@@ -160,12 +157,12 @@ public class TicketServiceImpl implements TicketService {
       if (outPutlist == null) {
         throw new TicketNotFoundException("Ticket not found.");
       }
-      List<getTicketDTOout> OUTPUTLIST = outPutlist.stream()
+      List<GetTicketDtoOut> outPutList = outPutlist.stream()
               .map(this::convertToDTO)
-              .sorted(Comparator.comparing(getTicketDTOout::getTicketStatus,
+              .sorted(Comparator.comparing(GetTicketDtoOut::getTicketStatus,
                   EStatus.getStatusComparator()))
               .collect(Collectors.toList());
-      return OUTPUTLIST;
+      return outPutList;
     } else {
       throw new UserNotFoundException(decodedSenderEmail);
     }
@@ -178,11 +175,11 @@ public class TicketServiceImpl implements TicketService {
    *
    * @return ticket information.
    */
-  private getTicketDTOout convertToDTO(final Ticket ticket) {
+  private GetTicketDtoOut convertToDTO(final Ticket ticket) {
     if (ticket == null) {
       throw new TicketNotFoundException("No ticket available.");
     }
-    getTicketDTOout dto = new getTicketDTOout();
+    GetTicketDtoOut dto = new GetTicketDtoOut();
     dto.setTicketId(ticket.getTicketId());
     dto.setTitle(ticket.getTicketTitle());
     dto.setCreationTime(ticket.getTicketCreationTime());
@@ -194,9 +191,9 @@ public class TicketServiceImpl implements TicketService {
 
     // Fetch and set comments for this ticket
     //List<Comment> comments = commentRepository.findByTicket(ticket);
-    //    List<getCommentDTOout> commentDTOs = comments.stream()
+    //    List<GetCommentDtoOut> commentDTOs = comments.stream()
     //        .map(comment -> {
-    //            getCommentDTOout commentDTO = new getCommentDTOout();
+    //            GetCommentDtoOut commentDTO = new GetCommentDtoOut();
     //        commentDTO.setCommentId(comment.getCommentId());
     //        commentDTO.setCommentMessage(comment.getCommentMessage());
     //        commentDTO.setCommentedByUser(ticket.getUser().getName());
@@ -240,7 +237,7 @@ public class TicketServiceImpl implements TicketService {
     }
     LocalDateTime lastUpdateTime = LocalDateTime.now();
     ticket2.setLastUpdatedTime(lastUpdateTime);
-    if (updateTicketDTOin.getComment() != null 
+    if (updateTicketDTOin.getComment() != null
         && updateTicketDTOin.getComment() != "") {
       ticket2.addComment(updateTicketDTOin.getComment());
     }
@@ -262,12 +259,12 @@ public class TicketServiceImpl implements TicketService {
    * @return The ticket information.
    */
   @Override
-  public getTicketDTOout getByTicketById(final Long ticketId) {
+  public GetTicketDtoOut getByTicketById(final Long ticketId) {
     if (!ticketRepository.existsById(ticketId)) {
       return null;
     }
     Optional<Ticket> ticket = ticketRepository.findById(ticketId);
-    getTicketDTOout t1 = new getTicketDTOout();
+    GetTicketDtoOut t1 = new GetTicketDtoOut();
     t1.setTicketId(ticketId);
     t1.setTitle(ticket.get().getTicketTitle());
     t1.setCreatedBy(ticket.get().getTicketAssignedBy());
@@ -278,7 +275,7 @@ public class TicketServiceImpl implements TicketService {
     t1.setCreatedBy(ticket.get().getTicketAssignedBy());
     t1.setDepartmentName(ticket.get().getDepartment().getDeptName());
     t1.setTicketDescription(ticket.get().getTicketDescription());
-    List<getCommentDTOout> dtoList = convertToDTOList(ticket
+    List<GetCommentDtoOut> dtoList = convertToDTOList(ticket
         .get()
         .getComments());
     t1.setComments(dtoList);
@@ -291,11 +288,11 @@ public class TicketServiceImpl implements TicketService {
    * @param commentList The list of comments to convert.
    * @return The list of comment DTOs.
    */
-  public List<getCommentDTOout> convertToDTOList(
+  public List<GetCommentDtoOut> convertToDTOList(
       final List<Comment> commentList) {
-    List<getCommentDTOout> dtoList = new ArrayList<>();
+    List<GetCommentDtoOut> dtoList = new ArrayList<>();
     for (Comment comment : commentList) {
-      getCommentDTOout dto = new getCommentDTOout();
+      GetCommentDtoOut dto = new GetCommentDtoOut();
       dto.setCommentedByUser(comment.getUser1().getName());
       dto.setCommentMessage(comment.getCommentMessage());
       dto.setCommentId(comment.getCommentId());

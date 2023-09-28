@@ -5,7 +5,7 @@ import java.util.Objects;
 /**
  * Data Transfer Object for password change information.
  */
-public class PasswordChangeDTOin {
+public class PasswordChangeDtoin {
 
   /**
    * userName.
@@ -39,7 +39,7 @@ public class PasswordChangeDTOin {
    * @param confirmNewPasswordd of the new password.
    *
    */
-  public PasswordChangeDTOin(final String userNamee, 
+  public PasswordChangeDtoin(final String userNamee,
           final String oldPasswordd,
           final String newPasswordd,
           final String confirmNewPasswordd) {
@@ -53,7 +53,7 @@ public class PasswordChangeDTOin {
   /**
    * Default constructor for PasswordChangeDTOin.
    */
-  public PasswordChangeDTOin() {
+  public PasswordChangeDtoin() {
     super();
   }
 
@@ -173,7 +173,7 @@ public class PasswordChangeDTOin {
     if (getClass() != obj.getClass()) {
       return false;
     }
-    PasswordChangeDTOin other = (PasswordChangeDTOin) obj;
+    PasswordChangeDtoin other = (PasswordChangeDtoin) obj;
     return Objects.equals(confirmNewPassword, other.confirmNewPassword)
             && Objects.equals(newPassword, other.newPassword)
             && Objects.equals(oldPassword, other.oldPassword)

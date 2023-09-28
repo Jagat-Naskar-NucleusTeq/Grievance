@@ -5,7 +5,7 @@ import java.util.Objects;
 /**
  * UserProfileDTOout class.
  */
-public class UserProfileDTOout {
+public class UserProfileDtoOut {
 
   /**
    * name.
@@ -153,7 +153,7 @@ public class UserProfileDTOout {
    * @param departmentNamee
    *
    */
-  public UserProfileDTOout(final String namee,
+  public UserProfileDtoOut(final String namee,
       final String userNamee,
       final String passwordd,
       final String userTypee,
@@ -169,7 +169,7 @@ public class UserProfileDTOout {
   /**
    * UserProfileDTOout, no args constructor.
    */
-  public UserProfileDTOout() {
+  public UserProfileDtoOut() {
     super();
   }
 
@@ -195,7 +195,7 @@ public class UserProfileDTOout {
     if (getClass() != obj.getClass()) {
       return false;
     }
-    UserProfileDTOout other = (UserProfileDTOout) obj;
+    UserProfileDtoOut other = (UserProfileDtoOut) obj;
     return Objects.equals(departmentName, other.departmentName)
         && Objects.equals(name, other.name)
         && Objects.equals(password, other.password)

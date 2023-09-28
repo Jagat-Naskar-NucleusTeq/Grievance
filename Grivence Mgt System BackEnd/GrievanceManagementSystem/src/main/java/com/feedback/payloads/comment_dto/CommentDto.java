@@ -6,7 +6,7 @@ import com.feedback.entities.User;
 /**
  * DTO class for Comment entity.
  */
-public class CommentDTO {
+public class CommentDto {
 
   /**
    * Identifier for the comment.
@@ -115,7 +115,7 @@ public class CommentDTO {
    * @param user11
    *
    */
-  public CommentDTO(final int commentIdd,
+  public CommentDto(final int commentIdd,
       final String commentMessagee,
       final User user11) {
     this.commentId = commentIdd;
@@ -126,7 +126,7 @@ public class CommentDTO {
   /**
    * Default constructor.
    */
-  public CommentDTO() {
+  public CommentDto() {
     // Default constructor
   }
 
@@ -142,7 +142,7 @@ public class CommentDTO {
    * @param tickett
    *
    */
-  public CommentDTO(final int commentIdd,
+  public CommentDto(final int commentIdd,
           final String commentMessagee,
           final User user11,
           final Ticket tickett) {

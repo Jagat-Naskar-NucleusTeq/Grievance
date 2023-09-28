@@ -5,13 +5,13 @@ import org.springframework.stereotype.Service;
 
 import com.feedback.entities.User;
 import com.feedback.repository.UserRepository;
-import com.feedback.service.authorization_service;
+import com.feedback.service.AuthorizationService;
 
 /**
  * AuthenticationService class.
  */
 @Service
-public class AuthenticationService implements authorization_service {
+public class AuthenticationServiceImpl implements AuthorizationService {
 
   /**
    * UserRepository object.

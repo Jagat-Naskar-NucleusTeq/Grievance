@@ -20,5 +20,5 @@ public interface DepartmentRepository extends
   *
   * @return The department with the specified name.
   */
-  Department findByDeptName(final String deptName);
+  Department findByDeptName(String deptName);
 }

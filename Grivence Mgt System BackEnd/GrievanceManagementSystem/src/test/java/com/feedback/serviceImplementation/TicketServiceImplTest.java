@@ -22,7 +22,7 @@ import org.springframework.data.domain.Pageable;
 
 import com.feedback.custom_exception.UserNotFoundException;
 import com.feedback.entities.*;
-import com.feedback.payloads.comment_dto.getCommentDTOout;
+import com.feedback.payloads.comment_dto.GetCommentDtoOut;
 import com.feedback.payloads.ticket_dto.*;
 import com.feedback.repository.*;
 
@@ -76,15 +76,15 @@ class TicketServiceImplTest {
     @Test
     void testSaveTicket() {
         // Arrange
-        NewTicketDTO newTicketDTO = new NewTicketDTO();
-        newTicketDTO.setTicketId(1L);
-        newTicketDTO.setTicketTitle("Test Ticket");
-        newTicketDTO.setTicketType("Test Type");
-        newTicketDTO.setTicketStatus(EStatus.Open);
-        newTicketDTO.setTicketDescription("Test Description");
-        newTicketDTO.setDeptName("HR");
-        newTicketDTO.setSenderEmail("amFnYXRAbnVjbGV1c3Rlc3QuY29t"); // jagat@nucleusteq.com
-        byte[] decodedBytes = Base64.getDecoder().decode(newTicketDTO.getSenderEmail());
+        TicketDto ticketDto = new TicketDto();
+        ticketDto.setTicketId(1L);
+        ticketDto.setTicketTitle("Test Ticket");
+        ticketDto.setTicketType("Test Type");
+        ticketDto.setTicketStatus(EStatus.Open);
+        ticketDto.setTicketDescription("Test Description");
+        ticketDto.setDeptName("HR");
+        ticketDto.setSenderEmail("amFnYXRAbnVjbGV1c3Rlc3QuY29t"); // jagat@nucleusteq.com
+        byte[] decodedBytes = Base64.getDecoder().decode(ticketDto.getSenderEmail());
         String decodedEmail = new String(decodedBytes);
 
         LocalDateTime currentDateTime = LocalDateTime.of(2023, 9, 15, 12, 30);
@@ -97,14 +97,14 @@ class TicketServiceImplTest {
             false, null, null, department);
 
         
-        Ticket ticket = new Ticket(newTicketDTO.getTicketId(),
-            newTicketDTO.getTicketTitle(),
-            newTicketDTO.getTicketType(), 
-            newTicketDTO.getTicketStatus(),
+        Ticket ticket = new Ticket(ticketDto.getTicketId(),
+            ticketDto.getTicketTitle(),
+            ticketDto.getTicketType(), 
+            ticketDto.getTicketStatus(),
             decodedEmail,
             currentDateTime,
             currentDateTime,
-            newTicketDTO.getTicketDescription(),
+            ticketDto.getTicketDescription(),
             user,
             department,
             null);
@@ -115,7 +115,7 @@ class TicketServiceImplTest {
         when(ticketRepository.save(ticket)).thenReturn(ticket);
 
         // Act
-        Ticket savedTicket = ticketService.saveTicket(newTicketDTO);
+        Ticket savedTicket = ticketService.saveTicket(ticketDto);
         System.out.println("Test saved ticket ="+savedTicket);
         // Assert check not working
 //        assertNotNull(savedTicket);
@@ -151,7 +151,7 @@ class TicketServiceImplTest {
     @Test
     public void testGetTicketsAll_success() {
 
-        GetTicketsDTOin getTicketsDTOin = new GetTicketsDTOin("am1lQG51Y2xldXN0ZXEuY29t", "false", "false", "", 1);
+        GetTicketsDtoIn getTicketsDTOin = new GetTicketsDtoIn("am1lQG51Y2xldXN0ZXEuY29t", "false", "false", "", 1);
 
         when(userRepository.existsByUserName("jme@nucleusteq.com")).thenReturn(true);
         
@@ -175,7 +175,7 @@ class TicketServiceImplTest {
         when(ticketRepository.findAll(pageable)).thenReturn(page);
         when(ticketRepository.findByTicketStatus(EStatus.Open, pageable)).thenReturn(page);
 
-        List<getTicketDTOout> result = ticketService.getTickets(getTicketsDTOin);
+        List<GetTicketDtoOut> result = ticketService.getTickets(getTicketsDTOin);
 
         assertNotNull(result);
 
@@ -184,7 +184,7 @@ class TicketServiceImplTest {
     @Test
     void testGetTickets_UserNotFound() {
 
-        GetTicketsDTOin getTicketsDTOin = new GetTicketsDTOin("am1lQG51Y2xldXN0ZXFjb20=", "false", "false", "", 1);
+        GetTicketsDtoIn getTicketsDTOin = new GetTicketsDtoIn("am1lQG51Y2xldXN0ZXFjb20=", "false", "false", "", 1);
 
         when(userRepository.existsByUserName(anyString())).thenReturn(false);
 
@@ -197,7 +197,7 @@ class TicketServiceImplTest {
 //    @Test
 //    void testGetTickets_DepartmentBased() {
 //
-//        GetTicketsDTOin getTicketsDTOin = new GetTicketsDTOin();
+//        GetTicketsDtoIn getTicketsDTOin = new GetTicketsDtoIn();
 //        getTicketsDTOin.setDepartmentBased("true");
 //
 //        User user = new User();
@@ -213,7 +213,7 @@ class TicketServiceImplTest {
 //        when(ticketRepository.findByDepartment(any(Department.class), any(Pageable.class)))
 //            .thenReturn(new PageImpl<>(Collections.singletonList(ticket)));
 //
-//        List<getTicketDTOout> result = ticketService.getTickets(getTicketsDTOin);
+//        List<GetTicketDtoOut> result = ticketService.getTickets(getTicketsDTOin);
 //
 //        assertNotNull(result);
 //        assertEquals(1, result.size());
@@ -235,10 +235,10 @@ class TicketServiceImplTest {
         when(ticketRepository.existsById(ticketId)).thenReturn(true);
         when(ticketRepository.findById(ticketId)).thenReturn(Optional.of(ticket));
 
-        getTicketDTOout result = ticketService.getByTicketById(ticketId);
+        GetTicketDtoOut result = ticketService.getByTicketById(ticketId);
 
         assertNotNull(result);
-        // Add assertions for the properties of getTicketDTOout
+        // Add assertions for the properties of GetTicketDtoOut
     }
 
     @Test
@@ -246,7 +246,7 @@ class TicketServiceImplTest {
         Long ticketId = 2L;
         when(ticketRepository.existsById(ticketId)).thenReturn(false);
 
-        getTicketDTOout result = ticketService.getByTicketById(ticketId);
+        GetTicketDtoOut result = ticketService.getByTicketById(ticketId);
 
         assertNull(result);
     }
@@ -275,7 +275,7 @@ class TicketServiceImplTest {
         comment2.setCommentId(2);
         commentList.add(comment2);
 
-        List<getCommentDTOout> dtoList = convertToDTOList(commentList);
+        List<GetCommentDtoOut> dtoList = convertToDTOList(commentList);
 
         assertNotNull(dtoList);
 
@@ -290,10 +290,10 @@ class TicketServiceImplTest {
         assertEquals(2, dtoList.get(1).getCommentId());
     }
 
-    public List<getCommentDTOout> convertToDTOList(final List<Comment> commentList) {
-        List<getCommentDTOout> dtoList = new ArrayList<>();
+    public List<GetCommentDtoOut> convertToDTOList(final List<Comment> commentList) {
+        List<GetCommentDtoOut> dtoList = new ArrayList<>();
         for (Comment comment : commentList) {
-            getCommentDTOout dto = new getCommentDTOout();
+            GetCommentDtoOut dto = new GetCommentDtoOut();
             dto.setCommentedByUser(comment.getUser1().getName());
             dto.setCommentMessage(comment.getCommentMessage());
             dto.setCommentId(comment.getCommentId());

@@ -3,9 +3,9 @@ package com.feedback.payloads.user_dto;
 import java.util.Objects;
 
 /**
- * getAllUsersDTOout class.
+ * GetAllUsersDtoOut class.
  */
-public class getAllUsersDTOout {
+public class GetAllUsersDtoOut {
   /**
    * The unique ID of the user.
   */
@@ -149,7 +149,7 @@ public class getAllUsersDTOout {
     if (getClass() != obj.getClass()) {
       return false;
     }
-    getAllUsersDTOout other = (getAllUsersDTOout) obj;
+    GetAllUsersDtoOut other = (GetAllUsersDtoOut) obj;
     return Objects.equals(departmentName, other.departmentName)
             && id == other.id && Objects.equals(name, other.name)
             && Objects.equals(userName, other.userName)
@@ -161,7 +161,7 @@ public class getAllUsersDTOout {
   */
   @Override
   public String toString() {
-    return "getAllUsersDTOout [id=" + id
+    return "GetAllUsersDtoOut [id=" + id
             + ", name=" + name
             + ", userName=" + userName
             + ", userType=" + userType
@@ -182,7 +182,7 @@ public class getAllUsersDTOout {
    * @param departmentNamee The name of the department.
    *
    */
-  public getAllUsersDTOout(final int idd,
+  public GetAllUsersDtoOut(final int idd,
           final String namee,
           final String userNamee,
           final String userTypee,
@@ -198,7 +198,7 @@ public class getAllUsersDTOout {
   /**
    * Default constructor.
    */
-  public getAllUsersDTOout() {
+  public GetAllUsersDtoOut() {
     super();
   }
 }
