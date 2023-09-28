@@ -11,6 +11,78 @@
     background-color: rgba(179, 176, 211, 0.671);
     box-shadow: 4px 0px 6px rgba(0, 0, 0, 0.1);
   }
+
+
+
+
+
+
+
+
+  .sub-menu-container {
+    position: relative;
+    background-color: rgb(223, 38, 130);
+  }
+  
+  .sub-menu1 {
+    display: none;
+    position: absolute;
+    top: 0;
+    left: 100%; /* Position sub-menu to the right of parent */
+    background-color: #ff1919;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    border-radius: 0 5px 5px 5px; /* Adjust border radius as needed */
+    width: 150px; /* Adjust width as needed */
+  }
+  
+  .AD-li:hover .sub-menu1 {
+    display: block;
+    background-color: green;
+  }
+  
+  /* If you want to hide sub-menu when the parent loses focus */
+  .AD-li:focus-within .sub-menu1 {
+    display: block;
+    background-color: orange;
+  }
+  
+  .sub-menu1 a {
+    display: block;
+    padding: 10px;
+    text-align: center;
+    color: #000000;
+    text-decoration: none;
+    transition: background-color 0.8s ease;
+    background-color: yellow;
+  }
+  
+  .sub-menu1 a:hover {
+    background-color: #e1d7e6;
+    background-color: brown;
+  }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
   .admin-content {
     /* height: 89.3vh; */
     height: 82.8vh;

@@ -109,12 +109,12 @@ export default function NewUser() {
   return (
     <div>
       <form className="NU-reg-form" onSubmit={handleSubmit} method="post">
-        
         <div className="NU-parent">
-        <h2 className="NU-reg-heading">Fill Details of New Users</h2>
+          <h2 className="NU-reg-heading">Add User</h2>
           <div className="NU-container1">
             <label className="NU-label-user">
-              Name <p className="NU-error1">{nameError}</p>{" "}
+              Name<span className="astrix">*</span>{" "}
+              <p className="NU-error1">{nameError}</p>{" "}
             </label>
             <input
               className="NU-input-user"
@@ -128,7 +128,8 @@ export default function NewUser() {
               }}
             />
             <label className="NU-label-user">
-              Username <p className="NU-error1">{usernameError}</p>{" "}
+              Username<span className="astrix">*</span>{" "}
+              <p className="NU-error1">{usernameError}</p>{" "}
             </label>
 
             <input
@@ -143,7 +144,8 @@ export default function NewUser() {
               }}
             />
             <label className="NU-label-user">
-              Initial Password <p className="NU-error1">{passwordError}</p>{" "}
+              Initial Password<span className="astrix">*</span>{" "}
+              <p className="NU-error1">{passwordError}</p>{" "}
             </label>
             <input
               className="NU-input-user"
@@ -164,7 +166,8 @@ export default function NewUser() {
           </div>
           <div className="NU-container2">
             <label className="NU-label-user">
-              User Type <p className="NU-error1">{userTypeError}</p>{" "}
+              User Type<span className="astrix">*</span>{" "}
+              <p className="NU-error1">{userTypeError}</p>{" "}
             </label>
             <select
               className="NU-input-user"
@@ -183,7 +186,8 @@ export default function NewUser() {
             </select>
 
             <label className="NU-label-user">
-              Department <p className="NU-error1">{deptNameError}</p>{" "}
+              Department<span className="astrix">*</span>{" "}
+              <p className="NU-error1">{deptNameError}</p>{" "}
             </label>
             <select
               className="NU-input-user"
@@ -204,7 +208,10 @@ export default function NewUser() {
               ))}
             </select>
 
-            <button className="NU-button" type="submit"> Add User </button>
+            <button className="NU-button" type="submit">
+              {" "}
+              Add User{" "}
+            </button>
           </div>
         </div>
       </form>

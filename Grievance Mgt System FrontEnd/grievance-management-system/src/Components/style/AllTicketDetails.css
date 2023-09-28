@@ -11,6 +11,7 @@ table {
   }
   
   th {
+    
     background-color: #514b4b35; 
   }
   
@@ -84,6 +85,9 @@ table {
     
   }
 
+  /* .full-details .all-button .AT-allTickets, .AT-deptTickets, .AT-myTickets :hover{
+    background-color: red;
+  } */
   
   @media (max-width: 767px) {
     th, td {
@@ -92,10 +96,13 @@ table {
   }
 
 
-
-  
   button.active {
     /* margin-top: 8px; */
+    background-color: #3d0852; 
+    color: white;
+  }
+  
+ .all-button .active:focus {
     background-color: #3d0852; 
     color: white;
   }

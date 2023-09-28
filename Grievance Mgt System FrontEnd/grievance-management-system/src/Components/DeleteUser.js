@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import "../Components/style/DeleteUser.css";
 import ConfirmationBox from "./CommonComponents/ConfirmationBox";
+import CustomAlert from "../Components/CommonComponents/CustomAlert";
 
 function DeleteUser() {
   const [users, setUsers] = useState([]);
@@ -8,6 +9,9 @@ function DeleteUser() {
 
   const [deleteState, setDeleteState] = useState("");
   const [showConfirmation, setShowConfirmation] = useState(false);
+
+  const [showAlert, setShowAlert] = useState(false);
+  const [message1, setMessage1] = useState("");
 
   const handleNextPage = () => {
     setCurrentPage(currentPage + 1);
@@ -17,6 +21,13 @@ function DeleteUser() {
     if (currentPage > 0) {
       setCurrentPage(currentPage - 1);
     }
+  };
+
+  const handleShowAlert = () => {
+    setShowAlert(true);
+  };
+  const handleCloseAlert = () => {
+    setShowAlert(false);
   };
 
   const getAllUsers = (currentPage) => {
@@ -57,6 +68,9 @@ function DeleteUser() {
           setUsers((prevUsers) =>
             prevUsers.filter((user) => user.id !== deleteState)
           );
+          setCurrentPage(0);
+          setMessage1("Deleted Successfully...");  
+          handleShowAlert();
         } else {
           console.error("Error deleting user:", response.statusText);
         }
@@ -126,8 +140,9 @@ function DeleteUser() {
           {currentPage + 1}
           <button
             className="paging-btn"
-            onClick={handleNextPage}
             disabled={5 > users.length || users.length <= 0}
+            onClick={handleNextPage}
+            
           >
             Next
           </button>
@@ -136,11 +151,18 @@ function DeleteUser() {
       <div>
         {showConfirmation && (
           <ConfirmationBox
-            message="Are you sure you want to proceed?"
+            message="Are you sure ?"
             onConfirm={handleConfirm}
             onCancel={handleCancel}
           />
         )}
+
+{showAlert && (
+            <CustomAlert
+              message={message1}
+              handleCloseAlert={handleCloseAlert}
+            />
+          )}
       </div>
     </>
   );

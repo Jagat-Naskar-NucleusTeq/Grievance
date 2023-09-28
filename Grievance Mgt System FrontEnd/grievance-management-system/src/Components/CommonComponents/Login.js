@@ -4,6 +4,7 @@ import axios from "axios";
 import React, { useState } from "react";
 import CustomAlert from "./CustomAlert";
 import { doLogin, setLoggedIn } from "../..";
+import imageSrc from "../images/login-image.png";
 
 const Login = () => {
   const [username, setUsername] = useState("");
@@ -14,6 +15,7 @@ const Login = () => {
   const [message, setMessage] = useState("");
   const [post, setPost] = useState({ email: "", password: "" });
   let navigatee = useNavigate();
+  
 
   const handleShowAlert = () => {
     setShowAlert(true);
@@ -108,13 +110,16 @@ const Login = () => {
         <h1>Greviance Management System</h1>
       </div>
       <div className="login-page">
+        <div className="login-image">
+        <img src={imageSrc} alt="Description of the image" style={{ width: '25%' }}/>
+        </div>
         <h2>Login</h2>
         <div className="error1">
           {error && <p className="error-message">{error}</p>}
         </div>
         <form onSubmit={handleLogin} method="post">
           <div className="form-group">
-            <label id="label-username">Username*</label>
+            <label id="label-username">Username<span className="astrix">*</span></label>
             <input
               type="text"
               id="username"
@@ -127,7 +132,7 @@ const Login = () => {
             )}
           </div>
           <div className="form-group">
-            <label id="label-password">Password*</label>
+            <label id="label-password">Password<span className="astrix">*</span></label>
             <input
               type="password"
               id="password"

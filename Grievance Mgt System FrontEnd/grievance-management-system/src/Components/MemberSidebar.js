@@ -20,7 +20,7 @@ function MemberSidebar() {
 
   return (
     <>
-      {localStorage.setItem("Admin_Role", "member")}
+      {/* {localStorage.setItem("Admin_Role", "member")} */}
       <Header name={localStorage.getItem("session_user_name")} role="member" />
       <div className="container" style={{ display: "flex" }}>
         <div className={`sidebar ${sidebarExpanded ? "expanded" : ""}`}>
