@@ -1,5 +1,7 @@
 package com.feedback.mapper;
 
+import java.util.Locale;
+
 import com.feedback.entities.EStatus;
 
 /**
@@ -16,7 +18,7 @@ public class EStatusConverter {
      * @return The corresponding EStatus enum value, or null if not found.
      */
     public static EStatus convertStringToEStatus(final String eStatus) {
-        switch (eStatus.toLowerCase()) {
+        switch (eStatus.toLowerCase(Locale.ENGLISH)) {
             case "open" :
                 return EStatus.Open;
             case "being_addressed" :

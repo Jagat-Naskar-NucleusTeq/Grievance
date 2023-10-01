@@ -1,108 +1,102 @@
 table {
-    width: 100%;
-    border-collapse: collapse;
-    margin-bottom: 20px;
-  }
-  
-  th, td {
-    padding: 10px;
-    text-align: left;
-    border-bottom: 1px solid #cccccc;
-  }
-  
-  th {
-    
-    background-color: #514b4b35; 
-  }
-  
-  button {
-    padding: 8px 16px;
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 20px;
+  width: 50vw;
+  height: 50vh;
+}
+
+th,
+td {
+  padding: 10px;
+  text-align: left;
+  border-bottom: 1px solid #cccccc;
+}
+
+th {
+  background-color: #514b4b35;
+}
+
+button {
+  padding: 2px 5px;
+  font-size: 14px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+button.edit-btn {
+  background-color: #4caf4f1f;
+  color: black;
+  border: solid 1px black;
+  height: 30px;
+  width: 50px;
+}
+
+button.expand-btn {
+  background-color: #00808017;
+  color: #000000;
+  border: solid 1px black;
+  height: 30px;
+  width: 50px;
+}
+
+.AT-Empty-list {
+  font: italic;
+  text-align: center;
+  font-family: Impact, Haettenschweiler, "Arial Narrow Bold", sans-serif;
+}
+
+.full-details {
+  padding: 10px;
+  border-radius: 4px;
+  margin-top: 10px;
+  box-shadow: 0px -1px 4px 0px gray;
+}
+
+.full-details .all-button {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin-bottom: 5px;
+  border-radius: 4%;
+}
+
+.full-details .all-button .statusFilter {
+  margin-left: 5vw;
+  background-color: rgba(34, 34, 37, 0.3);
+  flex: 1;
+  color: #3c0452;
+  margin: 3px;
+}
+
+.paging-btn {
+  background-color: #0f0925;
+  border: 1px solid white;
+  color: white;
+  margin: 2%;
+}
+
+.full-details .all-button .AT-allTickets,
+.AT-deptTickets,
+.AT-myTickets {
+  margin: 3px;
+  margin-left: 2vh;
+  margin-right: 3vh;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  height: 6vh;
+  color: white;
+  background-color: #0f0925;
+}
+
+@media (max-width: 767px) {
+  th,
+  td {
     font-size: 14px;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
   }
-  
+}
 
-  button.edit-btn {
-    background-color: #4caf4f3b;
-    color: black;
-    border: solid 1px black;
-  }
-  
-  button.expand-btn {
-    background-color: #0080806e;
-    color: #000000;
-    border: solid 1px black;
-  }
-  
-  .AT-Empty-list{
-    font: italic;
-    text-align: center;
-    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
-  }
-  
-  .full-details {
-    background-color: #f0f0f0ce; 
-    padding: 10px;
-    border-radius: 4px;
-    margin-top: 10px;
-  }
-  
-
-
-  .full-details .all-button {
-    /* background-image: url("../images//header2.1.jpg"); */
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    margin-bottom: 5px;
-    border-radius: 4%;
-  }
-
-  .full-details .all-button .statusFilter{
-    margin-left: 5vw;
-    background-color: rgba(34, 34, 37, 0.3);
-    flex: 1;
-    color: #0f0925;
-    margin: 3px;
-  }
-  
-  .paging-btn {
-    background-color: #0f0925;
-    border: 1px solid white;
-    color: white;
-    margin: 2%;
-  }
-  .full-details .all-button .AT-allTickets, .AT-deptTickets, .AT-myTickets{
-    margin: 3px;
-    margin-left: 2vh;
-    margin-right: 3vh;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    height: 6vh;
-    color: white;
-    background-color: #0f0925;
-    
-  }
-
-  /* .full-details .all-button .AT-allTickets, .AT-deptTickets, .AT-myTickets :hover{
-    background-color: red;
-  } */
-  
-  @media (max-width: 767px) {
-    th, td {
-      font-size: 14px;
-    }
-  }
-
-
-  button.active {
-    /* margin-top: 8px; */
-    background-color: #3d0852; 
-    color: white;
-  }
-  
- .all-button .active:focus {
-    background-color: #3d0852; 
-    color: white;
-  }
+button.active {
+  background-color: #3d0852;
+  color: white;
+}

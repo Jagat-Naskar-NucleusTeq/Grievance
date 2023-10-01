@@ -95,9 +95,7 @@ export default function NewUser() {
         setMessage(e.message);
         handleShowAlert();
       }
-      // submitted
     } else {
-      // Display errors
       setNameError(nameError);
       setUsernameError(usernameError);
       setPasswordError(passwordError);
@@ -128,7 +126,7 @@ export default function NewUser() {
               }}
             />
             <label className="NU-label-user">
-              Username<span className="astrix">*</span>{" "}
+              Email<span className="astrix">*</span>{" "}
               <p className="NU-error1">{usernameError}</p>{" "}
             </label>
 

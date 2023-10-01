@@ -1,11 +1,12 @@
 package com.feedback.serviceImplementation;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
-
 import com.feedback.entities.User;
 import com.feedback.repository.UserRepository;
 import com.feedback.service.AuthorizationService;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+import org.springframework.stereotype.Service;
 
 /**
  * AuthenticationService class.
@@ -20,6 +21,12 @@ public class AuthenticationServiceImpl implements AuthorizationService {
   private UserRepository userRepository;
 
   /**
+   * Logger initialization.
+   */
+  private static final Logger LOGGER = LogManager
+        .getLogger(AuthenticationServiceImpl.class);
+
+  /**
    * Authenticates an admin user.
    *
    * @param username The admin user's userName.
@@ -31,17 +38,17 @@ public class AuthenticationServiceImpl implements AuthorizationService {
   @Override
   public boolean authenticateAdmin(
       final String username, final String password) {
-    User user = new User();
     System.out.println("uuuuu = " + username);
     System.out.println("ppppppp = " + password);
     if (userRepository.existsByUserName(username)) {
-      user = userRepository.getUserByUsername(username);
-      if (password.equals(user.getPassword())) {
-        if (user.getUserType().toString().equals("admin")) {
+      User user = userRepository.getUserByUsername(username);
+      if (password.equals(user.getPassword())
+              && user.getUserType().toString().equals("admin")) {
+          LOGGER.info("Authorised = " + true);
           return true;
-        }
       }
     }
+    LOGGER.info("Authorised = " + false);
     return false;
   }
 }

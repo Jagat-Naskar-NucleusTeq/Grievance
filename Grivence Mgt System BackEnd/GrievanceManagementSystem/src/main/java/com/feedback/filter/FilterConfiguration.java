@@ -21,13 +21,13 @@ public class FilterConfiguration {
   /**
    * Constructor for FilterConfiguration.
    *
-   * @param authenticationServiceImpl The AuthenticationService to be injected.
+   * @param authenticationServiceImpll The AuthenticationService to be injected.
    *
    */
   @Autowired
   public FilterConfiguration(
-      final AuthenticationServiceImpl authenticationServiceImpl) {
-    this.authenticationServiceImpl = authenticationServiceImpl;
+      final AuthenticationServiceImpl authenticationServiceImpll) {
+    this.authenticationServiceImpl = authenticationServiceImpll;
   }
 
   /**

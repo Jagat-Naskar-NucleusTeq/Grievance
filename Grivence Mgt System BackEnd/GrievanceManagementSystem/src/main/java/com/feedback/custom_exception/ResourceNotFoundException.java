@@ -27,10 +27,10 @@ public class ResourceNotFoundException extends RuntimeException {
     }
 
     /**
-     * @param resourceName the resourceName to set
+     * @param resourceNamee the resourceName to set
      */
-    public void setResourceName(final String resourceName) {
-        this.resourceName = resourceName;
+    public void setResourceName(final String resourceNamee) {
+        this.resourceName = resourceNamee;
     }
 
     /**
@@ -41,10 +41,10 @@ public class ResourceNotFoundException extends RuntimeException {
     }
 
     /**
-     * @param fieldName the fieldName to set
+     * @param fieldNamee the fieldName to set
      */
-    public void setFieldName(final String fieldName) {
-        this.fieldName = fieldName;
+    public void setFieldName(final String fieldNamee) {
+        this.fieldName = fieldNamee;
     }
 
     /**
@@ -55,10 +55,10 @@ public class ResourceNotFoundException extends RuntimeException {
     }
 
     /**
-     * @param fieldValue the fieldValue to set
+     * @param fieldValuee the fieldValue to set
      */
-    public void setFieldValue(final Long fieldValue) {
-        this.fieldValue = fieldValue;
+    public void setFieldValue(final Long fieldValuee) {
+        this.fieldValue = fieldValuee;
     }
 
     /**
@@ -70,16 +70,16 @@ public class ResourceNotFoundException extends RuntimeException {
 
     /**
      * Resource not found field constructor.
-     * @param resourceName
-     * @param fieldName
-     * @param fieldValue
+     * @param resourceNamee
+     * @param fieldNamee
+     * @param fieldValuee
      */
-    public ResourceNotFoundException(final String resourceName,
-            final String fieldName, final long fieldValue) {
-        super(String.format("%s not found with %s : %s", resourceName,
-                fieldName, fieldValue));
-        this.resourceName = resourceName;
-        this.fieldName = fieldName;
-        this.fieldValue = fieldValue;
+    public ResourceNotFoundException(final String resourceNamee,
+            final String fieldNamee, final long fieldValuee) {
+        super(String.format("%s not found with %s : %s", resourceNamee,
+                fieldNamee, fieldValuee));
+        this.resourceName = resourceNamee;
+        this.fieldName = fieldNamee;
+        this.fieldValue = fieldValuee;
     }
 }

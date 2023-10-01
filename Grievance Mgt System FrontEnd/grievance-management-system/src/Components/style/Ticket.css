@@ -2,13 +2,12 @@
   max-width: 800px;
   margin: 0 auto;
   padding: 20px;
-  background-color: #8b8ca1;
+
   border-radius: 5px;
-  box-shadow: 10px 10px 10px rgba(0.5, 0, 0, 0.6);
-  border: 1px solid white;
+  box-shadow: 1px 4px 10px rgba(0.5, 0, 0, 0.6);
+
   justify-content: center;
 }
-
 .Tsub-structure {
   display: flex;
 }
@@ -34,12 +33,12 @@
 .Tticket-form select {
   width: 100%;
   padding: 10px;
-  border: 1px solid #ccc;
+  border: 1px solid #745d5d83;
   border-radius: 5px;
 }
 
 .Tticket-form select {
-  height: 40px; /* Adjust height as needed */
+  height: 40px;
 }
 
 .Tticket-form .Terror {
@@ -57,9 +56,8 @@
   border: 1px solid blue;
 }
 
-/* Media Query for Responsive Design */
 @media (max-width: 600px) {
   .Tticket-form {
-    grid-template-columns: 1fr; /* Change to single column layout on small screens */
+    grid-template-columns: 1fr;
   }
 }

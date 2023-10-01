@@ -17,11 +17,6 @@ public class LoginDto {
   private String email;
 
   /**
-   * The minimum size of password for the member.
-   */
-  private static final int MIN_SIZE = 8;
-
-  /**
    * The password associated with the member's account.
    * Password must be between 5 and 12 characters in length.
    */
@@ -137,17 +132,17 @@ public class LoginDto {
   /**
    * email minimum length.
    */
-  private final int minEmailLength = 16;
+  private static  final int MIN_EMAIL_LENGTH = 16;
 
   /**
    * email max length.
    */
-  private final int maxEmailLength = 35;
+  private static final int MAX_EMAIL_LENGTH = 35;
 
   /**
    * email max length.
    */
-  private final int minPasswordLength = 8;
+  private static final int MIN_PASSWORD_LENGTH = 8;
 
   /**
    * Constructor for LoginDto with email and password.
@@ -157,11 +152,11 @@ public class LoginDto {
    * @param passwordd The user's password.
    *
    */
-  public LoginDto(@Email @Size(min = minEmailLength, max = maxEmailLength)
+  public LoginDto(@Email @Size(min = MIN_EMAIL_LENGTH, max = MAX_EMAIL_LENGTH)
       @Pattern(regexp = "^[A-Za-z0-9_.-]+@nucleusteq\\.com$",
       message = "email format: ...@nucleusteq.com")
       final String emaill,
-      @NotEmpty @Size(min = minPasswordLength,
+      @NotEmpty @Size(min = MIN_PASSWORD_LENGTH,
       message = "Password should be greater than 8 char.")
       final String passwordd) {
     super();

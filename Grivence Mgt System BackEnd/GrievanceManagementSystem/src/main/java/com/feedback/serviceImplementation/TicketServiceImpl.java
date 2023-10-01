@@ -1,5 +1,6 @@
 package com.feedback.serviceImplementation;
 
+import java.nio.charset.StandardCharsets;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.Base64;
@@ -31,6 +32,8 @@ import com.feedback.repository.DepartmentRepository;
 import com.feedback.repository.TicketRepository;
 import com.feedback.repository.UserRepository;
 import com.feedback.service.TicketService;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
 /**
  * TicketServiceImpl class.
@@ -56,6 +59,12 @@ public class TicketServiceImpl implements TicketService {
   @Autowired
   private UserRepository userRepository;
 
+  /**
+   * Logger initialization.
+   */
+  private static final Logger LOGGER = LogManager
+          .getLogger(TicketServiceImpl.class);
+
   //@Autowired
 //  private CommentRepository commentRepository;
 
@@ -80,14 +89,16 @@ public class TicketServiceImpl implements TicketService {
         .findByDeptName(ticket.getDeptName()));
     byte[] decodedBytes = Base64.getDecoder()
         .decode(ticket.getSenderEmail());
-    String decodedEmail = new String(decodedBytes);
+    String decodedEmail = new String(decodedBytes, StandardCharsets.UTF_8);
     if (userRepository.existsByUserName(decodedEmail)) {
       newTicket.setUser(userRepository
           .getUserByUsername(decodedEmail));
       newTicket.setTicketAssignedBy(newTicket.getUser().getName());
     } else {
+      LOGGER.info("Ticket not found.");
       throw new UserNotFoundException(ticket.getSenderEmail());
     }
+    LOGGER.info("Saved Ticket successful.");
     return ticketRepository.save(newTicket);
   }
 
@@ -106,12 +117,11 @@ public class TicketServiceImpl implements TicketService {
     boolean isAssignByOwn = false;
     EStatus filterStatus = null;
     if (getTicketsDTOin.getFilterStatus() != null
-            || getTicketsDTOin.getFilterStatus() != ""
-            || getTicketsDTOin.getFilterStatus() != "Select status") {
-      filterStatus = EStatusConverter
-         .convertStringToEStatus(getTicketsDTOin
-             .getFilterStatus().toString());
-    }
+            && !getTicketsDTOin.getFilterStatus().isEmpty()
+            && !getTicketsDTOin.getFilterStatus().equals("Select status")) {
+            filterStatus = EStatusConverter
+                .convertStringToEStatus(getTicketsDTOin.getFilterStatus());
+        }
     if (getTicketsDTOin.getAssignByOwn().equals("true")) {
       isAssignByOwn = true;
     }
@@ -119,10 +129,11 @@ public class TicketServiceImpl implements TicketService {
       isDepartmentBased = true;
     }
     String decodedSenderEmail = new String(Base64.getDecoder()
-            .decode(getTicketsDTOin.getEmail()));
+            .decode(getTicketsDTOin.getEmail()), StandardCharsets.UTF_8);
     if (userRepository.existsByUserName(decodedSenderEmail)) {
       User user = userRepository.getUserByUsername(decodedSenderEmail);
-      Pageable pageable = PageRequest.of(getTicketsDTOin.getPageNumber(), noOfElementInPage);
+      Pageable pageable = PageRequest
+            .of(getTicketsDTOin.getPageNumber(), noOfElementInPage);
       List<Ticket> outPutlist = null;
       int departId = user.getDepartment().getDeptId();
       if (isDepartmentBased) {
@@ -155,6 +166,7 @@ public class TicketServiceImpl implements TicketService {
         }
       }
       if (outPutlist == null) {
+        LOGGER.info("Ticket not found.");
         throw new TicketNotFoundException("Ticket not found.");
       }
       List<GetTicketDtoOut> outPutList = outPutlist.stream()
@@ -162,6 +174,7 @@ public class TicketServiceImpl implements TicketService {
               .sorted(Comparator.comparing(GetTicketDtoOut::getTicketStatus,
                   EStatus.getStatusComparator()))
               .collect(Collectors.toList());
+      LOGGER.info("Returned list of ticket.");
       return outPutList;
     } else {
       throw new UserNotFoundException(decodedSenderEmail);
@@ -177,6 +190,7 @@ public class TicketServiceImpl implements TicketService {
    */
   private GetTicketDtoOut convertToDTO(final Ticket ticket) {
     if (ticket == null) {
+      LOGGER.info("User not found from frontend.");
       throw new TicketNotFoundException("No ticket available.");
     }
     GetTicketDtoOut dto = new GetTicketDtoOut();
@@ -188,21 +202,8 @@ public class TicketServiceImpl implements TicketService {
     dto.setTicketType(ticket.getTicketType());
     dto.setCreatedBy(ticket.getTicketAssignedBy());
     dto.setDepartmentName(ticket.getDepartment().getDeptName());
-
-    // Fetch and set comments for this ticket
-    //List<Comment> comments = commentRepository.findByTicket(ticket);
-    //    List<GetCommentDtoOut> commentDTOs = comments.stream()
-    //        .map(comment -> {
-    //            GetCommentDtoOut commentDTO = new GetCommentDtoOut();
-    //        commentDTO.setCommentId(comment.getCommentId());
-    //        commentDTO.setCommentMessage(comment.getCommentMessage());
-    //        commentDTO.setCommentedByUser(ticket.getUser().getName());
-    //        return commentDTO;
-    //          })
-    //          .collect(Collectors.toList());
-    //dto.setComments(commentDTOs);
-
     dto.setComments(null);
+    LOGGER.info("Ticket returned successfully.");
     return dto;
   }
 
@@ -219,6 +220,8 @@ public class TicketServiceImpl implements TicketService {
     EStatus newStatus = EStatusConverter.convertStringToEStatus(
         updateTicketDTOin.getTicketStatus().toString());
     if (!ticketRepository.existsById(updateTicketDTOin.getTicketId())) {
+      LOGGER.info("Ticket not found with id = "
+        + updateTicketDTOin.getTicketId());
       throw new TicketNotFoundException((int) updateTicketDTOin.getTicketId());
     }
     Optional<Ticket> ticket = ticketRepository
@@ -226,19 +229,23 @@ public class TicketServiceImpl implements TicketService {
 
     Ticket ticket2 = ticket.get();
     if (!ticket.isPresent()) {
+      LOGGER.info("Ticket not found with id = "
+              + updateTicketDTOin.getTicketId());
       throw new TicketNotFoundException("Ticket not found");
     }
     if (newStatus != null) {
       ticket2.setTicketStatus(newStatus);
       if (newStatus.equals(EStatus.Resolved)
-          && updateTicketDTOin.getComment() == "") {
-        return null;
+          && updateTicketDTOin.getComment().equalsIgnoreCase("")) {
+         LOGGER.info("Could not update, because"
+               + "status is resolved and not comments");
+        return false;
       }
     }
     LocalDateTime lastUpdateTime = LocalDateTime.now();
     ticket2.setLastUpdatedTime(lastUpdateTime);
     if (updateTicketDTOin.getComment() != null
-        && updateTicketDTOin.getComment() != "") {
+        && !updateTicketDTOin.getComment().equals("")) {
       ticket2.addComment(updateTicketDTOin.getComment());
     }
     Comment comment = new Comment();
@@ -248,8 +255,9 @@ public class TicketServiceImpl implements TicketService {
     List<Comment> list = new ArrayList<>();
     list.add(comment);
     ticket2.setComments(list);
-    Ticket savedTicket = ticketRepository.save(ticket2);
-    return savedTicket != null;
+    ticketRepository.save(ticket2);
+    LOGGER.info("Ticket updated successfully.");
+    return true;
   }
 
   /**
@@ -261,6 +269,8 @@ public class TicketServiceImpl implements TicketService {
   @Override
   public GetTicketDtoOut getByTicketById(final Long ticketId) {
     if (!ticketRepository.existsById(ticketId)) {
+      LOGGER.info("Ticket not found in repo with id= "
+        + ticketId);
       return null;
     }
     Optional<Ticket> ticket = ticketRepository.findById(ticketId);
@@ -279,6 +289,7 @@ public class TicketServiceImpl implements TicketService {
         .get()
         .getComments());
     t1.setComments(dtoList);
+    LOGGER.info("Returned ticked successfully.");
     return t1;
   }
 

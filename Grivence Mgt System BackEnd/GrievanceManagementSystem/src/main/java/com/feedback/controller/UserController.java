@@ -7,6 +7,8 @@ import com.feedback.payloads.user_dto.PasswordChangeDtoin;
 import com.feedback.payloads.user_dto.UserProfileDtoOut;
 import com.feedback.payloads.user_dto.GetAllUsersDtoOut;
 import com.feedback.service.UserService;
+
+import java.nio.charset.StandardCharsets;
 import java.util.Base64;
 import java.util.List;
 import javax.validation.Valid;
@@ -21,6 +23,8 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
 /**
  * User Controller class for managing user-related HTTP endpoints.
@@ -37,6 +41,11 @@ public class UserController {
   private UserService userService;
 
   /**
+   * Logger initialization.
+   */
+  private static final Logger LOGGER = LogManager.getLogger(UserController.class);
+
+  /**
    * Add new User by admin.
    *
    * @param user
@@ -50,16 +59,9 @@ public class UserController {
           .status(HttpStatus.BAD_REQUEST)
           .body("Sent  User is null.");
     }
-    System.out.println("_______________Add_user______________________");
-    System.out.println("Controller, userDTo = " + user);
+    LOGGER.info("___________Add_user_CONTROLLER_______________");
     String message = "";
-    if (user.getDepartmentName().equals(null) || user.getName().equals(null)
-        || user.getPassword().equals(null) || user.getUserName().equals(null)
-        || user.getUserType().equals(null)) {
-      message = "All the data are not filled.";
-      return ResponseEntity.status(HttpStatus.OK).body(message);
-    }
-    if ((userService.checkAlreadyExist(user))) {
+    if (userService.checkAlreadyExist(user)) {
       message = "UserName(email) already exist!!!";
       return ResponseEntity.status(HttpStatus.OK).body(message);
     }
@@ -70,11 +72,13 @@ public class UserController {
         message = "Saved Successfully!!!";
       }
     } catch (Exception e) {
+      LOGGER.info("Error = " + e.getMessage());
       message = "Could not saved into database!!! " + e.getMessage();
     }
     if (savedUser == null) {
       return ResponseEntity.status(HttpStatus.OK).body(message);
     }
+    LOGGER.info("User saved.");
     return ResponseEntity.status(HttpStatus.OK).body("User saved!!!");
   }
 
@@ -91,19 +95,20 @@ public class UserController {
   @PostMapping("/changePassword")
   public ResponseEntity<String> changePassword(
       @RequestBody final PasswordChangeDtoin request) throws Exception {
-    System.out.println("___________change_password__________________________");
+    LOGGER.info("___________change_password_____________");
     if (request == null) {
       return ResponseEntity
           .status(HttpStatus.BAD_REQUEST)
           .body("Input not found.");
     }
     String passwordChanged;
-    System.out.println("Change Password Conntroller 1");
+    LOGGER.info("Change Password Conntroller 1");
     try {
       passwordChanged = userService.passwordChangedSuccess(request);
-      System.out.println("success sending frontend => " + passwordChanged);
+      LOGGER.info("New Password = " + passwordChanged);
       return ResponseEntity.ok(passwordChanged);
     } catch (Exception e) {
+      LOGGER.info("Error = " + e.getMessage());
       return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR)
         .body("An error occurred while changing the password.");
     }
@@ -118,17 +123,18 @@ public class UserController {
    */
   @PostMapping("/login")
   public ResponseEntity<?> login(@RequestBody final LoginDto user) {
-    System.out.println("______________login______________________");
+    LOGGER.info("_________login_Controller__________");
     String decodedEmail = new String(Base64.getDecoder()
-        .decode(user.getEmail()));
-    System.out.println("Email got = " + decodedEmail);
+        .decode(user.getEmail()), StandardCharsets.UTF_8);
+    LOGGER.info("Email got = " + decodedEmail);
     String decodedPass = new String(Base64.getDecoder()
-        .decode(user.getPassword()));
-    System.out.println("Password got = " + decodedPass);
+        .decode(user.getPassword()), StandardCharsets.UTF_8);
+    LOGGER.info("Password got = " + decodedPass);
     String dataAndRole = (String) userService.getByUserAndPassword(
           decodedEmail,
           user.getPassword()
       );
+    LOGGER.info("Password got success");
     return ResponseEntity.status(HttpStatus.OK).body(dataAndRole);
   }
 
@@ -142,7 +148,7 @@ public class UserController {
   @GetMapping("/allUsers/{currentPage}")
   public ResponseEntity<?> getAllUsers(
       @PathVariable final Integer currentPage) {
-    System.out.println("get all users controller 1");
+    LOGGER.info("_____get all users controller____");
     List<GetAllUsersDtoOut> userList = userService.getAllUsers(currentPage);
     return ResponseEntity.status(HttpStatus.OK).body(userList);
   }
@@ -156,7 +162,7 @@ public class UserController {
    */
   @DeleteMapping("/deleteUser/{id}")
   public ResponseEntity<?> deleteUserById(@PathVariable final Integer id) {
-    System.out.println("__________________delete user by id__________________");
+    LOGGER.info("_________delete user by id_____________");
     String deletedUser = userService.deleteUser(id);
     return ResponseEntity.status(HttpStatus.OK).body(deletedUser);
   }
@@ -171,12 +177,14 @@ public class UserController {
   @GetMapping("/getByUsrName/{userName}")
   public ResponseEntity<?> getUserByUserName(
       @PathVariable final String userName) {
-    System.out.println("GetUserProfile_________________controller");
+    LOGGER.info("_______GetUserProfile_controller______");
     UserProfileDtoOut userProfileDtoOut = userService
         .getByUserByUserName(userName);
     if (userProfileDtoOut != null) {
+      LOGGER.info("Returned User");
       return ResponseEntity.status(HttpStatus.OK).body(userProfileDtoOut);
     }
+    LOGGER.info("User not found");
     return ResponseEntity.status(HttpStatus.OK).body("User not found");
   }
 }

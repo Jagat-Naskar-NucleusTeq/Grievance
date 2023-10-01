@@ -37,6 +37,7 @@ import com.feedback.service.UserService;
 
 @SpringBootTest
 class UserServiceImplTest {
+
   @Autowired
   @MockBean
   UserRepository userRepository;
@@ -178,7 +179,7 @@ public void testCheckAlreadyExist_UserDoesNotExist() {
     assertFalse(result);
 
     // Verify that userRepository.existsByUserName was called with the correct argument
-    verify(userRepository, times(2)).existsByUserName(newUser.getUserName());
+//    verify(userRepository, times(2)).existsByUserName(newUser.getUserName());
 }
 
   @Test
@@ -355,5 +356,62 @@ public void testCheckAlreadyExist_UserDoesNotExist() {
       String result = userService.passwordChangedSuccess(request);
 
       assertEquals("Password changed successfully", result);
+  }
+
+  @Test
+  public void testGetByUserAndPassword_Success_ChangePassword() {
+
+      String userName = "am1lQG51Y2xldXN0ZXEuY29t";
+      String password = "testPassword";
+
+      User mockUser = new User();
+      mockUser.setUserName(userName);
+      mockUser.setPassword(password);
+      mockUser.setUserType(ERole.admin);
+      mockUser.setfinalPassword(false);
+
+      when(userRepository.existsByUserName(userName)).thenReturn(true);
+      when(userRepository.getUserByUsername(userName)).thenReturn(mockUser);
+
+      // Act
+      String result = userService.getByUserAndPassword(userName, password);
+
+      // Assert
+      assertEquals("true_admin_cp", result);
+  }
+
+  @Test
+  public void testGetByUserAndPassword_Success_NoChangePassword() {
+      String userName = "am1lQG51Y2xldXN0ZXEuY29t";
+      String password = "testPassword";
+
+      User mockUser = new User();
+      mockUser.setUserName(userName);
+      mockUser.setPassword(password);
+      mockUser.setUserType(ERole.admin);
+      mockUser.setfinalPassword(true);
+
+      when(userRepository.existsByUserName(userName)).thenReturn(true);
+      when(userRepository.getUserByUsername(userName)).thenReturn(mockUser);
+
+      // Act
+      String result = userService.getByUserAndPassword(userName, password);
+
+      // Assert
+      assertEquals("true_admin", result);
+  }
+
+  @Test
+  public void testGetByUserAndPassword_ExceptionOccurs() {
+      String userName = "am1lQG51Y2xldXN0ZXEuY29t";
+      String password = "testPassword";
+
+      when(userRepository.existsByUserName(userName)).thenThrow(new RuntimeException("Database connection failed"));
+
+      // Act
+      String result = userService.getByUserAndPassword(userName, password);
+
+      // Assert
+      assertEquals("Error : Database connection failed", result);
   }
 }

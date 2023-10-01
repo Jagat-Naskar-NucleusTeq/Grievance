@@ -1,37 +1,42 @@
 .Home-Page {
-    font-family: Arial, sans-serif;
-    max-width: 400px;
-    margin: auto;
-    padding: 20px;
-    background-color: #f9f9f9a1;
-    border-radius: 10px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  }
-  
-  .profile-pic {
-    border-radius: 50%;
-    width: 99px; /* Updated width */
-    height: 99px; /* Updated height */
-    margin: 10px auto;
-    display: block;
-  }
-  
-  .user-details {
-    text-align: center;
-  }
-  
-  .toggle-button {
-    display: block;
-    margin: 20px auto;
-    padding: 10px 20px;
-    background-color: #00ff59;
-    color: #fff;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    font-size: 16px;
-  }
-  
-  .toggle-button:hover {
-    background-color: #16d8a1;
-  }
+  font-family: Arial, sans-serif;
+  max-width: 400px;
+  margin: auto;
+  padding: 20px;
+  background-color: #f9f9f9a1;
+  border-radius: 10px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.profile-pic {
+  border-radius: 50%;
+  width: 99px;
+  height: 99px;
+  margin: 10px auto;
+  display: block;
+}
+
+.user-details {
+  text-align: center;
+}
+
+.toggle-button {
+  display: block;
+  margin: 20px auto;
+  padding: 10px 20px;
+  background-color: #00ff59;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+.toggle-button:hover {
+  background-color: #16d8a1;
+}
+
+.Home-btn{
+  background-color: rgba(100, 93, 93, 0.562);
+  border: 1px solid;
+}
