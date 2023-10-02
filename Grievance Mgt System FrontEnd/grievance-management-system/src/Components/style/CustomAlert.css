@@ -1,54 +1,46 @@
- .modal-wrapper{
-    position: fixed;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    background-color: #5163db1a;
-    box-shadow: 5%;
-    padding: 20px;
-    box-shadow: 0px 2px 4px rgba(62, 50, 50, 0.2);
-    border-radius: 3px;
-    width: 100vw;
-    height: 100vh;
+.modal-wrapper {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: #5163db1a;
+  box-shadow: 5%;
+  padding: 20px;
+  box-shadow: 0px 2px 4px rgba(62, 50, 50, 0.2);
+  border-radius: 3px;
+  width: 100vw;
+  height: 100vh;
+}
 
-   }
-   /* .custom-alert {
-    position: fixed;
-     top: 50%;
-     left: 50%;
-     border: solid #000000;
-     box-shadow: 5%;
-     transform: translate(-50%, -50%);
-     background-color: rgb(16, 21, 20);
-     padding-top: 8%;
-     width: 25vw;
-     height: 25vh;
-     color: red;
+.custom-alert {
+  position: fixed;
+  top: 0;
+  right: 0;
+  border: 1px solid #ccc;
+  padding: 10px;
+  box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.2);
+  transition: transform 0.3s ease;
+  margin-right: 4%;
+  margin-top: 7%;
+  border-radius: 9px;
+  border: 1px solid rgb(41, 34, 51);
+  text-align: center;
+  border-top: 4px solid rgb(41, 26, 70);
+  color: black;
+  background-color: rgb(220, 188, 247);
+}
+.custom-alert-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.AlertMessage {
+  font-size: medium;
+  color: black;
+  font-style: initial;
+}
 
-     } */
-
-     .custom-alert {
-      position: fixed;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      background-color: rgb(16, 21, 20);
-      padding: 20px;
-      max-width: 80vw;
-      max-height: 80vh;
-      overflow: auto;
-      color: rgb(244, 244, 244);
-      border: 2px solid #000000;
-      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1), 0 8px 16px rgba(0, 0, 0, 0.1);
-    }
-     .custom-alert-content {
-       display: flex;
-       flex-direction: column;
-       align-items: center;
-     }
-     .AlertMessage{
-      color: white;
-      font-style: initial;
-     }
-    
-   
+.CA-close-btn {
+  background-color: black;
+  color: white;
+}

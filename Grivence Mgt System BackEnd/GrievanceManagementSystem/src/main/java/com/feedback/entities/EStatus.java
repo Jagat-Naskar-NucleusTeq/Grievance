@@ -3,41 +3,63 @@ package com.feedback.entities;
 import java.util.Comparator;
 
 /**
- * enum class for eStatus.
+ * EStatus class.
  */
 public enum EStatus {
+
   /**
-   * first ot default value.
+   * open status.
    */
   Open,
+
   /**
-   * current position.
+   * Being_Addressed status.
    */
   Being_Addressed,
+
   /**
-   * done.
+   * Resolved status.
    */
   Resolved;
 
   /**
-   * getStatusComparator.
+   * comparator.
    *
-   * @return Comparator
+   * @return sorted list.
    */
   public static Comparator<EStatus> getStatusComparator() {
     return Comparator.comparingInt(EStatus::getSortOrder);
   }
 
+  /**
+   * var.
+   */
+  private static final int THREE = 3;
+
+  /**
+   * var.
+   */
+  private static final int TWO = 2;
+
+  /**
+   * var.
+   */
+  private static final int ONE = 1;
+
+  /**
+   * getSortOrder.
+   *
+   *@return number according to randking of e
+   */
   private int getSortOrder() {
-    switch (this) {
-      case Resolved:
-        return 3;
-      case Being_Addressed:
-        return 2;
-      case Open:
-        return 1;
-      default:
-        throw new IllegalStateException("Unexpected value: " + this);
+    if (this == EStatus.Resolved) {
+      return THREE;
+    } else if (this == EStatus.Being_Addressed) {
+      return TWO;
+    } else if (this == EStatus.Open) {
+      return ONE;
+    } else {
+      throw new IllegalStateException("Unexpected value: " + this);
     }
   }
 }

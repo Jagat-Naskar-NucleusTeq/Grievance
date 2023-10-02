@@ -35,32 +35,20 @@ export default function NewUser() {
     setShowAlert(false);
   };
 
-  // //setting deptList from backend
-  // useEffect(() => {
-  //   fetch('http://localhost:8080/api/dept/allDepartment')
-  //     .then(response => response.json())
-  //     .then(data => setDepartmentList(data))
-  //     .catch(error => console.error('Error:', error));
-
-  // }, []);
-
   useEffect(() => {
-    // Start by setting "SELECT" as the initial value
-
     fetch("http://localhost:8080/api/dept/allDepartment")
       .then((response) => response.json())
-      .then((data) => setDepartmentList((prevList) => [...prevList, ...data])) // Add "SELECT" before the fetched data
+      .then((data) => setDepartmentList((prevList) => [...prevList, ...data]))
       .catch((error) => console.error("deptList Error:", error));
   }, []);
 
   const resetForm = () => {
-    //resetting field
     setName("");
     setUsername("");
     setPassword("");
     setUserType("Select User Type");
     setDepartmentName("Select Department");
-    //resetting error
+
     setUsernameError("");
     setNameError("");
     setDeptNameError("");
@@ -68,10 +56,8 @@ export default function NewUser() {
     setUserTypeError("");
   };
 
-  // const departmentList = ["Select Department", "HR", "Finance", "Sales"];
   const UserTypeList = ["Select User Type", "admin", "member"];
 
-  //handling form after submission
   const handleSubmit = async (e) => {
     e.preventDefault();
 
@@ -88,7 +74,6 @@ export default function NewUser() {
       !userTypeError &&
       !deptNameError
     ) {
-      // Form is valid, proceed with submission
       const encodedPassword = btoa(password);
       const postObject = {
         name: name,
@@ -110,9 +95,7 @@ export default function NewUser() {
         setMessage(e.message);
         handleShowAlert();
       }
-      // submitted
     } else {
-      // Display errors
       setNameError(nameError);
       setUsernameError(usernameError);
       setPasswordError(passwordError);
@@ -124,12 +107,12 @@ export default function NewUser() {
   return (
     <div>
       <form className="NU-reg-form" onSubmit={handleSubmit} method="post">
-        
         <div className="NU-parent">
-        <h2 className="NU-reg-heading">Fill Details of New Users</h2>
+          <h2 className="NU-reg-heading">Add User</h2>
           <div className="NU-container1">
             <label className="NU-label-user">
-              Name <p className="NU-error1">{nameError}</p>{" "}
+              Name<span className="astrix">*</span>{" "}
+              <p className="NU-error1">{nameError}</p>{" "}
             </label>
             <input
               className="NU-input-user"
@@ -143,7 +126,8 @@ export default function NewUser() {
               }}
             />
             <label className="NU-label-user">
-              Username <p className="NU-error1">{usernameError}</p>{" "}
+              Email<span className="astrix">*</span>{" "}
+              <p className="NU-error1">{usernameError}</p>{" "}
             </label>
 
             <input
@@ -158,7 +142,8 @@ export default function NewUser() {
               }}
             />
             <label className="NU-label-user">
-              Initial Password <p className="NU-error1">{passwordError}</p>{" "}
+              Initial Password<span className="astrix">*</span>{" "}
+              <p className="NU-error1">{passwordError}</p>{" "}
             </label>
             <input
               className="NU-input-user"
@@ -179,7 +164,8 @@ export default function NewUser() {
           </div>
           <div className="NU-container2">
             <label className="NU-label-user">
-              User Type <p className="NU-error1">{userTypeError}</p>{" "}
+              User Type<span className="astrix">*</span>{" "}
+              <p className="NU-error1">{userTypeError}</p>{" "}
             </label>
             <select
               className="NU-input-user"
@@ -198,7 +184,8 @@ export default function NewUser() {
             </select>
 
             <label className="NU-label-user">
-              Department <p className="NU-error1">{deptNameError}</p>{" "}
+              Department<span className="astrix">*</span>{" "}
+              <p className="NU-error1">{deptNameError}</p>{" "}
             </label>
             <select
               className="NU-input-user"
@@ -219,7 +206,10 @@ export default function NewUser() {
               ))}
             </select>
 
-            <button className="NU-button" type="submit"> Add User </button>
+            <button className="NU-button" type="submit">
+              {" "}
+              Add User{" "}
+            </button>
           </div>
         </div>
       </form>

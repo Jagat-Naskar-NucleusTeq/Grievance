@@ -8,13 +8,12 @@ import java.util.ArrayList;
 import java.util.List;
 
 import org.junit.jupiter.api.Test;
-import org.springframework.data.domain.Page;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 
 import com.feedback.entities.Department;
 import com.feedback.payloads.department_dto.AddDepartemntDTO;
-import com.feedback.payloads.department_dto.DepartmentListDTO;
+import com.feedback.payloads.department_dto.DepartmentListDto;
 import com.feedback.service.DepartmentService;
 
 class DepartmentControllerTest {
@@ -45,12 +44,12 @@ class DepartmentControllerTest {
         DepartmentService departmentService = mock(DepartmentService.class);
         DepartmentController departmentController = new DepartmentController(departmentService);
 
-        List<DepartmentListDTO> departmentList = new ArrayList<>();
-        departmentList.add(new DepartmentListDTO(1, "TestDept"));
+        List<DepartmentListDto> departmentList = new ArrayList<>();
+        departmentList.add(new DepartmentListDto(1, "TestDept"));
 
         when(departmentService.getAllDepartments()).thenReturn(departmentList);
 
-        ResponseEntity<List<DepartmentListDTO>> responseEntity = departmentController.getAllDepartments();
+        ResponseEntity<List<DepartmentListDto>> responseEntity = departmentController.getAllDepartments();
 
         assertEquals(HttpStatus.OK, responseEntity.getStatusCode());
         assertEquals(departmentList, responseEntity.getBody());
@@ -62,12 +61,12 @@ class DepartmentControllerTest {
         DepartmentService departmentService = mock(DepartmentService.class);
         DepartmentController departmentController = new DepartmentController(departmentService);
 
-        List<DepartmentListDTO> departmentList = new ArrayList<>();
-        departmentList.add(new DepartmentListDTO(1, "TestDept"));
+        List<DepartmentListDto> departmentList = new ArrayList<>();
+        departmentList.add(new DepartmentListDto(1, "TestDept"));
 
         when(departmentService.getAllDepartments(anyInt())).thenReturn(departmentList);
 
-        ResponseEntity<List<DepartmentListDTO>> responseEntity = departmentController.GetAllDepartments(1);
+        ResponseEntity<List<DepartmentListDto>> responseEntity = departmentController.getAllDepartments(1);
 
         assertEquals(HttpStatus.OK, responseEntity.getStatusCode());
         assertEquals(departmentList, responseEntity.getBody());

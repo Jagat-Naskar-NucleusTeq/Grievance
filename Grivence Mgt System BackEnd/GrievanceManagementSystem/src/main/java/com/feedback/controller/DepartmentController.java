@@ -1,13 +1,11 @@
 package com.feedback.controller;
 
-import com.feedback.payloads.department_dto.AddDepartemntDTO;
-import com.feedback.payloads.department_dto.DepartmentListDTO;
-import com.feedback.service.DepartmentService;
-
 import java.util.List;
 
 import javax.validation.Valid;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -18,6 +16,10 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+
+import com.feedback.payloads.department_dto.AddDepartemntDTO;
+import com.feedback.payloads.department_dto.DepartmentListDto;
+import com.feedback.service.DepartmentService;
 
 /**
  * DepartmentController.
@@ -47,8 +49,13 @@ public class DepartmentController {
   }
 
   /**
+   * Logger initialization.
+   */
+  private static final Logger LOGGER = LogManager
+        .getLogger(DepartmentController.class);
+  /**
    * Add department by admin.
-   *
+   *O
    * @param dept1
    *
    * @return ResponseEntity of department list.
@@ -56,6 +63,7 @@ public class DepartmentController {
   @PostMapping("/addDept")
   public ResponseEntity<?> addDept(
       @Valid @RequestBody final AddDepartemntDTO dept1) {
+      LOGGER.info("_________ADD DEPT CONTROLLER________");
     try {
       if (departmentService.checkAlreadyExist(dept1)) {
         String message = "Department already exists";
@@ -81,8 +89,9 @@ public class DepartmentController {
    * @return list of department.
    */
   @GetMapping("/allDepartment")
-  public ResponseEntity<List<DepartmentListDTO>> getAllDepartments() {
-    List<DepartmentListDTO> departmentList = departmentService
+  public ResponseEntity<List<DepartmentListDto>> getAllDepartments() {
+    LOGGER.info("_________GET DEPARTMENT CONTROLLER________");
+    List<DepartmentListDto> departmentList = departmentService
         .getAllDepartments();
     if (!departmentList.isEmpty()) {
       return ResponseEntity.ok(departmentList);
@@ -99,9 +108,10 @@ public class DepartmentController {
    * @return list of department.
    */
   @GetMapping("/allDepartment/{currentPage}")
-  public ResponseEntity<List<DepartmentListDTO>> GetAllDepartments(
+  public ResponseEntity<List<DepartmentListDto>> getAllDepartments(
       @PathVariable("currentPage") final Integer currentPage) {
-    List<DepartmentListDTO> departmentList = departmentService
+    LOGGER.info("_________ALL DEPT(page) CONTROLLER________");
+    List<DepartmentListDto> departmentList = departmentService
         .getAllDepartments(currentPage);
     if (!departmentList.isEmpty()) {
       return ResponseEntity.ok(departmentList);
@@ -118,8 +128,9 @@ public class DepartmentController {
    * @return deleted Department name.
    */
   @PostMapping("/deleteDept/{deptName}")
-  public ResponseEntity<?> deleteDeptByName(@PathVariable final String deptName) {
-    System.out.println("_________delete By Dept Name______");
+  public ResponseEntity<?> deleteDeptByName(
+      @PathVariable final String deptName) {
+    LOGGER.info("_________DELETE DEPT CONTROLLER________");
     String deletedDept = departmentService.deleteDept(deptName);
     return ResponseEntity.status(HttpStatus.OK).body(deletedDept);
   }

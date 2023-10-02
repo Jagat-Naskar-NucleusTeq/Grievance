@@ -19,5 +19,5 @@ public interface CommentRepository extends JpaRepository<Comment, Integer> {
    *
    * @return A list of comments associated with the given ticket.
    */
-  List<Comment> findByTicket(final Ticket ticket);
+  List<Comment> findByTicket(Ticket ticket);
 }

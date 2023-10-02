@@ -8,11 +8,11 @@ import static org.junit.jupiter.api.Assertions.*;
 
 import org.junit.jupiter.api.Test;
 
-class PasswordChangeDTOinTest {
+class PasswordChangeDtoinTest {
 
   @Test
   public void testGettersAndSetters() {
-    PasswordChangeDTOin passwordChangeDTO = new PasswordChangeDTOin();
+    PasswordChangeDtoin passwordChangeDTO = new PasswordChangeDtoin();
     passwordChangeDTO.setUserName("Jagat Naskar");
     passwordChangeDTO.setOldPassword("oldPasswordNucleusteq");
     passwordChangeDTO.setNewPassword("newPassword");
@@ -26,11 +26,11 @@ class PasswordChangeDTOinTest {
 
   @Test
   public void testEqualsAndHashCode() {
-    PasswordChangeDTOin passwordChangeDTO1 = new PasswordChangeDTOin("Jagat Naskar", 
+    PasswordChangeDtoin passwordChangeDTO1 = new PasswordChangeDtoin("Jagat Naskar", 
         "oldPasswordNucleusteq", 
         "newPassword", 
         "newPassword");
-    PasswordChangeDTOin passwordChangeDTO2 = new PasswordChangeDTOin("Jagat Naskar", 
+    PasswordChangeDtoin passwordChangeDTO2 = new PasswordChangeDtoin("Jagat Naskar", 
         "oldPasswordNucleusteq", 
         "newPassword", 
         "newPassword");
@@ -48,7 +48,7 @@ class PasswordChangeDTOinTest {
 
   @Test
   public void testConstructor() {
-    PasswordChangeDTOin passwordChangeDTO = new PasswordChangeDTOin(
+    PasswordChangeDtoin passwordChangeDTO = new PasswordChangeDtoin(
       "Jagat Naskar", 
       "oldPasswordNucleusteq", 
       "newPassword", 
@@ -62,7 +62,7 @@ class PasswordChangeDTOinTest {
 
   @Test
   public void testFieldConstructor() {
-    PasswordChangeDTOin passwordChangeDTO = new PasswordChangeDTOin(
+    PasswordChangeDtoin passwordChangeDTO = new PasswordChangeDtoin(
         "Jagat Naskar", 
         "oldPasswordNucleusteq", 
         "newPassword", 

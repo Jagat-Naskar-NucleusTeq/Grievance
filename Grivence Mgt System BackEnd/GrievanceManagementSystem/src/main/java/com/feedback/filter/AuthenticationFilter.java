@@ -6,9 +6,10 @@ import javax.servlet.http.HttpServletResponse;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
-import com.feedback.serviceImplementation.AuthenticationService;
+import com.feedback.serviceImplementation.AuthenticationServiceImpl;
 
 import java.io.IOException;
+import java.nio.charset.StandardCharsets;
 import java.util.Base64;
 
 import javax.servlet.Filter;
@@ -28,18 +29,18 @@ public class AuthenticationFilter implements Filter {
    * AuthenticationService object.
    */
   @Autowired
-  private AuthenticationService authenticationService;
+  private AuthenticationServiceImpl authenticationServiceImpl;
 
   /**
    * Constructor for AuthenticationFilter.
    *
-   * @param authenticationService The AuthenticationService to be injected.
+   * @param authenticationServiceImpll The AuthenticationService to be injected.
    *
    */
   @Autowired
   public AuthenticationFilter(
-      final AuthenticationService authenticationService) {
-    this.authenticationService = authenticationService;
+      final AuthenticationServiceImpl authenticationServiceImpll) {
+    this.authenticationServiceImpl = authenticationServiceImpll;
   }
 
   /**
@@ -79,10 +80,11 @@ public class AuthenticationFilter implements Filter {
       System.out.println(username1);
       String password2 = httpRequest.getHeader("Password");
       System.out.println(password2);
-      String username = new String(Base64.getDecoder().decode(username1));
-      if (authenticationService.authenticateAdmin(username, password2)) {
+      String username = new String(Base64.getDecoder()
+            .decode(username1), StandardCharsets.UTF_8);
+      if (authenticationServiceImpl.authenticateAdmin(username, password2)) {
         System.out.println("Authorized =>.... "
-            + authenticationService.authenticateAdmin(username, password2));
+            + authenticationServiceImpl.authenticateAdmin(username, password2));
         chain.doFilter(request, response);
       } else {
         System.out.println("Else Filter: Unauthorized");

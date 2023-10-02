@@ -3,18 +3,14 @@ import "../Components/style/FullTicketModel.css";
 import { format } from "date-fns";
 
 const FullTicketModel = (props) => {
-
-    const formattedUpdatedDateTime = format(
-      new Date(props.ticket.updationTime),
-      "EEE, d MMM , yyyy  h:mm a"
-    );
-    const formattedCurrentTime = format(
-      new Date(props.ticket.creationTime),
-      "EEE, d MMM , yyyy  h:mm a"
-    )
-    
-
-
+  const formattedUpdatedDateTime = format(
+    new Date(props.ticket.updationTime),
+    "EEE, d MMM , yyyy  h:mm a"
+  );
+  const formattedCurrentTime = format(
+    new Date(props.ticket.creationTime),
+    "EEE, d MMM , yyyy  h:mm a"
+  );
 
   return (
     <div className="ticket-modal">
@@ -61,9 +57,7 @@ const FullTicketModel = (props) => {
         </button>
       </div>
     </div>
-    
   );
-
 };
 
 export default FullTicketModel;

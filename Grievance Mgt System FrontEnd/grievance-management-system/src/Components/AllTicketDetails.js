@@ -1,10 +1,11 @@
-import React, { useState, useEffect, useContext } from "react";
-import { useNavigate } from "react-router-dom";
+import React, { useState, useEffect } from "react";
 import "../Components/style/AllTicketDetails.css";
 import FullTicketModel from "./FullTicketModel";
 import axios from "axios";
 import UpdateTicket from "./UpdateTicket";
 import { format } from "date-fns";
+import EditIcon from "../Components/images/icons/edit-icon.svg";
+import ViewIcon from "../Components/images/icons/view-in-icon.svg";
 
 const AllTicketDetails = () => {
   const statusList = ["Open", "Being_Addressed", "Resolved"];
@@ -12,14 +13,14 @@ const AllTicketDetails = () => {
   const [showEditTicket, setShowEditTicket] = useState(false);
   const [selectedTicket, setSelectedTicket] = useState(null);
   const [editButtonsDisabled, setEditButtonsDisabled] = useState(false);
+  const [activeLink, setActiveLink] = useState("dept");
 
-  const [ticketList, setTicketList] = useState([]); // list of ticket
+  const [ticketList, setTicketList] = useState([]);
   const [selectedStatus, setSelectedStatus] = useState("");
   const [deptWise, setDeptWise] = useState("true");
   const [OwnWise, setOwnWise] = useState("false");
 
   const [currentPage, setCurrentPage] = useState(0);
-  const [itemsPerPage] = useState(3); // Number of items per page
 
   const handleNextPage = () => {
     setCurrentPage(currentPage + 1);
@@ -34,7 +35,7 @@ const AllTicketDetails = () => {
   const fetchData = async () => {
     try {
       const dataToSend = {
-        email: btoa(sessionStorage.getItem("session_user_name")),
+        email: btoa(localStorage.getItem("session_user_name")),
         departmentBased: deptWise,
         assignByOwn: OwnWise,
         filterStatus: selectedStatus,
@@ -57,6 +58,10 @@ const AllTicketDetails = () => {
     }
   };
 
+  useEffect(() => {
+    fetchData();
+  }, [OwnWise, deptWise, selectedStatus, currentPage]);
+
   const openEditModel = (ticket) => {
     setSelectedTicket(ticket);
     setShowEditTicket(true);
@@ -78,58 +83,55 @@ const AllTicketDetails = () => {
     openEditModel(ticket);
   };
 
-  useEffect(() => {
-    fetchData();
-  }, [OwnWise, deptWise, selectedStatus, currentPage]);
-
   const handleFilterChange = (e) => {
     setCurrentPage(0);
     setSelectedStatus(e.target.value);
   };
 
-  const AdminRole = sessionStorage.getItem("Admin_Role");
+  const AdminRole = localStorage.getItem("Admin_Role");
 
   return (
     <div className="full-details">
       <div className="all-button">
-        <div>
-          {AdminRole === "admin" && (
-            <button
-              className="AT-allTickets"
-              onClick={() => {
-                setCurrentPage(0);
-                setOwnWise("false");
-                setDeptWise("false");
-                setSelectedStatus("Select status");
-                setEditButtonsDisabled(true);
-              }}
-            >
-              All Tickets
-            </button>
-          )}
-        </div>
+        {AdminRole === "admin" && (
+          <button
+            className={activeLink === "allTicket" ? "active" : "AT-allTickets"}
+            onClick={() => {
+              setCurrentPage(0);
+              setOwnWise("false");
+              setDeptWise("false");
+              setSelectedStatus("Select status");
+              setEditButtonsDisabled(true);
+              setActiveLink("allTicket");
+            }}
+          >
+            All Tickets
+          </button>
+        )}
 
         <button
-          className="AT-deptTickets"
+          className={activeLink === "dept" ? "active" : "AT-deptTickets"}
           onClick={() => {
             setCurrentPage(0);
             setDeptWise("true");
             setOwnWise("false");
             setSelectedStatus("Select status");
             setEditButtonsDisabled(false);
+            setActiveLink("dept");
           }}
         >
           Dept Based
         </button>
 
         <button
-          className="AT-myTickets"
+          className={activeLink === "ticket" ? "active" : "AT-myTickets"}
           onClick={() => {
             setCurrentPage(0);
             setDeptWise("false");
             setOwnWise("true");
             setSelectedStatus("Select status");
             setEditButtonsDisabled(false);
+            setActiveLink("ticket");
           }}
         >
           My Tickets
@@ -159,8 +161,8 @@ const AllTicketDetails = () => {
               <th>Ticket Status</th>
               <th>Created By</th>
               <th>Last Updated</th>
-              <th>Action</th>
-              <th>Expand</th>
+              <th>Edit</th>
+              <th>View</th>
             </tr>
           </thead>
           <tbody>
@@ -182,7 +184,11 @@ const AllTicketDetails = () => {
                       className="edit-btn"
                       onClick={() => handleEdit(ticket)}
                     >
-                      Edit
+                      <img
+                        src={EditIcon}
+                        alt="Description"
+                        style={{ width: "60%" }}
+                      />
                     </button>
                   </td>
                   <td>
@@ -190,7 +196,11 @@ const AllTicketDetails = () => {
                       className="expand-btn"
                       onClick={() => openModal(ticket)}
                     >
-                      View Details
+                      <img
+                        src={ViewIcon}
+                        alt="Description"
+                        style={{ width: "60%" }}
+                      />
                     </button>
                   </td>
                 </tr>
@@ -213,7 +223,7 @@ const AllTicketDetails = () => {
         <button
           className="paging-btn"
           onClick={handleNextPage}
-          disabled={currentPage > ticketList.length / 5}
+          disabled={5 > ticketList.length && ticketList.length === 0}
         >
           Next
         </button>

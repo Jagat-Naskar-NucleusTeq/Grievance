@@ -2,9 +2,9 @@ package com.feedback.service;
 
 import com.feedback.entities.User;
 import com.feedback.payloads.user_dto.AddUserDto;
-import com.feedback.payloads.user_dto.PasswordChangeDTOin;
-import com.feedback.payloads.user_dto.UserProfileDTOout;
-import com.feedback.payloads.user_dto.getAllUsersDTOout;
+import com.feedback.payloads.user_dto.PasswordChangeDtoin;
+import com.feedback.payloads.user_dto.UserProfileDtoOut;
+import com.feedback.payloads.user_dto.GetAllUsersDtoOut;
 import java.util.List;
 
 /**
@@ -19,7 +19,7 @@ public interface UserService {
    *
    * @return user to save.
    */
-  User saveUser(final AddUserDto user);
+  User saveUser(AddUserDto user);
 
   /**
    * getAllUsers service.
@@ -28,7 +28,7 @@ public interface UserService {
    *
    * @return list of user.
    */
-  List<getAllUsersDTOout> getAllUsers(final Integer pageNo);
+  List<GetAllUsersDtoOut> getAllUsers(Integer pageNo);
 
   /**
    * getUserById service.
@@ -37,7 +37,7 @@ public interface UserService {
    *
    * @return user.
    */
-  User getUserById(final Integer id);
+  User getUserById(Integer id);
 
   /**
    * deleteUser service.
@@ -46,18 +46,18 @@ public interface UserService {
    *
    * @return true or false based on the action.
    */
-  String deleteUser(final Integer id);
+  String deleteUser(Integer id);
 
   /**
    * getByUserAndPassword service.
    *
    * @param userName
    *
-   * @param Password
+   * @param password
    *
    * @return true or false.
    */
-  String getByUserAndPassword(final String userName, final String Password);
+  String getByUserAndPassword(String userName, String password);
 
   /**
    * checkAlreadyExist service.
@@ -66,7 +66,7 @@ public interface UserService {
    *
    * @return if the user exist or not by id or by mail.
    */
-  boolean checkAlreadyExist(final AddUserDto user);
+  boolean checkAlreadyExist(AddUserDto user);
 
   /**
    * interface of passwordChangedSuccess.
@@ -75,7 +75,7 @@ public interface UserService {
    *
    * @return true or false.
    */
-  String passwordChangedSuccess(final PasswordChangeDTOin request);
+  String passwordChangedSuccess(PasswordChangeDtoin request);
 
   /**
    * get user by UserName.
@@ -84,5 +84,5 @@ public interface UserService {
    *
    * @return UserProfileDTOout.
    */
-  UserProfileDTOout getByUserByUserName(final String userName);
+  UserProfileDtoOut getByUserByUserName(String userName);
 }

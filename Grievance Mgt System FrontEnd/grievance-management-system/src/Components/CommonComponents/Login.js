@@ -3,7 +3,8 @@ import "../style/Login.css";
 import axios from "axios";
 import React, { useState } from "react";
 import CustomAlert from "./CustomAlert";
-import { doLogin, setLoggedIn } from "../..";
+import { setLoggedIn } from "../..";// doLogin
+import imageSrc from "../images/login-image.png";
 
 const Login = () => {
   const [username, setUsername] = useState("");
@@ -28,7 +29,7 @@ const Login = () => {
   };
   const handleLogin = async (e) => {
     e.preventDefault();
-    //validating
+
     if (username.trim() === "") {
       setError("Username is required");
     } else if (password.trim() === "") {
@@ -54,36 +55,40 @@ const Login = () => {
           }
         );
         const decodedEmail = atob(post.email);
+        localStorage.setItem("LoggendIn22", "true");
+        localStorage.setItem("session_user_name", decodedEmail);
         if (res.data === "true_admin_cp") {
-          sessionStorage.setItem("session_user_name", decodedEmail);
-          sessionStorage.setItem("session_password", post.password)
+          localStorage.setItem("session_user_name", decodedEmail);
+          localStorage.setItem("session_password", post.password);
+          localStorage.setItem("Admin_Role", "admin");
           setLoggedIn("true");
           navigatee("/changePassword");
         } else if (res.data === "true_admin") {
-          sessionStorage.setItem("session_user_name", decodedEmail);
-          sessionStorage.setItem("session_password", post.password)
-          setLoggedIn("true"); //for private route
+          localStorage.setItem("session_user_name", decodedEmail);
+          localStorage.setItem("session_password", post.password);
+          localStorage.setItem("Admin_Role", "admin");
+          setLoggedIn("true");
           navigatee("/admin/tickets");
         } else if (res.data === "true_member_cp") {
-          sessionStorage.setItem("session_user_name", decodedEmail);
-          sessionStorage.setItem("session_password", post.password)
+          localStorage.setItem("session_user_name", decodedEmail);
+          localStorage.setItem("session_password", post.password);
+          localStorage.setItem("Admin_Role", "member");
           setLoggedIn("true");
           navigatee("/changePassword");
         } else if (res.data === "true_member") {
-          sessionStorage.setItem("session_user_name", decodedEmail);
-          sessionStorage.setItem("session_password", post.password)
+          localStorage.setItem("session_user_name", decodedEmail);
+          localStorage.setItem("session_password", post.password);
+          localStorage.setItem("Admin_Role", "member");
           setLoggedIn("true");
           navigatee("/member/tickets");
         } else {
-          //showing User is not valid
           setMessage("Invalid Credentials!!!");
           handleShowAlert();
           resetForm();
         }
       } catch (e) {
-        //showing Backend is not connected through CustomAlert Box
-        setMessage(e.message); //setting message for not having connection
-        handleShowAlert(); //ShowAlert == true
+        setMessage(e.message);
+        handleShowAlert();
       }
     }
   };
@@ -94,13 +99,23 @@ const Login = () => {
         <h1>Greviance Management System</h1>
       </div>
       <div className="login-page">
-        <h2>Login</h2>
+        <div className="login-image">
+          <img
+            src={imageSrc}
+            alt="Description"
+            style={{ width: "25%" }}
+          />
+          <h2>Login</h2>
+        </div>
+        
         <div className="error1">
           {error && <p className="error-message">{error}</p>}
         </div>
         <form onSubmit={handleLogin} method="post">
           <div className="form-group">
-            <label id="label-username">Username*</label>
+            <label id="label-username">
+              Email<span className="astrix">*</span>
+            </label>
             <input
               type="text"
               id="username"
@@ -113,7 +128,9 @@ const Login = () => {
             )}
           </div>
           <div className="form-group">
-            <label id="label-password">Password*</label>
+            <label id="label-password">
+              Password<span className="astrix">*</span>
+            </label>
             <input
               type="password"
               id="password"
@@ -132,7 +149,9 @@ const Login = () => {
             />
           )}
 
-          <button className="Login-btn" type="submit">Login</button>
+          <button className="Login-btn" type="submit">
+            Login
+          </button>
         </form>
       </div>
     </div>

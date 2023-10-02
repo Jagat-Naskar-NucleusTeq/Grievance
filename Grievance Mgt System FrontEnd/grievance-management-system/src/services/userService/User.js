@@ -12,6 +12,6 @@ export const changePasswordPost = async(filterData)=>
 
 export const getAllUsers = async()=>{
     return Axios
-    .get('allUsers')
+    .get('users/allUsers')
     .then((response)=>response.data);
 }

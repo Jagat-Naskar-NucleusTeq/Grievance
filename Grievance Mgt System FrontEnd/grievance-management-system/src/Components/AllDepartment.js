@@ -1,4 +1,4 @@
-import React, { useState, useEffect} from "react";
+import React, { useState, useEffect } from "react";
 import "../Components/style/AllDepartment.css";
 
 function AllDepartment() {
@@ -18,16 +18,16 @@ function AllDepartment() {
     { deptId: "", deptName: "" },
   ]);
 
-  const getAllDept = ((currentPage)=>{
+  const getAllDept = (currentPage) => {
     fetch(`http://localhost:8080/api/dept/allDepartment/${currentPage}`)
       .then((response) => response.json())
       .then((data) => setDepartmentList(data))
       .catch((error) => console.error("Error:", error));
-  });
-  
-  useEffect(() =>{
-    getAllDept(currentPage)
-  },[currentPage]);
+  };
+
+  useEffect(() => {
+    getAllDept(currentPage);
+  }, [currentPage]);
 
   const departmentTableRows = departmentList.map((department) => (
     <tr key={department.deptId}>
@@ -45,9 +45,7 @@ function AllDepartment() {
             <th>Department Name</th>
           </tr>
         </thead>
-        <tbody>
-          {departmentTableRows}
-        </tbody>
+        <tbody>{departmentTableRows}</tbody>
       </table>
       <div>
         <button

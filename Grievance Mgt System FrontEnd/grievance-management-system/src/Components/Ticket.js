@@ -23,7 +23,7 @@ function Ticket() {
   ]);
   const ticketTypeList = ["Select Ticket Type", "Feedback", "Grievance"];
   const statusList = ["Open", "Being Addressed", "Resolved"];
-  //reset all the fields
+
   const resetAllFields = () => {
     setTicketType("");
     setTitle("");
@@ -32,7 +32,6 @@ function Ticket() {
     setStatus("select status");
   };
 
-  //reset all error
   const resetFormError = () => {
     setTicketTypeError("");
     setTitleError("");
@@ -47,7 +46,6 @@ function Ticket() {
     setShowAlert(false);
   };
 
-  //setting deptList from backend
   useEffect(() => {
     fetch("http://localhost:8080/api/dept/allDepartment")
       .then((response) => response.json())
@@ -55,7 +53,6 @@ function Ticket() {
       .catch((error) => console.error("Error:", error));
   }, []);
 
-  //handle submit form
   const handleSubmit = (e) => {
     e.preventDefault();
     let isValid = true;
@@ -94,10 +91,10 @@ function Ticket() {
           ticketStatus: "Open",
           ticketDescription: description,
           deptName: assignTo,
-          senderEmail: btoa(sessionStorage.getItem("session_user_name")),
+          senderEmail: btoa(localStorage.getItem("session_user_name")),
         })
         .then((res) => {
-          setMessage("Tickets add successfully!!!");
+          setMessage("Ticket added successfully!!!");
           handleShowAlert();
           resetFormError();
           resetAllFields();
@@ -108,10 +105,12 @@ function Ticket() {
   return (
     <div className="Ttickets-container">
       <form className="Tticket-form" onSubmit={handleSubmit}>
-        <h2>Add Ticket Details</h2>
+        <h2>Add Ticket</h2>
         <div className="Tsub-structure">
           <div className="Tsub-structure1">
-            <label className="TticketType">Ticket Type</label>
+            <label className="TticketType">
+              Ticket Type<span className="astrix">*</span>
+            </label>
 
             <select
               id="ticketType"
@@ -126,7 +125,9 @@ function Ticket() {
 
             {ticketTypeError && <p className="Terror">{ticketTypeError}</p>}
 
-            <label className="Ttitle">Title</label>
+            <label className="Ttitle">
+              Title<span className="astrix">*</span>
+            </label>
             <input
               type="text"
               id="title"
@@ -136,7 +137,9 @@ function Ticket() {
             />
             {titleError && <p className="Terror">{titleError}</p>}
 
-            <label className="Tdescription">Description</label>
+            <label className="Tdescription">
+              Description<span className="astrix">*</span>
+            </label>
             <textarea
               id="description"
               name="description"
@@ -147,7 +150,9 @@ function Ticket() {
           </div>
 
           <div className="Tsub-structure1">
-            <label className="TassignTo">Assign To</label>
+            <label className="TassignTo">
+              Assign To<span className="astrix">*</span>
+            </label>
             <select
               id="assignTo"
               name="assignTo"
