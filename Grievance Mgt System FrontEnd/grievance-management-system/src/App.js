@@ -33,7 +33,8 @@ function App() {
         nevigatee("/admin/tickets");
       }
     }
-  }, []);
+  }, [nevigatee]);//made changes here
+  
   useEffect(() => {
     const storedRoute = localStorage.getItem('currentRoute');
     if (storedRoute) {

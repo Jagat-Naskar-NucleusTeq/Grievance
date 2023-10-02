@@ -109,7 +109,7 @@ const PasswordChange = () => {
                 type="password"
                 id="oldPassword"
                 name="oldPassword"
-                placeholder="your old password"
+                placeholder="Your old password"
                 value={formData.oldPassword}
                 onChange={handleChange}
               />
@@ -122,7 +122,7 @@ const PasswordChange = () => {
                 type="password"
                 id="newPassword"
                 name="newPassword"
-                placeholder="your new password"
+                placeholder="Your new password"
                 value={formData.newPassword}
                 onChange={handleChange}
               />
@@ -135,7 +135,7 @@ const PasswordChange = () => {
                 type="password"
                 id="confirmNewPassword"
                 name="confirmNewPassword"
-                placeholder="confirm password"
+                placeholder="Confirm new password"
                 value={formData.confirmNewPassword}
                 onChange={handleChange}
               />
