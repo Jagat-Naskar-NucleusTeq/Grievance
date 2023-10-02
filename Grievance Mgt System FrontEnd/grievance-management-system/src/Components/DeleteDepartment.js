@@ -3,6 +3,7 @@ import "../Components/style/DeleteDepartment.css";
 import CustomAlert from "./CommonComponents/CustomAlert";
 import { Link, Outlet } from "react-router-dom";
 import ConfirmationBox from "./CommonComponents/ConfirmationBox";
+import DeleteDeptIcon from "../Components/images/icons/recycle-bin-icon.svg";
 
 function AllDepartment() {
   const [delete1, setDelete1] = useState(false);
@@ -88,7 +89,11 @@ function AllDepartment() {
               onClick={() => openConfirmBox(department.deptName)}
               className="delete-button"
             >
-              Delete
+              <img
+                  src={DeleteDeptIcon}
+                  alt="Description"
+                  style={{ width: "48%" }}
+                />
             </button>
           </td>
         </tr>

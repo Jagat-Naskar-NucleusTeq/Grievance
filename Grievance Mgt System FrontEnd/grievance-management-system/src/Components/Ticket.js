@@ -23,7 +23,7 @@ function Ticket() {
   ]);
   const ticketTypeList = ["Select Ticket Type", "Feedback", "Grievance"];
   const statusList = ["Open", "Being Addressed", "Resolved"];
-  //reset all the fields
+
   const resetAllFields = () => {
     setTicketType("");
     setTitle("");
@@ -32,7 +32,6 @@ function Ticket() {
     setStatus("select status");
   };
 
-  //reset all error
   const resetFormError = () => {
     setTicketTypeError("");
     setTitleError("");
@@ -47,7 +46,6 @@ function Ticket() {
     setShowAlert(false);
   };
 
-  //setting deptList from backend
   useEffect(() => {
     fetch("http://localhost:8080/api/dept/allDepartment")
       .then((response) => response.json())
@@ -55,7 +53,6 @@ function Ticket() {
       .catch((error) => console.error("Error:", error));
   }, []);
 
-  //handle submit form
   const handleSubmit = (e) => {
     e.preventDefault();
     let isValid = true;

@@ -15,13 +15,6 @@ function Registration() {
   const [userTypeError, setUserTypeError] = useState("");
   const [showAlert, setShowAlert] = useState(false);
 
-
-
-  
-
-  
-
-
   const handleSubmit = (e) => {
     e.preventDefault();
 
@@ -82,14 +75,14 @@ function Registration() {
       setPasswordError("Password is required");
     } else if (password.length < 8) {
       setPasswordError("min len should be 8 char");
-      } else if (!/[A-Z]/.test(password)) {
-        setPasswordError("min Uppercase should be 1");
-      } else if (!/[a-z]/.test(password)){
-        setPasswordError("Min lowercase should be 1");
-      } else if (!/[0-9]/.test(password)) {
-        setPassword("min number should be 1");
-      } else if (!/[!@#$%^&*]/.test(password)) {
-        setPasswordError("min symbol should be 1");
+    } else if (!/[A-Z]/.test(password)) {
+      setPasswordError("min Uppercase should be 1");
+    } else if (!/[a-z]/.test(password)) {
+      setPasswordError("Min lowercase should be 1");
+    } else if (!/[0-9]/.test(password)) {
+      setPassword("min number should be 1");
+    } else if (!/[!@#$%^&*]/.test(password)) {
+      setPasswordError("min symbol should be 1");
     } else {
       setPasswordError("");
     }

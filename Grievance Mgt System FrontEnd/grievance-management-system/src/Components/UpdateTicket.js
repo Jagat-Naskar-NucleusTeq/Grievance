@@ -28,7 +28,6 @@ function UpdateTicket(props) {
     ],
   });
 
-  // Fetching the ticket
   const fetchTicketData = async () => {
     try {
       const response = await axios.get(
@@ -45,12 +44,10 @@ function UpdateTicket(props) {
   }, [props.id]);
 
   const statusList = ["Select Status", "Open", "Being_Addressed", "Resolved"];
-  //reset all the fields
   const resetAllFields = () => {
     setComment("");
     setStatus("Select Status");
   };
-  //reset all error
   const resetFormError = () => {
     setCommentError("");
     setStatusError("");
@@ -187,7 +184,6 @@ function UpdateTicket(props) {
               {commentError && <p className="error">{commentError}</p>}
             </div>
           </div>
-          {/* <button type="submit" className = "editButton1"  >Submit</button> */}
           {props.editButtonsDisabled ? null : (
             <button className="editButton1" type="submit">
               Save

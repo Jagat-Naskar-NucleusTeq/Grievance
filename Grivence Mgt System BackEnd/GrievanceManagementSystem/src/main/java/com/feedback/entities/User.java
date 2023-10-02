@@ -205,11 +205,11 @@ public class User {
   /**
    * set Department.
    *
-   * @param department
+   * @param departmentt
    *
    */
-  public void setDepartment(final Department department) {
-    this.department = department;
+  public void setDepartment(final Department departmentt) {
+    this.department = departmentt;
   }
 
   /**

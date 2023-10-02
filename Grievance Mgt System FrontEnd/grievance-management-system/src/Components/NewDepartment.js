@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import "../Components/style/NewDepartment.css";
 import axios from "axios";
 import CustomAlert from "./CommonComponents/CustomAlert";
-import { useHistory, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 function NewDepartment() {
   const [showAlert, setShowAlert] = useState(false);
@@ -67,10 +67,7 @@ function NewDepartment() {
             onChange={(e) =>
               setFormData({ ...formData, deptName: e.target.value })
             }
-            // required
           />
-          {/* {departmentNameError && <p className="error">{departmentNameError}</p>} */}
-
           {showAlert && (
             <CustomAlert
               message={message}

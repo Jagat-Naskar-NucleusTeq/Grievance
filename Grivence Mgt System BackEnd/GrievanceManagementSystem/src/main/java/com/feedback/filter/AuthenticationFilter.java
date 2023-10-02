@@ -9,6 +9,7 @@ import org.springframework.stereotype.Component;
 import com.feedback.serviceImplementation.AuthenticationServiceImpl;
 
 import java.io.IOException;
+import java.nio.charset.StandardCharsets;
 import java.util.Base64;
 
 import javax.servlet.Filter;
@@ -33,13 +34,13 @@ public class AuthenticationFilter implements Filter {
   /**
    * Constructor for AuthenticationFilter.
    *
-   * @param authenticationServiceImpl The AuthenticationService to be injected.
+   * @param authenticationServiceImpll The AuthenticationService to be injected.
    *
    */
   @Autowired
   public AuthenticationFilter(
-      final AuthenticationServiceImpl authenticationServiceImpl) {
-    this.authenticationServiceImpl = authenticationServiceImpl;
+      final AuthenticationServiceImpl authenticationServiceImpll) {
+    this.authenticationServiceImpl = authenticationServiceImpll;
   }
 
   /**
@@ -79,7 +80,8 @@ public class AuthenticationFilter implements Filter {
       System.out.println(username1);
       String password2 = httpRequest.getHeader("Password");
       System.out.println(password2);
-      String username = new String(Base64.getDecoder().decode(username1));
+      String username = new String(Base64.getDecoder()
+            .decode(username1), StandardCharsets.UTF_8);
       if (authenticationServiceImpl.authenticateAdmin(username, password2)) {
         System.out.println("Authorized =>.... "
             + authenticationServiceImpl.authenticateAdmin(username, password2));

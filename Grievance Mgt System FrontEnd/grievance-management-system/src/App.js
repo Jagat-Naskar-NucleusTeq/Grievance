@@ -2,13 +2,7 @@ import "./App.css";
 import Login from "./Components/CommonComponents/Login";
 import {
   Route,
-  createBrowserRouter,
-  createRoutesFromElements,
-  RouterProvider,
   Routes,
-  BrowserRouter,
-  Router,
-  Navigate,
   useNavigate,
 } from "react-router-dom";
 import AdminHome from "./Components/AdminHome";
@@ -18,13 +12,8 @@ import AdminSidebar from "./Components/AdminSidebar";
 import NewDepartment from "./Components/NewDepartment";
 import MemberSidebar from "./Components/MemberSidebar";
 import DeleteUser from "./Components/DeleteUser";
-import AllDepartment from "./Components/AllDepartment";
 import DeleteDepartment from "./Components/DeleteDepartment";
-import AllUsers from "./Components/AllUsers";
-
 import PrivateRoute from "../src/Components/PrivateRoute"; //
-// import { useAuth } from '../src/Components/AuthContext';
-import { Switch } from "antd";
 import Error404Page from "./Components/Error404Page";
 import UpdateTicket from "./Components/UpdateTicket";
 import AllTicketDetails from "./Components/AllTicketDetails";
@@ -35,10 +24,7 @@ import { useEffect } from "react";
 function App() {
 
   let nevigatee = useNavigate();
-  
-  console.log("------admin ="+(localStorage.getItem("Admin_Role") === "admin") );
-  console.log("****member ="+(localStorage.getItem("Admin_Role") === "member"))
-  console.log("@@@@@Logendin ="+(localStorage.getItem("LoggendIn22") === "true"))
+
   useEffect(() => {
     if (localStorage.getItem("LoggendIn22") === "true") {
       if (localStorage.getItem("Admin_Role") === "member") {
@@ -48,6 +34,13 @@ function App() {
       }
     }
   }, []);
+  useEffect(() => {
+    const storedRoute = localStorage.getItem('currentRoute');
+    if (storedRoute) {
+      localStorage.removeItem('currentRoute'); // Remove stored route
+      nevigatee(storedRoute); // Navigate to the stored route
+    }
+  }, [nevigatee]);
   return (
     <div className="App">
       {
@@ -84,60 +77,7 @@ function App() {
           </Route>
           <Route path="*" element={<Error404Page />} />
         </Routes>
-
-        /* <Routes>
-        <Route path="/" element={<Login />} />
-        <Route path="/admin" element={<AdminSidebar />}>
-          <Route path="adminHome" element={<AdminHome />}/>
-          <Route path="addUser" element={<NewUser />} />
-          <Route path="allUsers" element={<AllUsers />} />
-          <Route path="deleteUser" element={<DeleteUser />} />
-          <Route path="createDept" element={<NewDepartment />} />
-          <Route path="viewDept" element={<AllDepartment />} />
-          <Route path="deleteDept" element={<DeleteDepartment />} />
-          <Route path="createTicket" element={<Ticket/>} />
-          <Route
-            path="allFeedback"
-            element={<div>All Feedback & Greviance Page</div>}
-          />
-        </Route>
-        <Route path="/member" element={<MemberSidebar />}>
-          <Route path="memberHome" element={<div>Member Home Page</div>} />
-          <Route path="" element={<div></div>} />
-          <Route path="" element={<div></div>} />
-          <Route path="myTicket" element={<div>My Ticket Page</div>} />
-          <Route path="myDeptTicket" element={<div>My Department Ticket Page</div>} />
-          <Route path="" element={<div></div>}/>
-          <Route path="createTicket" element={<Ticket/>} />
-          <Route path="" element={<div></div>} />
-          <Route path="" element={<div></div>} />
-        </Route>
-      </Routes> */
       }
-
-      {/* <RouterProvider router={routtee} />  */}
-      {/* <Practise/> */}
-      {/* <Ticket/> 
-       <NewUser/>
-       <NewDepartment/> 
-       <Login/> 
-       <AdminSidebar/> 
-       <MemberSidebar/>
-       <Error404Page/> */}
-      {/* <UpdateTicket/> */}
-      {/* <AllTicketDetails/> */}
-
-      {/* <Ticket/>
-       <PasswordChange/>
-       <Login/> */}
-
-      {/* <UpdateTicket/>
-       <PasswordChange/> */}
-
-      {/* <Routes>
-        <Route path="/" element={<AllTicketDetails />} />
-        <Route path="/update-ticket/:ticketId" element={<UpdateTicket />} />
-      </Routes> */}
     </div>
   );
 }

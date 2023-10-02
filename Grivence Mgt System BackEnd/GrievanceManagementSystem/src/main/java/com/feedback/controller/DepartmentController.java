@@ -48,7 +48,11 @@ public class DepartmentController {
     this.departmentService = departmentService2;
   }
 
-  private static final Logger LOGGER = LogManager.getLogger(DepartmentController.class);
+  /**
+   * Logger initialization.
+   */
+  private static final Logger LOGGER = LogManager
+        .getLogger(DepartmentController.class);
   /**
    * Add department by admin.
    *O
@@ -59,7 +63,7 @@ public class DepartmentController {
   @PostMapping("/addDept")
   public ResponseEntity<?> addDept(
       @Valid @RequestBody final AddDepartemntDTO dept1) {
-      
+      LOGGER.info("_________ADD DEPT CONTROLLER________");
     try {
       if (departmentService.checkAlreadyExist(dept1)) {
         String message = "Department already exists";
@@ -86,6 +90,7 @@ public class DepartmentController {
    */
   @GetMapping("/allDepartment")
   public ResponseEntity<List<DepartmentListDto>> getAllDepartments() {
+    LOGGER.info("_________GET DEPARTMENT CONTROLLER________");
     List<DepartmentListDto> departmentList = departmentService
         .getAllDepartments();
     if (!departmentList.isEmpty()) {
@@ -105,6 +110,7 @@ public class DepartmentController {
   @GetMapping("/allDepartment/{currentPage}")
   public ResponseEntity<List<DepartmentListDto>> getAllDepartments(
       @PathVariable("currentPage") final Integer currentPage) {
+    LOGGER.info("_________ALL DEPT(page) CONTROLLER________");
     List<DepartmentListDto> departmentList = departmentService
         .getAllDepartments(currentPage);
     if (!departmentList.isEmpty()) {
@@ -124,7 +130,7 @@ public class DepartmentController {
   @PostMapping("/deleteDept/{deptName}")
   public ResponseEntity<?> deleteDeptByName(
       @PathVariable final String deptName) {
-    System.out.println("_________delete By Dept Name______");
+    LOGGER.info("_________DELETE DEPT CONTROLLER________");
     String deletedDept = departmentService.deleteDept(deptName);
     return ResponseEntity.status(HttpStatus.OK).body(deletedDept);
   }

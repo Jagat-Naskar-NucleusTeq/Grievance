@@ -18,6 +18,8 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
 /**
  * Ticket Controller class.
@@ -35,6 +37,11 @@ public class TicketController {
   private TicketService ticketService;
 
   /**
+   * Logger initialization.
+   */
+  private static final Logger LOGGER = LogManager.getLogger(TicketController.class);
+
+  /**
    * adding tickets to databases.
    *
    * @param ticket
@@ -43,7 +50,7 @@ public class TicketController {
    */
   @PostMapping("/addTicket")
   public ResponseEntity<?> addTickets(@RequestBody final TicketDto ticket) {
-    System.out.println("____________Controller ticket = " + ticket);
+      LOGGER.info("____Add Ticket Controller_____");
 
     if (ticket == null) {
       throw new NullPointerFromFrontendException(
@@ -52,8 +59,7 @@ public class TicketController {
     }
 
     String message = "";
-    Ticket savedTicket = new Ticket();
-    savedTicket = ticketService.saveTicket(ticket);
+    Ticket savedTicket = ticketService.saveTicket(ticket);
     if (savedTicket != null) {
       message = "Ticket saved Successfully!!!";
     }
@@ -74,7 +80,7 @@ public class TicketController {
   public ResponseEntity<?> getTickets(
       @RequestBody final GetTicketsDtoIn getTicketsDTOin
   ) {
-    System.out.println("________get ticket controller________");
+    LOGGER.info("________get ticket controller________");
     List<GetTicketDtoOut> allTicketList = ticketService
         .getTickets(getTicketsDTOin);
     return ResponseEntity.status(HttpStatus.OK).body(allTicketList);
@@ -91,12 +97,7 @@ public class TicketController {
   public ResponseEntity<?> updateTicket(
       @RequestBody final UpdateTicketDTOin updateTicketDTOin
   ) {
-    System.out.println(
-        "_____________________update tickrt controller___________________"
-    );
-    System.out.println("id = " + updateTicketDTOin.getTicketId());
-    System.out.println("message = " + updateTicketDTOin.getComment());
-    System.out.println("status = " + updateTicketDTOin.getTicketStatus());
+    LOGGER.info("_____update tickrt controller________");
     Boolean updatedTicket = ticketService.updatingTicket(updateTicketDTOin);
     if (updatedTicket) {
       return ResponseEntity
@@ -128,6 +129,7 @@ public class TicketController {
   @GetMapping("/getIcketById/{ticketId}")
   public ResponseEntity<?> getTicketById(
       @PathVariable("ticketId") final Long ticketId) {
+    LOGGER.info("_____get ticket(id) controller________");
     GetTicketDtoOut ticketDTOout = ticketService.getByTicketById(ticketId);
     if (ticketDTOout != null) {
       return ResponseEntity.status(HttpStatus.OK).body(ticketDTOout);

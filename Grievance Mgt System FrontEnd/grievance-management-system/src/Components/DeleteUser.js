@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import "../Components/style/DeleteUser.css";
 import ConfirmationBox from "./CommonComponents/ConfirmationBox";
 import CustomAlert from "../Components/CommonComponents/CustomAlert";
+import DeleteUserIcon from "../Components/images/icons/delete-user-icon.svg";
 
 function DeleteUser() {
   const [users, setUsers] = useState([]);
@@ -69,7 +70,7 @@ function DeleteUser() {
             prevUsers.filter((user) => user.id !== deleteState)
           );
           setCurrentPage(0);
-          setMessage1("Deleted Successfully...");  
+          setMessage1("Deleted Successfully...");
           handleShowAlert();
         } else {
           console.error("Error deleting user:", response.statusText);
@@ -93,7 +94,7 @@ function DeleteUser() {
           <th>Username</th>
           <th>User Type</th>
           <th>Department</th>
-          <th>Action</th>
+          <th>Delete</th>
         </tr>
       </thead>
       <tbody>
@@ -107,15 +108,17 @@ function DeleteUser() {
             <td>{user.departmentName}</td>
             <td>
               {session_userName === user.userName ? (
-                <button className="delete-button" disabled>
-                  Delete
-                </button>
+                <span></span>
               ) : (
                 <button
                   className="delete-button"
                   onClick={() => openConfirmBox(user.id)}
                 >
-                  Delete
+                  <img
+                  src={DeleteUserIcon}
+                  alt="Description"
+                  style={{ width: "50%" }}
+                />
                 </button>
               )}
             </td>
@@ -142,7 +145,6 @@ function DeleteUser() {
             className="paging-btn"
             disabled={5 > users.length || users.length <= 0}
             onClick={handleNextPage}
-            
           >
             Next
           </button>
@@ -151,18 +153,15 @@ function DeleteUser() {
       <div>
         {showConfirmation && (
           <ConfirmationBox
-            message="Are you sure ?"
+            message="Are you sure to delete?"
             onConfirm={handleConfirm}
             onCancel={handleCancel}
           />
         )}
 
-{showAlert && (
-            <CustomAlert
-              message={message1}
-              handleCloseAlert={handleCloseAlert}
-            />
-          )}
+        {showAlert && (
+          <CustomAlert message={message1} handleCloseAlert={handleCloseAlert} />
+        )}
       </div>
     </>
   );

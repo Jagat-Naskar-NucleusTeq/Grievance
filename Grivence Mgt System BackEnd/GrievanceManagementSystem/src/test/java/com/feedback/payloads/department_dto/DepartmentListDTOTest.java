@@ -46,8 +46,9 @@ class DepartmentListDtoTest {
   @Test
   void testToString() {
       DepartmentListDto dto = new DepartmentListDto(1, "IT");
-      String expectedString = "DepartmentListDto [deptId=1, deptName=IT]";
+      String expectedString = "DepartmentListDTO [deptId=1, deptName=IT]";
       assertEquals(expectedString, dto.toString());
   }
 
 }
+

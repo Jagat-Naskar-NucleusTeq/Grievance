@@ -150,11 +150,11 @@ public class GetTicketDtoOut {
   /**
    * setTicketDescription.
    *
-   * @param ticketDescription
+   * @param ticketDescriptionn
    *
    */
-  public void setTicketDescription(final String ticketDescription) {
-    this.ticketDescription = ticketDescription;
+  public void setTicketDescription(final String ticketDescriptionn) {
+    this.ticketDescription = ticketDescriptionn;
   }
 
   /**
