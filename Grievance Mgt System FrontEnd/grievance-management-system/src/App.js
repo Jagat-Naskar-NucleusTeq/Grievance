@@ -1,24 +1,24 @@
 import "./App.css";
-import Login from "./Components/CommonComponents/Login";
+import Login from "./pages/Login";
 import {
   Route,
   Routes,
   useNavigate,
 } from "react-router-dom";
-import AdminHome from "./Components/AdminHome";
-import NewUser from "../src/Components/NewUser";
-import Ticket from "./Components/Ticket";
-import AdminSidebar from "./Components/AdminSidebar";
-import NewDepartment from "./Components/NewDepartment";
-import MemberSidebar from "./Components/MemberSidebar";
-import DeleteUser from "./Components/DeleteUser";
-import DeleteDepartment from "./Components/DeleteDepartment";
-import PrivateRoute from "../src/Components/PrivateRoute"; //
-import Error404Page from "./Components/Error404Page";
-import UpdateTicket from "./Components/UpdateTicket";
-import AllTicketDetails from "./Components/AllTicketDetails";
-import PasswordChange from "./Components/PasswordChange";
-import MemberHome from "./Components/MemberHome";
+import AdminHome from "./pages/AdminHome";
+import NewUser from "./pages/NewUser";
+import Ticket from "./pages/Ticket";
+import AdminSidebar from "./pages/AdminSidebar";
+import NewDepartment from "./pages/NewDepartment";
+import MemberSidebar from "./pages/MemberSidebar";
+import DeleteUser from "./pages/DeleteUser";
+import DeleteDepartment from "./pages/DeleteDepartment";
+import PrivateRoute from "./pages/PrivateRoute"; 
+import Error404Page from "./pages/Error404Page";
+import UpdateTicket from "./pages/UpdateTicket";
+import AllTicketDetails from "./pages/AllTicketDetails";
+import PasswordChange from "./pages/PasswordChange";
+import MemberHome from "./pages/MemberHome";
 import { useEffect } from "react";
 
 function App() {

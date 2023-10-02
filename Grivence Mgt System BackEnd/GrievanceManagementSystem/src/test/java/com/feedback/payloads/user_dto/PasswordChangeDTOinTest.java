@@ -73,5 +73,38 @@ class PasswordChangeDtoinTest {
     assertEquals("newPassword", passwordChangeDTO.getNewPassword());
     assertEquals("newPassword", passwordChangeDTO.getConfirmNewPassword());
   }
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+
+  @Test
+  void testEquals() {
+    PasswordChangeDtoin dto1 = new PasswordChangeDtoin("user", "old", "new", "new");
+    PasswordChangeDtoin dto2 = new PasswordChangeDtoin("user", "old", "new", "new");
+    PasswordChangeDtoin dto3 = new PasswordChangeDtoin("user", "old", "new", "different");
+
+    assertTrue(dto1.equals(dto2));
+    assertTrue(dto2.equals(dto1));
+    assertEquals(dto1.hashCode(), dto2.hashCode());
+
+    assertFalse(dto1.equals(dto3));
+    assertFalse(dto2.equals(dto3));
+  }
+
+  @Test
+  void testToString() {
+    PasswordChangeDtoin dto = new PasswordChangeDtoin("user", "old", "new", "new");
+    String expectedString = "PasswordChangeDTOin [oldPassword=old, newPassword=new, confirmNewPassword=new]";
+    assertEquals(expectedString, dto.toString());
+  }
 
 }

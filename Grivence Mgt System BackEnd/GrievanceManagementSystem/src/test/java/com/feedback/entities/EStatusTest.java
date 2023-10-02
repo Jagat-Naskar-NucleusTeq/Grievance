@@ -1,7 +1,7 @@
 package com.feedback.entities;
 
 import static org.junit.jupiter.api.Assertions.*;
-
+import java.lang.reflect.Method;
 import org.junit.jupiter.api.Test;
 
 class EStatusTest {
@@ -19,5 +19,15 @@ class EStatusTest {
       assertNotNull(EStatus.getStatusComparator());
   }
 
-}
+  @Test
+  void getSortOrderTest() throws Exception {
+    EStatus status = EStatus.Open;
 
+    Method method = EStatus.class.getDeclaredMethod("getSortOrder");
+    method.setAccessible(true);
+
+    int sortOrder = (int) method.invoke(status);
+
+    assertEquals(1, sortOrder);
+  }
+}
