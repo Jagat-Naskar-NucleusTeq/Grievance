@@ -41,6 +41,10 @@
   height: 40px;
 }
 
+#ticketType, #assignTo{
+  font-style: italic;
+}
+
 .Tticket-form .Terror {
   color: rgb(255, 0, 0);
   font-size: smaller;

@@ -3,42 +3,46 @@
   top: 56%;
   left: 50%;
   transform: translate(-50%, -50%);
-
   box-shadow: 5%;
-
   border-radius: 3px;
   width: 100vw;
   height: 100vh;
 }
+
+.changeStatus-input{
+background-color: #ffffff;
+font-style: italic;
+color: #0f0925;
+}
+
 .tickets-container {
   margin-left: 15%;
   display: flex;
-
   margin: auto;
-
   font-family: Arial, sans-serif;
-
   background-color: #a1a2a7;
-
   width: 100vw;
 }
+
 .main-div {
   display: flex;
 }
+
 .div1 {
   margin-bottom: 2%;
   margin-right: 4%;
   margin-left: 2%;
   width: 43%;
 }
+
 .comment-box {
   flex: 1 1;
   width: 43%;
   padding: 10px;
-
   overflow-y: scroll;
   height: 70vh;
 }
+
 .ticket-form {
   box-shadow: 1px 1px 6px rgba(0.5, 0, 0, 0.6);
   border-radius: 25px;
@@ -46,7 +50,6 @@
   flex: 1 1;
   margin: 2vw;
   gap: 10px;
-
   width: 43%;
   height: -moz-fit-content;
   height: fit-content;
@@ -84,6 +87,7 @@ textarea {
 }
 .input-comment {
   border: 1px solid #745d5d83;
+  background-color: white;
 }
 .error {
   color: #ff0000;
@@ -107,6 +111,7 @@ textarea {
   border: 1px solid black;
   font-style: italic;
   font-size: smaller;
+  min-width: 25px;
 }
 
 .UT-h2 {
@@ -134,6 +139,7 @@ textarea {
   margin-top: 2px;
   width: 97%;
   border: 1px solid black;
+  min-width: 25px;
 }
 .editButton1[disabled] {
   background-color: rgba(0, 0, 0, 0.066);
