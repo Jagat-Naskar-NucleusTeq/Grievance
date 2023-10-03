@@ -95,7 +95,7 @@ public class TicketServiceImpl implements TicketService {
           .getUserByUsername(decodedEmail));
       newTicket.setTicketAssignedBy(newTicket.getUser().getName());
     } else {
-      LOGGER.info("Ticket not found.");
+      LOGGER.error("Ticket not found.");
       throw new UserNotFoundException(ticket.getSenderEmail());
     }
     LOGGER.info("Saved Ticket successful.");
@@ -166,7 +166,7 @@ public class TicketServiceImpl implements TicketService {
         }
       }
       if (outPutlist == null) {
-        LOGGER.info("Ticket not found.");
+        LOGGER.error("Ticket not found.");
         throw new TicketNotFoundException("Ticket not found.");
       }
       List<GetTicketDtoOut> outPutList = outPutlist.stream()
@@ -177,6 +177,7 @@ public class TicketServiceImpl implements TicketService {
       LOGGER.info("Returned list of ticket.");
       return outPutList;
     } else {
+      LOGGER.error("User not found.");
       throw new UserNotFoundException(decodedSenderEmail);
     }
   }
@@ -190,7 +191,7 @@ public class TicketServiceImpl implements TicketService {
    */
   private GetTicketDtoOut convertToDTO(final Ticket ticket) {
     if (ticket == null) {
-      LOGGER.info("User not found from frontend.");
+      LOGGER.error("User not found from frontend.");
       throw new TicketNotFoundException("No ticket available.");
     }
     GetTicketDtoOut dto = new GetTicketDtoOut();
@@ -220,7 +221,7 @@ public class TicketServiceImpl implements TicketService {
     EStatus newStatus = EStatusConverter.convertStringToEStatus(
         updateTicketDTOin.getTicketStatus().toString());
     if (!ticketRepository.existsById(updateTicketDTOin.getTicketId())) {
-      LOGGER.info("Ticket not found with id = "
+      LOGGER.error("Ticket not found with id = "
         + updateTicketDTOin.getTicketId());
       throw new TicketNotFoundException((int) updateTicketDTOin.getTicketId());
     }
@@ -229,7 +230,7 @@ public class TicketServiceImpl implements TicketService {
 
     Ticket ticket2 = ticket.get();
     if (!ticket.isPresent()) {
-      LOGGER.info("Ticket not found with id = "
+      LOGGER.error("Ticket not found with id = "
               + updateTicketDTOin.getTicketId());
       throw new TicketNotFoundException("Ticket not found");
     }

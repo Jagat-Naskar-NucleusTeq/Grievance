@@ -78,7 +78,7 @@ public class UserServiceImpl implements UserService {
     newUser.setUserType(user.getUserType());
     if (departmentRepository
         .findByDeptName(user.getDepartmentName()) == null) {
-      LOGGER.info("Department not found.");
+      LOGGER.error("Department not found.");
       throw new DepartmentNotFoundException(user.getDepartmentName());
     }
     Department d1 = departmentRepository
@@ -201,7 +201,7 @@ public class UserServiceImpl implements UserService {
       LOGGER.info("Deleted successfully.");
       return "Deleted Successfully";
     } else {
-      LOGGER.info("Failed to delete");
+      LOGGER.error("Failed to delete");
       throw new UserNotFoundException(userId);
     }
   }
@@ -224,7 +224,7 @@ public class UserServiceImpl implements UserService {
     LOGGER.info("New Password = " + newPassword);
     LOGGER.info("Confirm change Pass = " + confirmNewPassword);
     if (!userRepository.existsByUserName(userName)) {
-      LOGGER.info("User not exist.");
+      LOGGER.error("User not exist.");
       throw new UserNotFoundException(userName);
     }
     User user = userRepository.getUserByUsername(userName);

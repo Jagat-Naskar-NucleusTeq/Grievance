@@ -174,7 +174,7 @@ function UpdateTicket(props) {
               />
 
               <label className="comment">
-                Comment<span className="astrix">*</span>
+                Add Comment<span className="astrix">*</span>
               </label>
               <textarea
                 className="input-comment"

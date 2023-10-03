@@ -70,6 +70,7 @@ public class DepartmentController {
         return ResponseEntity.status(HttpStatus.OK).body(message);
       }
       if (departmentService.addDept(dept1) == null) {
+        LOGGER.error("Database save problem");
         throw new RuntimeException("Database save problem");
       }
       String message = "Department " + dept1.getDeptName()

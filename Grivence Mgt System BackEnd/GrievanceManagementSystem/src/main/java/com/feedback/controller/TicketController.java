@@ -53,6 +53,7 @@ public class TicketController {
       LOGGER.info("____Add Ticket Controller_____");
 
     if (ticket == null) {
+      LOGGER.error("Not got data from frontend");
       throw new NullPointerFromFrontendException(
         "Ticket data not received in the backend."
       );

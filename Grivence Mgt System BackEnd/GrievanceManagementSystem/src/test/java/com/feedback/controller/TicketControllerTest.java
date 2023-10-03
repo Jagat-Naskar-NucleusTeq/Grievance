@@ -36,13 +36,11 @@ private TicketService ticketService;
 @BeforeEach
 void setUp() {
 	MockitoAnnotations.initMocks(this);
-//    ticketService = Mockito.mock(TicketService.class);
-//    ticketController = new TicketController();
+
 }
 
     @Test
     public void testAddTickets() {
-//      ticketController.ticketService = ticketService;
 
       TicketDto ticketDto = new TicketDto();
       ticketDto.setTicketDescription("Sample Description");
@@ -99,11 +97,6 @@ void setUp() {
         assertEquals(expectedTicketList, responseEntity.getBody());
     }
 
-    
-    
-    
-    
-    
     @Test
     void testGetTickets_NoTicketsFound() {
         // Arrange
