@@ -31,6 +31,11 @@
   margin-left: 1vw;
 }
 
+#userType{
+  /* background-color: rgba(124, 158, 204, 0.459); */
+  font-style: italic;
+}
+
 .NU-input-user {
   width: 100%;
   padding: 8px;

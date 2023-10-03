@@ -132,6 +132,7 @@ function UpdateTicket(props) {
               <select
                 id="status"
                 name="status"
+                className="changeStatus-input"
                 value={status}
                 onChange={(e) => setStatus(e.target.value)}
               >
