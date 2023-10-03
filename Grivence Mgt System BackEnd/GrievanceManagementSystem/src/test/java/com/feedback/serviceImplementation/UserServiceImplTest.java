@@ -65,37 +65,27 @@ public void testSaveUser_Success() {
     d1.setDeptId(1);
     newUser.setDepartment(d1);
 
-    // Mock the behavior of departmentRepository.findByDeptName when called by userService.saveUser
     when(departmentRepository.findByDeptName("Civil")).thenReturn(d1);
-
-    // Mock the behavior of userRepository.save and use ArgumentMatchers
     when(userRepository.save(any(User.class))).thenReturn(newUser);
 
-    // Act
     User savedUser = userService.saveUser(addUserDto);
 
-    // Assert
     verify(userRepository, times(1)).save(any(User.class));
     assertEquals(newUser, savedUser);
 }
 
 @Test
 public void testSaveUser_Failure() {
-    // Arrange
     AddUserDto addUserDto = new AddUserDto("jagat", "YWRtaW5AbnVjbGV1c3RlcS5jb20=", "cGFzc3dvcmQ=", ERole.admin, "NonExistentDepartment");
 
-    // Mock the behavior of departmentRepository.findByDeptName to return null
     when(departmentRepository.findByDeptName("NonExistentDepartment")).thenReturn(null);
 
-    // Act and Assert
     Exception exception = assertThrows(DepartmentNotFoundException.class, () -> {
         userService.saveUser(addUserDto);
     });
 
-    // Verify that the exception message contains the department name
     assertTrue(exception.getMessage().contains("NonExistentDepartment"));
 
-    // Verify that userRepository.save was never called
     verify(userRepository, never()).save(any(User.class));
 }
   
@@ -108,13 +98,10 @@ public void testCheckAlreadyExist_UserExists() {
     User existingUser = new User();
     existingUser.setUserName(addUserDto.getUserName());
 
-    // Mock the behavior of userRepository.existsByUserName to return true
     when(userRepository.existsByUserName(addUserDto.getUserName())).thenReturn(true);
 
-    // Act
     boolean result = userService.checkAlreadyExist(addUserDto);
 
-    // Assert
     assertTrue(result);
 }
 
@@ -146,40 +133,29 @@ void testGetAllUsers() {
 
 @Test
 void testGetUserById() {
-    // Arrange
     int userId = 1;
-    User expectedUser = new User(/* Initialize user data */);
+    User expectedUser = new User(1, "Jagat", "jme@nucleusteq.com", "cGFzc3dvcmQ=", ERole.admin, false, null, null, null);
 
-    // Mock the behavior of userRepository.findById()
     when(userRepository.findById(userId)).thenReturn(Optional.of(expectedUser));
 
-    // Act
     User result = userService.getUserById(userId);
 
-    // Assert
     assertNotNull(result);
     assertEquals(expectedUser, result);
 }
 
 @Test
 public void testCheckAlreadyExist_UserDoesNotExist() {
-    // Arrange
     AddUserDto addUserDto = new AddUserDto("jagat", "admin@nucleusteq.com", "password", ERole.admin, "Civil");
 
     User newUser = new User();
     newUser.setUserName(addUserDto.getUserName());
 
-    // Mock the behavior of userRepository.existsByUserName to return false
     when(userRepository.existsByUserName(newUser.getUserName())).thenReturn(false);
 
-    // Act
     boolean result = userService.checkAlreadyExist(addUserDto);
 
-    // Assert
     assertFalse(result);
-
-    // Verify that userRepository.existsByUserName was called with the correct argument
-//    verify(userRepository, times(2)).existsByUserName(newUser.getUserName());
 }
 
   @Test
@@ -193,7 +169,7 @@ public void testCheckAlreadyExist_UserDoesNotExist() {
     String result = userService.getByUserAndPassword("admin@nucleusteq.com", "admin");
     assertEquals("false", result);
   }
-  
+
   @Test
   public void testUserNotFound() {
     when(userRepository.getUserByUsername("nonExistentUser")).thenReturn(null);
@@ -245,30 +221,26 @@ public void testCheckAlreadyExist_UserDoesNotExist() {
 
       assertEquals("false", result);
   }
-  
+
   @Test
   void testDeleteUser_UserExists() {
-      // Arrange
+
       Integer userId = 1;
 
       when(userRepository.existsById(userId)).thenReturn(true);
 
-      // Act
       String result = userService.deleteUser(userId);
 
-      // Assert
       assertEquals("Deleted Successfully", result);
       verify(userRepository, times(1)).deleteById(userId);
   }
 
   @Test
   void testDeleteUser_UserDoesNotExist() {
-      // Arrange
       Integer userId = 1;
 
       when(userRepository.existsById(userId)).thenReturn(false);
 
-      // Act and Assert
       assertThrows(UserNotFoundException.class, () -> {
           userService.deleteUser(userId);
       });
@@ -281,7 +253,6 @@ public void testCheckAlreadyExist_UserDoesNotExist() {
   
   @Test
   void testGetByUserByUserName_UserExists() {
-      // Arrange
       String userName = "jme@nucleusteq.com";
       User user = new User();
       user.setName("Jme Naskar");
@@ -296,10 +267,8 @@ public void testCheckAlreadyExist_UserDoesNotExist() {
       when(userRepository.existsByUserName(userName)).thenReturn(true);
       when(userRepository.getUserByUsername(userName)).thenReturn(user);
 
-      // Act
       UserProfileDtoOut userProfileDTOout = userService.getByUserByUserName(userName);
 
-      // Assert
       assertNotNull(userProfileDTOout);
       assertEquals("Jme Naskar", userProfileDTOout.getName());
       assertEquals(userName, userProfileDTOout.getUserName());
@@ -321,11 +290,10 @@ public void testCheckAlreadyExist_UserDoesNotExist() {
 
   @Test
   void testGetByUserAndPassword() {
-      // Mocking userRepository to return a user with username "jagat" and password "password123"
       User user = new User();
       user.setUserName("jagat");
       user.setPassword("password123");
-      user.setUserType(ERole.admin); // Assuming a user role
+      user.setUserType(ERole.admin);
       
       Boolean boolean1 = false;
       when(userRepository.existsByUserName("jagat")).thenReturn(boolean1);
@@ -338,17 +306,15 @@ public void testCheckAlreadyExist_UserDoesNotExist() {
 
   @Test
   void testPasswordChangedSuccess() {
-      // Mocking userRepository to return a user with username "jagat" and password "oldPassword"
       User user = new User();
-      user.setUserName("am1lQG51Y2xldXN0ZXEuY29t"); // Use the Base64 encoded username
+      user.setUserName("am1lQG51Y2xldXN0ZXEuY29t");
       user.setPassword("oldPassword");
-      user.setUserType(ERole.admin); // Assuming a user role
+      user.setUserType(ERole.admin);
 
-      when(userRepository.existsByUserName("jme@nucleusteq.com")).thenReturn(true); // Use the Base64 encoded username
-      when(userRepository.getUserByUsername("jme@nucleusteq.com")).thenReturn(user); // Use the Base64 encoded username
-
+      when(userRepository.existsByUserName("jme@nucleusteq.com")).thenReturn(true);
+      when(userRepository.getUserByUsername("jme@nucleusteq.com")).thenReturn(user);
       PasswordChangeDtoin request = new PasswordChangeDtoin();
-      request.setUserName("am1lQG51Y2xldXN0ZXEuY29t"); // Use the Base64 encoded username
+      request.setUserName("am1lQG51Y2xldXN0ZXEuY29t");
       request.setOldPassword("oldPassword");
       request.setNewPassword("newPassword");
       request.setConfirmNewPassword("newPassword");
@@ -394,10 +360,8 @@ public void testCheckAlreadyExist_UserDoesNotExist() {
       when(userRepository.existsByUserName(userName)).thenReturn(true);
       when(userRepository.getUserByUsername(userName)).thenReturn(mockUser);
 
-      // Act
       String result = userService.getByUserAndPassword(userName, password);
 
-      // Assert
       assertEquals("true_admin", result);
   }
 
@@ -408,10 +372,8 @@ public void testCheckAlreadyExist_UserDoesNotExist() {
 
       when(userRepository.existsByUserName(userName)).thenThrow(new RuntimeException("Database connection failed"));
 
-      // Act
       String result = userService.getByUserAndPassword(userName, password);
 
-      // Assert
       assertEquals("Error : Database connection failed", result);
-  }
+  } 
 }
