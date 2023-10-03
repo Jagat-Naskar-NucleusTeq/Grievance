@@ -85,16 +85,18 @@ function AllDepartment() {
           <td>{department.deptId}</td>
           <td>{department.deptName}</td>
           <td>
-            <button
-              onClick={() => openConfirmBox(department.deptName)}
-              className="delete-button"
-            >
-              <img
+            {localStorage.getItem("MyDeptName") !== department.deptName && (
+              <button
+                onClick={() => openConfirmBox(department.deptName)}
+                className="delete-button"
+              >
+                <img
                   src={DeleteDeptIcon}
                   alt="Description"
                   style={{ width: "48%" }}
                 />
-            </button>
+              </button>
+            )}
           </td>
         </tr>
       ))
@@ -139,9 +141,7 @@ function AllDepartment() {
           <button
             className="paging-btn"
             onClick={handleNextPage}
-            disabled={
-              5 > departmentList.length 
-            }
+            disabled={5 > departmentList.length}
           >
             Next
           </button>

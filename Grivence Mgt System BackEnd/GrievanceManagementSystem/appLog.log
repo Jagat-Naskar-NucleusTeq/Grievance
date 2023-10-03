@@ -1,0 +1,144 @@
+2023-10-04 00:00:13,442 [INFO] com.feedback.controller.UserController [http-nio-8080-exec-6] _______GetUserProfile_controller______ 
+2023-10-04 00:00:13,458 [INFO] com.feedback.serviceImplementation.UserServiceImpl [http-nio-8080-exec-6] Got Profile of user success. 
+2023-10-04 00:00:13,458 [INFO] com.feedback.controller.UserController [http-nio-8080-exec-6] Returned User 
+2023-10-04 00:00:43,681 [INFO] com.feedback.controller.UserController [http-nio-8080-exec-9] _______GetUserProfile_controller______ 
+2023-10-04 00:00:43,687 [INFO] com.feedback.serviceImplementation.UserServiceImpl [http-nio-8080-exec-9] Got Profile of user success. 
+2023-10-04 00:00:43,688 [INFO] com.feedback.controller.UserController [http-nio-8080-exec-9] Returned User 
+2023-10-04 00:00:54,686 [INFO] com.feedback.controller.UserController [http-nio-8080-exec-3] _______GetUserProfile_controller______ 
+2023-10-04 00:00:54,693 [INFO] com.feedback.serviceImplementation.UserServiceImpl [http-nio-8080-exec-3] Got Profile of user success. 
+2023-10-04 00:00:54,693 [INFO] com.feedback.controller.UserController [http-nio-8080-exec-3] Returned User 
+2023-10-04 00:00:55,685 [INFO] com.feedback.controller.UserController [http-nio-8080-exec-8] _______GetUserProfile_controller______ 
+2023-10-04 00:00:55,692 [INFO] com.feedback.serviceImplementation.UserServiceImpl [http-nio-8080-exec-8] Got Profile of user success. 
+2023-10-04 00:00:55,692 [INFO] com.feedback.controller.UserController [http-nio-8080-exec-8] Returned User 
+2023-10-04 00:01:01,677 [INFO] com.feedback.controller.UserController [http-nio-8080-exec-7] _______GetUserProfile_controller______ 
+2023-10-04 00:01:01,682 [INFO] com.feedback.serviceImplementation.UserServiceImpl [http-nio-8080-exec-7] Got Profile of user success. 
+2023-10-04 00:01:01,682 [INFO] com.feedback.controller.UserController [http-nio-8080-exec-7] Returned User 
+2023-10-04 00:01:19,740 [INFO] com.feedback.controller.UserController [http-nio-8080-exec-10] _________login_Controller__________ 
+2023-10-04 00:01:19,741 [INFO] com.feedback.controller.UserController [http-nio-8080-exec-10] Email got = admin@nucleusteq.com 
+2023-10-04 00:01:19,742 [INFO] com.feedback.controller.UserController [http-nio-8080-exec-10] Password got = Admin@1234 
+2023-10-04 00:01:19,746 [INFO] com.feedback.serviceImplementation.UserServiceImpl [http-nio-8080-exec-10] Actual emial = admin@nucleusteq.com 
+2023-10-04 00:01:19,747 [INFO] com.feedback.serviceImplementation.UserServiceImpl [http-nio-8080-exec-10] Actual password = Admin@1234 
+2023-10-04 00:01:19,747 [INFO] com.feedback.serviceImplementation.UserServiceImpl [http-nio-8080-exec-10] Success login 
+2023-10-04 00:01:19,747 [INFO] com.feedback.controller.UserController [http-nio-8080-exec-10] Password got success 
+2023-10-04 00:01:19,778 [INFO] com.feedback.controller.TicketController [http-nio-8080-exec-1] ________get ticket controller________ 
+2023-10-04 00:01:19,792 [INFO] com.feedback.serviceImplementation.TicketServiceImpl [http-nio-8080-exec-1] Ticket returned successfully. 
+2023-10-04 00:01:19,792 [INFO] com.feedback.serviceImplementation.TicketServiceImpl [http-nio-8080-exec-1] Ticket returned successfully. 
+2023-10-04 00:01:19,794 [INFO] com.feedback.serviceImplementation.TicketServiceImpl [http-nio-8080-exec-1] Ticket returned successfully. 
+2023-10-04 00:01:19,794 [INFO] com.feedback.serviceImplementation.TicketServiceImpl [http-nio-8080-exec-1] Ticket returned successfully. 
+2023-10-04 00:01:19,794 [INFO] com.feedback.serviceImplementation.TicketServiceImpl [http-nio-8080-exec-1] Ticket returned successfully. 
+2023-10-04 00:01:19,794 [INFO] com.feedback.serviceImplementation.TicketServiceImpl [http-nio-8080-exec-1] Returned list of ticket. 
+2023-10-04 00:03:48,914 [INFO] com.feedback.controller.UserController [http-nio-8080-exec-4] _________login_Controller__________ 
+2023-10-04 00:03:48,915 [INFO] com.feedback.controller.UserController [http-nio-8080-exec-4] Email got = admin@nucleusteq.com 
+2023-10-04 00:03:48,915 [INFO] com.feedback.controller.UserController [http-nio-8080-exec-4] Password got = Admin@1234 
+2023-10-04 00:03:48,919 [INFO] com.feedback.serviceImplementation.UserServiceImpl [http-nio-8080-exec-4] Actual emial = admin@nucleusteq.com 
+2023-10-04 00:03:48,919 [INFO] com.feedback.serviceImplementation.UserServiceImpl [http-nio-8080-exec-4] Actual password = Admin@1234 
+2023-10-04 00:03:48,919 [INFO] com.feedback.serviceImplementation.UserServiceImpl [http-nio-8080-exec-4] Success login 
+2023-10-04 00:03:48,919 [INFO] com.feedback.controller.UserController [http-nio-8080-exec-4] Password got success 
+2023-10-04 00:03:48,951 [INFO] com.feedback.controller.TicketController [http-nio-8080-exec-5] ________get ticket controller________ 
+2023-10-04 00:03:48,962 [INFO] com.feedback.serviceImplementation.TicketServiceImpl [http-nio-8080-exec-5] Ticket returned successfully. 
+2023-10-04 00:03:48,962 [INFO] com.feedback.serviceImplementation.TicketServiceImpl [http-nio-8080-exec-5] Ticket returned successfully. 
+2023-10-04 00:03:48,962 [INFO] com.feedback.serviceImplementation.TicketServiceImpl [http-nio-8080-exec-5] Ticket returned successfully. 
+2023-10-04 00:03:48,962 [INFO] com.feedback.serviceImplementation.TicketServiceImpl [http-nio-8080-exec-5] Ticket returned successfully. 
+2023-10-04 00:03:48,970 [INFO] com.feedback.serviceImplementation.TicketServiceImpl [http-nio-8080-exec-5] Ticket returned successfully. 
+2023-10-04 00:03:48,970 [INFO] com.feedback.serviceImplementation.TicketServiceImpl [http-nio-8080-exec-5] Returned list of ticket. 
+2023-10-04 00:04:25,453 [INFO] com.feedback.controller.UserController [http-nio-8080-exec-6] _________login_Controller__________ 
+2023-10-04 00:04:25,455 [INFO] com.feedback.controller.UserController [http-nio-8080-exec-6] Email got = admin@nucleusteq.com 
+2023-10-04 00:04:25,455 [INFO] com.feedback.controller.UserController [http-nio-8080-exec-6] Password got = Admin@1234 
+2023-10-04 00:04:25,458 [INFO] com.feedback.serviceImplementation.UserServiceImpl [http-nio-8080-exec-6] Actual emial = admin@nucleusteq.com 
+2023-10-04 00:04:25,460 [INFO] com.feedback.serviceImplementation.UserServiceImpl [http-nio-8080-exec-6] Actual password = Admin@1234 
+2023-10-04 00:04:25,460 [INFO] com.feedback.serviceImplementation.UserServiceImpl [http-nio-8080-exec-6] Success login 
+2023-10-04 00:04:25,460 [INFO] com.feedback.controller.UserController [http-nio-8080-exec-6] Password got success 
+2023-10-04 00:04:25,493 [INFO] com.feedback.controller.TicketController [http-nio-8080-exec-9] ________get ticket controller________ 
+2023-10-04 00:04:25,509 [INFO] com.feedback.serviceImplementation.TicketServiceImpl [http-nio-8080-exec-9] Ticket returned successfully. 
+2023-10-04 00:04:25,509 [INFO] com.feedback.serviceImplementation.TicketServiceImpl [http-nio-8080-exec-9] Ticket returned successfully. 
+2023-10-04 00:04:25,509 [INFO] com.feedback.serviceImplementation.TicketServiceImpl [http-nio-8080-exec-9] Ticket returned successfully. 
+2023-10-04 00:04:25,509 [INFO] com.feedback.serviceImplementation.TicketServiceImpl [http-nio-8080-exec-9] Ticket returned successfully. 
+2023-10-04 00:04:25,509 [INFO] com.feedback.serviceImplementation.TicketServiceImpl [http-nio-8080-exec-9] Ticket returned successfully. 
+2023-10-04 00:04:25,509 [INFO] com.feedback.serviceImplementation.TicketServiceImpl [http-nio-8080-exec-9] Returned list of ticket. 
+2023-10-04 00:05:03,636 [INFO] com.feedback.controller.UserController [http-nio-8080-exec-3] _________login_Controller__________ 
+2023-10-04 00:05:03,636 [INFO] com.feedback.controller.UserController [http-nio-8080-exec-3] Email got = admin@nucleusteq.com 
+2023-10-04 00:05:03,636 [INFO] com.feedback.controller.UserController [http-nio-8080-exec-3] Password got = Admin@1234 
+2023-10-04 00:05:03,636 [INFO] com.feedback.serviceImplementation.UserServiceImpl [http-nio-8080-exec-3] Actual emial = admin@nucleusteq.com 
+2023-10-04 00:05:03,636 [INFO] com.feedback.serviceImplementation.UserServiceImpl [http-nio-8080-exec-3] Actual password = Admin@1234 
+2023-10-04 00:05:03,636 [INFO] com.feedback.serviceImplementation.UserServiceImpl [http-nio-8080-exec-3] Success login 
+2023-10-04 00:05:03,644 [INFO] com.feedback.controller.UserController [http-nio-8080-exec-3] Password got success 
+2023-10-04 00:05:03,693 [INFO] com.feedback.controller.TicketController [http-nio-8080-exec-8] ________get ticket controller________ 
+2023-10-04 00:05:03,709 [INFO] com.feedback.serviceImplementation.TicketServiceImpl [http-nio-8080-exec-8] Ticket returned successfully. 
+2023-10-04 00:05:03,709 [INFO] com.feedback.serviceImplementation.TicketServiceImpl [http-nio-8080-exec-8] Ticket returned successfully. 
+2023-10-04 00:05:03,709 [INFO] com.feedback.serviceImplementation.TicketServiceImpl [http-nio-8080-exec-8] Ticket returned successfully. 
+2023-10-04 00:05:03,709 [INFO] com.feedback.serviceImplementation.TicketServiceImpl [http-nio-8080-exec-8] Ticket returned successfully. 
+2023-10-04 00:05:03,709 [INFO] com.feedback.serviceImplementation.TicketServiceImpl [http-nio-8080-exec-8] Ticket returned successfully. 
+2023-10-04 00:05:03,709 [INFO] com.feedback.serviceImplementation.TicketServiceImpl [http-nio-8080-exec-8] Returned list of ticket. 
+2023-10-04 00:05:10,765 [INFO] com.feedback.controller.UserController [http-nio-8080-exec-7] _______GetUserProfile_controller______ 
+2023-10-04 00:05:10,773 [INFO] com.feedback.serviceImplementation.UserServiceImpl [http-nio-8080-exec-7] Got Profile of user success. 
+2023-10-04 00:05:10,773 [INFO] com.feedback.controller.UserController [http-nio-8080-exec-7] Returned User 
+2023-10-04 00:05:43,672 [INFO] com.feedback.controller.UserController [http-nio-8080-exec-10] _______GetUserProfile_controller______ 
+2023-10-04 00:05:43,676 [INFO] com.feedback.serviceImplementation.UserServiceImpl [http-nio-8080-exec-10] Got Profile of user success. 
+2023-10-04 00:05:43,676 [INFO] com.feedback.controller.UserController [http-nio-8080-exec-10] Returned User 
+2023-10-04 00:05:44,676 [INFO] com.feedback.controller.UserController [http-nio-8080-exec-1] _______GetUserProfile_controller______ 
+2023-10-04 00:05:44,685 [INFO] com.feedback.serviceImplementation.UserServiceImpl [http-nio-8080-exec-1] Got Profile of user success. 
+2023-10-04 00:05:44,685 [INFO] com.feedback.controller.UserController [http-nio-8080-exec-1] Returned User 
+2023-10-04 00:05:47,794 [INFO] com.feedback.controller.UserController [http-nio-8080-exec-2] _______GetUserProfile_controller______ 
+2023-10-04 00:05:47,802 [INFO] com.feedback.serviceImplementation.UserServiceImpl [http-nio-8080-exec-2] Got Profile of user success. 
+2023-10-04 00:05:47,802 [INFO] com.feedback.controller.UserController [http-nio-8080-exec-2] Returned User 
+2023-10-04 00:05:49,679 [INFO] com.feedback.controller.UserController [http-nio-8080-exec-4] _______GetUserProfile_controller______ 
+2023-10-04 00:05:49,684 [INFO] com.feedback.serviceImplementation.UserServiceImpl [http-nio-8080-exec-4] Got Profile of user success. 
+2023-10-04 00:05:49,684 [INFO] com.feedback.controller.UserController [http-nio-8080-exec-4] Returned User 
+2023-10-04 00:05:55,679 [INFO] com.feedback.controller.UserController [http-nio-8080-exec-5] _______GetUserProfile_controller______ 
+2023-10-04 00:05:55,679 [INFO] com.feedback.serviceImplementation.UserServiceImpl [http-nio-8080-exec-5] Got Profile of user success. 
+2023-10-04 00:05:55,679 [INFO] com.feedback.controller.UserController [http-nio-8080-exec-5] Returned User 
+2023-10-04 00:05:57,679 [INFO] com.feedback.controller.UserController [http-nio-8080-exec-6] _______GetUserProfile_controller______ 
+2023-10-04 00:05:57,679 [INFO] com.feedback.serviceImplementation.UserServiceImpl [http-nio-8080-exec-6] Got Profile of user success. 
+2023-10-04 00:05:57,679 [INFO] com.feedback.controller.UserController [http-nio-8080-exec-6] Returned User 
+2023-10-04 00:06:30,173 [INFO] com.feedback.controller.UserController [http-nio-8080-exec-9] _________login_Controller__________ 
+2023-10-04 00:06:30,174 [INFO] com.feedback.controller.UserController [http-nio-8080-exec-9] Email got = admin@nucleusteq.com 
+2023-10-04 00:06:30,174 [INFO] com.feedback.controller.UserController [http-nio-8080-exec-9] Password got = Admin@1234 
+2023-10-04 00:06:30,176 [INFO] com.feedback.serviceImplementation.UserServiceImpl [http-nio-8080-exec-9] Actual emial = admin@nucleusteq.com 
+2023-10-04 00:06:30,176 [INFO] com.feedback.serviceImplementation.UserServiceImpl [http-nio-8080-exec-9] Actual password = Admin@1234 
+2023-10-04 00:06:30,180 [INFO] com.feedback.serviceImplementation.UserServiceImpl [http-nio-8080-exec-9] Success login 
+2023-10-04 00:06:30,180 [INFO] com.feedback.controller.UserController [http-nio-8080-exec-9] Password got success 
+2023-10-04 00:06:30,221 [INFO] com.feedback.controller.TicketController [http-nio-8080-exec-3] ________get ticket controller________ 
+2023-10-04 00:06:30,246 [INFO] com.feedback.serviceImplementation.TicketServiceImpl [http-nio-8080-exec-3] Ticket returned successfully. 
+2023-10-04 00:06:30,248 [INFO] com.feedback.serviceImplementation.TicketServiceImpl [http-nio-8080-exec-3] Ticket returned successfully. 
+2023-10-04 00:06:30,248 [INFO] com.feedback.serviceImplementation.TicketServiceImpl [http-nio-8080-exec-3] Ticket returned successfully. 
+2023-10-04 00:06:30,248 [INFO] com.feedback.serviceImplementation.TicketServiceImpl [http-nio-8080-exec-3] Ticket returned successfully. 
+2023-10-04 00:06:30,248 [INFO] com.feedback.serviceImplementation.TicketServiceImpl [http-nio-8080-exec-3] Ticket returned successfully. 
+2023-10-04 00:06:30,248 [INFO] com.feedback.serviceImplementation.TicketServiceImpl [http-nio-8080-exec-3] Returned list of ticket. 
+2023-10-04 00:06:33,620 [INFO] com.feedback.controller.UserController [http-nio-8080-exec-8] _______GetUserProfile_controller______ 
+2023-10-04 00:06:33,632 [INFO] com.feedback.serviceImplementation.UserServiceImpl [http-nio-8080-exec-8] Got Profile of user success. 
+2023-10-04 00:06:33,632 [INFO] com.feedback.controller.UserController [http-nio-8080-exec-8] Returned User 
+2023-10-04 00:10:12,222 [INFO] com.feedback.controller.DepartmentController [http-nio-8080-exec-10] _________ALL DEPT(page) CONTROLLER________ 
+2023-10-04 00:10:12,230 [INFO] com.feedback.serviceImplementation.DepartmentServiceImpl [http-nio-8080-exec-10] Retured all Department, successsull 
+2023-10-04 00:10:21,328 [INFO] com.feedback.controller.UserController [http-nio-8080-exec-1] _______GetUserProfile_controller______ 
+2023-10-04 00:10:21,330 [INFO] com.feedback.serviceImplementation.UserServiceImpl [http-nio-8080-exec-1] Got Profile of user success. 
+2023-10-04 00:10:21,330 [INFO] com.feedback.controller.UserController [http-nio-8080-exec-1] Returned User 
+2023-10-04 00:10:23,803 [INFO] com.feedback.controller.DepartmentController [http-nio-8080-exec-2] _________GET DEPARTMENT CONTROLLER________ 
+2023-10-04 00:10:23,815 [INFO] com.feedback.serviceImplementation.DepartmentServiceImpl [http-nio-8080-exec-2] Successfully returned all users. 
+2023-10-04 00:10:23,815 [INFO] com.feedback.serviceImplementation.DepartmentServiceImpl [http-nio-8080-exec-2] Successfully returned all users. 
+2023-10-04 00:10:23,816 [INFO] com.feedback.serviceImplementation.DepartmentServiceImpl [http-nio-8080-exec-2] Successfully returned all users. 
+2023-10-04 00:10:23,816 [INFO] com.feedback.serviceImplementation.DepartmentServiceImpl [http-nio-8080-exec-2] Successfully returned all users. 
+2023-10-04 00:10:23,816 [INFO] com.feedback.serviceImplementation.DepartmentServiceImpl [http-nio-8080-exec-2] Successfully returned all users. 
+2023-10-04 00:10:23,816 [INFO] com.feedback.serviceImplementation.DepartmentServiceImpl [http-nio-8080-exec-2] Successfully returned all users. 
+2023-10-04 00:10:23,816 [INFO] com.feedback.serviceImplementation.DepartmentServiceImpl [http-nio-8080-exec-2] Successfully returned all users. 
+2023-10-04 00:10:23,816 [INFO] com.feedback.serviceImplementation.DepartmentServiceImpl [http-nio-8080-exec-2] Successfully returned all users. 
+2023-10-04 00:10:23,816 [INFO] com.feedback.serviceImplementation.DepartmentServiceImpl [http-nio-8080-exec-2] Successfully returned all users. 
+2023-10-04 00:10:23,816 [INFO] com.feedback.serviceImplementation.DepartmentServiceImpl [http-nio-8080-exec-2] Successfully returned all users. 
+2023-10-04 00:11:31,867 [INFO] com.feedback.controller.UserController [http-nio-8080-exec-5] _________login_Controller__________ 
+2023-10-04 00:11:31,867 [INFO] com.feedback.controller.UserController [http-nio-8080-exec-5] Email got = admin@nucleusteq.com 
+2023-10-04 00:11:31,867 [INFO] com.feedback.controller.UserController [http-nio-8080-exec-5] Password got = Admin@1234 
+2023-10-04 00:11:31,874 [INFO] com.feedback.serviceImplementation.UserServiceImpl [http-nio-8080-exec-5] Actual emial = admin@nucleusteq.com 
+2023-10-04 00:11:31,874 [INFO] com.feedback.serviceImplementation.UserServiceImpl [http-nio-8080-exec-5] Actual password = Admin@1234 
+2023-10-04 00:11:31,874 [INFO] com.feedback.serviceImplementation.UserServiceImpl [http-nio-8080-exec-5] Success login 
+2023-10-04 00:11:31,874 [INFO] com.feedback.controller.UserController [http-nio-8080-exec-5] Password got success 
+2023-10-04 00:11:31,925 [INFO] com.feedback.controller.TicketController [http-nio-8080-exec-6] ________get ticket controller________ 
+2023-10-04 00:11:31,943 [INFO] com.feedback.serviceImplementation.TicketServiceImpl [http-nio-8080-exec-6] Ticket returned successfully. 
+2023-10-04 00:11:31,943 [INFO] com.feedback.serviceImplementation.TicketServiceImpl [http-nio-8080-exec-6] Ticket returned successfully. 
+2023-10-04 00:11:31,943 [INFO] com.feedback.serviceImplementation.TicketServiceImpl [http-nio-8080-exec-6] Ticket returned successfully. 
+2023-10-04 00:11:31,943 [INFO] com.feedback.serviceImplementation.TicketServiceImpl [http-nio-8080-exec-6] Ticket returned successfully. 
+2023-10-04 00:11:31,945 [INFO] com.feedback.serviceImplementation.TicketServiceImpl [http-nio-8080-exec-6] Ticket returned successfully. 
+2023-10-04 00:11:31,945 [INFO] com.feedback.serviceImplementation.TicketServiceImpl [http-nio-8080-exec-6] Returned list of ticket. 
+2023-10-04 00:11:34,482 [INFO] com.feedback.controller.DepartmentController [http-nio-8080-exec-9] _________ALL DEPT(page) CONTROLLER________ 
+2023-10-04 00:11:34,494 [INFO] com.feedback.serviceImplementation.DepartmentServiceImpl [http-nio-8080-exec-9] Retured all Department, successsull 
+2023-10-04 00:11:37,487 [INFO] com.feedback.controller.UserController [http-nio-8080-exec-3] _______GetUserProfile_controller______ 
+2023-10-04 00:11:37,492 [INFO] com.feedback.serviceImplementation.UserServiceImpl [http-nio-8080-exec-3] Got Profile of user success. 
+2023-10-04 00:11:37,492 [INFO] com.feedback.controller.UserController [http-nio-8080-exec-3] Returned User 
