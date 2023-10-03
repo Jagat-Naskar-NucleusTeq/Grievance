@@ -106,7 +106,7 @@ public class DepartmentServiceImpl implements DepartmentService {
       LOGGER.info("Delete Department successful");
       return "Deleted Successfully";
     } else {
-      LOGGER.info("Delete Department failed");
+      LOGGER.error("Delete Department failed");
       throw new DepartmentNotFoundException(deptName);
     }
   }

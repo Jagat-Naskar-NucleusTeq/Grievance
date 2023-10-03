@@ -19,7 +19,7 @@ import com.feedback.service.DepartmentService;
 class DepartmentControllerTest {
  @Test
     void testAddDept() {
-        // Arrange
+
         DepartmentService departmentService = mock(DepartmentService.class);
         DepartmentController departmentController = new DepartmentController(departmentService);
 
@@ -30,10 +30,8 @@ class DepartmentControllerTest {
         when(departmentService.checkAlreadyExist(deptDTO)).thenReturn(false);
         when(departmentService.addDept(deptDTO)).thenReturn(department);
 
-        // Act
         ResponseEntity<?> responseEntity = departmentController.addDept(deptDTO);
 
-        // Assert
         assertEquals(HttpStatus.OK, responseEntity.getStatusCode());
 //        assertEquals("Department HRsaved successfully!!!", responseEntity.getBody());
         assertEquals("Department HR saved successfully!!!".trim(), responseEntity.getBody().toString().trim());
@@ -57,7 +55,7 @@ class DepartmentControllerTest {
 
     @Test
     void testGetAllDepartmentss() {
-        // Arrange
+
         DepartmentService departmentService = mock(DepartmentService.class);
         DepartmentController departmentController = new DepartmentController(departmentService);
 
