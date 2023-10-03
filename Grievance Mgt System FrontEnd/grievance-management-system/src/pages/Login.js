@@ -4,12 +4,14 @@ import axios from "axios";
 import React, { useState } from "react";
 import CustomAlert from "../component/CustomAlert";
 import imageSrc from "../assets/img/login-image.png";
-import {setLoggedIn} from "../index.js"
+import { setLoggedIn } from "../index.js";
 
 const Login = () => {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
+
   const [error, setError] = useState("");
+
   const [isSubmitted, setIsSubmitted] = useState(false);
   const [showAlert, setShowAlert] = useState(false);
   const [message, setMessage] = useState("");
@@ -100,14 +102,10 @@ const Login = () => {
       </div>
       <div className="login-page">
         <div className="login-image">
-          <img
-            src={imageSrc}
-            alt="Description"
-            style={{ width: "25%" }}
-          />
+          <img src={imageSrc} alt="Description" style={{ width: "25%" }} />
           <h2>Login</h2>
         </div>
-        
+
         <div className="error1">
           {error && <p className="error-message">{error}</p>}
         </div>

@@ -19,6 +19,7 @@ function AdminHome() {
           `http://localhost:8080/api/users/getByUsrName/${userName}`
         );
         setUser(response.data);
+        localStorage.setItem("MyDeptName", response.data.departmentName);
       } catch (error) {
         console.error("Error fetching user details:", error);
       }
