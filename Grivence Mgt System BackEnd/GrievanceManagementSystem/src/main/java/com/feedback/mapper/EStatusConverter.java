@@ -8,7 +8,11 @@ import com.feedback.entities.EStatus;
  * This class provides a method for converting a String to an EStatus enum.
  */
 public class EStatusConverter {
-    protected EStatusConverter() {
+
+    /**
+     * EStatus converter constructor.
+     */
+    public EStatusConverter() {
         super();
     }
 

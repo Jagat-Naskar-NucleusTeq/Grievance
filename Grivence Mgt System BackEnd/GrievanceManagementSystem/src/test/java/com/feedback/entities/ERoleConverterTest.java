@@ -3,6 +3,9 @@ package com.feedback.entities;
 import static org.junit.jupiter.api.Assertions.*;
 
 import org.junit.jupiter.api.Test;
+import org.mockito.Mockito;
+
+import com.feedback.mapper.EStatusConverter;
 
 class ERoleConverterTest {
     @Test
@@ -39,5 +42,20 @@ class ERoleConverterTest {
         ERole result = converter.convertToEntityAttribute(roleString);
         assertNull(result);
     }
-    
+
+    @Test
+    public void testConstructor() {
+        EStatusConverter converter = new EStatusConverter();
+        assertNotNull(converter);
+    }
+
+    @Test
+    public void testConvertStringToEStatus() {
+
+        assertEquals(EStatus.Open, EStatusConverter.convertStringToEStatus("open"));
+        assertEquals(EStatus.Being_Addressed, EStatusConverter.convertStringToEStatus("being_addressed"));
+        assertEquals(EStatus.Resolved, EStatusConverter.convertStringToEStatus("resolved"));
+
+        assertEquals(null, EStatusConverter.convertStringToEStatus("invalid_status"));
+    }
 }

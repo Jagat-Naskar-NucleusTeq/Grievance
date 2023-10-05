@@ -303,5 +303,38 @@ class TicketServiceImplTest {
         return dtoList;
     }
 
+    @Test
+    public void testConvertToDTOList1() {
+        User user2 = new User(1, "User2", "jme@nucleusteq.com", "cGFzc3dvcmQ=", ERole.admin, false, null, null, null);
+        List<Comment> commentList = new ArrayList<>();
+        Comment comment1 = mock(Comment.class);
+        when(comment1.getUser1()).thenReturn(user2);
+        when(comment1.getCommentMessage()).thenReturn("Message1");
+        when(comment1.getCommentId()).thenReturn(1);
+
+        Comment comment2 = mock(Comment.class);
+        when(comment2.getUser1()).thenReturn(user2);
+        when(comment2.getCommentMessage()).thenReturn("Message2");
+        when(comment2.getCommentId()).thenReturn(2);
+
+        commentList.add(comment1);
+        commentList.add(comment2);
+
+        TicketServiceImpl ticketService = new TicketServiceImpl();
+
+        List<GetCommentDtoOut> dtoList = ticketService.convertToDTOList(commentList);
+
+        assertEquals(2, dtoList.size());
+
+        GetCommentDtoOut dto1 = dtoList.get(0);
+        assertEquals("User2", dto1.getCommentedByUser());
+        assertEquals("Message1", dto1.getCommentMessage());
+        assertEquals(1L, dto1.getCommentId());
+
+        GetCommentDtoOut dto2 = dtoList.get(1);
+        assertEquals("User2", dto2.getCommentedByUser());
+        assertEquals("Message2", dto2.getCommentMessage());
+        assertEquals(2L, dto2.getCommentId());
+    }
 }
 

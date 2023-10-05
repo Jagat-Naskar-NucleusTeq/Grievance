@@ -3,6 +3,7 @@ package com.feedback.filter;
 
 import javax.servlet.FilterChain;
 import javax.servlet.FilterConfig;
+import javax.servlet.ServletException;
 import javax.servlet.ServletRequest;
 import javax.servlet.ServletResponse;
 import javax.servlet.http.HttpServletRequest;
@@ -16,8 +17,11 @@ import org.mockito.MockitoAnnotations;
 import com.feedback.serviceImplementation.AuthenticationServiceImpl;
 
 import static org.mockito.ArgumentMatchers.anyString;
+import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
+
+import java.io.IOException;
 
 
 class AuthenticationFilterTest {
@@ -73,6 +77,31 @@ class AuthenticationFilterTest {
         // Assert
         verify(response).sendError(HttpServletResponse.SC_UNAUTHORIZED, "Invalid credentials");
     }
+
+//    @Test
+//    public void testDoFilterAuthenticated() throws IOException, ServletException {
+//        // Mocking dependencies
+//        HttpServletRequest request = mock(HttpServletRequest.class);
+//        HttpServletResponse response = mock(HttpServletResponse.class);
+//        FilterChain chain = mock(FilterChain.class);
+//        AuthenticationServiceImpl authService = mock(AuthenticationServiceImpl.class);
+//
+//        // Setting up headers
+//        when(request.getHeader("Email")).thenReturn("base64EncodedEmail");
+//        when(request.getHeader("Password")).thenReturn("base64EncodedPassword");
+//
+//        // Mocking authentication
+//        when(authService.authenticateAdmin(anyString(), anyString())).thenReturn(true);
+//
+//        // Creating the filter
+//        AuthenticationFilter filter = new AuthenticationFilter(authService);
+//
+//        // Calling the doFilter method
+//        filter.doFilter(request, response, chain);
+//
+//        // Verifying that chain.doFilter() is called
+//        verify(chain).doFilter(request, response);
+//    }
 
 
 }
