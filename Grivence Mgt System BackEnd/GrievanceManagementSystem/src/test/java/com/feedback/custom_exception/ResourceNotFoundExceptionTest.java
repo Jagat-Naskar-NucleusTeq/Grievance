@@ -19,4 +19,25 @@ class ResourceNotFoundExceptionTest {
         assertEquals(fieldName, exception.getFieldName());
         assertEquals(fieldValue, exception.getFieldValue());
     }
+
+    @Test
+    public void testSetters() {
+        ResourceNotFoundException exception = new ResourceNotFoundException(null, null, 0);
+
+        exception.setResourceName("TestResource");
+        exception.setFieldName("TestField");
+        exception.setFieldValue(100L);
+
+        assertEquals("TestResource", exception.getResourceName());
+        assertEquals("TestField", exception.getFieldName());
+        assertEquals(Long.valueOf(100L), exception.getFieldValue());
+    }
+
+    @Test
+    public void testGetSerialversionuid() {
+        long expectedSerialVersionUID = 1L;
+        long actualSerialVersionUID = ResourceNotFoundException.getSerialversionuid();
+
+        assertEquals(expectedSerialVersionUID, actualSerialVersionUID);
+    }
 }

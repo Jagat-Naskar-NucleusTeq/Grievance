@@ -20,4 +20,11 @@ class UserNotFoundExceptionTest {
     assertEquals("User not found with id: " + userId, exception.getMessage());
   }
 
+  @Test
+  public void testEmptyUserListConstructor() {
+      UserNotFoundException exception = new UserNotFoundException();
+      String expectedMessage = "Empty user list.";
+      String actualMessage = exception.getMessage();
+      assertEquals(expectedMessage, actualMessage);
+  }
 }

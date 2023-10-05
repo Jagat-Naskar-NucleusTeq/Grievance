@@ -1,6 +1,8 @@
 package com.feedback.payloads.ticket_dto;
 
 import static org.junit.jupiter.api.Assertions.*;
+import static org.mockito.ArgumentMatchers.notNull;
+import static org.mockito.ArgumentMatchers.nullable;
 
 import java.time.LocalDateTime;
 import java.util.ArrayList;
@@ -79,24 +81,52 @@ class GetTicketDTOoutTest {
     }
 
     @Test
-    void testToString() {
-        GetCommentDtoOut commentDTO = new GetCommentDtoOut("Jagat", "This is a comment", 1);
-        String expected = "GetCommentDtoOut [commentedByUser=Jagat, commentMessage=This is a comment, commentId=1]";
-        assertEquals(expected, commentDTO.toString());
+    public void testToString() {
+        List<GetCommentDtoOut> comments = new ArrayList<>();
+        comments.add(new GetCommentDtoOut("jme@nucleustreq.com", "Comment 1", 1));
+
+        GetTicketDtoOut ticket = new GetTicketDtoOut(
+                1L, "Title", LocalDateTime.now(), LocalDateTime.now(),
+                EStatus.Open, "Type", "User", "Description",
+                "Department", comments);
+
+        String expectedToString = "GetTicketDtoOut [ticketId=1, title=Title, creationTime=" + ticket.getCreationTime() +
+                ", updationTime=" + ticket.getUpdationTime() +
+                ", ticketStatus=Open, ticketType=Type, createdBy=User, " +
+                "departmentName=Department, ticketDescription=Description, comments=" + comments + "]";
+
+        assertEquals(expectedToString, ticket.toString());
     }
 
     @Test
-    void testEquals() {
-        GetCommentDtoOut commentDTO1 = new GetCommentDtoOut("Jagat", "This is a comment", 1);
-        GetCommentDtoOut commentDTO2 = new GetCommentDtoOut("Jagat", "This is a comment", 1);
-        GetCommentDtoOut differentCommentDTO = new GetCommentDtoOut("JagatNaskar", "This is a different comment", 2);
+    public void testEquals() {
+        List<GetCommentDtoOut> comments1 = new ArrayList<>();
+        comments1.add(new GetCommentDtoOut("jme@nucleustreq.com", "Comment 1", 1));
 
-        assertTrue(commentDTO1.equals(commentDTO1));
+        List<GetCommentDtoOut> comments2 = new ArrayList<>();
+        comments2.add(new GetCommentDtoOut("jme@nucleustreq.com", "Comment 2", 2));
+        LocalDateTime dummyDateTime = LocalDateTime.of(2022, 10, 3, 15, 30);
+        
+        GetTicketDtoOut ticket1 = new GetTicketDtoOut(
+                1L, "Title", dummyDateTime, dummyDateTime,
+                EStatus.Open, "Type", "User", "Description",
+                "Department", comments1);
 
-        assertFalse(commentDTO1.equals(null));
-        assertFalse(commentDTO1.equals("This is a string"));
+        GetTicketDtoOut ticket2 = new GetTicketDtoOut(
+                1L, "Title", dummyDateTime, dummyDateTime,
+                EStatus.Open, "Type", "User", "Description",
+                "Department", comments1);
 
-        assertFalse(commentDTO1.equals(differentCommentDTO));
-        assertTrue(commentDTO1.equals(commentDTO2));
+        GetTicketDtoOut ticket3 = new GetTicketDtoOut(
+                2L, "Title", dummyDateTime, LocalDateTime.now(),
+                EStatus.Open, "Type", "User", "Description",
+                "Department", comments2);
+
+        GetCommentDtoOut ticket4CommentDtoOut = new GetCommentDtoOut();
+        boolean bullObject = ticket4CommentDtoOut.equals(null);
+
+        assertTrue(ticket1.equals(ticket2));
+        assertFalse(ticket1.equals(ticket3));
+        assertFalse(bullObject);
     }
 }

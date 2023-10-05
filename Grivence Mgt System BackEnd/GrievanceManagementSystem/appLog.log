@@ -1,153 +1,7 @@
-2023-10-04 00:00:13,442 [INFO] com.feedback.controller.UserController [http-nio-8080-exec-6] _______GetUserProfile_controller______ 
-2023-10-04 00:00:13,458 [INFO] com.feedback.serviceImplementation.UserServiceImpl [http-nio-8080-exec-6] Got Profile of user success. 
-2023-10-04 00:00:13,458 [INFO] com.feedback.controller.UserController [http-nio-8080-exec-6] Returned User 
-2023-10-04 00:00:43,681 [INFO] com.feedback.controller.UserController [http-nio-8080-exec-9] _______GetUserProfile_controller______ 
-2023-10-04 00:00:43,687 [INFO] com.feedback.serviceImplementation.UserServiceImpl [http-nio-8080-exec-9] Got Profile of user success. 
-2023-10-04 00:00:43,688 [INFO] com.feedback.controller.UserController [http-nio-8080-exec-9] Returned User 
-2023-10-04 00:00:54,686 [INFO] com.feedback.controller.UserController [http-nio-8080-exec-3] _______GetUserProfile_controller______ 
-2023-10-04 00:00:54,693 [INFO] com.feedback.serviceImplementation.UserServiceImpl [http-nio-8080-exec-3] Got Profile of user success. 
-2023-10-04 00:00:54,693 [INFO] com.feedback.controller.UserController [http-nio-8080-exec-3] Returned User 
-2023-10-04 00:00:55,685 [INFO] com.feedback.controller.UserController [http-nio-8080-exec-8] _______GetUserProfile_controller______ 
-2023-10-04 00:00:55,692 [INFO] com.feedback.serviceImplementation.UserServiceImpl [http-nio-8080-exec-8] Got Profile of user success. 
-2023-10-04 00:00:55,692 [INFO] com.feedback.controller.UserController [http-nio-8080-exec-8] Returned User 
-2023-10-04 00:01:01,677 [INFO] com.feedback.controller.UserController [http-nio-8080-exec-7] _______GetUserProfile_controller______ 
-2023-10-04 00:01:01,682 [INFO] com.feedback.serviceImplementation.UserServiceImpl [http-nio-8080-exec-7] Got Profile of user success. 
-2023-10-04 00:01:01,682 [INFO] com.feedback.controller.UserController [http-nio-8080-exec-7] Returned User 
-2023-10-04 00:01:19,740 [INFO] com.feedback.controller.UserController [http-nio-8080-exec-10] _________login_Controller__________ 
-2023-10-04 00:01:19,741 [INFO] com.feedback.controller.UserController [http-nio-8080-exec-10] Email got = admin@nucleusteq.com 
-2023-10-04 00:01:19,742 [INFO] com.feedback.controller.UserController [http-nio-8080-exec-10] Password got = Admin@1234 
-2023-10-04 00:01:19,746 [INFO] com.feedback.serviceImplementation.UserServiceImpl [http-nio-8080-exec-10] Actual emial = admin@nucleusteq.com 
-2023-10-04 00:01:19,747 [INFO] com.feedback.serviceImplementation.UserServiceImpl [http-nio-8080-exec-10] Actual password = Admin@1234 
-2023-10-04 00:01:19,747 [INFO] com.feedback.serviceImplementation.UserServiceImpl [http-nio-8080-exec-10] Success login 
-2023-10-04 00:01:19,747 [INFO] com.feedback.controller.UserController [http-nio-8080-exec-10] Password got success 
-2023-10-04 00:01:19,778 [INFO] com.feedback.controller.TicketController [http-nio-8080-exec-1] ________get ticket controller________ 
-2023-10-04 00:01:19,792 [INFO] com.feedback.serviceImplementation.TicketServiceImpl [http-nio-8080-exec-1] Ticket returned successfully. 
-2023-10-04 00:01:19,792 [INFO] com.feedback.serviceImplementation.TicketServiceImpl [http-nio-8080-exec-1] Ticket returned successfully. 
-2023-10-04 00:01:19,794 [INFO] com.feedback.serviceImplementation.TicketServiceImpl [http-nio-8080-exec-1] Ticket returned successfully. 
-2023-10-04 00:01:19,794 [INFO] com.feedback.serviceImplementation.TicketServiceImpl [http-nio-8080-exec-1] Ticket returned successfully. 
-2023-10-04 00:01:19,794 [INFO] com.feedback.serviceImplementation.TicketServiceImpl [http-nio-8080-exec-1] Ticket returned successfully. 
-2023-10-04 00:01:19,794 [INFO] com.feedback.serviceImplementation.TicketServiceImpl [http-nio-8080-exec-1] Returned list of ticket. 
-2023-10-04 00:03:48,914 [INFO] com.feedback.controller.UserController [http-nio-8080-exec-4] _________login_Controller__________ 
-2023-10-04 00:03:48,915 [INFO] com.feedback.controller.UserController [http-nio-8080-exec-4] Email got = admin@nucleusteq.com 
-2023-10-04 00:03:48,915 [INFO] com.feedback.controller.UserController [http-nio-8080-exec-4] Password got = Admin@1234 
-2023-10-04 00:03:48,919 [INFO] com.feedback.serviceImplementation.UserServiceImpl [http-nio-8080-exec-4] Actual emial = admin@nucleusteq.com 
-2023-10-04 00:03:48,919 [INFO] com.feedback.serviceImplementation.UserServiceImpl [http-nio-8080-exec-4] Actual password = Admin@1234 
-2023-10-04 00:03:48,919 [INFO] com.feedback.serviceImplementation.UserServiceImpl [http-nio-8080-exec-4] Success login 
-2023-10-04 00:03:48,919 [INFO] com.feedback.controller.UserController [http-nio-8080-exec-4] Password got success 
-2023-10-04 00:03:48,951 [INFO] com.feedback.controller.TicketController [http-nio-8080-exec-5] ________get ticket controller________ 
-2023-10-04 00:03:48,962 [INFO] com.feedback.serviceImplementation.TicketServiceImpl [http-nio-8080-exec-5] Ticket returned successfully. 
-2023-10-04 00:03:48,962 [INFO] com.feedback.serviceImplementation.TicketServiceImpl [http-nio-8080-exec-5] Ticket returned successfully. 
-2023-10-04 00:03:48,962 [INFO] com.feedback.serviceImplementation.TicketServiceImpl [http-nio-8080-exec-5] Ticket returned successfully. 
-2023-10-04 00:03:48,962 [INFO] com.feedback.serviceImplementation.TicketServiceImpl [http-nio-8080-exec-5] Ticket returned successfully. 
-2023-10-04 00:03:48,970 [INFO] com.feedback.serviceImplementation.TicketServiceImpl [http-nio-8080-exec-5] Ticket returned successfully. 
-2023-10-04 00:03:48,970 [INFO] com.feedback.serviceImplementation.TicketServiceImpl [http-nio-8080-exec-5] Returned list of ticket. 
-2023-10-04 00:04:25,453 [INFO] com.feedback.controller.UserController [http-nio-8080-exec-6] _________login_Controller__________ 
-2023-10-04 00:04:25,455 [INFO] com.feedback.controller.UserController [http-nio-8080-exec-6] Email got = admin@nucleusteq.com 
-2023-10-04 00:04:25,455 [INFO] com.feedback.controller.UserController [http-nio-8080-exec-6] Password got = Admin@1234 
-2023-10-04 00:04:25,458 [INFO] com.feedback.serviceImplementation.UserServiceImpl [http-nio-8080-exec-6] Actual emial = admin@nucleusteq.com 
-2023-10-04 00:04:25,460 [INFO] com.feedback.serviceImplementation.UserServiceImpl [http-nio-8080-exec-6] Actual password = Admin@1234 
-2023-10-04 00:04:25,460 [INFO] com.feedback.serviceImplementation.UserServiceImpl [http-nio-8080-exec-6] Success login 
-2023-10-04 00:04:25,460 [INFO] com.feedback.controller.UserController [http-nio-8080-exec-6] Password got success 
-2023-10-04 00:04:25,493 [INFO] com.feedback.controller.TicketController [http-nio-8080-exec-9] ________get ticket controller________ 
-2023-10-04 00:04:25,509 [INFO] com.feedback.serviceImplementation.TicketServiceImpl [http-nio-8080-exec-9] Ticket returned successfully. 
-2023-10-04 00:04:25,509 [INFO] com.feedback.serviceImplementation.TicketServiceImpl [http-nio-8080-exec-9] Ticket returned successfully. 
-2023-10-04 00:04:25,509 [INFO] com.feedback.serviceImplementation.TicketServiceImpl [http-nio-8080-exec-9] Ticket returned successfully. 
-2023-10-04 00:04:25,509 [INFO] com.feedback.serviceImplementation.TicketServiceImpl [http-nio-8080-exec-9] Ticket returned successfully. 
-2023-10-04 00:04:25,509 [INFO] com.feedback.serviceImplementation.TicketServiceImpl [http-nio-8080-exec-9] Ticket returned successfully. 
-2023-10-04 00:04:25,509 [INFO] com.feedback.serviceImplementation.TicketServiceImpl [http-nio-8080-exec-9] Returned list of ticket. 
-2023-10-04 00:05:03,636 [INFO] com.feedback.controller.UserController [http-nio-8080-exec-3] _________login_Controller__________ 
-2023-10-04 00:05:03,636 [INFO] com.feedback.controller.UserController [http-nio-8080-exec-3] Email got = admin@nucleusteq.com 
-2023-10-04 00:05:03,636 [INFO] com.feedback.controller.UserController [http-nio-8080-exec-3] Password got = Admin@1234 
-2023-10-04 00:05:03,636 [INFO] com.feedback.serviceImplementation.UserServiceImpl [http-nio-8080-exec-3] Actual emial = admin@nucleusteq.com 
-2023-10-04 00:05:03,636 [INFO] com.feedback.serviceImplementation.UserServiceImpl [http-nio-8080-exec-3] Actual password = Admin@1234 
-2023-10-04 00:05:03,636 [INFO] com.feedback.serviceImplementation.UserServiceImpl [http-nio-8080-exec-3] Success login 
-2023-10-04 00:05:03,644 [INFO] com.feedback.controller.UserController [http-nio-8080-exec-3] Password got success 
-2023-10-04 00:05:03,693 [INFO] com.feedback.controller.TicketController [http-nio-8080-exec-8] ________get ticket controller________ 
-2023-10-04 00:05:03,709 [INFO] com.feedback.serviceImplementation.TicketServiceImpl [http-nio-8080-exec-8] Ticket returned successfully. 
-2023-10-04 00:05:03,709 [INFO] com.feedback.serviceImplementation.TicketServiceImpl [http-nio-8080-exec-8] Ticket returned successfully. 
-2023-10-04 00:05:03,709 [INFO] com.feedback.serviceImplementation.TicketServiceImpl [http-nio-8080-exec-8] Ticket returned successfully. 
-2023-10-04 00:05:03,709 [INFO] com.feedback.serviceImplementation.TicketServiceImpl [http-nio-8080-exec-8] Ticket returned successfully. 
-2023-10-04 00:05:03,709 [INFO] com.feedback.serviceImplementation.TicketServiceImpl [http-nio-8080-exec-8] Ticket returned successfully. 
-2023-10-04 00:05:03,709 [INFO] com.feedback.serviceImplementation.TicketServiceImpl [http-nio-8080-exec-8] Returned list of ticket. 
-2023-10-04 00:05:10,765 [INFO] com.feedback.controller.UserController [http-nio-8080-exec-7] _______GetUserProfile_controller______ 
-2023-10-04 00:05:10,773 [INFO] com.feedback.serviceImplementation.UserServiceImpl [http-nio-8080-exec-7] Got Profile of user success. 
-2023-10-04 00:05:10,773 [INFO] com.feedback.controller.UserController [http-nio-8080-exec-7] Returned User 
-2023-10-04 00:05:43,672 [INFO] com.feedback.controller.UserController [http-nio-8080-exec-10] _______GetUserProfile_controller______ 
-2023-10-04 00:05:43,676 [INFO] com.feedback.serviceImplementation.UserServiceImpl [http-nio-8080-exec-10] Got Profile of user success. 
-2023-10-04 00:05:43,676 [INFO] com.feedback.controller.UserController [http-nio-8080-exec-10] Returned User 
-2023-10-04 00:05:44,676 [INFO] com.feedback.controller.UserController [http-nio-8080-exec-1] _______GetUserProfile_controller______ 
-2023-10-04 00:05:44,685 [INFO] com.feedback.serviceImplementation.UserServiceImpl [http-nio-8080-exec-1] Got Profile of user success. 
-2023-10-04 00:05:44,685 [INFO] com.feedback.controller.UserController [http-nio-8080-exec-1] Returned User 
-2023-10-04 00:05:47,794 [INFO] com.feedback.controller.UserController [http-nio-8080-exec-2] _______GetUserProfile_controller______ 
-2023-10-04 00:05:47,802 [INFO] com.feedback.serviceImplementation.UserServiceImpl [http-nio-8080-exec-2] Got Profile of user success. 
-2023-10-04 00:05:47,802 [INFO] com.feedback.controller.UserController [http-nio-8080-exec-2] Returned User 
-2023-10-04 00:05:49,679 [INFO] com.feedback.controller.UserController [http-nio-8080-exec-4] _______GetUserProfile_controller______ 
-2023-10-04 00:05:49,684 [INFO] com.feedback.serviceImplementation.UserServiceImpl [http-nio-8080-exec-4] Got Profile of user success. 
-2023-10-04 00:05:49,684 [INFO] com.feedback.controller.UserController [http-nio-8080-exec-4] Returned User 
-2023-10-04 00:05:55,679 [INFO] com.feedback.controller.UserController [http-nio-8080-exec-5] _______GetUserProfile_controller______ 
-2023-10-04 00:05:55,679 [INFO] com.feedback.serviceImplementation.UserServiceImpl [http-nio-8080-exec-5] Got Profile of user success. 
-2023-10-04 00:05:55,679 [INFO] com.feedback.controller.UserController [http-nio-8080-exec-5] Returned User 
-2023-10-04 00:05:57,679 [INFO] com.feedback.controller.UserController [http-nio-8080-exec-6] _______GetUserProfile_controller______ 
-2023-10-04 00:05:57,679 [INFO] com.feedback.serviceImplementation.UserServiceImpl [http-nio-8080-exec-6] Got Profile of user success. 
-2023-10-04 00:05:57,679 [INFO] com.feedback.controller.UserController [http-nio-8080-exec-6] Returned User 
-2023-10-04 00:06:30,173 [INFO] com.feedback.controller.UserController [http-nio-8080-exec-9] _________login_Controller__________ 
-2023-10-04 00:06:30,174 [INFO] com.feedback.controller.UserController [http-nio-8080-exec-9] Email got = admin@nucleusteq.com 
-2023-10-04 00:06:30,174 [INFO] com.feedback.controller.UserController [http-nio-8080-exec-9] Password got = Admin@1234 
-2023-10-04 00:06:30,176 [INFO] com.feedback.serviceImplementation.UserServiceImpl [http-nio-8080-exec-9] Actual emial = admin@nucleusteq.com 
-2023-10-04 00:06:30,176 [INFO] com.feedback.serviceImplementation.UserServiceImpl [http-nio-8080-exec-9] Actual password = Admin@1234 
-2023-10-04 00:06:30,180 [INFO] com.feedback.serviceImplementation.UserServiceImpl [http-nio-8080-exec-9] Success login 
-2023-10-04 00:06:30,180 [INFO] com.feedback.controller.UserController [http-nio-8080-exec-9] Password got success 
-2023-10-04 00:06:30,221 [INFO] com.feedback.controller.TicketController [http-nio-8080-exec-3] ________get ticket controller________ 
-2023-10-04 00:06:30,246 [INFO] com.feedback.serviceImplementation.TicketServiceImpl [http-nio-8080-exec-3] Ticket returned successfully. 
-2023-10-04 00:06:30,248 [INFO] com.feedback.serviceImplementation.TicketServiceImpl [http-nio-8080-exec-3] Ticket returned successfully. 
-2023-10-04 00:06:30,248 [INFO] com.feedback.serviceImplementation.TicketServiceImpl [http-nio-8080-exec-3] Ticket returned successfully. 
-2023-10-04 00:06:30,248 [INFO] com.feedback.serviceImplementation.TicketServiceImpl [http-nio-8080-exec-3] Ticket returned successfully. 
-2023-10-04 00:06:30,248 [INFO] com.feedback.serviceImplementation.TicketServiceImpl [http-nio-8080-exec-3] Ticket returned successfully. 
-2023-10-04 00:06:30,248 [INFO] com.feedback.serviceImplementation.TicketServiceImpl [http-nio-8080-exec-3] Returned list of ticket. 
-2023-10-04 00:06:33,620 [INFO] com.feedback.controller.UserController [http-nio-8080-exec-8] _______GetUserProfile_controller______ 
-2023-10-04 00:06:33,632 [INFO] com.feedback.serviceImplementation.UserServiceImpl [http-nio-8080-exec-8] Got Profile of user success. 
-2023-10-04 00:06:33,632 [INFO] com.feedback.controller.UserController [http-nio-8080-exec-8] Returned User 
-2023-10-04 00:10:12,222 [INFO] com.feedback.controller.DepartmentController [http-nio-8080-exec-10] _________ALL DEPT(page) CONTROLLER________ 
-2023-10-04 00:10:12,230 [INFO] com.feedback.serviceImplementation.DepartmentServiceImpl [http-nio-8080-exec-10] Retured all Department, successsull 
-2023-10-04 00:10:21,328 [INFO] com.feedback.controller.UserController [http-nio-8080-exec-1] _______GetUserProfile_controller______ 
-2023-10-04 00:10:21,330 [INFO] com.feedback.serviceImplementation.UserServiceImpl [http-nio-8080-exec-1] Got Profile of user success. 
-2023-10-04 00:10:21,330 [INFO] com.feedback.controller.UserController [http-nio-8080-exec-1] Returned User 
-2023-10-04 00:10:23,803 [INFO] com.feedback.controller.DepartmentController [http-nio-8080-exec-2] _________GET DEPARTMENT CONTROLLER________ 
-2023-10-04 00:10:23,815 [INFO] com.feedback.serviceImplementation.DepartmentServiceImpl [http-nio-8080-exec-2] Successfully returned all users. 
-2023-10-04 00:10:23,815 [INFO] com.feedback.serviceImplementation.DepartmentServiceImpl [http-nio-8080-exec-2] Successfully returned all users. 
-2023-10-04 00:10:23,816 [INFO] com.feedback.serviceImplementation.DepartmentServiceImpl [http-nio-8080-exec-2] Successfully returned all users. 
-2023-10-04 00:10:23,816 [INFO] com.feedback.serviceImplementation.DepartmentServiceImpl [http-nio-8080-exec-2] Successfully returned all users. 
-2023-10-04 00:10:23,816 [INFO] com.feedback.serviceImplementation.DepartmentServiceImpl [http-nio-8080-exec-2] Successfully returned all users. 
-2023-10-04 00:10:23,816 [INFO] com.feedback.serviceImplementation.DepartmentServiceImpl [http-nio-8080-exec-2] Successfully returned all users. 
-2023-10-04 00:10:23,816 [INFO] com.feedback.serviceImplementation.DepartmentServiceImpl [http-nio-8080-exec-2] Successfully returned all users. 
-2023-10-04 00:10:23,816 [INFO] com.feedback.serviceImplementation.DepartmentServiceImpl [http-nio-8080-exec-2] Successfully returned all users. 
-2023-10-04 00:10:23,816 [INFO] com.feedback.serviceImplementation.DepartmentServiceImpl [http-nio-8080-exec-2] Successfully returned all users. 
-2023-10-04 00:10:23,816 [INFO] com.feedback.serviceImplementation.DepartmentServiceImpl [http-nio-8080-exec-2] Successfully returned all users. 
-2023-10-04 00:11:31,867 [INFO] com.feedback.controller.UserController [http-nio-8080-exec-5] _________login_Controller__________ 
-2023-10-04 00:11:31,867 [INFO] com.feedback.controller.UserController [http-nio-8080-exec-5] Email got = admin@nucleusteq.com 
-2023-10-04 00:11:31,867 [INFO] com.feedback.controller.UserController [http-nio-8080-exec-5] Password got = Admin@1234 
-2023-10-04 00:11:31,874 [INFO] com.feedback.serviceImplementation.UserServiceImpl [http-nio-8080-exec-5] Actual emial = admin@nucleusteq.com 
-2023-10-04 00:11:31,874 [INFO] com.feedback.serviceImplementation.UserServiceImpl [http-nio-8080-exec-5] Actual password = Admin@1234 
-2023-10-04 00:11:31,874 [INFO] com.feedback.serviceImplementation.UserServiceImpl [http-nio-8080-exec-5] Success login 
-2023-10-04 00:11:31,874 [INFO] com.feedback.controller.UserController [http-nio-8080-exec-5] Password got success 
-2023-10-04 00:11:31,925 [INFO] com.feedback.controller.TicketController [http-nio-8080-exec-6] ________get ticket controller________ 
-2023-10-04 00:11:31,943 [INFO] com.feedback.serviceImplementation.TicketServiceImpl [http-nio-8080-exec-6] Ticket returned successfully. 
-2023-10-04 00:11:31,943 [INFO] com.feedback.serviceImplementation.TicketServiceImpl [http-nio-8080-exec-6] Ticket returned successfully. 
-2023-10-04 00:11:31,943 [INFO] com.feedback.serviceImplementation.TicketServiceImpl [http-nio-8080-exec-6] Ticket returned successfully. 
-2023-10-04 00:11:31,943 [INFO] com.feedback.serviceImplementation.TicketServiceImpl [http-nio-8080-exec-6] Ticket returned successfully. 
-2023-10-04 00:11:31,945 [INFO] com.feedback.serviceImplementation.TicketServiceImpl [http-nio-8080-exec-6] Ticket returned successfully. 
-2023-10-04 00:11:31,945 [INFO] com.feedback.serviceImplementation.TicketServiceImpl [http-nio-8080-exec-6] Returned list of ticket. 
-2023-10-04 00:11:34,482 [INFO] com.feedback.controller.DepartmentController [http-nio-8080-exec-9] _________ALL DEPT(page) CONTROLLER________ 
-2023-10-04 00:11:34,494 [INFO] com.feedback.serviceImplementation.DepartmentServiceImpl [http-nio-8080-exec-9] Retured all Department, successsull 
-2023-10-04 00:11:37,487 [INFO] com.feedback.controller.UserController [http-nio-8080-exec-3] _______GetUserProfile_controller______ 
-2023-10-04 00:11:37,492 [INFO] com.feedback.serviceImplementation.UserServiceImpl [http-nio-8080-exec-3] Got Profile of user success. 
-2023-10-04 00:11:37,492 [INFO] com.feedback.controller.UserController [http-nio-8080-exec-3] Returned User 
-2023-10-04 00:11:39,124 [INFO] com.feedback.controller.DepartmentController [http-nio-8080-exec-8] _________ALL DEPT(page) CONTROLLER________ 
-2023-10-04 00:11:39,127 [INFO] com.feedback.serviceImplementation.DepartmentServiceImpl [http-nio-8080-exec-8] Retured all Department, successsull 
-2023-10-04 00:16:52,647 [INFO] org.springframework.boot.devtools.autoconfigure.LocalDevToolsAutoConfiguration$RestartingClassPathChangeChangedEventListener [File Watcher] Restarting due to 3 class path changes (0 additions, 0 deletions, 3 modifications) 
-2023-10-04 00:16:52,689 [INFO] org.apache.catalina.core.StandardService [Thread-5] Stopping service [Tomcat] 
-2023-10-04 00:16:52,701 [INFO] org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] [Thread-5] Destroying Spring FrameworkServlet 'dispatcherServlet' 
-2023-10-04 00:16:52,724 [WARN] org.apache.catalina.loader.WebappClassLoaderBase [Thread-5] The web application [ROOT] appears to have started a thread named [HikariPool-1 housekeeper] but has failed to stop it. This is very likely to create a memory leak. Stack trace of thread:
+2023-10-06 00:43:18,228 [WARN] com.zaxxer.hikari.pool.HikariPool [HikariPool-6 housekeeper] HikariPool-6 - Thread starvation or clock leap detected (housekeeper delta=6h18m24s963ms13µs600ns). 
+2023-10-06 00:45:06,474 [INFO] org.springframework.boot.admin.SpringApplicationAdminMXBeanRegistrar$SpringApplicationAdmin [RMI TCP Connection(32)-127.0.0.1] Application shutdown requested. 
+2023-10-06 00:45:06,490 [INFO] org.apache.catalina.core.StandardService [RMI TCP Connection(32)-127.0.0.1] Stopping service [Tomcat] 
+2023-10-06 00:45:06,506 [WARN] org.apache.catalina.loader.WebappClassLoaderBase [RMI TCP Connection(32)-127.0.0.1] The web application [ROOT] appears to have started a thread named [HikariPool-6 housekeeper] but has failed to stop it. This is very likely to create a memory leak. Stack trace of thread:
  java.base@17.0.7/jdk.internal.misc.Unsafe.park(Native Method)
  java.base@17.0.7/java.util.concurrent.locks.LockSupport.parkNanos(LockSupport.java:252)
  java.base@17.0.7/java.util.concurrent.locks.AbstractQueuedSynchronizer$ConditionObject.awaitNanos(AbstractQueuedSynchronizer.java:1672)
@@ -157,7 +11,7 @@
  java.base@17.0.7/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1122)
  java.base@17.0.7/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
  java.base@17.0.7/java.lang.Thread.run(Thread.java:833) 
-2023-10-04 00:16:52,737 [WARN] org.apache.catalina.loader.WebappClassLoaderBase [Thread-5] The web application [ROOT] appears to have started a thread named [logback-1] but has failed to stop it. This is very likely to create a memory leak. Stack trace of thread:
+2023-10-06 00:45:06,506 [WARN] org.apache.catalina.loader.WebappClassLoaderBase [RMI TCP Connection(32)-127.0.0.1] The web application [ROOT] appears to have started a thread named [logback-1] but has failed to stop it. This is very likely to create a memory leak. Stack trace of thread:
  java.base@17.0.7/jdk.internal.misc.Unsafe.park(Native Method)
  java.base@17.0.7/java.util.concurrent.locks.LockSupport.park(LockSupport.java:341)
  java.base@17.0.7/java.util.concurrent.locks.AbstractQueuedSynchronizer$ConditionNode.block(AbstractQueuedSynchronizer.java:506)
@@ -170,7 +24,7 @@
  java.base@17.0.7/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1122)
  java.base@17.0.7/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
  java.base@17.0.7/java.lang.Thread.run(Thread.java:833) 
-2023-10-04 00:16:52,741 [WARN] org.apache.catalina.loader.WebappClassLoaderBase [Thread-5] The web application [ROOT] appears to have started a thread named [logback-2] but has failed to stop it. This is very likely to create a memory leak. Stack trace of thread:
+2023-10-06 00:45:06,506 [WARN] org.apache.catalina.loader.WebappClassLoaderBase [RMI TCP Connection(32)-127.0.0.1] The web application [ROOT] appears to have started a thread named [logback-2] but has failed to stop it. This is very likely to create a memory leak. Stack trace of thread:
  java.base@17.0.7/jdk.internal.misc.Unsafe.park(Native Method)
  java.base@17.0.7/java.util.concurrent.locks.LockSupport.park(LockSupport.java:341)
  java.base@17.0.7/java.util.concurrent.locks.AbstractQueuedSynchronizer$ConditionNode.block(AbstractQueuedSynchronizer.java:506)
@@ -183,33 +37,48 @@
  java.base@17.0.7/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1122)
  java.base@17.0.7/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
  java.base@17.0.7/java.lang.Thread.run(Thread.java:833) 
-2023-10-04 00:16:52,770 [INFO] org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean [Thread-5] Closing JPA EntityManagerFactory for persistence unit 'default' 
-2023-10-04 00:16:52,789 [INFO] com.zaxxer.hikari.HikariDataSource [Thread-5] HikariPool-1 - Shutdown initiated... 
-2023-10-04 00:16:52,822 [INFO] com.zaxxer.hikari.HikariDataSource [Thread-5] HikariPool-1 - Shutdown completed. 
-2023-10-04 00:16:53,123 [INFO] com.feedback.GrievanceManagementSystemApplication [restartedMain] Starting GrievanceManagementSystemApplication using Java 17.0.7 on DESKTOP-GHO4VQH with PID 12420 (C:\Users\jagat\OneDrive\Desktop\CapstronProject\sprint6.3\Grivence Mgt System BackEnd\GrievanceManagementSystem\target\classes started by jagat in C:\Users\jagat\OneDrive\Desktop\CapstronProject\sprint6.3\Grivence Mgt System BackEnd\GrievanceManagementSystem) 
-2023-10-04 00:16:53,124 [INFO] com.feedback.GrievanceManagementSystemApplication [restartedMain] No active profile set, falling back to 1 default profile: "default" 
-2023-10-04 00:16:53,439 [INFO] org.springframework.data.repository.config.RepositoryConfigurationDelegate [restartedMain] Bootstrapping Spring Data JPA repositories in DEFAULT mode. 
-2023-10-04 00:16:53,480 [INFO] org.springframework.data.repository.config.RepositoryConfigurationDelegate [restartedMain] Finished Spring Data repository scanning in 41 ms. Found 4 JPA repository interfaces. 
-2023-10-04 00:16:53,657 [INFO] org.springframework.boot.web.embedded.tomcat.TomcatWebServer [restartedMain] Tomcat initialized with port(s): 8080 (http) 
-2023-10-04 00:16:53,659 [INFO] org.apache.catalina.core.StandardService [restartedMain] Starting service [Tomcat] 
-2023-10-04 00:16:53,659 [INFO] org.apache.catalina.core.StandardEngine [restartedMain] Starting Servlet engine: [Apache Tomcat/9.0.78] 
-2023-10-04 00:16:53,686 [INFO] org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] [restartedMain] Initializing Spring embedded WebApplicationContext 
-2023-10-04 00:16:53,686 [INFO] org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext [restartedMain] Root WebApplicationContext: initialization completed in 553 ms 
-2023-10-04 00:16:53,744 [INFO] org.hibernate.jpa.internal.util.LogHelper [restartedMain] HHH000204: Processing PersistenceUnitInfo [name: default] 
-2023-10-04 00:16:53,754 [INFO] com.zaxxer.hikari.HikariDataSource [restartedMain] HikariPool-2 - Starting... 
-2023-10-04 00:16:53,858 [INFO] com.zaxxer.hikari.HikariDataSource [restartedMain] HikariPool-2 - Start completed. 
-2023-10-04 00:16:53,858 [INFO] org.hibernate.dialect.Dialect [restartedMain] HHH000400: Using dialect: org.hibernate.dialect.PostgreSQLDialect 
-2023-10-04 00:16:54,186 [INFO] org.hibernate.engine.transaction.jta.platform.internal.JtaPlatformInitiator [restartedMain] HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform] 
-2023-10-04 00:16:54,187 [INFO] org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean [restartedMain] Initialized JPA EntityManagerFactory for persistence unit 'default' 
-2023-10-04 00:16:54,319 [INFO] org.springframework.boot.web.servlet.RegistrationBean [restartedMain] Filter authenticationFilter was not registered (possibly already registered?) 
-2023-10-04 00:16:54,458 [WARN] org.springframework.boot.autoconfigure.orm.jpa.JpaBaseConfiguration$JpaWebConfiguration [restartedMain] spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning 
-2023-10-04 00:16:54,680 [INFO] org.springframework.boot.devtools.autoconfigure.OptionalLiveReloadServer [restartedMain] LiveReload server is running on port 35729 
-2023-10-04 00:16:54,705 [INFO] org.springframework.boot.web.embedded.tomcat.TomcatWebServer [restartedMain] Tomcat started on port(s): 8080 (http) with context path '' 
-2023-10-04 00:16:54,726 [INFO] com.feedback.GrievanceManagementSystemApplication [restartedMain] Started GrievanceManagementSystemApplication in 1.698 seconds (JVM running for 1692.775) 
-2023-10-04 00:16:54,736 [INFO] org.springframework.boot.devtools.autoconfigure.ConditionEvaluationDeltaLoggingListener [restartedMain] Condition evaluation unchanged 
-2023-10-04 00:19:22,904 [INFO] org.springframework.boot.admin.SpringApplicationAdminMXBeanRegistrar$SpringApplicationAdmin [RMI TCP Connection(43)-127.0.0.1] Application shutdown requested. 
-2023-10-04 00:19:22,921 [INFO] org.apache.catalina.core.StandardService [RMI TCP Connection(43)-127.0.0.1] Stopping service [Tomcat] 
-2023-10-04 00:19:22,926 [WARN] org.apache.catalina.loader.WebappClassLoaderBase [RMI TCP Connection(43)-127.0.0.1] The web application [ROOT] appears to have started a thread named [HikariPool-2 housekeeper] but has failed to stop it. This is very likely to create a memory leak. Stack trace of thread:
+2023-10-06 00:45:06,523 [INFO] org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean [RMI TCP Connection(32)-127.0.0.1] Closing JPA EntityManagerFactory for persistence unit 'default' 
+2023-10-06 00:45:06,526 [INFO] com.zaxxer.hikari.HikariDataSource [RMI TCP Connection(32)-127.0.0.1] HikariPool-6 - Shutdown initiated... 
+2023-10-06 00:45:06,531 [INFO] com.zaxxer.hikari.HikariDataSource [RMI TCP Connection(32)-127.0.0.1] HikariPool-6 - Shutdown completed. 
+2023-10-06 00:45:25,929 [INFO] com.feedback.repository.DepartmentRepositoryTest [main] Starting DepartmentRepositoryTest using Java 17.0.7 on DESKTOP-GHO4VQH with PID 32560 (started by jagat in C:\Users\jagat\OneDrive\Desktop\CapstronProject\sprint6.3\Grivence Mgt System BackEnd\GrievanceManagementSystem) 
+2023-10-06 00:45:25,933 [INFO] com.feedback.repository.DepartmentRepositoryTest [main] No active profile set, falling back to 1 default profile: "default" 
+2023-10-06 00:45:26,869 [INFO] org.springframework.data.repository.config.RepositoryConfigurationDelegate [main] Bootstrapping Spring Data JPA repositories in DEFAULT mode. 
+2023-10-06 00:45:27,054 [INFO] org.springframework.data.repository.config.RepositoryConfigurationDelegate [main] Finished Spring Data repository scanning in 163 ms. Found 4 JPA repository interfaces. 
+2023-10-06 00:45:27,178 [INFO] org.springframework.boot.test.autoconfigure.jdbc.TestDatabaseAutoConfiguration$EmbeddedDataSourceBeanFactoryPostProcessor [main] Replacing 'dataSource' DataSource bean with embedded version 
+2023-10-06 00:45:27,631 [INFO] org.springframework.jdbc.datasource.embedded.EmbeddedDatabaseFactory [main] Starting embedded database: url='jdbc:h2:mem:16ca9108-9bf9-44f6-b6c4-b4fdddf7c09e;DB_CLOSE_DELAY=-1;DB_CLOSE_ON_EXIT=false', username='sa' 
+2023-10-06 00:45:28,392 [INFO] org.hibernate.jpa.internal.util.LogHelper [main] HHH000204: Processing PersistenceUnitInfo [name: default] 
+2023-10-06 00:45:28,529 [INFO] org.hibernate.Version [main] HHH000412: Hibernate ORM core version 5.6.15.Final 
+2023-10-06 00:45:28,604 [INFO] org.hibernate.annotations.common.Version [main] HCANN000001: Hibernate Commons Annotations {5.1.2.Final} 
+2023-10-06 00:45:28,834 [INFO] org.hibernate.dialect.Dialect [main] HHH000400: Using dialect: org.hibernate.dialect.PostgreSQLDialect 
+2023-10-06 00:45:30,032 [INFO] org.hibernate.engine.transaction.jta.platform.internal.JtaPlatformInitiator [main] HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform] 
+2023-10-06 00:45:30,053 [INFO] org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean [main] Initialized JPA EntityManagerFactory for persistence unit 'default' 
+2023-10-06 00:45:43,464 [INFO] com.feedback.GrievanceManagementSystemApplication [restartedMain] Starting GrievanceManagementSystemApplication using Java 17.0.7 on DESKTOP-GHO4VQH with PID 31868 (C:\Users\jagat\OneDrive\Desktop\CapstronProject\sprint6.3\Grivence Mgt System BackEnd\GrievanceManagementSystem\target\classes started by jagat in C:\Users\jagat\OneDrive\Desktop\CapstronProject\sprint6.3\Grivence Mgt System BackEnd\GrievanceManagementSystem) 
+2023-10-06 00:45:43,467 [INFO] com.feedback.GrievanceManagementSystemApplication [restartedMain] No active profile set, falling back to 1 default profile: "default" 
+2023-10-06 00:45:43,555 [INFO] org.springframework.boot.devtools.env.DevToolsPropertyDefaultsPostProcessor [restartedMain] Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable 
+2023-10-06 00:45:43,556 [INFO] org.springframework.boot.devtools.env.DevToolsPropertyDefaultsPostProcessor [restartedMain] For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG' 
+2023-10-06 00:45:44,460 [INFO] org.springframework.data.repository.config.RepositoryConfigurationDelegate [restartedMain] Bootstrapping Spring Data JPA repositories in DEFAULT mode. 
+2023-10-06 00:45:44,553 [INFO] org.springframework.data.repository.config.RepositoryConfigurationDelegate [restartedMain] Finished Spring Data repository scanning in 81 ms. Found 4 JPA repository interfaces. 
+2023-10-06 00:45:45,327 [INFO] org.springframework.boot.web.embedded.tomcat.TomcatWebServer [restartedMain] Tomcat initialized with port(s): 8080 (http) 
+2023-10-06 00:45:45,338 [INFO] org.apache.catalina.core.StandardService [restartedMain] Starting service [Tomcat] 
+2023-10-06 00:45:45,339 [INFO] org.apache.catalina.core.StandardEngine [restartedMain] Starting Servlet engine: [Apache Tomcat/9.0.78] 
+2023-10-06 00:45:45,429 [INFO] org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] [restartedMain] Initializing Spring embedded WebApplicationContext 
+2023-10-06 00:45:45,429 [INFO] org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext [restartedMain] Root WebApplicationContext: initialization completed in 1872 ms 
+2023-10-06 00:45:45,593 [INFO] org.hibernate.jpa.internal.util.LogHelper [restartedMain] HHH000204: Processing PersistenceUnitInfo [name: default] 
+2023-10-06 00:45:45,657 [INFO] org.hibernate.Version [restartedMain] HHH000412: Hibernate ORM core version 5.6.15.Final 
+2023-10-06 00:45:45,838 [INFO] org.hibernate.annotations.common.Version [restartedMain] HCANN000001: Hibernate Commons Annotations {5.1.2.Final} 
+2023-10-06 00:45:45,958 [INFO] com.zaxxer.hikari.HikariDataSource [restartedMain] HikariPool-1 - Starting... 
+2023-10-06 00:45:46,284 [INFO] com.zaxxer.hikari.HikariDataSource [restartedMain] HikariPool-1 - Start completed. 
+2023-10-06 00:45:46,308 [INFO] org.hibernate.dialect.Dialect [restartedMain] HHH000400: Using dialect: org.hibernate.dialect.PostgreSQLDialect 
+2023-10-06 00:45:47,555 [INFO] org.hibernate.engine.transaction.jta.platform.internal.JtaPlatformInitiator [restartedMain] HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform] 
+2023-10-06 00:45:47,568 [INFO] org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean [restartedMain] Initialized JPA EntityManagerFactory for persistence unit 'default' 
+2023-10-06 00:45:47,917 [INFO] org.springframework.boot.web.servlet.RegistrationBean [restartedMain] Filter authenticationFilter was not registered (possibly already registered?) 
+2023-10-06 00:45:48,337 [WARN] org.springframework.boot.autoconfigure.orm.jpa.JpaBaseConfiguration$JpaWebConfiguration [restartedMain] spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning 
+2023-10-06 00:45:48,781 [INFO] org.springframework.boot.devtools.autoconfigure.OptionalLiveReloadServer [restartedMain] LiveReload server is running on port 35729 
+2023-10-06 00:45:48,847 [INFO] org.springframework.boot.web.embedded.tomcat.TomcatWebServer [restartedMain] Tomcat started on port(s): 8080 (http) with context path '' 
+2023-10-06 00:45:48,866 [INFO] com.feedback.GrievanceManagementSystemApplication [restartedMain] Started GrievanceManagementSystemApplication in 5.914 seconds (JVM running for 7.03) 
+2023-10-06 00:45:54,316 [INFO] org.springframework.boot.admin.SpringApplicationAdminMXBeanRegistrar$SpringApplicationAdmin [RMI TCP Connection(8)-127.0.0.1] Application shutdown requested. 
+2023-10-06 00:45:54,336 [INFO] org.apache.catalina.core.StandardService [RMI TCP Connection(8)-127.0.0.1] Stopping service [Tomcat] 
+2023-10-06 00:45:54,341 [WARN] org.apache.catalina.loader.WebappClassLoaderBase [RMI TCP Connection(8)-127.0.0.1] The web application [ROOT] appears to have started a thread named [HikariPool-1 housekeeper] but has failed to stop it. This is very likely to create a memory leak. Stack trace of thread:
  java.base@17.0.7/jdk.internal.misc.Unsafe.park(Native Method)
  java.base@17.0.7/java.util.concurrent.locks.LockSupport.parkNanos(LockSupport.java:252)
  java.base@17.0.7/java.util.concurrent.locks.AbstractQueuedSynchronizer$ConditionObject.awaitNanos(AbstractQueuedSynchronizer.java:1672)
@@ -219,6 +88,45 @@
  java.base@17.0.7/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1122)
  java.base@17.0.7/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
  java.base@17.0.7/java.lang.Thread.run(Thread.java:833) 
-2023-10-04 00:19:22,938 [INFO] org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean [RMI TCP Connection(43)-127.0.0.1] Closing JPA EntityManagerFactory for persistence unit 'default' 
-2023-10-04 00:19:22,941 [INFO] com.zaxxer.hikari.HikariDataSource [RMI TCP Connection(43)-127.0.0.1] HikariPool-2 - Shutdown initiated... 
-2023-10-04 00:19:22,945 [INFO] com.zaxxer.hikari.HikariDataSource [RMI TCP Connection(43)-127.0.0.1] HikariPool-2 - Shutdown completed. 
+2023-10-06 00:45:54,352 [INFO] org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean [RMI TCP Connection(8)-127.0.0.1] Closing JPA EntityManagerFactory for persistence unit 'default' 
+2023-10-06 00:45:54,357 [INFO] com.zaxxer.hikari.HikariDataSource [RMI TCP Connection(8)-127.0.0.1] HikariPool-1 - Shutdown initiated... 
+2023-10-06 00:45:54,364 [INFO] com.zaxxer.hikari.HikariDataSource [RMI TCP Connection(8)-127.0.0.1] HikariPool-1 - Shutdown completed. 
+2023-10-06 00:46:10,107 [INFO] com.feedback.GrievanceManagementSystemApplication [restartedMain] Starting GrievanceManagementSystemApplication using Java 17.0.7 on DESKTOP-GHO4VQH with PID 29724 (C:\Users\jagat\OneDrive\Desktop\CapstronProject\sprint6.3\Grivence Mgt System BackEnd\GrievanceManagementSystem\target\classes started by jagat in C:\Users\jagat\OneDrive\Desktop\CapstronProject\sprint6.3\Grivence Mgt System BackEnd\GrievanceManagementSystem) 
+2023-10-06 00:46:10,109 [INFO] com.feedback.GrievanceManagementSystemApplication [restartedMain] No active profile set, falling back to 1 default profile: "default" 
+2023-10-06 00:46:10,187 [INFO] org.springframework.boot.devtools.env.DevToolsPropertyDefaultsPostProcessor [restartedMain] Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable 
+2023-10-06 00:46:10,187 [INFO] org.springframework.boot.devtools.env.DevToolsPropertyDefaultsPostProcessor [restartedMain] For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG' 
+2023-10-06 00:46:11,065 [INFO] org.springframework.data.repository.config.RepositoryConfigurationDelegate [restartedMain] Bootstrapping Spring Data JPA repositories in DEFAULT mode. 
+2023-10-06 00:46:11,152 [INFO] org.springframework.data.repository.config.RepositoryConfigurationDelegate [restartedMain] Finished Spring Data repository scanning in 77 ms. Found 4 JPA repository interfaces. 
+2023-10-06 00:46:11,842 [INFO] org.springframework.boot.web.embedded.tomcat.TomcatWebServer [restartedMain] Tomcat initialized with port(s): 8080 (http) 
+2023-10-06 00:46:11,857 [INFO] org.apache.catalina.core.StandardService [restartedMain] Starting service [Tomcat] 
+2023-10-06 00:46:11,858 [INFO] org.apache.catalina.core.StandardEngine [restartedMain] Starting Servlet engine: [Apache Tomcat/9.0.78] 
+2023-10-06 00:46:11,935 [INFO] org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] [restartedMain] Initializing Spring embedded WebApplicationContext 
+2023-10-06 00:46:11,935 [INFO] org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext [restartedMain] Root WebApplicationContext: initialization completed in 1748 ms 
+2023-10-06 00:46:12,091 [INFO] org.hibernate.jpa.internal.util.LogHelper [restartedMain] HHH000204: Processing PersistenceUnitInfo [name: default] 
+2023-10-06 00:46:12,153 [INFO] org.hibernate.Version [restartedMain] HHH000412: Hibernate ORM core version 5.6.15.Final 
+2023-10-06 00:46:12,325 [INFO] org.hibernate.annotations.common.Version [restartedMain] HCANN000001: Hibernate Commons Annotations {5.1.2.Final} 
+2023-10-06 00:46:12,442 [INFO] com.zaxxer.hikari.HikariDataSource [restartedMain] HikariPool-1 - Starting... 
+2023-10-06 00:46:12,682 [INFO] com.zaxxer.hikari.HikariDataSource [restartedMain] HikariPool-1 - Start completed. 
+2023-10-06 00:46:12,713 [INFO] org.hibernate.dialect.Dialect [restartedMain] HHH000400: Using dialect: org.hibernate.dialect.PostgreSQLDialect 
+2023-10-06 00:46:13,913 [INFO] org.hibernate.engine.transaction.jta.platform.internal.JtaPlatformInitiator [restartedMain] HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform] 
+2023-10-06 00:46:13,930 [INFO] org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean [restartedMain] Initialized JPA EntityManagerFactory for persistence unit 'default' 
+2023-10-06 00:46:14,290 [INFO] org.springframework.boot.web.servlet.RegistrationBean [restartedMain] Filter authenticationFilter was not registered (possibly already registered?) 
+2023-10-06 00:46:14,699 [WARN] org.springframework.boot.autoconfigure.orm.jpa.JpaBaseConfiguration$JpaWebConfiguration [restartedMain] spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning 
+2023-10-06 00:46:15,132 [INFO] org.springframework.boot.devtools.autoconfigure.OptionalLiveReloadServer [restartedMain] LiveReload server is running on port 35729 
+2023-10-06 00:46:15,186 [INFO] org.springframework.boot.web.embedded.tomcat.TomcatWebServer [restartedMain] Tomcat started on port(s): 8080 (http) with context path '' 
+2023-10-06 00:46:15,213 [INFO] com.feedback.GrievanceManagementSystemApplication [restartedMain] Started GrievanceManagementSystemApplication in 5.661 seconds (JVM running for 6.749) 
+2023-10-06 00:46:36,092 [INFO] org.springframework.boot.admin.SpringApplicationAdminMXBeanRegistrar$SpringApplicationAdmin [RMI TCP Connection(7)-127.0.0.1] Application shutdown requested. 
+2023-10-06 00:46:36,108 [INFO] org.apache.catalina.core.StandardService [RMI TCP Connection(7)-127.0.0.1] Stopping service [Tomcat] 
+2023-10-06 00:46:36,115 [WARN] org.apache.catalina.loader.WebappClassLoaderBase [RMI TCP Connection(7)-127.0.0.1] The web application [ROOT] appears to have started a thread named [HikariPool-1 housekeeper] but has failed to stop it. This is very likely to create a memory leak. Stack trace of thread:
+ java.base@17.0.7/jdk.internal.misc.Unsafe.park(Native Method)
+ java.base@17.0.7/java.util.concurrent.locks.LockSupport.parkNanos(LockSupport.java:252)
+ java.base@17.0.7/java.util.concurrent.locks.AbstractQueuedSynchronizer$ConditionObject.awaitNanos(AbstractQueuedSynchronizer.java:1672)
+ java.base@17.0.7/java.util.concurrent.ScheduledThreadPoolExecutor$DelayedWorkQueue.take(ScheduledThreadPoolExecutor.java:1182)
+ java.base@17.0.7/java.util.concurrent.ScheduledThreadPoolExecutor$DelayedWorkQueue.take(ScheduledThreadPoolExecutor.java:899)
+ java.base@17.0.7/java.util.concurrent.ThreadPoolExecutor.getTask(ThreadPoolExecutor.java:1062)
+ java.base@17.0.7/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1122)
+ java.base@17.0.7/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+ java.base@17.0.7/java.lang.Thread.run(Thread.java:833) 
+2023-10-06 00:46:36,128 [INFO] org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean [RMI TCP Connection(7)-127.0.0.1] Closing JPA EntityManagerFactory for persistence unit 'default' 
+2023-10-06 00:46:36,133 [INFO] com.zaxxer.hikari.HikariDataSource [RMI TCP Connection(7)-127.0.0.1] HikariPool-1 - Shutdown initiated... 
+2023-10-06 00:46:36,140 [INFO] com.zaxxer.hikari.HikariDataSource [RMI TCP Connection(7)-127.0.0.1] HikariPool-1 - Shutdown completed. 

@@ -60,4 +60,15 @@ class UserProfileDtoOutTest {
         assertEquals("IT", userProfile.getDepartmentName());
     }
 
+    @Test
+    void testToString() {
+        UserProfileDtoOut userProfile = new UserProfileDtoOut(
+            "Jagat Naskar", "jme@nucleusteq.com", "password123", "Admin", "IT Department");
+
+        String expectedString = "UserProfileDTOout [name=Jagat Naskar, userName=jme@nucleusteq.com, password=password123, userType=Admin, departmentName=IT Department]";
+
+        String actualString = userProfile.toString();
+
+        assertEquals(expectedString, actualString);
+    }
 }
