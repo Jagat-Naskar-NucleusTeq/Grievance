@@ -14,6 +14,8 @@ import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
+import com.feedback.mapper.ERoleConverter;
+
 /**
  * Represents a user entity in the system.
  * This class defines properties and methods related to users.
