@@ -1,7 +1,9 @@
-package com.feedback.entities;
+package com.feedback.mapper;
 
 import javax.persistence.AttributeConverter;
 import javax.persistence.Converter;
+
+import com.feedback.entities.ERole;
 
 /**
  * ERole converter class.
