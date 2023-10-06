@@ -1,6 +1,6 @@
 package com.feedback.payloads.ticket_dto;
 
-import com.feedback.entities.EStatus;
+import com.feedback.entities.Estatus;
 import java.util.Objects;
 
 /**
@@ -26,7 +26,7 @@ public class TicketDto {
   /**
    * The status of the ticket.
    */
-  private EStatus ticketStatus;
+  private Estatus ticketStatus;
 
   /**
    * The description of the ticket.
@@ -105,7 +105,7 @@ public class TicketDto {
    *
    * @return The ticket status.
    */
-  public EStatus getTicketStatus() {
+  public Estatus getTicketStatus() {
     return ticketStatus;
   }
 
@@ -115,7 +115,7 @@ public class TicketDto {
    * @param ticketStatuss The ticket status to be set.
    *
    */
-  public void setTicketStatus(final EStatus ticketStatuss) {
+  public void setTicketStatus(final Estatus ticketStatuss) {
     this.ticketStatus = ticketStatuss;
   }
 
@@ -211,7 +211,7 @@ public class TicketDto {
   public TicketDto(final Long ticketIdd,
           final String ticketTitlee,
           final String ticketTypee,
-          final EStatus ticketStatuss,
+          final Estatus ticketStatuss,
           final String ticketDescriptionn,
           final String senderEmaill,
           final String deptNamee) {

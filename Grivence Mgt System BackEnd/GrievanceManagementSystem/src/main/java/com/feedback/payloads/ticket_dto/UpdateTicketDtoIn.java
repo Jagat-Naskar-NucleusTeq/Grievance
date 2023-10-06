@@ -2,12 +2,12 @@ package com.feedback.payloads.ticket_dto;
 
 import java.util.Objects;
 
-import com.feedback.entities.EStatus;
+import com.feedback.entities.Estatus;
 
 /**
  * DTO class for updating a ticket.
  */
-public class UpdateTicketDTOin {
+public class UpdateTicketDtoIn {
   /**
   * The ID of the ticket.
   */
@@ -16,7 +16,7 @@ public class UpdateTicketDTOin {
   /**
   * The status of the ticket.
   */
-  private EStatus ticketStatus;
+  private Estatus ticketStatus;
 
   /**
   * The comment for the ticket.
@@ -46,7 +46,7 @@ public class UpdateTicketDTOin {
   *
   * @return ticketStatus
   */
-  public EStatus getTicketStatus() {
+  public Estatus getTicketStatus() {
     return ticketStatus;
   }
 
@@ -56,7 +56,7 @@ public class UpdateTicketDTOin {
   * @param ticketStatuss
   *
   */
-  public void setTicketStatus(final EStatus ticketStatuss) {
+  public void setTicketStatus(final Estatus ticketStatuss) {
     this.ticketStatus = ticketStatuss;
   }
 
@@ -99,8 +99,8 @@ public class UpdateTicketDTOin {
   * @param commentt The comment for the ticket.
   *
   */
-  public UpdateTicketDTOin(final long ticketIdd,
-      final EStatus ticketStatuss,
+  public UpdateTicketDtoIn(final long ticketIdd,
+      final Estatus ticketStatuss,
       final String commentt) {
     super();
     this.ticketId = ticketIdd;
@@ -111,7 +111,7 @@ public class UpdateTicketDTOin {
   /**
   * Default constructor.
   */
-  public UpdateTicketDTOin() {
+  public UpdateTicketDtoIn() {
     super();
   }
 
@@ -137,7 +137,7 @@ public class UpdateTicketDTOin {
     if (getClass() != obj.getClass()) {
       return false;
     }
-    UpdateTicketDTOin other = (UpdateTicketDTOin) obj;
+    UpdateTicketDtoIn other = (UpdateTicketDtoIn) obj;
     return Objects.equals(comment, other.comment)
       && ticketId == other.ticketId
       && ticketStatus == other.ticketStatus;

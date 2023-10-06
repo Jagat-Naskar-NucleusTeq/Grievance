@@ -8,50 +8,50 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import org.junit.jupiter.api.Test;
 
-import com.feedback.entities.EStatus;
+import com.feedback.entities.Estatus;
 
-public class UpdateTicketDTOinTest {
+public class UpdateTicketDtoinTest {
     @Test
     public void testGettersAndSetters() {
-        UpdateTicketDTOin dto = new UpdateTicketDTOin();
+        UpdateTicketDtoIn dto = new UpdateTicketDtoIn();
         dto.setTicketId(1);
         assertEquals(1, dto.getTicketId());
-        dto.setTicketStatus(EStatus.Open);
-        assertEquals(EStatus.Open, dto.getTicketStatus());
+        dto.setTicketStatus(Estatus.Open);
+        assertEquals(Estatus.Open, dto.getTicketStatus());
         dto.setCommentList("Test comment");
         assertEquals("Test comment", dto.getComment());
     }
 
     @Test
     public void testFieldConstructor() {
-        UpdateTicketDTOin dto = new UpdateTicketDTOin(1, EStatus.Open,
+        UpdateTicketDtoIn dto = new UpdateTicketDtoIn(1, Estatus.Open,
                 "Test comment");
         assertEquals(1, dto.getTicketId());
-        assertEquals(EStatus.Open, dto.getTicketStatus());
+        assertEquals(Estatus.Open, dto.getTicketStatus());
         assertEquals("Test comment", dto.getComment());
     }
 
     @Test
     public void testHashCodeAndEquals() {
-        UpdateTicketDTOin dto1 = new UpdateTicketDTOin(1, EStatus.Open,
+        UpdateTicketDtoIn dto1 = new UpdateTicketDtoIn(1, Estatus.Open,
                 "Test comment");
-        UpdateTicketDTOin dto2 = new UpdateTicketDTOin(1, EStatus.Open,
+        UpdateTicketDtoIn dto2 = new UpdateTicketDtoIn(1, Estatus.Open,
                 "Test comment");
         assertEquals(dto1.hashCode(), dto2.hashCode());
         assertEquals(dto1, dto2);
         assertNotEquals(dto1, new Object());
         
-        dto2 = new UpdateTicketDTOin(2, EStatus.Open,
+        dto2 = new UpdateTicketDtoIn(2, Estatus.Open,
                 "Test comment");
         assertNotEquals(dto1.hashCode(), dto2.hashCode());
         assertNotEquals(dto1, dto2);
 
-        dto2 = new UpdateTicketDTOin(1, EStatus.Resolved,
+        dto2 = new UpdateTicketDtoIn(1, Estatus.Resolved,
                 "Test comment");
         assertNotEquals(dto1.hashCode(), dto2.hashCode());
         assertNotEquals(dto1, dto2);
         
-        dto2 = new UpdateTicketDTOin(1, EStatus.Open,
+        dto2 = new UpdateTicketDtoIn(1, Estatus.Open,
                 "Test");
         assertNotEquals(dto1.hashCode(), dto2.hashCode());
         assertNotEquals(dto1, dto2);
@@ -59,7 +59,7 @@ public class UpdateTicketDTOinTest {
 
     @Test
     public void testToString() {
-        UpdateTicketDTOin dto = new UpdateTicketDTOin(1, EStatus.Open,
+        UpdateTicketDtoIn dto = new UpdateTicketDtoIn(1, Estatus.Open,
                 "Test comment");
         String expected = "UpdateTicketDTOin [ticketId=1, ticketStatus=Open]";
         assertEquals(expected, dto.toString());
@@ -67,7 +67,7 @@ public class UpdateTicketDTOinTest {
 
     @Test
     public void testNoArgsConstructor() {
-        UpdateTicketDTOin dto = new UpdateTicketDTOin();
+        UpdateTicketDtoIn dto = new UpdateTicketDtoIn();
         assertEquals(0, dto.getTicketId());
         assertNull(dto.getTicketStatus());
         assertNull(dto.getComment());
@@ -75,7 +75,7 @@ public class UpdateTicketDTOinTest {
 
     @Test
     void testToStrings() {
-        UpdateTicketDTOin ticketDTO = new UpdateTicketDTOin(1, EStatus.Open,
+        UpdateTicketDtoIn ticketDTO = new UpdateTicketDtoIn(1, Estatus.Open,
                 "Comment 1");
         String expectedString = "UpdateTicketDTOin [ticketId=1, ticketStatus=Open]";
         assertEquals(expectedString, ticketDTO.toString());

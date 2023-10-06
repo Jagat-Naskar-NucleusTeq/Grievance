@@ -19,14 +19,14 @@ import com.feedback.custom_exception.TicketNotFoundException;
 import com.feedback.custom_exception.UserNotFoundException;
 import com.feedback.entities.Comment;
 import com.feedback.entities.Department;
-import com.feedback.entities.EStatus;
+import com.feedback.entities.Estatus;
 import com.feedback.entities.Ticket;
 import com.feedback.entities.User;
-import com.feedback.mapper.EStatusConverter;
+import com.feedback.mapper.EstatusConverter;
 import com.feedback.payloads.comment_dto.GetCommentDtoOut;
 import com.feedback.payloads.ticket_dto.GetTicketsDtoIn;
 import com.feedback.payloads.ticket_dto.TicketDto;
-import com.feedback.payloads.ticket_dto.UpdateTicketDTOin;
+import com.feedback.payloads.ticket_dto.UpdateTicketDtoIn;
 import com.feedback.payloads.ticket_dto.GetTicketDtoOut;
 import com.feedback.repository.DepartmentRepository;
 import com.feedback.repository.TicketRepository;
@@ -115,11 +115,11 @@ public class TicketServiceImpl implements TicketService {
     final int noOfElementInPage = 5;
     boolean isDepartmentBased = false;
     boolean isAssignByOwn = false;
-    EStatus filterStatus = null;
+    Estatus filterStatus = null;
     if (getTicketsDTOin.getFilterStatus() != null
             && !getTicketsDTOin.getFilterStatus().isEmpty()
             && !getTicketsDTOin.getFilterStatus().equals("Select status")) {
-            filterStatus = EStatusConverter
+            filterStatus = EstatusConverter
                 .convertStringToEStatus(getTicketsDTOin.getFilterStatus());
         }
     if (getTicketsDTOin.getAssignByOwn().equals("true")) {
@@ -172,7 +172,7 @@ public class TicketServiceImpl implements TicketService {
       List<GetTicketDtoOut> outPutList = outPutlist.stream()
               .map(this::convertToDTO)
               .sorted(Comparator.comparing(GetTicketDtoOut::getTicketStatus,
-                  EStatus.getStatusComparator()))
+                  Estatus.getStatusComparator()))
               .collect(Collectors.toList());
       LOGGER.info("Returned list of ticket.");
       return outPutList;
@@ -211,33 +211,33 @@ public class TicketServiceImpl implements TicketService {
   /**
    * updating ticket.
    *
-   * @param updateTicketDTOin
+   * @param updateTicketDtoIn
    *
    * @return true if ticket updated else false.
    */
   @Override
-  public Boolean updatingTicket(final UpdateTicketDTOin updateTicketDTOin) {
+  public Boolean updatingTicket(final UpdateTicketDtoIn updateTicketDtoIn) {
 
-    EStatus newStatus = EStatusConverter.convertStringToEStatus(
-        updateTicketDTOin.getTicketStatus().toString());
-    if (!ticketRepository.existsById(updateTicketDTOin.getTicketId())) {
+    Estatus newStatus = EstatusConverter.convertStringToEStatus(
+        updateTicketDtoIn.getTicketStatus().toString());
+    if (!ticketRepository.existsById(updateTicketDtoIn.getTicketId())) {
       LOGGER.error("Ticket not found with id = "
-        + updateTicketDTOin.getTicketId());
-      throw new TicketNotFoundException((int) updateTicketDTOin.getTicketId());
+        + updateTicketDtoIn.getTicketId());
+      throw new TicketNotFoundException((int) updateTicketDtoIn.getTicketId());
     }
     Optional<Ticket> ticket = ticketRepository
-        .findById(updateTicketDTOin.getTicketId());
+        .findById(updateTicketDtoIn.getTicketId());
 
     Ticket ticket2 = ticket.get();
     if (!ticket.isPresent()) {
       LOGGER.error("Ticket not found with id = "
-              + updateTicketDTOin.getTicketId());
+              + updateTicketDtoIn.getTicketId());
       throw new TicketNotFoundException("Ticket not found");
     }
     if (newStatus != null) {
       ticket2.setTicketStatus(newStatus);
-      if (newStatus.equals(EStatus.Resolved)
-          && updateTicketDTOin.getComment().equalsIgnoreCase("")) {
+      if (newStatus.equals(Estatus.Resolved)
+          && updateTicketDtoIn.getComment().equalsIgnoreCase("")) {
          LOGGER.info("Could not update, because"
                + "status is resolved and not comments");
         return false;
@@ -245,12 +245,12 @@ public class TicketServiceImpl implements TicketService {
     }
     LocalDateTime lastUpdateTime = LocalDateTime.now();
     ticket2.setLastUpdatedTime(lastUpdateTime);
-    if (updateTicketDTOin.getComment() != null
-        && !updateTicketDTOin.getComment().equals("")) {
-      ticket2.addComment(updateTicketDTOin.getComment());
+    if (updateTicketDtoIn.getComment() != null
+        && !updateTicketDtoIn.getComment().equals("")) {
+      ticket2.addComment(updateTicketDtoIn.getComment());
     }
     Comment comment = new Comment();
-    comment.setCommentMessage(updateTicketDTOin.getComment());
+    comment.setCommentMessage(updateTicketDtoIn.getComment());
     comment.setTicket(ticket2);
     comment.setUser1(ticket.get().getUser());
     List<Comment> list = new ArrayList<>();

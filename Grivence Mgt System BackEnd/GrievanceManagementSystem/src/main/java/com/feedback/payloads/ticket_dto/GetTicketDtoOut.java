@@ -4,7 +4,7 @@ import java.time.LocalDateTime;
 import java.util.List;
 import java.util.Objects;
 
-import com.feedback.entities.EStatus;
+import com.feedback.entities.Estatus;
 import com.feedback.payloads.comment_dto.GetCommentDtoOut;
 
 /**
@@ -35,7 +35,7 @@ public class GetTicketDtoOut {
   /**
    * ticketStatus variable.
    */
-  private EStatus ticketStatus;
+  private Estatus ticketStatus;
 
   /**
    * ticketType variable.
@@ -162,7 +162,7 @@ public class GetTicketDtoOut {
   *
      * @return ticketStatus of the ticket.
   */
-  public EStatus getTicketStatus() {
+  public Estatus getTicketStatus() {
     return ticketStatus;
   }
 
@@ -172,7 +172,7 @@ public class GetTicketDtoOut {
   * @param eStatuss
   *
   */
-  public void setTicketStatus(final EStatus eStatuss) {
+  public void setTicketStatus(final Estatus eStatuss) {
     this.ticketStatus = eStatuss;
   }
 
@@ -281,7 +281,7 @@ public class GetTicketDtoOut {
       final String titlee,
       final LocalDateTime creationTimee,
       final LocalDateTime updationTimee,
-      final EStatus ticketStatuss,
+      final Estatus ticketStatuss,
       final String ticketTypee,
       final String createdByy,
       final String ticketDescriptionn,

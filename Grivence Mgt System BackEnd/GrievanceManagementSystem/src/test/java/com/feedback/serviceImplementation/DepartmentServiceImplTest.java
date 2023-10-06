@@ -26,7 +26,7 @@ import org.springframework.data.domain.Pageable;
 
 import com.feedback.custom_exception.DepartmentNotFoundException;
 import com.feedback.entities.Department;
-import com.feedback.payloads.department_dto.AddDepartemntDTO;
+import com.feedback.payloads.department_dto.AddDepartemntDto;
 import com.feedback.payloads.department_dto.DepartmentListDto;
 import com.feedback.repository.DepartmentRepository;;
 
@@ -48,7 +48,7 @@ class DepartmentServiceImplTest {
   @Test
   public void testCheckAlreadyExist_DepartmentExists() {
     // Create a valid AddDepartemntDTO object
-    AddDepartemntDTO validDepartmentDTO = new AddDepartemntDTO("HR");
+    AddDepartemntDto validDepartmentDTO = new AddDepartemntDto("HR");
 
     // Mock the behavior of the repository to return a Department object (department already exists)
     when(departmentRepository.findByDeptName("HR")).thenReturn(new Department());
@@ -63,7 +63,7 @@ class DepartmentServiceImplTest {
   @Test
   public void testCheckAlreadyExist_DepartmentDoesNotExist() {
     // Create a valid AddDepartemntDTO object
-    AddDepartemntDTO validDepartmentDTO = new AddDepartemntDTO("IT");
+    AddDepartemntDto validDepartmentDTO = new AddDepartemntDto("IT");
 
     // Mock the behavior of the repository to return null (department does not exist)
     when(departmentRepository.findByDeptName("IT")).thenReturn(null);
@@ -78,7 +78,7 @@ class DepartmentServiceImplTest {
   @Test
   public void testAddDept_Success() {
     // Create a valid AddDepartemntDTO object
-    AddDepartemntDTO validDepartmentDTO = new AddDepartemntDTO("IT");
+    AddDepartemntDto validDepartmentDTO = new AddDepartemntDto("IT");
 
     // Mock the behavior of the repository to return a Department object after saving
     Department savedDepartment = new Department();

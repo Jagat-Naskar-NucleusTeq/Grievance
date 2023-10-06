@@ -18,26 +18,25 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 
 import com.feedback.custom_exception.NullPointerFromFrontendException;
-import com.feedback.entities.EStatus;
+import com.feedback.entities.Estatus;
 import com.feedback.entities.Ticket;
 import com.feedback.payloads.ticket_dto.GetTicketsDtoIn;
 import com.feedback.payloads.ticket_dto.TicketDto;
-import com.feedback.payloads.ticket_dto.UpdateTicketDTOin;
+import com.feedback.payloads.ticket_dto.UpdateTicketDtoIn;
 import com.feedback.payloads.ticket_dto.GetTicketDtoOut;
 import com.feedback.service.TicketService;
 
 class TicketControllerTest {
 
-@InjectMocks
-private TicketController ticketController;
-@Mock
-private TicketService ticketService;
+  @InjectMocks
+  private TicketController ticketController;
+  @Mock
+  private TicketService ticketService;
 
-@BeforeEach
-void setUp() {
-	MockitoAnnotations.initMocks(this);
-
-}
+  @BeforeEach
+  void setUp() {
+    MockitoAnnotations.initMocks(this);
+  }
 
     @Test
     public void testAddTickets() {
@@ -79,7 +78,7 @@ void setUp() {
             "Ticket title",
             dummyCreationTime,
             dummyCreationTime,
-            EStatus.Open,
+            Estatus.Open,
             "Feedback",
             "Jagat Naskar",
             "IT Department",
@@ -120,11 +119,11 @@ void setUp() {
       ticketController.setTicketService(ticketService);
       String comments = "message1";
 
-        UpdateTicketDTOin updateTicketDTOin = new UpdateTicketDTOin(1L, EStatus.Open, comments);
+        UpdateTicketDtoIn updateTicketDtoIn = new UpdateTicketDtoIn(1L, Estatus.Open, comments);
 
-        when(ticketService.updatingTicket(updateTicketDTOin)).thenReturn(true);
+        when(ticketService.updatingTicket(updateTicketDtoIn)).thenReturn(true);
 
-        ResponseEntity<?> responseEntity = ticketController.updateTicket(updateTicketDTOin);
+        ResponseEntity<?> responseEntity = ticketController.updateTicket(updateTicketDtoIn);
 
         assertEquals(HttpStatus.OK, responseEntity.getStatusCode());
         assertEquals("Ticket Updated.", responseEntity.getBody());
@@ -136,14 +135,14 @@ void setUp() {
       
        String comments = "comment1";
 
-       UpdateTicketDTOin updateTicketDTOin = new UpdateTicketDTOin();
-       updateTicketDTOin.setTicketId(1L);
-       updateTicketDTOin.setTicketStatus(EStatus.Open);
-       updateTicketDTOin.setCommentList(comments);
+       UpdateTicketDtoIn updateTicketDtoIn = new UpdateTicketDtoIn();
+       updateTicketDtoIn.setTicketId(1L);
+       updateTicketDtoIn.setTicketStatus(Estatus.Open);
+       updateTicketDtoIn.setCommentList(comments);
 
-        when(ticketService.updatingTicket(updateTicketDTOin)).thenReturn(false);
+        when(ticketService.updatingTicket(updateTicketDtoIn)).thenReturn(false);
 
-        ResponseEntity<?> responseEntity = ticketController.updateTicket(updateTicketDTOin);
+        ResponseEntity<?> responseEntity = ticketController.updateTicket(updateTicketDtoIn);
 
         assertEquals(HttpStatus.OK, responseEntity.getStatusCode());
         assertEquals("Could not update your ticket.", responseEntity.getBody());

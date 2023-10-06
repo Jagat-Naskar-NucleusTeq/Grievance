@@ -50,7 +50,7 @@ public class Ticket {
   */
   @Column
   @Enumerated(EnumType.STRING)
-  private EStatus ticketStatus;
+  private Estatus ticketStatus;
 
   /**
    * The user who assigned the ticket.
@@ -233,7 +233,7 @@ public class Ticket {
    *
    * @return The ticket status.
    */
-  public EStatus getTicketStatus() {
+  public Estatus getTicketStatus() {
     return ticketStatus;
   }
 
@@ -242,7 +242,7 @@ public class Ticket {
    *
    * @param ticketStatuss The new ticket status.
    */
-  public void setTicketStatus(final EStatus ticketStatuss) {
+  public void setTicketStatus(final Estatus ticketStatuss) {
     this.ticketStatus = ticketStatuss;
   }
 
@@ -330,7 +330,7 @@ public class Ticket {
   public Ticket(final Long ticketIdd,
       final String ticketTitlee,
       final String ticketTypee,
-      final EStatus ticketStatuss,
+      final Estatus ticketStatuss,
       final String ticketAssignedByy,
       final LocalDateTime ticketCreationTimee,
       final LocalDateTime lastUpdatedTimee,

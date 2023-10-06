@@ -20,12 +20,12 @@ import org.springframework.http.ResponseEntity;
 import com.feedback.entities.Comment;
 import com.feedback.entities.Department;
 import com.feedback.entities.ERole;
-import com.feedback.entities.EStatus;
+import com.feedback.entities.Estatus;
 import com.feedback.entities.Ticket;
 import com.feedback.entities.User;
 import com.feedback.payloads.user_dto.AddUserDto;
 import com.feedback.payloads.user_dto.LoginDto;
-import com.feedback.payloads.user_dto.PasswordChangeDtoin;
+import com.feedback.payloads.user_dto.PasswordChangeDtoIn;
 import com.feedback.payloads.user_dto.UserProfileDtoOut;
 import com.feedback.payloads.user_dto.GetAllUsersDtoOut;
 import com.feedback.service.UserService;
@@ -47,8 +47,8 @@ public class UserControllerTest {
                 "Admin@123", ERole.admin, "Sales");
         User user = new User();
         user.setUserId(1);
-        user.setName("John Doe");
-        user.setUserName("john.doe@example.com");
+        user.setName("Jagat Naskar");
+        user.setUserName("jme@nucleusteq.com");
         user.setPassword("password123");
         user.setUserType(ERole.admin);
         user.setfinalPassword(true);
@@ -59,12 +59,12 @@ public class UserControllerTest {
         Ticket ticket1 = new Ticket();
         ticket1.setTicketId(1L);
         ticket1.setTicketTitle("Issue 1");
-        ticket1.setTicketStatus(EStatus.Open);
+        ticket1.setTicketStatus(Estatus.Open);
         ticket1.setCreatedBy(user);
         Ticket ticket2 = new Ticket();
         ticket2.setTicketId(2L);
         ticket2.setTicketTitle("Issue 2");
-        ticket2.setTicketStatus(EStatus.Being_Addressed);
+        ticket2.setTicketStatus(Estatus.Being_Addressed);
         ticket2.setCreatedBy(user);
         List<Ticket> ticketList = Arrays.asList(ticket1, ticket2);
         user.setTicketList(ticketList);
@@ -106,7 +106,7 @@ public class UserControllerTest {
 
     @Test
     public void testChangePassword_Success() throws Exception {
-        PasswordChangeDtoin validPasswordChange = new PasswordChangeDtoin(
+        PasswordChangeDtoIn validPasswordChange = new PasswordChangeDtoIn(
                 "admin@nucleusteq.com", "oldPassword", "newPassword",
                 "newPassword");
         when(userService.passwordChangedSuccess(any()))
@@ -119,7 +119,7 @@ public class UserControllerTest {
 
     @Test
     public void testChangePassword_Failure() throws Exception {
-        PasswordChangeDtoin invalidPasswordChange = new PasswordChangeDtoin(
+        PasswordChangeDtoIn invalidPasswordChange = new PasswordChangeDtoIn(
                 "admin@nucleusteq.com", "oldPassword", "newPassword",
                 "confirmPassword");
         when(userService.passwordChangedSuccess(any()))
@@ -154,7 +154,7 @@ public class UserControllerTest {
 
     @Test
     public void testChangePassword_Failure_NullRequest() throws Exception {
-        PasswordChangeDtoin nullRequest = null;
+        PasswordChangeDtoIn nullRequest = null;
         ResponseEntity<String> response = userController
                 .changePassword(nullRequest);
         assertEquals(HttpStatus.BAD_REQUEST, response.getStatusCode());
@@ -163,7 +163,7 @@ public class UserControllerTest {
 
     @Test
     public void testChangePassword_Failure_PasswordMismatch() throws Exception {
-        PasswordChangeDtoin mismatchPasswordChange = new PasswordChangeDtoin(
+        PasswordChangeDtoIn mismatchPasswordChange = new PasswordChangeDtoIn(
                 "am1lQG51Y2xldXN0ZXEuY29t", "UGFzc3dvcmRAMTIz",
                 "UGFzc3dvcmRANTIz", "UGFzc3dvcmRAMTIz");
         when(userService.passwordChangedSuccess(mismatchPasswordChange))
@@ -224,12 +224,12 @@ public class UserControllerTest {
 
     @Test
     void testGetUserByUserName() {
-        UserProfileDtoOut userProfileDTOout = new UserProfileDtoOut("John Doe",
-                "johndoe", "password123", "Admin", "IT");
-        when(userService.getByUserByUserName("johndoe"))
+        UserProfileDtoOut userProfileDTOout = new UserProfileDtoOut("Jagat Naskar",
+                "jme@nucleusteq.com", "password123", "Admin", "IT");
+        when(userService.getByUserByUserName("jme@nucleusteq.com"))
                 .thenReturn(userProfileDTOout);
         ResponseEntity<?> responseEntity = userController
-                .getUserByUserName("johndoe");
+                .getUserByUserName("jme@nucleusteq.com");
         assertEquals(HttpStatus.OK, responseEntity.getStatusCode());
         assertEquals(userProfileDTOout, responseEntity.getBody());
     }
@@ -238,10 +238,11 @@ public class UserControllerTest {
     void testGetUserByUserNameNotFound() {
 
         when(userService.getByUserByUserName("nonexistentuser")).thenReturn(null);
-
+        
         ResponseEntity<?> responseEntity = userController.getUserByUserName("nonexistentuser");
 
         assertEquals(HttpStatus.OK, responseEntity.getStatusCode());
         assertEquals("User not found", responseEntity.getBody());
     }
 }
+

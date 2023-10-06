@@ -3,7 +3,7 @@ package com.feedback.service;
 import com.feedback.entities.Ticket;
 import com.feedback.payloads.ticket_dto.GetTicketsDtoIn;
 import com.feedback.payloads.ticket_dto.TicketDto;
-import com.feedback.payloads.ticket_dto.UpdateTicketDTOin;
+import com.feedback.payloads.ticket_dto.UpdateTicketDtoIn;
 import com.feedback.payloads.ticket_dto.GetTicketDtoOut;
 import java.util.List;
 
@@ -33,11 +33,11 @@ public interface TicketService {
   /**
    * Update a ticket with the provided information.
    *
-   * @param updateTicketDTOin update the ticket.
+   * @param updateTicketDtoIn update the ticket.
    *
    * @return True if the update is successful, otherwise false.
    */
-  Boolean updatingTicket(UpdateTicketDTOin updateTicketDTOin);
+  Boolean updatingTicket(UpdateTicketDtoIn updateTicketDtoIn);
 
   /**
    * Get a ticket by its ID.

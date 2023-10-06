@@ -3,7 +3,7 @@ package com.feedback.controller;
 import com.feedback.entities.User;
 import com.feedback.payloads.user_dto.AddUserDto;
 import com.feedback.payloads.user_dto.LoginDto;
-import com.feedback.payloads.user_dto.PasswordChangeDtoin;
+import com.feedback.payloads.user_dto.PasswordChangeDtoIn;
 import com.feedback.payloads.user_dto.UserProfileDtoOut;
 import com.feedback.payloads.user_dto.GetAllUsersDtoOut;
 import com.feedback.service.UserService;
@@ -94,7 +94,7 @@ public class UserController {
    */
   @PostMapping("/changePassword")
   public ResponseEntity<String> changePassword(
-      @RequestBody final PasswordChangeDtoin request) throws Exception {
+      @RequestBody final PasswordChangeDtoIn request) throws Exception {
     LOGGER.info("___________change_password_____________");
     if (request == null) {
       return ResponseEntity

@@ -5,7 +5,7 @@ import java.util.Objects;
 /**
  * AddDepartemntDTO class.
  */
-public class AddDepartemntDTO {
+public class AddDepartemntDto {
 
   /**
    * The name of the department.
@@ -37,7 +37,7 @@ public class AddDepartemntDTO {
    * @param deptNamee
    *
    */
-  public AddDepartemntDTO(final String deptNamee) {
+  public AddDepartemntDto(final String deptNamee) {
     super();
     this.deptName = deptNamee;
   }
@@ -54,7 +54,7 @@ public class AddDepartemntDTO {
   /**
    * Default constructor.
    */
-  public AddDepartemntDTO() {
+  public AddDepartemntDto() {
     super();
   }
 
@@ -80,7 +80,7 @@ public class AddDepartemntDTO {
     if (getClass() != obj.getClass()) {
       return false;
     }
-    AddDepartemntDTO other = (AddDepartemntDTO) obj;
+    AddDepartemntDto other = (AddDepartemntDto) obj;
     return Objects.equals(deptName, other.deptName);
   }
 }

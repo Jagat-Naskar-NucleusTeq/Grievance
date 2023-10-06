@@ -2,7 +2,7 @@ package com.feedback.service;
 
 import com.feedback.entities.User;
 import com.feedback.payloads.user_dto.AddUserDto;
-import com.feedback.payloads.user_dto.PasswordChangeDtoin;
+import com.feedback.payloads.user_dto.PasswordChangeDtoIn;
 import com.feedback.payloads.user_dto.UserProfileDtoOut;
 import com.feedback.payloads.user_dto.GetAllUsersDtoOut;
 import java.util.List;
@@ -75,7 +75,7 @@ public interface UserService {
    *
    * @return true or false.
    */
-  String passwordChangedSuccess(PasswordChangeDtoin request);
+  String passwordChangedSuccess(PasswordChangeDtoIn request);
 
   /**
    * get user by UserName.

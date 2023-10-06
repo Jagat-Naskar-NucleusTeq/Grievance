@@ -5,13 +5,13 @@ import static org.junit.jupiter.api.Assertions.*;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-class AddDepartemntDTOTest {
+class AddDepartemntDtoTest {
 
-  private AddDepartemntDTO departmentDTO;
+  private AddDepartemntDto departmentDTO;
 
   @BeforeEach
   public void setUp() {
-    departmentDTO = new AddDepartemntDTO();
+    departmentDTO = new AddDepartemntDto();
   }
 
   @Test
@@ -21,7 +21,7 @@ class AddDepartemntDTOTest {
 
   @Test
   public void testParameterizedConstructor() {
-    AddDepartemntDTO departmentDTO = new AddDepartemntDTO("HR");
+    AddDepartemntDto departmentDTO = new AddDepartemntDto("HR");
 
     assertEquals("HR", departmentDTO.getDeptName());
   }
@@ -35,9 +35,9 @@ class AddDepartemntDTOTest {
 
   @Test
   public void testEqualsAndHashCode() {
-    AddDepartemntDTO departmentDTO1 = new AddDepartemntDTO("Marketing");
-    AddDepartemntDTO departmentDTO2 = new AddDepartemntDTO("Marketing");
-    AddDepartemntDTO departmentDTO3 = new AddDepartemntDTO("Finance");
+    AddDepartemntDto departmentDTO1 = new AddDepartemntDto("Marketing");
+    AddDepartemntDto departmentDTO2 = new AddDepartemntDto("Marketing");
+    AddDepartemntDto departmentDTO3 = new AddDepartemntDto("Finance");
 
     assertEquals(departmentDTO1, departmentDTO2);
     assertNotEquals(departmentDTO1, departmentDTO3);
@@ -48,7 +48,7 @@ class AddDepartemntDTOTest {
 
   @Test
   public void testToString() {
-    AddDepartemntDTO departmentDTO = new AddDepartemntDTO("Marketing");
+    AddDepartemntDto departmentDTO = new AddDepartemntDto("Marketing");
     String expectedToString = "AddDepartemntDTO [deptName=Marketing]";
     assertEquals(expectedToString, departmentDTO.toString());
   }
@@ -58,33 +58,33 @@ class AddDepartemntDTOTest {
   
   @Test
   void testEquals_SameObject() {
-      AddDepartemntDTO dto = new AddDepartemntDTO("Marketing");
+      AddDepartemntDto dto = new AddDepartemntDto("Marketing");
       assertTrue(dto.equals(dto));
   }
 
   @Test
   void testEquals_NullObject() {
-      AddDepartemntDTO dto = new AddDepartemntDTO("Marketing");
+      AddDepartemntDto dto = new AddDepartemntDto("Marketing");
       assertFalse(dto.equals(null));
   }
 
   @Test
   void testEquals_DifferentClass() {
-      AddDepartemntDTO dto = new AddDepartemntDTO("Marketing");
+      AddDepartemntDto dto = new AddDepartemntDto("Marketing");
       assertFalse(dto.equals("Not an AddDepartemntDTO object"));
   }
 
   @Test
   void testEquals_EqualObjects() {
-      AddDepartemntDTO dto1 = new AddDepartemntDTO("Marketing");
-      AddDepartemntDTO dto2 = new AddDepartemntDTO("Marketing");
+      AddDepartemntDto dto1 = new AddDepartemntDto("Marketing");
+      AddDepartemntDto dto2 = new AddDepartemntDto("Marketing");
       assertTrue(dto1.equals(dto2));
   }
 
   @Test
   void testEquals_UnequalObjects() {
-      AddDepartemntDTO dto1 = new AddDepartemntDTO("Marketing");
-      AddDepartemntDTO dto2 = new AddDepartemntDTO("HR");
+      AddDepartemntDto dto1 = new AddDepartemntDto("Marketing");
+      AddDepartemntDto dto2 = new AddDepartemntDto("HR");
       assertFalse(dto1.equals(dto2));
   }
 

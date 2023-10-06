@@ -28,7 +28,7 @@ import com.feedback.entities.Department;
 import com.feedback.entities.ERole;
 import com.feedback.entities.User;
 import com.feedback.payloads.user_dto.AddUserDto;
-import com.feedback.payloads.user_dto.PasswordChangeDtoin;
+import com.feedback.payloads.user_dto.PasswordChangeDtoIn;
 import com.feedback.payloads.user_dto.UserProfileDtoOut;
 import com.feedback.payloads.user_dto.GetAllUsersDtoOut;
 import com.feedback.repository.DepartmentRepository;
@@ -313,7 +313,7 @@ public void testCheckAlreadyExist_UserDoesNotExist() {
 
       when(userRepository.existsByUserName("jme@nucleusteq.com")).thenReturn(true);
       when(userRepository.getUserByUsername("jme@nucleusteq.com")).thenReturn(user);
-      PasswordChangeDtoin request = new PasswordChangeDtoin();
+      PasswordChangeDtoIn request = new PasswordChangeDtoIn();
       request.setUserName("am1lQG51Y2xldXN0ZXEuY29t");
       request.setOldPassword("oldPassword");
       request.setNewPassword("newPassword");

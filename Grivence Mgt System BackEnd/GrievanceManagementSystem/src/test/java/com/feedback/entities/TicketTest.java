@@ -102,7 +102,7 @@ class TicketTest {
       Long ticketId = 1L;
       String ticketTitle = "Sample Ticket Title";
       String ticketType = "Bug";
-      EStatus ticketStatus = EStatus.Open;
+      Estatus ticketStatus = Estatus.Open;
       String ticketAssignedBy = "Admin";
       LocalDateTime ticketCreationTime = LocalDateTime.now();
       LocalDateTime lastUpdatedTime = LocalDateTime.now();
@@ -146,7 +146,7 @@ class TicketTest {
       String ticketType = "Bug";
       ticket.setTicketType(ticketType);
 
-      EStatus ticketStatus = EStatus.Open;
+      Estatus ticketStatus = Estatus.Open;
       ticket.setTicketStatus(ticketStatus);
 
       String ticketAssignedBy = "Admin";

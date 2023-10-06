@@ -12,7 +12,7 @@ class PasswordChangeDtoinTest {
 
   @Test
   public void testGettersAndSetters() {
-    PasswordChangeDtoin passwordChangeDTO = new PasswordChangeDtoin();
+    PasswordChangeDtoIn passwordChangeDTO = new PasswordChangeDtoIn();
     passwordChangeDTO.setUserName("Jagat Naskar");
     passwordChangeDTO.setOldPassword("oldPasswordNucleusteq");
     passwordChangeDTO.setNewPassword("newPassword");
@@ -26,11 +26,11 @@ class PasswordChangeDtoinTest {
 
   @Test
   public void testEqualsAndHashCode() {
-    PasswordChangeDtoin passwordChangeDTO1 = new PasswordChangeDtoin("Jagat Naskar", 
+    PasswordChangeDtoIn passwordChangeDTO1 = new PasswordChangeDtoIn("Jagat Naskar", 
         "oldPasswordNucleusteq", 
         "newPassword", 
         "newPassword");
-    PasswordChangeDtoin passwordChangeDTO2 = new PasswordChangeDtoin("Jagat Naskar", 
+    PasswordChangeDtoIn passwordChangeDTO2 = new PasswordChangeDtoIn("Jagat Naskar", 
         "oldPasswordNucleusteq", 
         "newPassword", 
         "newPassword");
@@ -48,7 +48,7 @@ class PasswordChangeDtoinTest {
 
   @Test
   public void testConstructor() {
-    PasswordChangeDtoin passwordChangeDTO = new PasswordChangeDtoin(
+    PasswordChangeDtoIn passwordChangeDTO = new PasswordChangeDtoIn(
       "Jagat Naskar", 
       "oldPasswordNucleusteq", 
       "newPassword", 
@@ -62,7 +62,7 @@ class PasswordChangeDtoinTest {
 
   @Test
   public void testFieldConstructor() {
-    PasswordChangeDtoin passwordChangeDTO = new PasswordChangeDtoin(
+    PasswordChangeDtoIn passwordChangeDTO = new PasswordChangeDtoIn(
         "Jagat Naskar", 
         "oldPasswordNucleusteq", 
         "newPassword", 
@@ -88,9 +88,9 @@ class PasswordChangeDtoinTest {
 
   @Test
   void testEquals() {
-    PasswordChangeDtoin dto1 = new PasswordChangeDtoin("user", "old", "new", "new");
-    PasswordChangeDtoin dto2 = new PasswordChangeDtoin("user", "old", "new", "new");
-    PasswordChangeDtoin dto3 = new PasswordChangeDtoin("user", "old", "new", "different");
+    PasswordChangeDtoIn dto1 = new PasswordChangeDtoIn("user", "old", "new", "new");
+    PasswordChangeDtoIn dto2 = new PasswordChangeDtoIn("user", "old", "new", "new");
+    PasswordChangeDtoIn dto3 = new PasswordChangeDtoIn("user", "old", "new", "different");
 
     assertTrue(dto1.equals(dto2));
     assertTrue(dto2.equals(dto1));
@@ -102,7 +102,7 @@ class PasswordChangeDtoinTest {
 
   @Test
   void testToString() {
-    PasswordChangeDtoin dto = new PasswordChangeDtoin("user", "old", "new", "new");
+    PasswordChangeDtoIn dto = new PasswordChangeDtoIn("user", "old", "new", "new");
     String expectedString = "PasswordChangeDTOin [oldPassword=old, newPassword=new, confirmNewPassword=new]";
     assertEquals(expectedString, dto.toString());
   }
