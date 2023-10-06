@@ -12,18 +12,18 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 
 import com.feedback.entities.Department;
-import com.feedback.payloads.department_dto.AddDepartemntDTO;
+import com.feedback.payloads.department_dto.AddDepartemntDto;
 import com.feedback.payloads.department_dto.DepartmentListDto;
 import com.feedback.service.DepartmentService;
 
 class DepartmentControllerTest {
- @Test
+    @Test
     void testAddDept() {
 
         DepartmentService departmentService = mock(DepartmentService.class);
         DepartmentController departmentController = new DepartmentController(departmentService);
 
-        AddDepartemntDTO deptDTO = new AddDepartemntDTO();
+        AddDepartemntDto deptDTO = new AddDepartemntDto();
         deptDTO.setDeptName("HR");
         Department department = new Department(1, "HR");
 
@@ -33,8 +33,7 @@ class DepartmentControllerTest {
         ResponseEntity<?> responseEntity = departmentController.addDept(deptDTO);
 
         assertEquals(HttpStatus.OK, responseEntity.getStatusCode());
-//        assertEquals("Department HRsaved successfully!!!", responseEntity.getBody());
-        assertEquals("Department HR saved successfully!!!".trim(), responseEntity.getBody().toString().trim());
+        assertEquals("Department HR saved successfully!!!", responseEntity.getBody());
  }
 
     @Test
@@ -88,7 +87,7 @@ class DepartmentControllerTest {
         DepartmentService departmentService = mock(DepartmentService.class);
         DepartmentController departmentController = new DepartmentController(departmentService);
 
-        AddDepartemntDTO deptDTO = new AddDepartemntDTO();
+        AddDepartemntDto deptDTO = new AddDepartemntDto();
         deptDTO.setDeptName("TestDept");
 
         when(departmentService.checkAlreadyExist(deptDTO)).thenReturn(true);
@@ -104,7 +103,7 @@ class DepartmentControllerTest {
         DepartmentService departmentService = mock(DepartmentService.class);
         DepartmentController departmentController = new DepartmentController(departmentService);
 
-        AddDepartemntDTO deptDTO = new AddDepartemntDTO();
+        AddDepartemntDto deptDTO = new AddDepartemntDto();
         deptDTO.setDeptName("TestDept");
 
         when(departmentService.checkAlreadyExist(deptDTO)).thenReturn(false);

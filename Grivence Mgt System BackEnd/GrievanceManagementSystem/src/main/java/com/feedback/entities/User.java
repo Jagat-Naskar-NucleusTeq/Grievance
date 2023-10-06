@@ -14,7 +14,7 @@ import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
-import com.feedback.mapper.ERoleConverter;
+import com.feedback.mapper.EroleConverter;
 
 /**
  * Represents a user entity in the system.
@@ -56,7 +56,7 @@ public class User {
    * The type of the user (e.g., admin, regular).
    */
   @Column
-  @Convert(converter = ERoleConverter.class)
+  @Convert(converter = EroleConverter.class)
   private ERole userType;
 
   /**

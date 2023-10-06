@@ -1,7 +1,7 @@
 package com.feedback.service;
 
 import com.feedback.entities.Department;
-import com.feedback.payloads.department_dto.AddDepartemntDTO;
+import com.feedback.payloads.department_dto.AddDepartemntDto;
 import com.feedback.payloads.department_dto.DepartmentListDto;
 import java.util.List;
 
@@ -17,7 +17,7 @@ public interface DepartmentService {
    *
    * @return True if a department with the name already exists.
    */
-  boolean checkAlreadyExist(AddDepartemntDTO dept1);
+  boolean checkAlreadyExist(AddDepartemntDto dept1);
 
   /**
    * Add a new department.
@@ -26,7 +26,7 @@ public interface DepartmentService {
    *
    * @return The added department.
    */
-  Department addDept(AddDepartemntDTO dept);
+  Department addDept(AddDepartemntDto dept);
 
   /**
    * Get a list of all departments.

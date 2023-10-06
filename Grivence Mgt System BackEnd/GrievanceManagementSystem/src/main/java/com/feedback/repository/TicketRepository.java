@@ -1,7 +1,7 @@
 package com.feedback.repository;
 
 import com.feedback.entities.Department;
-import com.feedback.entities.EStatus;
+import com.feedback.entities.Estatus;
 import com.feedback.entities.Ticket;
 import com.feedback.entities.User;
 import org.springframework.data.domain.Page;
@@ -59,7 +59,7 @@ public interface TicketRepository extends JpaRepository<Ticket, Long> {
       + "department AND t.ticketStatus = :status")
   Page<Ticket> findByDepartmentAndStatus(
       @Param("department") Department department,
-      @Param("status") EStatus status,
+      @Param("status") Estatus status,
       Pageable pageable);
 
   /**
@@ -74,7 +74,7 @@ public interface TicketRepository extends JpaRepository<Ticket, Long> {
    * @return ticket.
    */
   Page<Ticket> findByCreatedByAndTicketStatus(User user,
-      EStatus filterStatus, Pageable pageable);
+      Estatus filterStatus, Pageable pageable);
 
   /**
    * findByTicketStatus repository.
@@ -86,5 +86,5 @@ public interface TicketRepository extends JpaRepository<Ticket, Long> {
    * @return Ticket.
    */
   Page<Ticket> findByTicketStatus(
-      EStatus status, Pageable pageable);
+      Estatus status, Pageable pageable);
 }

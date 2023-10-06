@@ -12,7 +12,7 @@ import com.feedback.entities.ERole;
  *
  */
 @Converter(autoApply = true)
-public class ERoleConverter implements AttributeConverter<ERole, String> {
+public class EroleConverter implements AttributeConverter<ERole, String> {
 
   /**
    * convertToDatabaseColumn.

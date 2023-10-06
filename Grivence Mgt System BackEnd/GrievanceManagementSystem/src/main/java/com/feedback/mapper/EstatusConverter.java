@@ -2,17 +2,17 @@ package com.feedback.mapper;
 
 import java.util.Locale;
 
-import com.feedback.entities.EStatus;
+import com.feedback.entities.Estatus;
 
 /**
  * This class provides a method for converting a String to an EStatus enum.
  */
-public class EStatusConverter {
+public class EstatusConverter {
 
     /**
      * EStatus converter constructor.
      */
-    public EStatusConverter() {
+    public EstatusConverter() {
         super();
     }
 
@@ -21,14 +21,14 @@ public class EStatusConverter {
      * @param eStatus The String representation of EStatus.
      * @return The corresponding EStatus enum value, or null if not found.
      */
-    public static EStatus convertStringToEStatus(final String eStatus) {
+    public static Estatus convertStringToEStatus(final String eStatus) {
         switch (eStatus.toLowerCase(Locale.ENGLISH)) {
             case "open" :
-                return EStatus.Open;
+                return Estatus.Open;
             case "being_addressed" :
-                return EStatus.Being_Addressed;
+                return Estatus.Being_Addressed;
             case "resolved" :
-                return EStatus.Resolved;
+                return Estatus.Resolved;
             default :
                 return null;
         }

@@ -52,14 +52,14 @@ class TicketServiceImplTest {
 
     @Test
     void testUpdatingTicket() {
-     UpdateTicketDTOin updateTicketDTOin = new UpdateTicketDTOin();
-        updateTicketDTOin.setTicketId(1L);
-        updateTicketDTOin.setTicketStatus(EStatus.Being_Addressed);
-        updateTicketDTOin.setCommentList(""); // Updated this line to set comment to an empty string
+     UpdateTicketDtoIn updateTicketDtoIn = new UpdateTicketDtoIn();
+        updateTicketDtoIn.setTicketId(1L);
+        updateTicketDtoIn.setTicketStatus(Estatus.Being_Addressed);
+        updateTicketDtoIn.setCommentList(""); // Updated this line to set comment to an empty string
 
         Ticket ticket = new Ticket();
         ticket.setTicketId(1L);
-        ticket.setTicketStatus(EStatus.Open);
+        ticket.setTicketStatus(Estatus.Open);
         ticket.setUser(new User());
         ticket.setDepartment(new Department());
 
@@ -67,10 +67,10 @@ class TicketServiceImplTest {
         when(ticketRepository.findById(1L)).thenReturn(Optional.of(ticket));
         when(ticketRepository.save(any(Ticket.class))).thenAnswer(invocation -> invocation.getArgument(0));
 
-        Boolean result = ticketService.updatingTicket(updateTicketDTOin);
+        Boolean result = ticketService.updatingTicket(updateTicketDtoIn);
 
         assertTrue(result);
-        assertEquals(EStatus.Being_Addressed, ticket.getTicketStatus());
+        assertEquals(Estatus.Being_Addressed, ticket.getTicketStatus());
         assertEquals(1, ticket.getComments().size()); // Assuming a comment is added in the service method
     }
 
@@ -81,7 +81,7 @@ class TicketServiceImplTest {
         ticketDto.setTicketId(1L);
         ticketDto.setTicketTitle("Test Ticket");
         ticketDto.setTicketType("Test Type");
-        ticketDto.setTicketStatus(EStatus.Open);
+        ticketDto.setTicketStatus(Estatus.Open);
         ticketDto.setTicketDescription("Test Description");
         ticketDto.setDeptName("HR");
         ticketDto.setSenderEmail("amFnYXRAbnVjbGV1c3Rlc3QuY29t"); // jagat@nucleusteq.com
@@ -158,7 +158,7 @@ class TicketServiceImplTest {
         
         Department department = new Department(1, "HR");
         LocalDateTime dummyDateTime = LocalDateTime.of(2023, 9, 30, 12, 30);
-        Ticket ticket = new Ticket(1L, "Title", "Feedback", EStatus.Open, "Jagat", dummyDateTime,dummyDateTime, "Description1", null, department, null);
+        Ticket ticket = new Ticket(1L, "Title", "Feedback", Estatus.Open, "Jagat", dummyDateTime,dummyDateTime, "Description1", null, department, null);
         List<Ticket> ticketList = new ArrayList<>();
         ticketList.add(ticket);
 
@@ -170,11 +170,11 @@ class TicketServiceImplTest {
         Page<Ticket> page = new PageImpl<>(ticketList);
         when(ticketRepository.findByDepartment(department, pageable)).thenReturn(page);
 
-        when(ticketRepository.findByDepartmentAndStatus(department, EStatus.Open, pageable)).thenReturn(page);
+        when(ticketRepository.findByDepartmentAndStatus(department, Estatus.Open, pageable)).thenReturn(page);
         when(ticketRepository.findByUser(user, pageable)).thenReturn(page);
-        when(ticketRepository.findByCreatedByAndTicketStatus(user, EStatus.Open, pageable)).thenReturn(page);
+        when(ticketRepository.findByCreatedByAndTicketStatus(user, Estatus.Open, pageable)).thenReturn(page);
         when(ticketRepository.findAll(pageable)).thenReturn(page);
-        when(ticketRepository.findByTicketStatus(EStatus.Open, pageable)).thenReturn(page);
+        when(ticketRepository.findByTicketStatus(Estatus.Open, pageable)).thenReturn(page);
 
         List<GetTicketDtoOut> result = ticketService.getTickets(getTicketsDTOin);
 
@@ -228,7 +228,7 @@ class TicketServiceImplTest {
         List<Comment> commentList = new ArrayList<>();
         Department department = new Department(1, "HR");
         LocalDateTime dummyDateTime = LocalDateTime.of(2023, 9, 25, 12, 30);
-        Ticket ticket = new Ticket(1L, "Title1", "Feedback", EStatus.Being_Addressed, 
+        Ticket ticket = new Ticket(1L, "Title1", "Feedback", Estatus.Being_Addressed, 
                 "admin@nucleusteq.com", dummyDateTime, dummyDateTime, "Desc",
                 user1, department, commentList);
         

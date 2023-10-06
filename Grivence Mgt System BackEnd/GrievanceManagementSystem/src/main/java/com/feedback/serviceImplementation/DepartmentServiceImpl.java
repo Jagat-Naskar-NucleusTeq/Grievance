@@ -5,7 +5,7 @@ package com.feedback.serviceImplementation;
 
 import com.feedback.custom_exception.DepartmentNotFoundException;
 import com.feedback.entities.Department;
-import com.feedback.payloads.department_dto.AddDepartemntDTO;
+import com.feedback.payloads.department_dto.AddDepartemntDto;
 import com.feedback.payloads.department_dto.DepartmentListDto;
 import com.feedback.repository.DepartmentRepository;
 import com.feedback.service.DepartmentService;
@@ -44,7 +44,7 @@ public class DepartmentServiceImpl implements DepartmentService {
    *
    * @return True if department already exists.
    */
-  public boolean checkAlreadyExist(final AddDepartemntDTO dept1) {
+  public boolean checkAlreadyExist(final AddDepartemntDto dept1) {
     Department d1 = new Department();
     d1.setDeptName(dept1.getDeptName());
     System.out.println("Already " + departmentRepository
@@ -65,7 +65,7 @@ public class DepartmentServiceImpl implements DepartmentService {
    *
    * @return The added department.
    */
-  public Department addDept(final AddDepartemntDTO dept) {
+  public Department addDept(final AddDepartemntDto dept) {
     Department d1 = new Department();
     d1.setDeptName(dept.getDeptName());
     LOGGER.info("Saved Department");

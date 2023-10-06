@@ -6,7 +6,7 @@ import com.feedback.entities.Department;
 import com.feedback.entities.ERole;
 import com.feedback.entities.User;
 import com.feedback.payloads.user_dto.AddUserDto;
-import com.feedback.payloads.user_dto.PasswordChangeDtoin;
+import com.feedback.payloads.user_dto.PasswordChangeDtoIn;
 import com.feedback.payloads.user_dto.UserProfileDtoOut;
 import com.feedback.payloads.user_dto.GetAllUsersDtoOut;
 import com.feedback.repository.DepartmentRepository;
@@ -213,7 +213,7 @@ public class UserServiceImpl implements UserService {
    *
    * @return Success or not not.
    */
-  public String passwordChangedSuccess(final PasswordChangeDtoin request) {
+  public String passwordChangedSuccess(final PasswordChangeDtoIn request) {
     String userName = new String(Base64.getDecoder()
         .decode(request.getUserName()), StandardCharsets.UTF_8);
     LOGGER.info("User name = " + userName);

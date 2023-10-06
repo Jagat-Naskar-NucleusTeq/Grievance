@@ -4,7 +4,7 @@ import com.feedback.custom_exception.NullPointerFromFrontendException;
 import com.feedback.entities.Ticket;
 import com.feedback.payloads.ticket_dto.GetTicketsDtoIn;
 import com.feedback.payloads.ticket_dto.TicketDto;
-import com.feedback.payloads.ticket_dto.UpdateTicketDTOin;
+import com.feedback.payloads.ticket_dto.UpdateTicketDtoIn;
 import com.feedback.payloads.ticket_dto.GetTicketDtoOut;
 import com.feedback.service.TicketService;
 import java.util.List;
@@ -90,16 +90,16 @@ public class TicketController {
   /**
    * updating status and comment on the ticket.
    *
-   * @param updateTicketDTOin
+   * @param updateTicketDtoIn
    *
    * @return updateTicket.
    */
   @PostMapping("/updateTicket")
   public ResponseEntity<?> updateTicket(
-      @RequestBody final UpdateTicketDTOin updateTicketDTOin
+      @RequestBody final UpdateTicketDtoIn updateTicketDtoIn
   ) {
     LOGGER.info("_____update tickrt controller________");
-    Boolean updatedTicket = ticketService.updatingTicket(updateTicketDTOin);
+    Boolean updatedTicket = ticketService.updatingTicket(updateTicketDtoIn);
     if (updatedTicket) {
       return ResponseEntity
           .status(HttpStatus.OK)

@@ -5,7 +5,7 @@ import java.util.Comparator;
 /**
  * EStatus class.
  */
-public enum EStatus {
+public enum Estatus {
 
   /**
    * open status.
@@ -27,22 +27,22 @@ public enum EStatus {
    *
    * @return sorted list.
    */
-  public static Comparator<EStatus> getStatusComparator() {
-    return Comparator.comparingInt(EStatus::getSortOrder);
+  public static Comparator<Estatus> getStatusComparator() {
+    return Comparator.comparingInt(Estatus::getSortOrder);
   }
 
   /**
-   * var.
+   * variable.
    */
   private static final int THREE = 3;
 
   /**
-   * var.
+   * variable.
    */
   private static final int TWO = 2;
 
   /**
-   * var.
+   * variable.
    */
   private static final int ONE = 1;
 
@@ -52,11 +52,11 @@ public enum EStatus {
    *@return number according to randking of e
    */
   private int getSortOrder() {
-    if (this == EStatus.Resolved) {
+    if (this == Estatus.Resolved) {
       return THREE;
-    } else if (this == EStatus.Being_Addressed) {
+    } else if (this == Estatus.Being_Addressed) {
       return TWO;
-    } else if (this == EStatus.Open) {
+    } else if (this == Estatus.Open) {
       return ONE;
     } else {
       throw new IllegalStateException("Unexpected value: " + this);

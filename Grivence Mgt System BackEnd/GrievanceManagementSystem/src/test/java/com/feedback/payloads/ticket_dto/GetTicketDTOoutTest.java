@@ -10,7 +10,7 @@ import java.util.List;
 
 import org.junit.jupiter.api.Test;
 
-import com.feedback.entities.EStatus;
+import com.feedback.entities.Estatus;
 import com.feedback.payloads.comment_dto.GetCommentDtoOut;
 
 class GetTicketDTOoutTest {
@@ -24,13 +24,13 @@ class GetTicketDTOoutTest {
         comments.add(new GetCommentDtoOut());
 
         GetTicketDtoOut dto = new GetTicketDtoOut(1L, "Title", now, now,
-                EStatus.Open, "Type", "Creator", "Description", "Department", comments);
+                Estatus.Open, "Type", "Creator", "Description", "Department", comments);
 
         assertEquals(1L, dto.getTicketId());
         assertEquals("Title", dto.getTitle());
         assertEquals(now, dto.getCreationTime());
         assertEquals(now, dto.getUpdationTime());
-        assertEquals(EStatus.Open, dto.getTicketStatus());
+        assertEquals(Estatus.Open, dto.getTicketStatus());
         assertEquals("Type", dto.getTicketType());
         assertEquals("Creator", dto.getCreatedBy());
         assertEquals("Department", dto.getDepartmentName());
@@ -45,7 +45,7 @@ class GetTicketDTOoutTest {
         dto.setTitle("New Title");
         dto.setCreationTime(newTime);
         dto.setUpdationTime(newTime);
-        dto.setTicketStatus(EStatus.Being_Addressed);
+        dto.setTicketStatus(Estatus.Being_Addressed);
         dto.setTicketType("New Type");
         dto.setCreatedBy("New Creator");
         dto.setDepartmentName("New Department");
@@ -56,7 +56,7 @@ class GetTicketDTOoutTest {
         assertEquals("New Title", dto.getTitle());
         assertEquals(newTime, dto.getCreationTime());
         assertEquals(newTime, dto.getUpdationTime());
-        assertEquals(EStatus.Being_Addressed, dto.getTicketStatus());
+        assertEquals(Estatus.Being_Addressed, dto.getTicketStatus());
         assertEquals("New Type", dto.getTicketType());
         assertEquals("New Creator", dto.getCreatedBy());
         assertEquals("New Department", dto.getDepartmentName());
@@ -68,10 +68,10 @@ class GetTicketDTOoutTest {
     void testEqualsAndHashCode() {
         LocalDateTime dummyDateTime = LocalDateTime.of(2023, 9, 13, 12, 30);
         GetTicketDtoOut dto1 = new GetTicketDtoOut(1L, "Title", dummyDateTime,
-                dummyDateTime, EStatus.Open, "Type", "Creator", "Department", "Description", new ArrayList<>());
+                dummyDateTime, Estatus.Open, "Type", "Creator", "Department", "Description", new ArrayList<>());
 
         GetTicketDtoOut dto2 = new GetTicketDtoOut(1L, "Title", dummyDateTime,
-                dummyDateTime, EStatus.Open, "Type", "Creator", "Department", "Description", new ArrayList<>());
+                dummyDateTime, Estatus.Open, "Type", "Creator", "Department", "Description", new ArrayList<>());
 
         assertEquals(dto1, dto2);
         assertEquals(dto1.hashCode(), dto2.hashCode());
@@ -87,7 +87,7 @@ class GetTicketDTOoutTest {
 
         GetTicketDtoOut ticket = new GetTicketDtoOut(
                 1L, "Title", LocalDateTime.now(), LocalDateTime.now(),
-                EStatus.Open, "Type", "User", "Description",
+                Estatus.Open, "Type", "User", "Description",
                 "Department", comments);
 
         String expectedToString = "GetTicketDtoOut [ticketId=1, title=Title, creationTime=" + ticket.getCreationTime() +
@@ -109,17 +109,17 @@ class GetTicketDTOoutTest {
         
         GetTicketDtoOut ticket1 = new GetTicketDtoOut(
                 1L, "Title", dummyDateTime, dummyDateTime,
-                EStatus.Open, "Type", "User", "Description",
+                Estatus.Open, "Type", "User", "Description",
                 "Department", comments1);
 
         GetTicketDtoOut ticket2 = new GetTicketDtoOut(
                 1L, "Title", dummyDateTime, dummyDateTime,
-                EStatus.Open, "Type", "User", "Description",
+                Estatus.Open, "Type", "User", "Description",
                 "Department", comments1);
 
         GetTicketDtoOut ticket3 = new GetTicketDtoOut(
                 2L, "Title", dummyDateTime, LocalDateTime.now(),
-                EStatus.Open, "Type", "User", "Description",
+                Estatus.Open, "Type", "User", "Description",
                 "Department", comments2);
 
         GetCommentDtoOut ticket4CommentDtoOut = new GetCommentDtoOut();

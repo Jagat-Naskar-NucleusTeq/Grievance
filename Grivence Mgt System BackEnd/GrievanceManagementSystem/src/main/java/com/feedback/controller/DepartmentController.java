@@ -17,7 +17,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.feedback.payloads.department_dto.AddDepartemntDTO;
+import com.feedback.payloads.department_dto.AddDepartemntDto;
 import com.feedback.payloads.department_dto.DepartmentListDto;
 import com.feedback.service.DepartmentService;
 
@@ -62,7 +62,7 @@ public class DepartmentController {
    */
   @PostMapping("/addDept")
   public ResponseEntity<?> addDept(
-      @Valid @RequestBody final AddDepartemntDTO dept1) {
+      @Valid @RequestBody final AddDepartemntDto dept1) {
       LOGGER.info("_________ADD DEPT CONTROLLER________");
     try {
       if (departmentService.checkAlreadyExist(dept1)) {
