@@ -81,9 +81,9 @@ public class UserServiceImpl implements UserService {
       LOGGER.error("Department not found.");
       throw new DepartmentNotFoundException(user.getDepartmentName());
     }
-    Department d1 = departmentRepository
+    Department department = departmentRepository
           .findByDeptName(user.getDepartmentName());
-    newUser.setDepartment(d1);
+    newUser.setDepartment(department);
     LOGGER.info("Saved user successfully.");
     return userRepository.save(newUser);
   }

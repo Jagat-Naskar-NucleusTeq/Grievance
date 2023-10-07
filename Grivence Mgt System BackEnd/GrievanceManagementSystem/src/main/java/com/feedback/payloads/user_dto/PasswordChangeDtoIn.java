@@ -2,6 +2,8 @@ package com.feedback.payloads.user_dto;
 
 import java.util.Objects;
 
+import javax.validation.constraints.NotEmpty;
+
 /**
  * Data Transfer Object for password change information.
  */
@@ -10,21 +12,25 @@ public class PasswordChangeDtoIn {
   /**
    * userName.
    */
+  @NotEmpty
   private String userName;
 
   /**
    * oldPassword.
    */
+  @NotEmpty
   private String oldPassword;
 
   /**
    * newPassword.
    */
+  @NotEmpty
   private String newPassword;
 
   /**
    * confirmNewPassword.
    */
+  @NotEmpty
   private String confirmNewPassword;
 
   /**
