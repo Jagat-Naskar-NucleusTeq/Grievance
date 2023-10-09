@@ -2,6 +2,8 @@ package com.feedback.payloads.ticket_dto;
 
 import java.util.Objects;
 
+import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.NotNull;
 import com.feedback.entities.Estatus;
 
 /**
@@ -11,6 +13,7 @@ public class UpdateTicketDtoIn {
   /**
   * The ID of the ticket.
   */
+  @NotNull(message = "Ticket id is required")
   private long ticketId;
 
   /**
@@ -21,6 +24,7 @@ public class UpdateTicketDtoIn {
   /**
   * The comment for the ticket.
   */
+  @NotEmpty(message = "comment is required")
   private String comment;
 
   /**

@@ -29,10 +29,8 @@ class ControllerExceptionHandlerTest {
         UserNotFoundException exception = new UserNotFoundException(
                 "User not found");
         ControllerExceptionHandler controllerExceptionHandler = new ControllerExceptionHandler();
-        // Act
         String result = controllerExceptionHandler
                 .userNotFoundException(exception);
-        // Assert
         assertEquals("User not found with name: User not found", result);
     }
 

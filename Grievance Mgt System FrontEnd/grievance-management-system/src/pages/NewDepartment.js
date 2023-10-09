@@ -14,7 +14,7 @@ function NewDepartment() {
   const nevigatee = new useNavigate();
 
   const handleClose = () => {
-    nevigatee(-1);
+    nevigatee("/admin/viewDept");
   };
 
   const handleShowAlert = () => {

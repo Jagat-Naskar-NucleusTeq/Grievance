@@ -38,8 +38,6 @@ public class AuthenticationServiceImpl implements AuthorizationService {
   @Override
   public boolean authenticateAdmin(
       final String username, final String password) {
-    System.out.println("uuuuu = " + username);
-    System.out.println("ppppppp = " + password);
     if (userRepository.existsByUserName(username)) {
       User user = userRepository.getUserByUsername(username);
       if (password.equals(user.getPassword())

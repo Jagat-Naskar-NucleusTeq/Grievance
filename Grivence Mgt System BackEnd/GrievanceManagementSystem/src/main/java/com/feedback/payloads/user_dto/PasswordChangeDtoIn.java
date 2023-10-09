@@ -12,25 +12,25 @@ public class PasswordChangeDtoIn {
   /**
    * userName.
    */
-  @NotEmpty
+  @NotEmpty(message = "user name is required")
   private String userName;
 
   /**
    * oldPassword.
    */
-  @NotEmpty
+  @NotEmpty(message = "old password is required")
   private String oldPassword;
 
   /**
    * newPassword.
    */
-  @NotEmpty
+  @NotEmpty(message = "new password is required")
   private String newPassword;
 
   /**
    * confirmNewPassword.
    */
-  @NotEmpty
+  @NotEmpty(message = "confirm password is required")
   private String confirmNewPassword;
 
   /**

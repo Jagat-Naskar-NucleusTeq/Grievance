@@ -45,8 +45,9 @@ function AdminSidebar() {
                   src={AdminProfilePic}
                   alt="Description"
                   style={{ width: "15%" }}
+                  className="icon"
                 />
-                Profile
+                <span className="text-style">Profile</span>
               </div>
             </NavLink>
             <NavLink to="addUser">
@@ -55,8 +56,10 @@ function AdminSidebar() {
                   src={AddUserIcon}
                   alt="Description"
                   style={{ width: "15%" }}
+                  className="icon"
                 />
-                Add User
+                 <span className="text-style" >Add User</span>
+               
               </div>
             </NavLink>
             <NavLink to="allUsers">
@@ -65,8 +68,10 @@ function AdminSidebar() {
                   src={AllUserIcon}
                   alt="Description"
                   style={{ width: "15%" }}
+                  className="icon"
                 />
-                All Users
+                 <span className="text-style">All Users</span>
+                
               </div>
             </NavLink>
             <NavLink to="tickets">
@@ -75,8 +80,10 @@ function AdminSidebar() {
                   src={TicketsIcon}
                   alt="Description"
                   style={{ width: "15%" }}
+                  className="icon"
                 />
-                Tickets
+                 <span className="text-style">Tickets</span>
+                
               </div>
             </NavLink>
             <NavLink to="createTicket">
@@ -85,8 +92,10 @@ function AdminSidebar() {
                   src={TicketIcon}
                   alt="Description"
                   style={{ width: "15%" }}
+                  className="icon"
                 />
-                Create Ticket
+                 <span className="text-style">Create Ticket</span>
+                
               </div>
             </NavLink>
             <NavLink to="viewDept">
@@ -95,8 +104,10 @@ function AdminSidebar() {
                   src={DepartmentIcon}
                   alt="Description"
                   style={{ width: "15%" }}
+                  className="icon"
                 />
-                Departments
+                 <span className="text-style">Departments</span>
+                
               </div>
             </NavLink>
             <NavLink to="changePassword">
@@ -105,8 +116,10 @@ function AdminSidebar() {
                   src={PasswordChangeIcon}
                   alt="Description"
                   style={{ width: "15%" }}
+                  className="icon"
                 />
-                Change Password
+                 <span className="text-style">Change Password</span>
+                
               </div>
             </NavLink>
             <div className="AD-li-logout" onClick={openConfirmBox}>

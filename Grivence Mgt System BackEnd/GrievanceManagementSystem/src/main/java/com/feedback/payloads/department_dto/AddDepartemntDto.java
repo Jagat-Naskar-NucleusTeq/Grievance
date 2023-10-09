@@ -2,6 +2,8 @@ package com.feedback.payloads.department_dto;
 
 import java.util.Objects;
 
+import javax.validation.constraints.NotNull;
+
 /**
  * AddDepartemntDTO class.
  */
@@ -10,6 +12,7 @@ public class AddDepartemntDto {
   /**
    * The name of the department.
    */
+  @NotNull
   private String deptName;
 
   /**

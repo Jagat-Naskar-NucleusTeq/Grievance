@@ -94,7 +94,7 @@ public class UserController {
    */
   @PostMapping("/changePassword")
   public ResponseEntity<String> changePassword(
-      @RequestBody final PasswordChangeDtoIn request) throws Exception {
+      @Valid @RequestBody final PasswordChangeDtoIn request) throws Exception {
     LOGGER.info("___________change_password_____________");
     if (request == null) {
       return ResponseEntity
@@ -122,7 +122,8 @@ public class UserController {
    * @return logined or not.
    */
   @PostMapping("/login")
-  public ResponseEntity<?> login(@RequestBody final LoginDto user) {
+  public ResponseEntity<?> login(@Valid
+        @RequestBody final LoginDto user) {
     LOGGER.info("_________login_Controller__________");
     String decodedEmail = new String(Base64.getDecoder()
         .decode(user.getEmail()), StandardCharsets.UTF_8);

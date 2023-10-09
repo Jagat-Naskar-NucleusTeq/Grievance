@@ -2,6 +2,8 @@ package com.feedback.payloads.ticket_dto;
 
 import java.util.Objects;
 
+import javax.validation.constraints.NotNull;
+
 /**
  * This inDTO is for getAllTickets function.
  *
@@ -13,26 +15,31 @@ public class GetTicketsDtoIn {
   /**
    * email address variable.
    */
+  @NotNull
   private String email;
 
   /**
    * departmentBased string variable.
    */
+  @NotNull
   private String departmentBased;
 
   /**
    * assignByOwn String variable.
    */
+  @NotNull
   private String assignByOwn;
 
   /**
    * filterStatus variable.
    */
+  @NotNull
   private String filterStatus;
 
   /**
    * pageNumber variable.
    */
+  @NotNull
   private int pageNumber;
 
   /**
