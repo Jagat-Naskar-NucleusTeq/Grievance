@@ -113,13 +113,9 @@
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-pmd-plugin</artifactId>
-				<version>3.13.0</version> <!-- or use version from
-				pluginManagement -->
+				<version>3.13.0</version>
 				<configuration>
-					<!-- failOnViolation is actually true by default, but can be
-					disabled -->
 					<failOnViolation>true</failOnViolation>
-					<!-- printFailingErrors is pretty useful -->
 					<printFailingErrors>true</printFailingErrors>
 				</configuration>
 				<executions>
@@ -163,6 +159,8 @@
 					<xmlOutput>true</xmlOutput>
 					<findbugsXmlOutputDirectory>${project.build.directory}/findbugs</findbugsXmlOutputDirectory>
 				</configuration>
+				
+				
 				<executions>
 					<execution>
 						<id>analyze-compile</id>
@@ -172,6 +170,8 @@
 						</goals>
 					</execution>
 				</executions>
+				
+				
 			</plugin>
 		</plugins>
 	</build>

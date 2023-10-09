@@ -33,7 +33,7 @@ const AllTicketDetails = () => {
     }
   };
 
-  const fetchData =useCallback( async () => {
+  const fetchData = useCallback( async () => {
     try {
       const dataToSend = {
         email: btoa(localStorage.getItem("session_user_name")),

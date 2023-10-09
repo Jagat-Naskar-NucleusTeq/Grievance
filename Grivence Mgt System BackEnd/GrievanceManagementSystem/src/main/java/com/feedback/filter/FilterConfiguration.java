@@ -41,9 +41,6 @@ public class FilterConfiguration {
           = new FilterRegistrationBean<AuthenticationFilter>();
     regBean.setFilter(new AuthenticationFilter(authenticationServiceImpl));
     regBean.addUrlPatterns("/api/dept/addDept");
-    // Uncomment the following line if needed for additional URL patterns.
-    // regBean.addUrlPatterns("/api/users/addUser");
-    System.out.println("in config filter.");
     return regBean;
   }
 }

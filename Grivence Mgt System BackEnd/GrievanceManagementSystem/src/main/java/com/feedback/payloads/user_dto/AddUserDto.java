@@ -2,6 +2,8 @@ package com.feedback.payloads.user_dto;
 
 import java.util.Objects;
 
+import javax.validation.constraints.NotEmpty;
+
 import com.feedback.entities.ERole;
 
 /**
@@ -11,16 +13,19 @@ public class AddUserDto {
   /**
    * The name of the user.
    */
+  @NotEmpty
   private String name;
 
   /**
-   * The username of the user.
+   * The userName of the user.
    */
+  @NotEmpty
   private String userName;
 
   /**
    * The password of the user.
    */
+  @NotEmpty
   private String password;
 
   /**
@@ -31,6 +36,7 @@ public class AddUserDto {
   /**
    * The name of the department to which the user belongs.
    */
+  @NotEmpty
   private String departmentName;
 
   /**

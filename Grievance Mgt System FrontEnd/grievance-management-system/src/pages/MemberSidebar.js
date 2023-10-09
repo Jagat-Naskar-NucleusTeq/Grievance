@@ -43,7 +43,8 @@ function MemberSidebar() {
                   alt="Description"
                   style={{ width: "15%" }}
                 />
-                Profile
+                <span className="text-style">Profile</span>
+                
               </div>
             </NavLink>
             <NavLink to="tickets">
@@ -53,7 +54,8 @@ function MemberSidebar() {
                   alt="Description"
                   style={{ width: "15%" }}
                 />
-                Tickets
+                <span className="text-style">Tickets</span>
+                
               </div>
             </NavLink>
             <NavLink to="createTicket">
@@ -63,7 +65,8 @@ function MemberSidebar() {
                   alt="Description"
                   style={{ width: "15%" }}
                 />
-                Create Ticket
+                <span className="text-style">Create Ticket</span>
+                
               </div>
             </NavLink>
             <NavLink to="changePassword">
@@ -73,13 +76,15 @@ function MemberSidebar() {
                   alt="Description"
                   style={{ width: "15%" }}
                 />
-                Change Password
+                <span className="text-style">Change Password</span>
+                
               </div>
             </NavLink>
+
             <div className="AD-li-logout" onClick={openConfirmBox}>
-          
               LogOut
             </div>
+
           </div>
         </div>
         {showConfirmation && (

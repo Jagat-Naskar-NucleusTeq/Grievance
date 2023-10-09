@@ -8,6 +8,9 @@ import com.feedback.payloads.ticket_dto.UpdateTicketDtoIn;
 import com.feedback.payloads.ticket_dto.GetTicketDtoOut;
 import com.feedback.service.TicketService;
 import java.util.List;
+
+import javax.validation.Valid;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -79,7 +82,7 @@ public class TicketController {
    */
   @PostMapping("/getAllTicket")
   public ResponseEntity<?> getTickets(
-      @RequestBody final GetTicketsDtoIn getTicketsDTOin
+      @Valid @RequestBody final GetTicketsDtoIn getTicketsDTOin
   ) {
     LOGGER.info("________get ticket controller________");
     List<GetTicketDtoOut> allTicketList = ticketService
@@ -96,7 +99,7 @@ public class TicketController {
    */
   @PostMapping("/updateTicket")
   public ResponseEntity<?> updateTicket(
-      @RequestBody final UpdateTicketDtoIn updateTicketDtoIn
+      @Valid @RequestBody final UpdateTicketDtoIn updateTicketDtoIn
   ) {
     LOGGER.info("_____update tickrt controller________");
     Boolean updatedTicket = ticketService.updatingTicket(updateTicketDtoIn);

@@ -53,7 +53,6 @@ const PasswordChange = () => {
     if (validateForm()) {
       try {
         const encodedFormData = {
-          // Encode data
           userName: btoa(localStorage.getItem("session_user_name")),
           oldPassword: btoa(formData.oldPassword),
           newPassword: btoa(formData.newPassword),
@@ -63,14 +62,15 @@ const PasswordChange = () => {
         const response = await changePasswordPost(encodedFormData);
         if (response === "Password changed successfully") {
           navigatee("/login");
-          localStorage.setItem("session_password", formData.newPassword);
+          sessionStorage.clear();
+          localStorage.clear();
         } else if (response === "Password changed successfully.") {
-          localStorage.setItem("session_password", formData.newPassword);
           setMessage(response);
           handleShowAlert();
           navigatee("/login");
+          sessionStorage.clear();
+          localStorage.clear();
         } else if (response === "Incorrect old password.") {
-          localStorage.setItem("session_password", formData.newPassword);
           setMessage(response);
           handleShowAlert();
           setFormData({

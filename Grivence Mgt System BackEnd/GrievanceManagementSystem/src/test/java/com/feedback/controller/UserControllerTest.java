@@ -345,14 +345,14 @@ public class UserControllerTest {
     @Test
     public void testChangePassword_Success() throws Exception {
         PasswordChangeDtoIn validPasswordChange = new PasswordChangeDtoIn(
-                "admin@nucleusteq.com", "oldPassword", "newPassword",
-                "newPassword");
+                "am1lQG51Y2xldXN0ZXEuY29t", "Sm1lQDEyMzQ=", "Sm1lQDEyMzQ=",
+                "Sm1lQDEyMzQ=");
         when(userService.passwordChangedSuccess(any()))
                 .thenReturn("Password changed successfully!");
 
         mockMvc.perform(post("/api/users/changePassword")
                 .contentType(MediaType.APPLICATION_JSON)
-                .content("{\"email\":\"admin@nucleusteq.com\",\"oldPassword\":\"oldPassword\",\"newPassword\":\"newPassword\",\"confirmPassword\":\"newPassword\"}"))
+                .content("{\"userName\":\"am1lQG51Y2xldXN0ZXEuY29t\",\"oldPassword\":\"Sm1lQDEyMzQ=\",\"newPassword\":\"Sm1lQDEyMzQ=\",\"confirmNewPassword\":\"Sm1lQDEyMzQ=\"}"))
                 .andExpect(status().isOk())
                 .andExpect(content().string("Password changed successfully!"));
     }

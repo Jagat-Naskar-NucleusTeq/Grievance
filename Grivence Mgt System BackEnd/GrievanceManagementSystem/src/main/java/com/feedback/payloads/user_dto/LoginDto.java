@@ -14,12 +14,14 @@ public class LoginDto {
   /**
    * email variable.
    */
+  @NotEmpty(message = "email is required")
   private String email;
 
   /**
    * The password associated with the member's account.
    * Password must be between 5 and 12 characters in length.
    */
+  @NotEmpty(message = "password is required")
   private String password;
 
   /**

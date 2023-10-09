@@ -61,7 +61,6 @@ public class AuthenticationFilter implements Filter {
           final ServletResponse response,
           final FilterChain chain)
       throws IOException, ServletException {
-    System.out.println("Filter start");
 
     HttpServletRequest httpRequest = (HttpServletRequest) request;
     HttpServletResponse httpServletResponse = (HttpServletResponse) response;
@@ -74,25 +73,17 @@ public class AuthenticationFilter implements Filter {
       httpServletResponse.setContentType("application/json");
       httpServletResponse.setStatus(HttpServletResponse.SC_OK);
     } else {
-      System.out.println(request);
-      System.out.println(httpRequest.getHeader("Email"));
       String username1 = httpRequest.getHeader("Email");
-      System.out.println(username1);
       String password2 = httpRequest.getHeader("Password");
-      System.out.println(password2);
       String username = new String(Base64.getDecoder()
             .decode(username1), StandardCharsets.UTF_8);
       if (authenticationServiceImpl.authenticateAdmin(username, password2)) {
-        System.out.println("Authorized =>.... "
-            + authenticationServiceImpl.authenticateAdmin(username, password2));
         chain.doFilter(request, response);
       } else {
-        System.out.println("Else Filter: Unauthorized");
         HttpServletResponse httpResponse = (HttpServletResponse) response;
         httpResponse.sendError(HttpServletResponse.SC_UNAUTHORIZED,
             "Invalid credentials");
       }
     }
-    System.out.println("End Filter");
   }
 }
