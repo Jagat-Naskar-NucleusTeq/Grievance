@@ -7127,3 +7127,182 @@ Caused by: java.lang.Error: Unresolved compilation problem:
 2023-10-09 15:29:51,162 [INFO] org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean [RMI TCP Connection(75)-127.0.0.1] Closing JPA EntityManagerFactory for persistence unit 'default' 
 2023-10-09 15:29:51,163 [INFO] com.zaxxer.hikari.HikariDataSource [RMI TCP Connection(75)-127.0.0.1] HikariPool-48 - Shutdown initiated... 
 2023-10-09 15:29:51,166 [INFO] com.zaxxer.hikari.HikariDataSource [RMI TCP Connection(75)-127.0.0.1] HikariPool-48 - Shutdown completed. 
+2023-10-09 15:37:14,979 [INFO] com.feedback.GrievanceManagementSystemApplication [restartedMain] Starting GrievanceManagementSystemApplication using Java 17.0.7 on DESKTOP-GHO4VQH with PID 46268 (C:\Users\jagat\OneDrive\Desktop\CapstronProject\sprint6.3\Grivence Mgt System BackEnd\GrievanceManagementSystem\target\classes started by jagat in C:\Users\jagat\OneDrive\Desktop\CapstronProject\sprint6.3\Grivence Mgt System BackEnd\GrievanceManagementSystem) 
+2023-10-09 15:37:14,980 [INFO] com.feedback.GrievanceManagementSystemApplication [restartedMain] No active profile set, falling back to 1 default profile: "default" 
+2023-10-09 15:37:15,076 [INFO] org.springframework.boot.devtools.env.DevToolsPropertyDefaultsPostProcessor [restartedMain] Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable 
+2023-10-09 15:37:15,076 [INFO] org.springframework.boot.devtools.env.DevToolsPropertyDefaultsPostProcessor [restartedMain] For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG' 
+2023-10-09 15:37:16,051 [INFO] org.springframework.data.repository.config.RepositoryConfigurationDelegate [restartedMain] Bootstrapping Spring Data JPA repositories in DEFAULT mode. 
+2023-10-09 15:37:16,148 [INFO] org.springframework.data.repository.config.RepositoryConfigurationDelegate [restartedMain] Finished Spring Data repository scanning in 85 ms. Found 4 JPA repository interfaces. 
+2023-10-09 15:37:16,972 [INFO] org.springframework.boot.web.embedded.tomcat.TomcatWebServer [restartedMain] Tomcat initialized with port(s): 8080 (http) 
+2023-10-09 15:37:16,983 [INFO] org.apache.catalina.core.StandardService [restartedMain] Starting service [Tomcat] 
+2023-10-09 15:37:16,984 [INFO] org.apache.catalina.core.StandardEngine [restartedMain] Starting Servlet engine: [Apache Tomcat/9.0.78] 
+2023-10-09 15:37:17,072 [INFO] org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] [restartedMain] Initializing Spring embedded WebApplicationContext 
+2023-10-09 15:37:17,072 [INFO] org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext [restartedMain] Root WebApplicationContext: initialization completed in 1995 ms 
+2023-10-09 15:37:17,232 [INFO] org.hibernate.jpa.internal.util.LogHelper [restartedMain] HHH000204: Processing PersistenceUnitInfo [name: default] 
+2023-10-09 15:37:17,308 [INFO] org.hibernate.Version [restartedMain] HHH000412: Hibernate ORM core version 5.6.15.Final 
+2023-10-09 15:37:17,508 [INFO] org.hibernate.annotations.common.Version [restartedMain] HCANN000001: Hibernate Commons Annotations {5.1.2.Final} 
+2023-10-09 15:37:17,635 [INFO] com.zaxxer.hikari.HikariDataSource [restartedMain] HikariPool-1 - Starting... 
+2023-10-09 15:37:17,870 [INFO] com.zaxxer.hikari.HikariDataSource [restartedMain] HikariPool-1 - Start completed. 
+2023-10-09 15:37:17,891 [INFO] org.hibernate.dialect.Dialect [restartedMain] HHH000400: Using dialect: org.hibernate.dialect.PostgreSQLDialect 
+2023-10-09 15:37:19,256 [INFO] org.hibernate.engine.transaction.jta.platform.internal.JtaPlatformInitiator [restartedMain] HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform] 
+2023-10-09 15:37:19,269 [INFO] org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean [restartedMain] Initialized JPA EntityManagerFactory for persistence unit 'default' 
+2023-10-09 15:37:19,677 [INFO] org.springframework.boot.web.servlet.RegistrationBean [restartedMain] Filter authenticationFilter was not registered (possibly already registered?) 
+2023-10-09 15:37:20,128 [WARN] org.springframework.boot.autoconfigure.orm.jpa.JpaBaseConfiguration$JpaWebConfiguration [restartedMain] spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning 
+2023-10-09 15:37:20,701 [INFO] org.springframework.boot.devtools.autoconfigure.OptionalLiveReloadServer [restartedMain] LiveReload server is running on port 35729 
+2023-10-09 15:37:20,765 [INFO] org.springframework.boot.web.embedded.tomcat.TomcatWebServer [restartedMain] Tomcat started on port(s): 8080 (http) with context path '' 
+2023-10-09 15:37:20,783 [INFO] com.feedback.GrievanceManagementSystemApplication [restartedMain] Started GrievanceManagementSystemApplication in 6.447 seconds (JVM running for 7.646) 
+2023-10-09 15:37:46,929 [INFO] org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] [http-nio-8080-exec-4] Initializing Spring DispatcherServlet 'dispatcherServlet' 
+2023-10-09 15:37:46,929 [INFO] org.springframework.web.servlet.DispatcherServlet [http-nio-8080-exec-4] Initializing Servlet 'dispatcherServlet' 
+2023-10-09 15:37:46,935 [INFO] org.springframework.web.servlet.DispatcherServlet [http-nio-8080-exec-4] Completed initialization in 6 ms 
+2023-10-09 15:37:47,259 [INFO] com.feedback.controller.TicketController [http-nio-8080-exec-4] ________get ticket controller________ 
+2023-10-09 15:37:47,432 [INFO] com.feedback.serviceImplementation.TicketServiceImpl [http-nio-8080-exec-4] Ticket returned successfully. 
+2023-10-09 15:37:47,432 [INFO] com.feedback.serviceImplementation.TicketServiceImpl [http-nio-8080-exec-4] Ticket returned successfully. 
+2023-10-09 15:37:47,432 [INFO] com.feedback.serviceImplementation.TicketServiceImpl [http-nio-8080-exec-4] Ticket returned successfully. 
+2023-10-09 15:37:47,432 [INFO] com.feedback.serviceImplementation.TicketServiceImpl [http-nio-8080-exec-4] Ticket returned successfully. 
+2023-10-09 15:37:47,432 [INFO] com.feedback.serviceImplementation.TicketServiceImpl [http-nio-8080-exec-4] Ticket returned successfully. 
+2023-10-09 15:37:47,432 [INFO] com.feedback.serviceImplementation.TicketServiceImpl [http-nio-8080-exec-4] Returned list of ticket. 
+2023-10-09 15:37:49,591 [INFO] com.feedback.controller.DepartmentController [http-nio-8080-exec-1] _________GET DEPARTMENT CONTROLLER________ 
+2023-10-09 15:37:49,628 [INFO] com.feedback.serviceImplementation.DepartmentServiceImpl [http-nio-8080-exec-1] Successfully returned all users. 
+2023-10-09 15:37:49,629 [INFO] com.feedback.serviceImplementation.DepartmentServiceImpl [http-nio-8080-exec-1] Successfully returned all users. 
+2023-10-09 15:37:49,629 [INFO] com.feedback.serviceImplementation.DepartmentServiceImpl [http-nio-8080-exec-1] Successfully returned all users. 
+2023-10-09 15:37:49,629 [INFO] com.feedback.serviceImplementation.DepartmentServiceImpl [http-nio-8080-exec-1] Successfully returned all users. 
+2023-10-09 15:37:49,629 [INFO] com.feedback.serviceImplementation.DepartmentServiceImpl [http-nio-8080-exec-1] Successfully returned all users. 
+2023-10-09 15:37:49,629 [INFO] com.feedback.serviceImplementation.DepartmentServiceImpl [http-nio-8080-exec-1] Successfully returned all users. 
+2023-10-09 15:37:49,629 [INFO] com.feedback.serviceImplementation.DepartmentServiceImpl [http-nio-8080-exec-1] Successfully returned all users. 
+2023-10-09 15:37:49,629 [INFO] com.feedback.serviceImplementation.DepartmentServiceImpl [http-nio-8080-exec-1] Successfully returned all users. 
+2023-10-09 15:37:49,629 [INFO] com.feedback.serviceImplementation.DepartmentServiceImpl [http-nio-8080-exec-1] Successfully returned all users. 
+2023-10-09 15:37:49,629 [INFO] com.feedback.serviceImplementation.DepartmentServiceImpl [http-nio-8080-exec-1] Successfully returned all users. 
+2023-10-09 15:37:49,629 [INFO] com.feedback.serviceImplementation.DepartmentServiceImpl [http-nio-8080-exec-1] Successfully returned all users. 
+2023-10-09 15:37:49,629 [INFO] com.feedback.serviceImplementation.DepartmentServiceImpl [http-nio-8080-exec-1] Successfully returned all users. 
+2023-10-09 15:37:51,559 [INFO] com.feedback.controller.DepartmentController [http-nio-8080-exec-2] _________ALL DEPT(page) CONTROLLER________ 
+2023-10-09 15:37:51,572 [INFO] com.feedback.serviceImplementation.DepartmentServiceImpl [http-nio-8080-exec-2] Retured all Department, successsull 
+2023-10-09 15:37:52,640 [INFO] com.feedback.controller.UserController [http-nio-8080-exec-3] _____get all users controller____ 
+2023-10-09 15:37:52,659 [INFO] com.feedback.serviceImplementation.UserServiceImpl [http-nio-8080-exec-3] Returned list of users, success 
+2023-10-09 15:37:53,746 [INFO] com.feedback.controller.DepartmentController [http-nio-8080-exec-5] _________GET DEPARTMENT CONTROLLER________ 
+2023-10-09 15:37:53,754 [INFO] com.feedback.serviceImplementation.DepartmentServiceImpl [http-nio-8080-exec-5] Successfully returned all users. 
+2023-10-09 15:37:53,754 [INFO] com.feedback.serviceImplementation.DepartmentServiceImpl [http-nio-8080-exec-5] Successfully returned all users. 
+2023-10-09 15:37:53,754 [INFO] com.feedback.serviceImplementation.DepartmentServiceImpl [http-nio-8080-exec-5] Successfully returned all users. 
+2023-10-09 15:37:53,754 [INFO] com.feedback.serviceImplementation.DepartmentServiceImpl [http-nio-8080-exec-5] Successfully returned all users. 
+2023-10-09 15:37:53,754 [INFO] com.feedback.serviceImplementation.DepartmentServiceImpl [http-nio-8080-exec-5] Successfully returned all users. 
+2023-10-09 15:37:53,754 [INFO] com.feedback.serviceImplementation.DepartmentServiceImpl [http-nio-8080-exec-5] Successfully returned all users. 
+2023-10-09 15:37:53,754 [INFO] com.feedback.serviceImplementation.DepartmentServiceImpl [http-nio-8080-exec-5] Successfully returned all users. 
+2023-10-09 15:37:53,759 [INFO] com.feedback.serviceImplementation.DepartmentServiceImpl [http-nio-8080-exec-5] Successfully returned all users. 
+2023-10-09 15:37:53,759 [INFO] com.feedback.serviceImplementation.DepartmentServiceImpl [http-nio-8080-exec-5] Successfully returned all users. 
+2023-10-09 15:37:53,759 [INFO] com.feedback.serviceImplementation.DepartmentServiceImpl [http-nio-8080-exec-5] Successfully returned all users. 
+2023-10-09 15:37:53,759 [INFO] com.feedback.serviceImplementation.DepartmentServiceImpl [http-nio-8080-exec-5] Successfully returned all users. 
+2023-10-09 15:37:53,759 [INFO] com.feedback.serviceImplementation.DepartmentServiceImpl [http-nio-8080-exec-5] Successfully returned all users. 
+2023-10-09 15:37:57,800 [INFO] com.feedback.controller.UserController [http-nio-8080-exec-6] _______GetUserProfile_controller______ 
+2023-10-09 15:37:57,809 [INFO] com.feedback.serviceImplementation.UserServiceImpl [http-nio-8080-exec-6] Got Profile of user success. 
+2023-10-09 15:37:57,809 [INFO] com.feedback.controller.UserController [http-nio-8080-exec-6] Returned User 
+2023-10-09 15:39:01,270 [INFO] com.feedback.controller.DepartmentController [http-nio-8080-exec-8] _________GET DEPARTMENT CONTROLLER________ 
+2023-10-09 15:39:01,277 [INFO] com.feedback.serviceImplementation.DepartmentServiceImpl [http-nio-8080-exec-8] Successfully returned all users. 
+2023-10-09 15:39:01,279 [INFO] com.feedback.serviceImplementation.DepartmentServiceImpl [http-nio-8080-exec-8] Successfully returned all users. 
+2023-10-09 15:39:01,279 [INFO] com.feedback.serviceImplementation.DepartmentServiceImpl [http-nio-8080-exec-8] Successfully returned all users. 
+2023-10-09 15:39:01,279 [INFO] com.feedback.serviceImplementation.DepartmentServiceImpl [http-nio-8080-exec-8] Successfully returned all users. 
+2023-10-09 15:39:01,279 [INFO] com.feedback.serviceImplementation.DepartmentServiceImpl [http-nio-8080-exec-8] Successfully returned all users. 
+2023-10-09 15:39:01,279 [INFO] com.feedback.serviceImplementation.DepartmentServiceImpl [http-nio-8080-exec-8] Successfully returned all users. 
+2023-10-09 15:39:01,279 [INFO] com.feedback.serviceImplementation.DepartmentServiceImpl [http-nio-8080-exec-8] Successfully returned all users. 
+2023-10-09 15:39:01,279 [INFO] com.feedback.serviceImplementation.DepartmentServiceImpl [http-nio-8080-exec-8] Successfully returned all users. 
+2023-10-09 15:39:01,279 [INFO] com.feedback.serviceImplementation.DepartmentServiceImpl [http-nio-8080-exec-8] Successfully returned all users. 
+2023-10-09 15:39:01,279 [INFO] com.feedback.serviceImplementation.DepartmentServiceImpl [http-nio-8080-exec-8] Successfully returned all users. 
+2023-10-09 15:39:01,279 [INFO] com.feedback.serviceImplementation.DepartmentServiceImpl [http-nio-8080-exec-8] Successfully returned all users. 
+2023-10-09 15:39:01,279 [INFO] com.feedback.serviceImplementation.DepartmentServiceImpl [http-nio-8080-exec-8] Successfully returned all users. 
+2023-10-09 15:39:02,699 [INFO] com.feedback.controller.UserController [http-nio-8080-exec-9] _______GetUserProfile_controller______ 
+2023-10-09 15:39:02,709 [INFO] com.feedback.serviceImplementation.UserServiceImpl [http-nio-8080-exec-9] Got Profile of user success. 
+2023-10-09 15:39:02,709 [INFO] com.feedback.controller.UserController [http-nio-8080-exec-9] Returned User 
+2023-10-09 15:39:06,269 [INFO] com.feedback.controller.DepartmentController [http-nio-8080-exec-10] _________GET DEPARTMENT CONTROLLER________ 
+2023-10-09 15:39:06,284 [INFO] com.feedback.serviceImplementation.DepartmentServiceImpl [http-nio-8080-exec-10] Successfully returned all users. 
+2023-10-09 15:39:06,284 [INFO] com.feedback.serviceImplementation.DepartmentServiceImpl [http-nio-8080-exec-10] Successfully returned all users. 
+2023-10-09 15:39:06,284 [INFO] com.feedback.serviceImplementation.DepartmentServiceImpl [http-nio-8080-exec-10] Successfully returned all users. 
+2023-10-09 15:39:06,284 [INFO] com.feedback.serviceImplementation.DepartmentServiceImpl [http-nio-8080-exec-10] Successfully returned all users. 
+2023-10-09 15:39:06,284 [INFO] com.feedback.serviceImplementation.DepartmentServiceImpl [http-nio-8080-exec-10] Successfully returned all users. 
+2023-10-09 15:39:06,284 [INFO] com.feedback.serviceImplementation.DepartmentServiceImpl [http-nio-8080-exec-10] Successfully returned all users. 
+2023-10-09 15:39:06,284 [INFO] com.feedback.serviceImplementation.DepartmentServiceImpl [http-nio-8080-exec-10] Successfully returned all users. 
+2023-10-09 15:39:06,284 [INFO] com.feedback.serviceImplementation.DepartmentServiceImpl [http-nio-8080-exec-10] Successfully returned all users. 
+2023-10-09 15:39:06,284 [INFO] com.feedback.serviceImplementation.DepartmentServiceImpl [http-nio-8080-exec-10] Successfully returned all users. 
+2023-10-09 15:39:06,284 [INFO] com.feedback.serviceImplementation.DepartmentServiceImpl [http-nio-8080-exec-10] Successfully returned all users. 
+2023-10-09 15:39:06,284 [INFO] com.feedback.serviceImplementation.DepartmentServiceImpl [http-nio-8080-exec-10] Successfully returned all users. 
+2023-10-09 15:39:06,284 [INFO] com.feedback.serviceImplementation.DepartmentServiceImpl [http-nio-8080-exec-10] Successfully returned all users. 
+2023-10-09 15:39:20,800 [INFO] com.feedback.controller.DepartmentController [http-nio-8080-exec-4] _________ALL DEPT(page) CONTROLLER________ 
+2023-10-09 15:39:20,816 [INFO] com.feedback.serviceImplementation.DepartmentServiceImpl [http-nio-8080-exec-4] Retured all Department, successsull 
+2023-10-09 15:39:40,182 [INFO] com.feedback.controller.DepartmentController [http-nio-8080-exec-1] _________GET DEPARTMENT CONTROLLER________ 
+2023-10-09 15:39:40,189 [INFO] com.feedback.serviceImplementation.DepartmentServiceImpl [http-nio-8080-exec-1] Successfully returned all users. 
+2023-10-09 15:39:40,189 [INFO] com.feedback.serviceImplementation.DepartmentServiceImpl [http-nio-8080-exec-1] Successfully returned all users. 
+2023-10-09 15:39:40,190 [INFO] com.feedback.serviceImplementation.DepartmentServiceImpl [http-nio-8080-exec-1] Successfully returned all users. 
+2023-10-09 15:39:40,190 [INFO] com.feedback.serviceImplementation.DepartmentServiceImpl [http-nio-8080-exec-1] Successfully returned all users. 
+2023-10-09 15:39:40,190 [INFO] com.feedback.serviceImplementation.DepartmentServiceImpl [http-nio-8080-exec-1] Successfully returned all users. 
+2023-10-09 15:39:40,190 [INFO] com.feedback.serviceImplementation.DepartmentServiceImpl [http-nio-8080-exec-1] Successfully returned all users. 
+2023-10-09 15:39:40,190 [INFO] com.feedback.serviceImplementation.DepartmentServiceImpl [http-nio-8080-exec-1] Successfully returned all users. 
+2023-10-09 15:39:40,190 [INFO] com.feedback.serviceImplementation.DepartmentServiceImpl [http-nio-8080-exec-1] Successfully returned all users. 
+2023-10-09 15:39:40,190 [INFO] com.feedback.serviceImplementation.DepartmentServiceImpl [http-nio-8080-exec-1] Successfully returned all users. 
+2023-10-09 15:39:40,190 [INFO] com.feedback.serviceImplementation.DepartmentServiceImpl [http-nio-8080-exec-1] Successfully returned all users. 
+2023-10-09 15:39:40,190 [INFO] com.feedback.serviceImplementation.DepartmentServiceImpl [http-nio-8080-exec-1] Successfully returned all users. 
+2023-10-09 15:39:40,190 [INFO] com.feedback.serviceImplementation.DepartmentServiceImpl [http-nio-8080-exec-1] Successfully returned all users. 
+2023-10-09 15:39:51,629 [INFO] com.feedback.controller.UserController [http-nio-8080-exec-2] _____get all users controller____ 
+2023-10-09 15:39:51,640 [INFO] com.feedback.serviceImplementation.UserServiceImpl [http-nio-8080-exec-2] Returned list of users, success 
+2023-10-09 15:40:59,238 [INFO] com.feedback.controller.DepartmentController [http-nio-8080-exec-5] _________GET DEPARTMENT CONTROLLER________ 
+2023-10-09 15:40:59,243 [INFO] com.feedback.serviceImplementation.DepartmentServiceImpl [http-nio-8080-exec-5] Successfully returned all users. 
+2023-10-09 15:40:59,243 [INFO] com.feedback.serviceImplementation.DepartmentServiceImpl [http-nio-8080-exec-5] Successfully returned all users. 
+2023-10-09 15:40:59,243 [INFO] com.feedback.serviceImplementation.DepartmentServiceImpl [http-nio-8080-exec-5] Successfully returned all users. 
+2023-10-09 15:40:59,243 [INFO] com.feedback.serviceImplementation.DepartmentServiceImpl [http-nio-8080-exec-5] Successfully returned all users. 
+2023-10-09 15:40:59,243 [INFO] com.feedback.serviceImplementation.DepartmentServiceImpl [http-nio-8080-exec-5] Successfully returned all users. 
+2023-10-09 15:40:59,243 [INFO] com.feedback.serviceImplementation.DepartmentServiceImpl [http-nio-8080-exec-5] Successfully returned all users. 
+2023-10-09 15:40:59,243 [INFO] com.feedback.serviceImplementation.DepartmentServiceImpl [http-nio-8080-exec-5] Successfully returned all users. 
+2023-10-09 15:40:59,243 [INFO] com.feedback.serviceImplementation.DepartmentServiceImpl [http-nio-8080-exec-5] Successfully returned all users. 
+2023-10-09 15:40:59,243 [INFO] com.feedback.serviceImplementation.DepartmentServiceImpl [http-nio-8080-exec-5] Successfully returned all users. 
+2023-10-09 15:40:59,243 [INFO] com.feedback.serviceImplementation.DepartmentServiceImpl [http-nio-8080-exec-5] Successfully returned all users. 
+2023-10-09 15:40:59,243 [INFO] com.feedback.serviceImplementation.DepartmentServiceImpl [http-nio-8080-exec-5] Successfully returned all users. 
+2023-10-09 15:40:59,243 [INFO] com.feedback.serviceImplementation.DepartmentServiceImpl [http-nio-8080-exec-5] Successfully returned all users. 
+2023-10-09 15:41:55,599 [INFO] com.feedback.controller.DepartmentController [http-nio-8080-exec-6] _________GET DEPARTMENT CONTROLLER________ 
+2023-10-09 15:41:55,612 [INFO] com.feedback.serviceImplementation.DepartmentServiceImpl [http-nio-8080-exec-6] Successfully returned all users. 
+2023-10-09 15:41:55,613 [INFO] com.feedback.serviceImplementation.DepartmentServiceImpl [http-nio-8080-exec-6] Successfully returned all users. 
+2023-10-09 15:41:55,613 [INFO] com.feedback.serviceImplementation.DepartmentServiceImpl [http-nio-8080-exec-6] Successfully returned all users. 
+2023-10-09 15:41:55,613 [INFO] com.feedback.serviceImplementation.DepartmentServiceImpl [http-nio-8080-exec-6] Successfully returned all users. 
+2023-10-09 15:41:55,614 [INFO] com.feedback.serviceImplementation.DepartmentServiceImpl [http-nio-8080-exec-6] Successfully returned all users. 
+2023-10-09 15:41:55,614 [INFO] com.feedback.serviceImplementation.DepartmentServiceImpl [http-nio-8080-exec-6] Successfully returned all users. 
+2023-10-09 15:41:55,614 [INFO] com.feedback.serviceImplementation.DepartmentServiceImpl [http-nio-8080-exec-6] Successfully returned all users. 
+2023-10-09 15:41:55,614 [INFO] com.feedback.serviceImplementation.DepartmentServiceImpl [http-nio-8080-exec-6] Successfully returned all users. 
+2023-10-09 15:41:55,614 [INFO] com.feedback.serviceImplementation.DepartmentServiceImpl [http-nio-8080-exec-6] Successfully returned all users. 
+2023-10-09 15:41:55,614 [INFO] com.feedback.serviceImplementation.DepartmentServiceImpl [http-nio-8080-exec-6] Successfully returned all users. 
+2023-10-09 15:41:55,614 [INFO] com.feedback.serviceImplementation.DepartmentServiceImpl [http-nio-8080-exec-6] Successfully returned all users. 
+2023-10-09 15:41:55,614 [INFO] com.feedback.serviceImplementation.DepartmentServiceImpl [http-nio-8080-exec-6] Successfully returned all users. 
+2023-10-09 15:42:06,169 [INFO] com.feedback.controller.DepartmentController [http-nio-8080-exec-7] _________GET DEPARTMENT CONTROLLER________ 
+2023-10-09 15:42:06,178 [INFO] com.feedback.serviceImplementation.DepartmentServiceImpl [http-nio-8080-exec-7] Successfully returned all users. 
+2023-10-09 15:42:06,178 [INFO] com.feedback.serviceImplementation.DepartmentServiceImpl [http-nio-8080-exec-7] Successfully returned all users. 
+2023-10-09 15:42:06,180 [INFO] com.feedback.serviceImplementation.DepartmentServiceImpl [http-nio-8080-exec-7] Successfully returned all users. 
+2023-10-09 15:42:06,180 [INFO] com.feedback.serviceImplementation.DepartmentServiceImpl [http-nio-8080-exec-7] Successfully returned all users. 
+2023-10-09 15:42:06,182 [INFO] com.feedback.serviceImplementation.DepartmentServiceImpl [http-nio-8080-exec-7] Successfully returned all users. 
+2023-10-09 15:42:06,182 [INFO] com.feedback.serviceImplementation.DepartmentServiceImpl [http-nio-8080-exec-7] Successfully returned all users. 
+2023-10-09 15:42:06,182 [INFO] com.feedback.serviceImplementation.DepartmentServiceImpl [http-nio-8080-exec-7] Successfully returned all users. 
+2023-10-09 15:42:06,182 [INFO] com.feedback.serviceImplementation.DepartmentServiceImpl [http-nio-8080-exec-7] Successfully returned all users. 
+2023-10-09 15:42:06,182 [INFO] com.feedback.serviceImplementation.DepartmentServiceImpl [http-nio-8080-exec-7] Successfully returned all users. 
+2023-10-09 15:42:06,182 [INFO] com.feedback.serviceImplementation.DepartmentServiceImpl [http-nio-8080-exec-7] Successfully returned all users. 
+2023-10-09 15:42:06,183 [INFO] com.feedback.serviceImplementation.DepartmentServiceImpl [http-nio-8080-exec-7] Successfully returned all users. 
+2023-10-09 15:42:06,183 [INFO] com.feedback.serviceImplementation.DepartmentServiceImpl [http-nio-8080-exec-7] Successfully returned all users. 
+2023-10-09 15:42:07,530 [INFO] com.feedback.controller.DepartmentController [http-nio-8080-exec-8] _________GET DEPARTMENT CONTROLLER________ 
+2023-10-09 15:42:07,547 [INFO] com.feedback.serviceImplementation.DepartmentServiceImpl [http-nio-8080-exec-8] Successfully returned all users. 
+2023-10-09 15:42:07,548 [INFO] com.feedback.serviceImplementation.DepartmentServiceImpl [http-nio-8080-exec-8] Successfully returned all users. 
+2023-10-09 15:42:07,548 [INFO] com.feedback.serviceImplementation.DepartmentServiceImpl [http-nio-8080-exec-8] Successfully returned all users. 
+2023-10-09 15:42:07,548 [INFO] com.feedback.serviceImplementation.DepartmentServiceImpl [http-nio-8080-exec-8] Successfully returned all users. 
+2023-10-09 15:42:07,549 [INFO] com.feedback.serviceImplementation.DepartmentServiceImpl [http-nio-8080-exec-8] Successfully returned all users. 
+2023-10-09 15:42:07,549 [INFO] com.feedback.serviceImplementation.DepartmentServiceImpl [http-nio-8080-exec-8] Successfully returned all users. 
+2023-10-09 15:42:07,549 [INFO] com.feedback.serviceImplementation.DepartmentServiceImpl [http-nio-8080-exec-8] Successfully returned all users. 
+2023-10-09 15:42:07,550 [INFO] com.feedback.serviceImplementation.DepartmentServiceImpl [http-nio-8080-exec-8] Successfully returned all users. 
+2023-10-09 15:42:07,550 [INFO] com.feedback.serviceImplementation.DepartmentServiceImpl [http-nio-8080-exec-8] Successfully returned all users. 
+2023-10-09 15:42:07,550 [INFO] com.feedback.serviceImplementation.DepartmentServiceImpl [http-nio-8080-exec-8] Successfully returned all users. 
+2023-10-09 15:42:07,550 [INFO] com.feedback.serviceImplementation.DepartmentServiceImpl [http-nio-8080-exec-8] Successfully returned all users. 
+2023-10-09 15:42:07,550 [INFO] com.feedback.serviceImplementation.DepartmentServiceImpl [http-nio-8080-exec-8] Successfully returned all users. 
+2023-10-09 15:42:16,297 [INFO] com.feedback.controller.UserController [http-nio-8080-exec-9] _____get all users controller____ 
+2023-10-09 15:42:16,304 [INFO] com.feedback.serviceImplementation.UserServiceImpl [http-nio-8080-exec-9] Returned list of users, success 
+2023-10-09 15:42:20,461 [INFO] com.feedback.controller.TicketController [http-nio-8080-exec-10] ________get ticket controller________ 
+2023-10-09 15:42:20,487 [INFO] com.feedback.serviceImplementation.TicketServiceImpl [http-nio-8080-exec-10] Ticket returned successfully. 
+2023-10-09 15:42:20,489 [INFO] com.feedback.serviceImplementation.TicketServiceImpl [http-nio-8080-exec-10] Ticket returned successfully. 
+2023-10-09 15:42:20,489 [INFO] com.feedback.serviceImplementation.TicketServiceImpl [http-nio-8080-exec-10] Ticket returned successfully. 
+2023-10-09 15:42:20,489 [INFO] com.feedback.serviceImplementation.TicketServiceImpl [http-nio-8080-exec-10] Ticket returned successfully. 
+2023-10-09 15:42:20,489 [INFO] com.feedback.serviceImplementation.TicketServiceImpl [http-nio-8080-exec-10] Ticket returned successfully. 
+2023-10-09 15:42:20,489 [INFO] com.feedback.serviceImplementation.TicketServiceImpl [http-nio-8080-exec-10] Returned list of ticket. 
+2023-10-09 15:42:30,738 [INFO] com.feedback.controller.TicketController [http-nio-8080-exec-4] ________get ticket controller________ 
+2023-10-09 15:42:30,755 [INFO] com.feedback.serviceImplementation.TicketServiceImpl [http-nio-8080-exec-4] Ticket returned successfully. 
+2023-10-09 15:42:30,758 [INFO] com.feedback.serviceImplementation.TicketServiceImpl [http-nio-8080-exec-4] Ticket returned successfully. 
+2023-10-09 15:42:30,758 [INFO] com.feedback.serviceImplementation.TicketServiceImpl [http-nio-8080-exec-4] Ticket returned successfully. 
+2023-10-09 15:42:30,758 [INFO] com.feedback.serviceImplementation.TicketServiceImpl [http-nio-8080-exec-4] Ticket returned successfully. 

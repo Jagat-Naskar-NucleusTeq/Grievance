@@ -137,7 +137,6 @@
 					<failsOnError>true</failsOnError>
 					<linkXRef>false</linkXRef>
 				</configuration>
-
 				<executions>
 					<execution>
 						<id>checkstyle</id>
