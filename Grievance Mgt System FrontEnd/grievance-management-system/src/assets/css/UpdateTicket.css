@@ -106,12 +106,13 @@ textarea {
 }
 .Ut-nevigate-back {
   background-color: rgb(205, 9, 9);
-  color: white;
-  width: 97%;
+  color: rgb(0, 0, 0);
+  /* width: 97%; */
   border: 1px solid black;
   font-style: italic;
   font-size: smaller;
   min-width: 25px;
+  margin-right: 90%;
 }
 
 .UT-h2 {

@@ -2,6 +2,9 @@ package com.feedback.custom_exception.Handler;
 
 import static org.junit.Assert.assertEquals;
 
+import java.util.HashMap;
+import java.util.Map;
+
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;
@@ -41,4 +44,5 @@ class ControllerExceptionHandlerTest {
         String result = controllerExceptionHandler.ticketNotFoundException(ex);
         assertEquals("Ticket not found", result);
     }
+
 }

@@ -90,7 +90,11 @@ function UpdateTicket(props) {
   return (
     <div className="updateDeptMainDiv">
       <div className="tickets-container">
+      
         <form className="ticket-form" onSubmit={handleSubmit}>
+        <button className="Ut-nevigate-back" onClick={props.onClose}>
+            X
+          </button>
           <h2 className="UT-h2">Update Ticket Details</h2>
           <div className="main-div">
             <div className="div1">
@@ -192,10 +196,6 @@ function UpdateTicket(props) {
               Save
             </button>
           )}
-
-          <button className="Ut-nevigate-back" onClick={props.onClose}>
-            Close
-          </button>
         </form>
 
         <div className="comment-box">
