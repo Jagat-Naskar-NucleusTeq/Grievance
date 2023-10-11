@@ -72,7 +72,7 @@ public class UserServiceImpl implements UserService {
     newUser.setName(user.getName());
     //  String decodedUserName = new String(Base64.getDecoder()
     //    .decode(user.getUserName()));
-    newUser.setUserName(user.getName());
+    newUser.setUserName(user.getUserName());
     newUser.setPassword(user.getPassword());
     newUser.setfinalPassword(false);
     newUser.setUserType(user.getUserType());

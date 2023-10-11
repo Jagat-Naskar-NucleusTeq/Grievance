@@ -12,7 +12,7 @@ public class AlreadyExistExcepton extends RuntimeException {
   private static final long serialVersionUID = 1L;
 
   /**
-   * no args constructor.
+   * no argument constructor.
    */
   public AlreadyExistExcepton() {
     super("Already exist");

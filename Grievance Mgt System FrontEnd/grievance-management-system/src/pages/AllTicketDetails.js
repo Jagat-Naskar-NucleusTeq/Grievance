@@ -158,6 +158,7 @@ const AllTicketDetails = () => {
           <thead>
             <tr>
               {/* <th>Ticket ID</th> */}
+              <th>Ticket Id</th>
               <th>Department</th>
               <th>Ticket Status</th>
               <th>Created By</th>
@@ -175,6 +176,7 @@ const AllTicketDetails = () => {
 
               return (
                 <tr key={ticket.ticketId}>
+                  <td>{ticket.ticketId}</td>
                   <td>{ticket.departmentName}</td>
                   <td>{ticket.ticketStatus}</td>
                   <td>{ticket.createdBy}</td>

@@ -196,9 +196,9 @@ export default function NewUser() {
                 setDepartmentName(e.target.value);
               }}
             >
-              <option value="" disabled>
+              {/* <option value="" disabled>
                 Select a Department
-              </option>
+              </option> */}
               {departmentList.map((e) => (
                 <option key={e.id} value={e.deptName}>
                   {e.deptName}
