@@ -67,7 +67,7 @@ public class Department {
   }
 
   /**
-   * get List of userss.
+   * get List of users.
    *
    * @return users
    */

@@ -6,6 +6,7 @@
   background-color: #f9f9f9a1;
   border-radius: 10px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  width: 66%;
 }
 
 .profile-pic {
@@ -39,4 +40,21 @@
 .Home-btn{
   background-color: rgba(100, 93, 93, 0.562);
   border: 1px solid;
+}
+
+.H-main{
+  display: flex;
+}
+.H-key p{
+  /* margin-right: 99%; */
+  /* left: 0; */
+
+  
+}
+.H-Values p{
+  font-style: italic;
+  color: rgb(0, 0, 0);
+  font-family: 'Times New Roman', Times, serif;
+  margin-left: 12px;
+  margin-right: 99%;
 }

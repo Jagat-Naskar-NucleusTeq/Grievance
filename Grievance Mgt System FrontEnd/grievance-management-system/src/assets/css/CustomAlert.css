@@ -23,11 +23,11 @@
   margin-right: 4%;
   margin-top: 7%;
   border-radius: 9px;
-  border: 1px solid rgb(41, 34, 51);
+  border: 1px solid rgb(110, 103, 121);
   text-align: center;
-  border-top: 4px solid rgb(41, 26, 70);
+  border-top: 4px solid rgba(16, 23, 85, 0.979);
   color: black;
-  background-color: rgb(220, 188, 247);
+  background-color: rgb(133, 143, 148);
 }
 .custom-alert-content {
   display: flex;

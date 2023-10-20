@@ -9,7 +9,7 @@ import javax.validation.constraints.Size;
 /**
  * Data Transfer Object for user login information.
  */
-public class LoginDto {
+public class LoginDtoIn {
 
   /**
    * email variable.
@@ -126,7 +126,7 @@ public class LoginDto {
     if (getClass() != obj.getClass()) {
       return false;
     }
-    LoginDto other = (LoginDto) obj;
+    LoginDtoIn other = (LoginDtoIn) obj;
     return Objects.equals(email, other.email)
       && Objects.equals(password, other.password);
   }
@@ -154,7 +154,7 @@ public class LoginDto {
    * @param passwordd The user's password.
    *
    */
-  public LoginDto(@Email @Size(min = MIN_EMAIL_LENGTH, max = MAX_EMAIL_LENGTH)
+  public LoginDtoIn(@Email @Size(min = MIN_EMAIL_LENGTH, max = MAX_EMAIL_LENGTH)
       @Pattern(regexp = "^[A-Za-z0-9_.-]+@nucleusteq\\.com$",
       message = "email format: ...@nucleusteq.com")
       final String emaill,
@@ -169,7 +169,7 @@ public class LoginDto {
   /**
    * Default constructor for LoginDto.
    */
-  public LoginDto() {
+  public LoginDtoIn() {
     super();
   }
 }

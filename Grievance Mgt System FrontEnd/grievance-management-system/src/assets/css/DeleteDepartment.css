@@ -1,12 +1,9 @@
-.DD-department-list {
-  margin-top: 20px;
-  max-height: 300px;
-}
 
 .DD-table {
   border-collapse: collapse;
-  width: 55vw;
-  height: 50vh;
+  min-width: 55vw;
+  height: fit-content;
+  position:inherit;
 }
 
 .DD-table-head th,
@@ -14,6 +11,10 @@
   border: 1px solid #dddddd;
   text-align: left;
   padding: 8px;
+}
+
+.DD-table tbody tr td {
+  height: fit-content;
 }
 
 .DD-table-head th {
@@ -34,14 +35,6 @@
   text-align: center;
   cursor: pointer;
   transition: background-color 0.3s;
-}
-
-.DD-addDept-btn:hover {
-  background-color: #da252575;
-}
-
-.DD-delete-button:hover{
-  background-color: red;
 }
 
 .add-dept-btn {
@@ -69,11 +62,10 @@
 }
 
 .DD-table tbody tr:nth-child(even) td button:nth-child(odd) {
-  background-color: #fffdfd00;
   border: 1px solid black;
 }
 .DD-table tbody tr:nth-child(odd) td button:nth-child(odd) {
-  background-color: #8a858527;
+  /* background-color: #8a858527; */
   border: 1px solid black;
 }
 
@@ -85,4 +77,13 @@
   top: 0;
   z-index: 1;
   background-color: #f2f2f2;
+}
+
+/* .delete-button:disabled {
+  
+  cursor: not-allowed;
+  background-color: rgba(46, 41, 41, 0.26);
+} */
+.delete-button:disabled {
+  background-color: rgba(58, 51, 51, 0.205);
 }

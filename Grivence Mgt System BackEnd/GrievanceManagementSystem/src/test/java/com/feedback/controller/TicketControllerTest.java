@@ -118,8 +118,11 @@ class TicketControllerTest {
     @Test
     void testUpdateTicket_Success() throws Exception {
         String comments = "message1";
-
-        UpdateTicketDtoIn updateTicketDtoIn = new UpdateTicketDtoIn(1L, Estatus.Open, comments);
+//        this.ticketId = ticketIdd;
+//        this.ticketStatus = ticketStatuss;
+//        this.userName = userNamee;
+//        this.commentMessage = commentMessagee;
+        UpdateTicketDtoIn updateTicketDtoIn = new UpdateTicketDtoIn(1L, Estatus.Open, "jme@nucleusteq.com", comments);
 
         when(ticketService.updatingTicket(updateTicketDtoIn)).thenReturn(true);
 
@@ -137,7 +140,7 @@ class TicketControllerTest {
         UpdateTicketDtoIn updateTicketDtoIn = new UpdateTicketDtoIn();
        updateTicketDtoIn.setTicketId(1L);
         updateTicketDtoIn.setTicketStatus(Estatus.Open);
-        updateTicketDtoIn.setCommentList(comments);
+        updateTicketDtoIn.setcommentMessageList(comments);
 
         when(ticketService.updatingTicket(updateTicketDtoIn)).thenReturn(false);
 

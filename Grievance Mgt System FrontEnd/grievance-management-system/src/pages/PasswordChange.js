@@ -4,6 +4,7 @@ import "../assets/css/PasswordChange.css";
 import { changePasswordPost } from "../service/userService/User";
 import { useNavigate } from "react-router-dom";
 import CustomAlert from "../component/CustomAlert";
+import { validatePassword } from "./UserValidation";
 
 const PasswordChange = () => {
   const [formData, setFormData] = useState({
@@ -19,6 +20,13 @@ const PasswordChange = () => {
   };
   const handleCloseAlert = () => {
     setShowAlert(false);
+    
+    if((localStorage.getItem("finalPassword_set") === "false" && localStorage.getItem("LoggendIn22") === "true")){
+      navigatee("/login");
+      sessionStorage.clear();
+      localStorage.clear();
+    }
+     
   };
 
   let navigatee = useNavigate();
@@ -41,7 +49,12 @@ const PasswordChange = () => {
       !formData.confirmNewPassword
     ) {
       newErrors.message = "All fields are required";
-    } else if (formData.newPassword !== formData.confirmNewPassword) {
+    } 
+    else if(validatePassword(formData.newPassword)){
+      const passwordError = validatePassword(formData.newPassword);
+      newErrors.message = passwordError;
+    }
+    else if (formData.newPassword !== formData.confirmNewPassword) {
       newErrors.message = "New password and confirm password do not match";
     }
     setErrors(newErrors);
@@ -61,16 +74,6 @@ const PasswordChange = () => {
 
         const response = await changePasswordPost(encodedFormData);
         if (response === "Password changed successfully") {
-          navigatee("/login");
-          sessionStorage.clear();
-          localStorage.clear();
-        } else if (response === "Password changed successfully.") {
-          setMessage(response);
-          handleShowAlert();
-          navigatee("/login");
-          sessionStorage.clear();
-          localStorage.clear();
-        } else if (response === "Incorrect old password.") {
           setMessage(response);
           handleShowAlert();
           setFormData({
@@ -78,6 +81,9 @@ const PasswordChange = () => {
             newPassword: "",
             confirmNewPassword: "",
           });
+        } else if (response === "Incorrect old password.") {
+          setMessage(response);
+          handleShowAlert();
         } else {
           setMessage(response);
           handleShowAlert();
@@ -145,7 +151,7 @@ const PasswordChange = () => {
             </button>
           </form>
           {errors.message && <div className="error">{errors.message}</div>}
-          {message && <div className="success">{message}</div>}
+          {/* {message && <div className="success">{message}</div>} */}
         </div>
       </div>
       {showAlert && (

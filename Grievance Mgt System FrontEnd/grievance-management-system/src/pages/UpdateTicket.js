@@ -2,11 +2,12 @@ import React, { useState, useEffect } from "react";
 import "../assets/css/UpdateTicket.css";
 import axios from "axios";
 import { useCallback } from "react";
+import backButton from "../assets/icons/leftArrow.svg"
 
 function UpdateTicket(props) {
   const [status, setStatus] = useState("Select Status");
-
   const [comment, setComment] = useState("");
+
 
   const [commentError, setCommentError] = useState("");
   const [statusError, setStatusError] = useState("");
@@ -76,6 +77,7 @@ function UpdateTicket(props) {
         ticketId: props.id,
         ticketStatus: status,
         comment: comment,
+        userName: localStorage.getItem("session_user_name")
       };
       axios
         .post(`http://localhost:8080/api/tickets/updateTicket`, sendingData)
@@ -88,16 +90,34 @@ function UpdateTicket(props) {
   };
 
   return (
+    <>
+   
     <div className="updateDeptMainDiv">
-      <div className="tickets-container">
+    
       
+      <div className="tickets-container">
+      <div className="Ut-nevigate-back" onClick={props.onClose}>
+                <img onClick={props.on}
+                  src={backButton}
+                  alt="Description"
+                  style={{ width: "95%", height: "90%" }}
+                  className="project_icon"
+                />
+          </div>
         <form className="ticket-form" onSubmit={handleSubmit}>
-        <button className="Ut-nevigate-back" onClick={props.onClose}>
+        {/* <button className="Ut-nevigate-back" onClick={props.onClose}>
             X
-          </button>
+          </button> */}
           <h2 className="UT-h2">Update Ticket Details</h2>
+ 
+            
           <div className="main-div">
             <div className="div1">
+            <input className="UT-input-ticketId"
+            disabled
+              placeholder={"Id: "+ticket.ticketId}
+              >
+            </input>
               <label className="UT-ticketType">Ticket Type</label>
               <select
                 id="ticketType"
@@ -208,6 +228,7 @@ function UpdateTicket(props) {
         </div>
       </div>
     </div>
+    </>
   );
 }
 export default UpdateTicket;

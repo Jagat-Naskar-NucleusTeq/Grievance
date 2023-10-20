@@ -10,7 +10,6 @@ import NewUser from "./pages/NewUser";
 import Ticket from "./pages/Ticket";
 import AdminSidebar from "./pages/AdminSidebar";
 import NewDepartment from "./pages/NewDepartment";
-import MemberSidebar from "./pages/MemberSidebar";
 import DeleteUser from "./pages/DeleteUser";
 import DeleteDepartment from "./pages/DeleteDepartment";
 import PrivateRoute from "./pages/PrivateRoute"; 
@@ -18,7 +17,6 @@ import Error404Page from "./pages/Error404Page";
 import UpdateTicket from "./pages/UpdateTicket";
 import AllTicketDetails from "./pages/AllTicketDetails";
 import PasswordChange from "./pages/PasswordChange";
-import MemberHome from "./pages/MemberHome";
 import { useEffect } from "react";
 
 function App() {
@@ -27,11 +25,12 @@ function App() {
 
   useEffect(() => {
     if (localStorage.getItem("LoggendIn22") === "true") {
-      if (localStorage.getItem("Admin_Role") === "member") {
-        nevigatee("/member/tickets");
-      } else if (localStorage.getItem("Admin_Role") === "admin") {
-        nevigatee("/admin/tickets");
-      }
+      // if (localStorage.getItem("Admin_Role") === "member") {
+      //   nevigatee("/member/tickets");
+      // } else if (localStorage.getItem("Admin_Role") === "admin") {
+      //   nevigatee("/admin/tickets");
+      // }
+      nevigatee("/tickets")
     }
   }, [nevigatee]);//made changes here
   
@@ -49,32 +48,36 @@ function App() {
           <Route path="/" element={<Login />} />
           <Route path="login" element={<Login />} />
           <Route element={<PrivateRoute />}>
+            {localStorage.getItem("finalPassword_set") === "false" && (
             <Route path="/changePassword" element={<PasswordChange />} />
-            <Route path="admin" element={<AdminSidebar />}>
-              <Route index element={<AdminHome />} />
+            )
+          }
+            <Route element={<AdminSidebar />}>
+              {/* <Route index element={<AdminHome />} /> */}
               <Route path="adminProfile" element={<AdminHome />} />
-              <Route path="addUser" element={<NewUser />} />
-              <Route path="allUsers" element={<DeleteUser />} />
+              <Route path="users/addUser" element={<NewUser />} />
+              <Route path="users" element={<DeleteUser />} />
               <Route path="viewDept" element={<DeleteDepartment />}>
                 <Route path="createDept" element={<NewDepartment />} />
               </Route>
-              <Route path="createTicket" element={<Ticket />} />
+              <Route path="tickets/createTicket" element={<Ticket />} />
               <Route path="changePassword" element={<PasswordChange />} />
               <Route path="tickets" element={<AllTicketDetails />} />
-              <Route path="update-ticket" element={<UpdateTicket />} />
+              <Route path="tickets/createTicket" element={<Ticket />} />
+              <Route path="tickets/update-ticket" element={<UpdateTicket />} />
               <Route
                 path="allFeedback"
                 element={<div>All Feedback & Greviance Page</div>}
               />
             </Route>
-            <Route path="member" element={<MemberSidebar />}>
+            {/* <Route path="member" element={<MemberSidebar />}>
               <Route index element={<MemberHome />} />
               <Route path="memberProfile" element={<MemberHome />} />
               <Route path="tickets" element={<AllTicketDetails />}></Route>
-              <Route path="update-ticket" element={<UpdateTicket />} />
-              <Route path="createTicket" element={<Ticket />} />
+              <Route path="tickets/update-ticket" element={<UpdateTicket />} />
+              <Route path="tickets/createTicket" element={<Ticket />} />
               <Route path="changePassword" element={<PasswordChange />} />
-            </Route>
+            </Route> */}
           </Route>
           <Route path="*" element={<Error404Page />} />
         </Routes>

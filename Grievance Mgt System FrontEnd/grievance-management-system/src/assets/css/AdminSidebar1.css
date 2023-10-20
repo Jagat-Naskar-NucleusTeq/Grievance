@@ -1,18 +1,18 @@
 .sidebar {
   position: relative;
-  height: 91vh;
+  height: 89vh;
   width: 17%;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: space-between;
   overflow: hidden;
-  background-color: #6b5ba5eb;
+  background-color: #524d57eb;
   box-shadow: 4px 0px 6px rgba(0, 0, 0, 0.1);
 }
 
 .admin-content {
-  height: 82.8vh;
+  height: 79.vh;
   width: 80%;
   flex: 1 1;
   padding: 0% 4% 4% 4%;
@@ -54,12 +54,14 @@ a:-webkit-any-link {
 
 .active .AD-li {
   text-transform: uppercase;
-  background-color: #b0a8cd;
+  background-color: hsl(234, 15%, 87%);
   color: #3f1bb6;
   text-shadow: 0px 2px 2px rgba(0, 0, 0, 0.5);
   box-shadow: -8px 8px 8px rgba(37, 29, 35, 0.685),
     8px -8px 8px rgba(0, 0, 0, 0);
   scale: 1.1;
+  margin-left: 8px;
+  font-size: small;
 }
 
 .AD-li {
@@ -77,7 +79,9 @@ a:-webkit-any-link {
 }
 
 .AD-li:hover {
-  background-color: #5e518d;
+  background-color: #5d5d5d;
+  color: white;
+  margin-left: 16px;
 }
 
 /* .AD-li-logout {
@@ -97,7 +101,7 @@ a:-webkit-any-link {
 
 .AD-li-logout {
   position: absolute;
-  background-color: #5e39cc93;
+  background-color: #0e072593;
   color: #ffffff;
   padding: 10px;
   left: 35%;
@@ -110,7 +114,8 @@ a:-webkit-any-link {
   font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
 }
 .AD-li-logout:hover{
-  background-color:  #3f1bb6;
+  background-color:  #fffcfc;
+  color: black;
 }
 .icon{
   /* height: 5%; */
@@ -123,3 +128,4 @@ a:-webkit-any-link {
   font-size: 1.4em;
  position: absolute;
 }
+

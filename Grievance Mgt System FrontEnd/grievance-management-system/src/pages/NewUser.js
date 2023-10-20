@@ -9,6 +9,7 @@ import {
   validateUserType,
   validateDeptName,
 } from "../pages/UserValidation";
+import { useNavigate } from "react-router-dom";
 
 export default function NewUser() {
   const [name, setName] = useState("");
@@ -104,10 +105,19 @@ export default function NewUser() {
     }
   };
 
+  const nevigatee = new useNavigate();
+
+  const handleClose = () => {
+    nevigatee("/users");
+  };
+
   return (
     <div>
       <form className="NU-reg-form" onSubmit={handleSubmit} method="post">
         <div className="NU-parent">
+          <button className="ND-close-btn" onClick={handleClose}>
+            X
+          </button>
           <h2 className="NU-reg-heading">Add User</h2>
           <div className="NU-container1">
             <label className="NU-label-user">

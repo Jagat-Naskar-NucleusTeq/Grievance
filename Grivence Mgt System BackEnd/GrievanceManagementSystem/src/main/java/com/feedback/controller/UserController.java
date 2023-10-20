@@ -2,14 +2,13 @@ package com.feedback.controller;
 
 import com.feedback.entities.User;
 import com.feedback.payloads.user_dto.AddUserDto;
-import com.feedback.payloads.user_dto.LoginDto;
+import com.feedback.payloads.user_dto.LoginDtoIn;
+import com.feedback.payloads.user_dto.LoginDtoOut;
 import com.feedback.payloads.user_dto.PasswordChangeDtoIn;
 import com.feedback.payloads.user_dto.UserProfileDtoOut;
 import com.feedback.payloads.user_dto.GetAllUsersDtoOut;
 import com.feedback.service.UserService;
 
-import java.nio.charset.StandardCharsets;
-import java.util.Base64;
 import java.util.List;
 import javax.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -27,7 +26,7 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
 /**
- * User Controller class for managing user-related HTTP endpoints.
+ * User Controller class for managing user-related HTTP end-points.
  */
 @CrossOrigin(origins = "http://localhost:3000")
 @RestController
@@ -43,7 +42,8 @@ public class UserController {
   /**
    * Logger initialization.
    */
-  private static final Logger LOGGER = LogManager.getLogger(UserController.class);
+  private static final Logger LOGGER = LogManager
+        .getLogger(UserController.class);
 
   /**
    * Add new User by admin.
@@ -54,11 +54,11 @@ public class UserController {
    */
   @PostMapping("/addUser")
   public ResponseEntity<?> addUser(@Valid @RequestBody final AddUserDto user) {
-    if (user == null) {
-      return ResponseEntity
-          .status(HttpStatus.BAD_REQUEST)
-          .body("Sent  User is null.");
-    }
+//    if (user == null) {
+//      return ResponseEntity
+//          .status(HttpStatus.BAD_REQUEST)
+//          .body("Sent  User is null.");
+//    }
     LOGGER.info("___________Add_user_CONTROLLER_______________");
     String message = "";
     if (userService.checkAlreadyExist(user)) {
@@ -96,11 +96,11 @@ public class UserController {
   public ResponseEntity<String> changePassword(
       @Valid @RequestBody final PasswordChangeDtoIn request) throws Exception {
     LOGGER.info("___________change_password_____________");
-    if (request == null) {
-      return ResponseEntity
-          .status(HttpStatus.BAD_REQUEST)
-          .body("Input not found.");
-    }
+//    if (request == null) {
+//      return ResponseEntity
+//          .status(HttpStatus.BAD_REQUEST)
+//          .body("Input not found.");
+//    }
     String passwordChanged;
     LOGGER.info("Change Password Conntroller 1");
     try {
@@ -121,22 +121,30 @@ public class UserController {
    *
    * @return logined or not.
    */
+//  @PostMapping("/login")
+//  public ResponseEntity<?> login(@Valid
+//        @RequestBody final LoginDtoIn user) {
+//    LOGGER.info("_________login_Controller__________");
+//    String decodedEmail = new String(Base64.getDecoder()
+//        .decode(user.getEmail()), StandardCharsets.UTF_8);
+//    LOGGER.info("Email got = " + decodedEmail);
+//    LOGGER.info("Password got = " + new String(Base64.getDecoder()
+//            .decode(user.getPassword()), StandardCharsets.UTF_8));
+//    String dataAndRole = (String) userService.getByUserAndPassword(
+//          decodedEmail,
+//          user.getPassword()
+//      );
+//    LOGGER.info("Password got success");
+//    return ResponseEntity.status(HttpStatus.OK).body(dataAndRole);
+//  }
   @PostMapping("/login")
   public ResponseEntity<?> login(@Valid
-        @RequestBody final LoginDto user) {
+        @RequestBody final LoginDtoIn user) {
     LOGGER.info("_________login_Controller__________");
-    String decodedEmail = new String(Base64.getDecoder()
-        .decode(user.getEmail()), StandardCharsets.UTF_8);
-    LOGGER.info("Email got = " + decodedEmail);
-    String decodedPass = new String(Base64.getDecoder()
-        .decode(user.getPassword()), StandardCharsets.UTF_8);
-    LOGGER.info("Password got = " + decodedPass);
-    String dataAndRole = (String) userService.getByUserAndPassword(
-          decodedEmail,
-          user.getPassword()
+    LoginDtoOut loginDtoOut = userService.getByUserAndPassword(user
       );
     LOGGER.info("Password got success");
-    return ResponseEntity.status(HttpStatus.OK).body(dataAndRole);
+    return ResponseEntity.status(HttpStatus.OK).body(loginDtoOut);
   }
 
   /**

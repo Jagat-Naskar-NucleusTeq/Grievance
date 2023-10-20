@@ -5,6 +5,9 @@ import com.feedback.payloads.user_dto.AddUserDto;
 import com.feedback.payloads.user_dto.PasswordChangeDtoIn;
 import com.feedback.payloads.user_dto.UserProfileDtoOut;
 import com.feedback.payloads.user_dto.GetAllUsersDtoOut;
+import com.feedback.payloads.user_dto.LoginDtoIn;
+import com.feedback.payloads.user_dto.LoginDtoOut;
+
 import java.util.List;
 
 /**
@@ -49,15 +52,13 @@ public interface UserService {
   String deleteUser(Integer id);
 
   /**
-   * getByUserAndPassword service.
+   * getByUserAndPassword.
    *
-   * @param userName
+   * @param user
    *
-   * @param password
-   *
-   * @return true or false.
+   * @return LoginDtoOut.
    */
-  String getByUserAndPassword(String userName, String password);
+  LoginDtoOut getByUserAndPassword(LoginDtoIn user);
 
   /**
    * checkAlreadyExist service.

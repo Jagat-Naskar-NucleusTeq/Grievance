@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import "../assets/css/Ticket.css";
 import axios from "axios";
 import CustomAlert from "../component/CustomAlert";
+import { useNavigate } from "react-router-dom";
 
 function Ticket() {
   const [ticketType, setTicketType] = useState("");
@@ -102,8 +103,26 @@ function Ticket() {
     }
   };
 
+  const nevigatee = new useNavigate();
+
+  const handleClose = () => {
+    nevigatee("/tickets");
+  };
+
+
+
+  // `/${localStorage.getItem("Admin_Role")}/tickets/createTicket`
+
+
+
+
+
+
   return (
     <div className="Ttickets-container">
+      <button className="ND-close-btn" onClick={handleClose}>
+            X
+          </button>
       <form className="Tticket-form" onSubmit={handleSubmit}>
         <h2>Add Ticket</h2>
         <div className="Tsub-structure">

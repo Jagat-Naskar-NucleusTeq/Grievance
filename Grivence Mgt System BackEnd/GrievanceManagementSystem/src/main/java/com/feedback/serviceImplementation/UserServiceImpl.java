@@ -3,12 +3,13 @@ package com.feedback.serviceImplementation;
 import com.feedback.custom_exception.DepartmentNotFoundException;
 import com.feedback.custom_exception.UserNotFoundException;
 import com.feedback.entities.Department;
-import com.feedback.entities.ERole;
 import com.feedback.entities.User;
 import com.feedback.payloads.user_dto.AddUserDto;
 import com.feedback.payloads.user_dto.PasswordChangeDtoIn;
 import com.feedback.payloads.user_dto.UserProfileDtoOut;
 import com.feedback.payloads.user_dto.GetAllUsersDtoOut;
+import com.feedback.payloads.user_dto.LoginDtoIn;
+import com.feedback.payloads.user_dto.LoginDtoOut;
 import com.feedback.repository.DepartmentRepository;
 import com.feedback.repository.UserRepository;
 import com.feedback.service.UserService;
@@ -70,8 +71,6 @@ public class UserServiceImpl implements UserService {
     User newUser = new User();
     LOGGER.info("ser1 " + newUser);
     newUser.setName(user.getName());
-    //  String decodedUserName = new String(Base64.getDecoder()
-    //    .decode(user.getUserName()));
     newUser.setUserName(user.getUserName());
     newUser.setPassword(user.getPassword());
     newUser.setfinalPassword(false);
@@ -146,45 +145,46 @@ public class UserServiceImpl implements UserService {
   }
 
   /**
-   * Check if a user with the given userName and password exists.
+   * getByUserAndPassword.
    *
-   * @param userName The userName
+   *@param loginDtoIn
    *
-   * @param password The password.
-   *
-   * @return True if a user exists, false otherwise.
+   *@return LoginDtoOut
    */
   @Override
-  public String getByUserAndPassword(
-      final String userName, final String password) {
+  public LoginDtoOut getByUserAndPassword(final LoginDtoIn loginDtoIn) {
+      String userName = new String(Base64.getDecoder()
+              .decode(loginDtoIn.getEmail()), StandardCharsets.UTF_8);
+          LOGGER.info("Email got = " + userName);
+          LOGGER.info("Password got = " + new String(Base64.getDecoder()
+                  .decode(loginDtoIn.getPassword()), StandardCharsets.UTF_8));
+
     try {
       if (!userRepository.existsByUserName(userName)) {
-        return "false";
+        return null;
       }
       User u1 = userRepository.getUserByUsername(userName);
-      //////////////////////////////////////////////////////
       LOGGER.info("Actual emial = " + u1.getUserName());
       String decodedPass = new String(Base64.getDecoder()
-          .decode(u1.getPassword()), StandardCharsets.UTF_8); // no need
+          .decode(u1.getPassword()), StandardCharsets.UTF_8);
       LOGGER.info("Actual password = " + decodedPass);
-      ////////////////////////////////////////////////////////
-      ERole roll = null;
-      if (password.equals(u1.getPassword())) {
-        roll = u1.getUserType();
-        if (!u1.getfinalPassword()) {
-          LOGGER.info("Success login, but need to"
-                + "change password.");
-          return "true_" + roll.name() + "_cp";
-        }
+      if (loginDtoIn.getPassword().equals(u1.getPassword())) {
+        LoginDtoOut loginDtoOut = new LoginDtoOut();
+        loginDtoOut.setName(u1.getName());
+        loginDtoOut.setUserName(u1.getUserName());
+        loginDtoOut.setDepartmentName(u1.getDepartment().getDeptName());
+        loginDtoOut.setFinalPassword(u1.getfinalPassword().toString());
+        loginDtoOut.setPassword(u1.getPassword());
+        loginDtoOut.setUserType(u1.getUserType().toString());
         LOGGER.info("Success login");
-        return "true_" + roll.name();
+        return loginDtoOut;
       }
     } catch (Exception e) {
       LOGGER.info("Error = " + e.getMessage());
-      return "Error : " + e.getMessage();
+      return null;
     }
     LOGGER.info("Login failed.");
-    return "false";
+    return null;
   }
 
   /**
@@ -216,13 +216,9 @@ public class UserServiceImpl implements UserService {
   public String passwordChangedSuccess(final PasswordChangeDtoIn request) {
     String userName = new String(Base64.getDecoder()
         .decode(request.getUserName()), StandardCharsets.UTF_8);
-    LOGGER.info("User name = " + userName);
     String oldPassword = request.getOldPassword();
     String newPassword = request.getNewPassword();
     String confirmNewPassword = request.getConfirmNewPassword();
-    LOGGER.info("Old Password = " + oldPassword);
-    LOGGER.info("New Password = " + newPassword);
-    LOGGER.info("Confirm change Pass = " + confirmNewPassword);
     if (!userRepository.existsByUserName(userName)) {
       LOGGER.error("User not exist.");
       throw new UserNotFoundException(userName);
@@ -230,7 +226,7 @@ public class UserServiceImpl implements UserService {
     User user = userRepository.getUserByUsername(userName);
     String userPassword = user.getPassword();
     if (!userPassword.equals(oldPassword)) {
-      LOGGER.info("Equal old and new Password = "
+      LOGGER.info("Equals old and new Password = "
           + userPassword.equals(oldPassword));
       LOGGER.info("Correct password = " + user.getPassword());
       LOGGER.info("Incorrect old password.");
@@ -245,13 +241,7 @@ public class UserServiceImpl implements UserService {
         user.setPassword(newPassword);
         user.setfinalPassword(true);
         userRepository.save(user);
-        if (user.getUserType().equals(ERole.admin)) {
-          LOGGER.info("Successfully changed password.");
           return "Password changed successfully";
-        } else {
-          LOGGER.info("Successfully changed password.");
-          return "Password changed successfully.";
-        }
     }
     LOGGER.info("Failed to change password.");
     return "Sorry, could not change the password.";

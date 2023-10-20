@@ -42,7 +42,8 @@ public class TicketController {
   /**
    * Logger initialization.
    */
-  private static final Logger LOGGER = LogManager.getLogger(TicketController.class);
+  private static final Logger LOGGER = LogManager
+        .getLogger(TicketController.class);
 
   /**
    * adding tickets to databases.

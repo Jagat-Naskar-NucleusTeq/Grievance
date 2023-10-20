@@ -209,11 +209,7 @@ public class TicketServiceImpl implements TicketService {
   }
 
   /**
-   * updating ticket.
-   *
-   * @param updateTicketDtoIn
-   *
-   * @return true if ticket updated else false.
+   * updatingTicket.
    */
   @Override
   public Boolean updatingTicket(final UpdateTicketDtoIn updateTicketDtoIn) {
@@ -227,32 +223,27 @@ public class TicketServiceImpl implements TicketService {
     }
     Optional<Ticket> ticket = ticketRepository
         .findById(updateTicketDtoIn.getTicketId());
-
     Ticket ticket2 = ticket.get();
-    if (!ticket.isPresent()) {
-      LOGGER.error("Ticket not found with id = "
-              + updateTicketDtoIn.getTicketId());
-      throw new TicketNotFoundException("Ticket not found");
-    }
     if (newStatus != null) {
       ticket2.setTicketStatus(newStatus);
       if (newStatus.equals(Estatus.Resolved)
-          && updateTicketDtoIn.getComment().equalsIgnoreCase("")) {
-         LOGGER.info("Could not update, because"
-               + "status is resolved and not comments");
+          && updateTicketDtoIn.getCommentMessage().equalsIgnoreCase("")) {
+         LOGGER.info("To resolve add a"
+               + " comment.");
         return false;
       }
     }
     LocalDateTime lastUpdateTime = LocalDateTime.now();
     ticket2.setLastUpdatedTime(lastUpdateTime);
-    if (updateTicketDtoIn.getComment() != null
-        && !updateTicketDtoIn.getComment().equals("")) {
-      ticket2.addComment(updateTicketDtoIn.getComment());
+    if (updateTicketDtoIn.getCommentMessage() != null
+        && !updateTicketDtoIn.getCommentMessage().equals("")) {
+      ticket2.addComment(updateTicketDtoIn.getCommentMessage());
     }
     Comment comment = new Comment();
-    comment.setCommentMessage(updateTicketDtoIn.getComment());
+    comment.setCommentMessage(updateTicketDtoIn.getCommentMessage());
     comment.setTicket(ticket2);
-    comment.setUser1(ticket.get().getUser());
+    comment.setUser1(userRepository
+          .getUserByUsername(updateTicketDtoIn.getUserName()));
     List<Comment> list = new ArrayList<>();
     list.add(comment);
     ticket2.setComments(list);

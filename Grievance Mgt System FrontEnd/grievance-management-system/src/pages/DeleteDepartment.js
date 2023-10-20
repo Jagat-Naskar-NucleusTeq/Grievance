@@ -82,21 +82,23 @@ function AllDepartment() {
     departmentList.length > 0 ? (
       departmentList.map((department, index) => (
         <tr key={index}>
+          <td>{index+1}</td>
           <td>{department.deptId}</td>
           <td>{department.deptName}</td>
           <td>
-            {localStorage.getItem("MyDeptName") !== department.deptName && (
-              <button
-                onClick={() => openConfirmBox(department.deptName)}
-                className="delete-button"
-              >
-                <img
-                  src={DeleteDeptIcon}
-                  alt="Description"
-                  style={{ width: "48%" }}
-                />
-              </button>
-            )}
+            <button
+              className="delete-button"
+              onClick={() => openConfirmBox(department.deptName)}
+              disabled={
+                localStorage.getItem("MyDeptName") === department.deptName
+              }
+            >
+              <img
+                src={DeleteDeptIcon}
+                alt="Description"
+                style={{ width: "48%" }}
+              />
+            </button>
           </td>
         </tr>
       ))
@@ -113,15 +115,14 @@ function AllDepartment() {
   return (
     <>
       <Outlet />
-      <div className="DD-addDept-btn">
-        <Link to="createDept" className="add-dept-btn">
-          Add Department
-        </Link>
-      </div>
+      <Link to="createDept" className="add-dept-btn-link">
+        <div className="DD-addDept-btn">Add Department</div>
+      </Link>
       <div className="DD-department-list">
         <table className="DD-table">
           <thead className="DD-table-head">
             <tr className="DD-table-row">
+            <th>Serial No</th>
               <th>Department Id</th>
               <th>Department Name</th>
               <th>Action</th>

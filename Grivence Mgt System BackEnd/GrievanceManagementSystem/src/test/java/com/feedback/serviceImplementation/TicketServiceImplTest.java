@@ -6,7 +6,6 @@ import static org.mockito.Mockito.*;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.Base64;
-import java.util.Collections;
 import java.util.List;
 import java.util.Optional;
 
@@ -19,7 +18,6 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageImpl;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
-import org.springframework.stereotype.Service;
 
 import com.feedback.custom_exception.UserNotFoundException;
 import com.feedback.entities.*;
@@ -55,7 +53,7 @@ class TicketServiceImplTest {
      UpdateTicketDtoIn updateTicketDtoIn = new UpdateTicketDtoIn();
         updateTicketDtoIn.setTicketId(1L);
         updateTicketDtoIn.setTicketStatus(Estatus.Being_Addressed);
-        updateTicketDtoIn.setCommentList(""); // Updated this line to set comment to an empty string
+        updateTicketDtoIn.setcommentMessageList(""); //empty string
 
         Ticket ticket = new Ticket();
         ticket.setTicketId(1L);

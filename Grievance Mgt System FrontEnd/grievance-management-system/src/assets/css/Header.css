@@ -1,44 +1,96 @@
-.admin-header {
-  background-color: #0f0925;
-  color: white;
-  padding: 20px;
+.header {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  width: 96vw;
-  height: 3vh;
-  box-shadow: 0px 0px 10px 5px rgb(0, 0, 0) inset;
-  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  background-color: #333;
+  color: #fff;
+  padding: 10px 20px;
+  width: 96.vw;
+  height: 5.9vh;
+}
+.header h1{
+  font-size: 1.5em;
+  margin-left: auto;
 }
 
-.admin-header h1 {
-  margin: 0;
-  font-size: 20px;
-  margin-right: 10px;
-  font-style: oblique;
-  text-shadow: 0px 2px 2px rgba(0, 0, 0, 0.5);
-  overflow: auto;
+.icon {
+  cursor: pointer;
+  margin-left: 2%;
 }
 
-.admin-header h3 {
-  margin: 0;
-  font-size: 20px;
-  margin-right: 10px;
+.dropdown {
+  position: absolute;
+  margin-top: 1vh;
+  top: 50px;
+  right: 1px;
+  background-color: #333;
+  border: 1px solid #242323;
+  border-radius: 4px;
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+  width: 16vw;
+  box-shadow: -5px 5px 19px rgba(0, 0, 0, 0.774);
+}
+
+.dropdown ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+.dropdown li {
+  padding: 10px;
+  cursor: pointer;
+}
+
+.dropdown li:hover {
+  background-color: #323350;
+}
+.H-Logout{
+  /* background-color: red; */
+  color: rgb(182, 31, 31);
+  font-weight: bold;
+}
+.nameOfUser{
+  color: rgb(211, 209, 209);
   font-style: italic;
 }
 
-.admin-header p {
-  margin: 0;
-  font-size: 16px;
-  opacity: 0.8;
-  font-family: cursive;
+.dropDown-click{
+  margin-right: -12px;
 }
 
-.role {
-  color: white;
+.H-ProfileSection{
+  display: flex;
+  flex-direction: column;
 }
-@media screen and (max-width: 768px) {
-  .admin-header {
-    padding: 15px;
-  }
+
+.H-UserName{
+  font-weight: bold;
+}
+
+.H-proifle{
+  margin-left: 21%;
+}
+
+.H-divider{
+  background-color: red;
+  width: 100%;
+  border: 1px solid white;
+  margin-top: 19px;
+}
+
+a:-webkit-any-link {
+  color: white;
+  cursor: pointer;
+}
+
+.projectLogo{
+  width: 4%;
+  height: 95%;
+  margin-left: 1%;
+  margin-right: 1%;
+}
+
+.project_icon{
+  width: 100%;
+  /* height: 100%; */
 }
