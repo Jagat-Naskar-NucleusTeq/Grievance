@@ -1,12 +1,12 @@
 .updateDeptMainDiv {
   position: fixed;
-  top: 56%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  box-shadow: 5%;
-  border-radius: 3px;
+  top: 0;
+  left: 0;
   width: 100vw;
   height: 100vh;
+  background-color: rgba(33, 31, 36, 0.295);
+  padding-top: 3%;
+  padding-left: 1.5%;
 }
 
 .changeStatus-input{
@@ -21,7 +21,10 @@ color: #0f0925;
   margin: auto;
   font-family: Arial, sans-serif;
   background-color: #a1a2a7;
-  width: 100vw;
+  width: 97vw;
+  border-top-left-radius: 10px;
+  border-bottom-left-radius: 10px;
+  background-color: rgb(145, 145, 146);
 }
 
 .main-div {
@@ -40,7 +43,11 @@ color: #0f0925;
   width: 43%;
   padding: 10px;
   overflow-y: scroll;
-  height: 70vh;
+  height: 78vh;
+  /* margin-top: 29px; */
+  margin-top: 3%;
+  margin-bottom: 5px;
+  
 }
 
 .ticket-form {
@@ -53,15 +60,19 @@ color: #0f0925;
   width: 43%;
   height: -moz-fit-content;
   height: fit-content;
+  /* background-color: red; */
+  margin-top: auto;
+  /* height: 66vh; */
+  height: fit-content;
 }
 
 .UT-status {
-  margin-top: 6%;
+  margin-top: 4%;
 }
 
 label {
   font-weight: bold;
-  margin-top: 4%;
+  margin-top: 8%;
 }
 
 input,
@@ -104,27 +115,36 @@ textarea {
     grid-template-columns: 1fr;
   }
 }
+
 .Ut-nevigate-back {
-  background-color: rgb(205, 9, 9);
   color: rgb(0, 0, 0);
-  /* width: 97%; */
   border: 1px solid black;
   font-style: italic;
   font-size: smaller;
   min-width: 25px;
-  margin-right: 90%;
+  /* margin-left: 97%; */
+  height: 20px;
+  background-color: rgba(255, 0, 0, 0);
+  width: 20px;
+  margin: 5px;
+}
+
+.Ut-nevigate-back:hover{
+  background-color: rgb(255, 255, 255);
 }
 
 .UT-h2 {
   font-family: cursive;
   text-align: center;
 }
+
 .commentedBy {
   position: sticky;
-  color: rgb(255, 43, 255);
+  color: rgb(138, 134, 242);
   font-size: small;
   font-style: oblique;
 }
+
 .commentMessage {
   color: white;
   font-size: small;
@@ -137,7 +157,7 @@ textarea {
   color: white;
   background-color: #0f0925;
   margin-bottom: 1%;
-  margin-top: 2px;
+  margin-top: 8px;
   width: 97%;
   border: 1px solid black;
   min-width: 25px;
@@ -146,4 +166,13 @@ textarea {
   background-color: rgba(0, 0, 0, 0.066);
   color: rgb(5, 2, 2);
   border: 1px solid black;
+}
+
+.UT-input-ticketId:disabled{
+  background-color: rgba(133, 118, 118, 0);
+  margin-left: -1.9%;
+  color: rgb(0, 0, 0);
+  font-weight: bold;
+  border: none;
+  font-size:large;
 }

@@ -50,7 +50,7 @@ import static org.springframework.test.web.servlet.request.MockMvcRequestBuilder
 //                "Admin@123", ERole.admin, "Sales");
 //        User user = new User();
 //        user.setUserId(1);
-//        user.setName("Jagat Naskar");
+//        user.setName("");
 //        user.setUserName("jme@nucleusteq.com");
 //        user.setPassword("password123");
 //        user.setUserType(ERole.admin);
@@ -227,7 +227,7 @@ import static org.springframework.test.web.servlet.request.MockMvcRequestBuilder
 //
 //    @Test
 //    void testGetUserByUserName() {
-//        UserProfileDtoOut userProfileDTOout = new UserProfileDtoOut("Jagat Naskar",
+//        UserProfileDtoOut userProfileDTOout = new UserProfileDtoOut("",
 //                "jme@nucleusteq.com", "password123", "Admin", "IT");
 //        when(userService.getByUserByUserName("jme@nucleusteq.com"))
 //                .thenReturn(userProfileDTOout);
@@ -276,7 +276,8 @@ import com.feedback.entities.ERole;
 import com.feedback.entities.User;
 import com.feedback.payloads.user_dto.AddUserDto;
 import com.feedback.payloads.user_dto.GetAllUsersDtoOut;
-import com.feedback.payloads.user_dto.LoginDto;
+import com.feedback.payloads.user_dto.LoginDtoIn;
+import com.feedback.payloads.user_dto.LoginDtoOut;
 import com.feedback.payloads.user_dto.PasswordChangeDtoIn;
 import com.feedback.payloads.user_dto.UserProfileDtoOut;
 import com.feedback.service.UserService;
@@ -377,25 +378,27 @@ public class UserControllerTest {
     }
 
     @Test
-    public void testGetByUserPassword_Success() throws Exception {
-        LoginDto validLogin = new LoginDto("YWRtaW5AbnVjbGV1c3RlcS5jb20=",
-                "QWRtaW5AMTIz");
+    public void testLogin_Success() throws Exception {
+        LoginDtoIn validLogin = new LoginDtoIn("YWRtaW5AbnVjbGV1c3RlcS5jb20=", "QWRtaW5AMTIz");
 
-        when(userService.getByUserAndPassword(any(), any())).thenReturn("Role");
+        LoginDtoOut loginDtoOut = new LoginDtoOut("Jagat", "admin@nucleusteq.com", "QWRtaW5AMTIz", "admin", "true", "HR");
+
+        when(userService.getByUserAndPassword(validLogin)).thenReturn(loginDtoOut);
 
         mockMvc.perform(post("/api/users/login")
                 .contentType(MediaType.APPLICATION_JSON)
-                .content("{\"email\":\"YWRtaW5AbnVjbGV1c3RlcS5jb20=\",\"password\":\"QWRtaW5AMTIz\"}"))
+                .content(asJsonString(validLogin)))
                 .andExpect(status().isOk())
-                .andExpect(content().string("Role"));
+                .andExpect(content().json(asJsonString(loginDtoOut)));
     }
+
 
     @Test
     public void testGetByUserPassword_Failure_InvalidCredentials() throws Exception {
-        LoginDto invalidLogin = new LoginDto("YWRtaW5AbnVjbGV1c3RlcS5jb20=",
-                "QWRtaW5AMTIz");
 
-        when(userService.getByUserAndPassword(any(), any())).thenReturn(null);
+        LoginDtoIn invalidLogin = new LoginDtoIn("YWRtaW5AbnVjbGV1c3RlcS5jb20=", "QWRtaW5AMTIz");
+
+        when(userService.getByUserAndPassword(invalidLogin)).thenReturn(null);
 
         mockMvc.perform(post("/api/users/login")
                 .contentType(MediaType.APPLICATION_JSON)
@@ -403,6 +406,7 @@ public class UserControllerTest {
                 .andExpect(status().isOk())
                 .andExpect(content().string(""));
     }
+
 
     @Test
     public void testAddUser_Failure_NullUser() throws Exception {
@@ -486,11 +490,11 @@ public class UserControllerTest {
     @Test
     public void testGetUserByUserName() throws Exception {
         UserProfileDtoOut userProfileDTOout = new UserProfileDtoOut("John Doe",
-                "johndoe", "password123", "Admin", "IT");
-        when(userService.getByUserByUserName("johndoe"))
+                "jme@nucleusteq.com", "password123", "Admin", "IT");
+        when(userService.getByUserByUserName("jme@nucleusteq.com"))
                 .thenReturn(userProfileDTOout);
 
-        mockMvc.perform(get("/api/users/getByUsrName/{userName}", "johndoe"))
+        mockMvc.perform(get("/api/users/getByUsrName/{userName}", "jme@nucleusteq.com"))
                 .andExpect(status().isOk())
                 .andExpect(content().json(asJsonString(userProfileDTOout)));
     }

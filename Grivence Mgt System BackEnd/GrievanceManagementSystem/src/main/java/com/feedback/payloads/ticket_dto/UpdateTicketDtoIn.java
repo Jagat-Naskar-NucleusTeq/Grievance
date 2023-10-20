@@ -22,10 +22,15 @@ public class UpdateTicketDtoIn {
   private Estatus ticketStatus;
 
   /**
+   * UserName variable.
+   */
+  private String userName;
+
+  /**
   * The comment for the ticket.
   */
   @NotEmpty(message = "comment is required")
-  private String comment;
+  private String commentMessage;
 
   /**
   * Getter for ticket ID.
@@ -65,85 +70,122 @@ public class UpdateTicketDtoIn {
   }
 
   /**
-  * Getter for comment.
+  * Getter for commentMessage.
   *
-  * @return The comment.
+  * @return The commentMessage.
   */
-  public String getComment() {
-    return comment;
+  public String getCommentMessage() {
+    return commentMessage;
   }
 
   /**
-  * Setter for comment.
+  * Setter for commentMessage.
   *
-  * @param commentt
+  * @param commentMessagee
   *
   */
-  public void setCommentList(final String commentt) {
-    this.comment = commentt;
+  public void setcommentMessageList(final String commentMessagee) {
+    this.commentMessage = commentMessagee;
   }
 
   /**
+   * get userName.
+  * @return the userName.
+  *
+  */
+
+  public String getUserName() {
+    return userName;
+  }
+
+  /**
+  * set UserName.
+  *
+  * @param userNamee the userName to set
+  *
+  */
+  public void setUserName(String userNamee) {
+    this.userName = userNamee;
+  }
+
+  /**
+  * setcommentMessage.
+  *
+  * @param commentMessagee the comment to set
+-  *
+  */
+  public void setComment(String commentMessagee) {
+    this.commentMessage = commentMessagee;
+  }
+
+/**
   * Override of toString method.
   */
   @Override
   public String toString() {
-    return "UpdateTicketDTOin [ticketId=" + ticketId
-      + ", ticketStatus=" + ticketStatus
-      + "]";
+    return "UpdateTicketDtoIn [ticketId=" + ticketId
+          + ", ticketStatus=" + ticketStatus
+          + ", userName=" + userName
+          + ", commentMessage=" + commentMessage
+          + "]";
   }
 
   /**
-  * Constructor with parameters.
-  *
-  * @param ticketIdd The ID of the ticket.
-  *
-  * @param ticketStatuss The status of the ticket.
-  *
-  * @param commentt The comment for the ticket.
-  *
-  */
-  public UpdateTicketDtoIn(final long ticketIdd,
-      final Estatus ticketStatuss,
-      final String commentt) {
-    super();
-    this.ticketId = ticketIdd;
-    this.ticketStatus = ticketStatuss;
-    this.comment = commentt;
-  }
-
-  /**
-  * Default constructor.
-  */
-  public UpdateTicketDtoIn() {
-    super();
-  }
-
-  /**
-   * Override of hashCode method.
+   * hashCode method.
    */
   @Override
   public int hashCode() {
-    return Objects.hash(comment, ticketId, ticketStatus);
+    return Objects.hash(commentMessage, ticketId, ticketStatus, userName);
   }
 
   /**
-  * Override of equals method.
-  */
+   * equals method.
+   */
   @Override
-  public boolean equals(final Object obj) {
+  public boolean equals(Object obj) {
     if (this == obj) {
-      return true;
-    }
+        return true;
+        }
     if (obj == null) {
-      return false;
-    }
+        return false;
+        }
     if (getClass() != obj.getClass()) {
-      return false;
-    }
+        return false;
+        }
     UpdateTicketDtoIn other = (UpdateTicketDtoIn) obj;
-    return Objects.equals(comment, other.comment)
-      && ticketId == other.ticketId
-      && ticketStatus == other.ticketStatus;
+    return Objects.equals(commentMessage, other.commentMessage) && ticketId == other.ticketId
+            && ticketStatus == other.ticketStatus
+            && Objects.equals(userName, other.userName);
+  }
+
+  /**
+   * UpdateTicketDtoIn field constructor.
+   *
+   * @param ticketIdd
+   *
+   * @param ticketStatuss
+   *
+   * @param userNamee
+   *
+   * @param commentMessagee
+   *
+   */
+  public UpdateTicketDtoIn(
+        @NotNull(message = "Ticket id is required") long ticketIdd,
+        Estatus ticketStatuss, String userNamee,
+        @NotEmpty(message = "comment is required") String commentMessagee) {
+    super();
+    this.ticketId = ticketIdd;
+    this.ticketStatus = ticketStatuss;
+    this.userName = userNamee;
+    this.commentMessage = commentMessagee;
+  }
+
+  /**
+   * UpdateTicketDtoIn constructor.
+   */
+  public UpdateTicketDtoIn() {
+    super();
+    //TODO Auto-generated constructor stub
   }
 }

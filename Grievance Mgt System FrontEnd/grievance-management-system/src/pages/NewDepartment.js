@@ -13,8 +13,11 @@ function NewDepartment() {
 
   const nevigatee = new useNavigate();
 
+
+
+  
   const handleClose = () => {
-    nevigatee("/admin/viewDept");
+    nevigatee("/viewDept");
   };
 
   const handleShowAlert = () => {
@@ -53,7 +56,11 @@ function NewDepartment() {
 
   return (
     <div className="modal-wrapper">
+      
       <div className="new-department-card">
+      <button className="ND-close-btn" onClick={handleClose}>
+          X
+        </button>
         <h1 className="new-department-title">Add Department</h1>
         <form onSubmit={handleSubmit}>
           <label>
@@ -78,9 +85,7 @@ function NewDepartment() {
             Add
           </button>
         </form>
-        <button className="ND-close-btn" onClick={handleClose}>
-          Close
-        </button>
+        
       </div>
     </div>
   );

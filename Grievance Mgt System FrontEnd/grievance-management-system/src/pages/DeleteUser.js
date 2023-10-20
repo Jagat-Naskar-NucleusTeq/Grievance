@@ -3,6 +3,7 @@ import "../assets/css/DeleteUser.css";
 import ConfirmationBox from "../component/ConfirmationBox";
 import CustomAlert from "../component/CustomAlert";
 import DeleteUserIcon from "../assets/icons/delete-user-icon.svg";
+import { Link } from "react-router-dom";
 
 function DeleteUser() {
   const [users, setUsers] = useState([]);
@@ -107,20 +108,18 @@ function DeleteUser() {
             <td>{user.userType}</td>
             <td>{user.departmentName}</td>
             <td>
-              {session_userName === user.userName ? (
-                <span></span>
-              ) : (
                 <button
                   className="delete-button"
                   onClick={() => openConfirmBox(user.id)}
+                  disabled= {session_userName === user.userName}
                 >
                   <img
-                  src={DeleteUserIcon}
-                  alt="Description"
-                  style={{ width: "50%" }}
-                />
+                    src={DeleteUserIcon}
+                    alt="Description"
+                    style={{ width: "50%" }}
+                  />
                 </button>
-              )}
+              
             </td>
           </tr>
         ))}
@@ -130,6 +129,9 @@ function DeleteUser() {
 
   return (
     <>
+      <Link to="/users/addUser" className="add-dept-btn-link">
+        <div className="DD-addDept-btn">Add User</div>
+      </Link>
       <div className="DUmain-div">
         {userTable}
         <div>

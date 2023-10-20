@@ -4,10 +4,8 @@ import "../assets/css/AdminSidebar1.css";
 import Header from "../component/Header";
 import ConfirmationBox from "../component/ConfirmationBox";
 import AdminProfilePic from "../assets/icons/admin-icon.svg";
-import AddUserIcon from "../assets/icons/user-add-icon.svg";
 import AllUserIcon from "../assets/icons/all-users-icon.svg";
 import TicketsIcon from "../assets/icons/tickets-icon.svg";
-import TicketIcon from "../assets/icons/ticket-icon.svg";
 import DepartmentIcon from "../assets/icons/department-icon.svg";
 import PasswordChangeIcon from "../assets/icons/password-reset-icon.svg";
 
@@ -35,11 +33,11 @@ function AdminSidebar() {
 
   return (
     <>
-      <Header name={localStorage.getItem("session_user_name")} role="admin" />
+      <Header/>
       <div className="container" style={{ display: "flex" }}>
         <div className="sidebar">
           <div className="AS-menu">
-            <NavLink to="adminProfile">
+            {/* <NavLink to="adminProfile">
               <div className="AD-li">
                 <img
                   src={AdminProfilePic}
@@ -49,8 +47,8 @@ function AdminSidebar() {
                 />
                 <span className="text-style">Profile</span>
               </div>
-            </NavLink>
-            <NavLink to="addUser">
+            </NavLink> */}
+            {/* <NavLink to="addUser">
               <div className="AD-li">
               <img
                   src={AddUserIcon}
@@ -61,19 +59,21 @@ function AdminSidebar() {
                  <span className="text-style" >Add User</span>
                
               </div>
-            </NavLink>
-            <NavLink to="allUsers">
-              <div className="AD-li">
-                <img
-                  src={AllUserIcon}
-                  alt="Description"
-                  style={{ width: "15%" }}
-                  className="icon"
-                />
-                 <span className="text-style">All Users</span>
-                
-              </div>
-            </NavLink>
+            </NavLink> */}
+            {localStorage.getItem("Admin_Role") === "admin"  && (
+              <NavLink to="users">
+                <div className="AD-li">
+                  <img
+                    src={AllUserIcon}
+                    alt="Description"
+                    style={{ width: "15%" }}
+                    className="icon"
+                  />
+                  <span className="text-style">Users</span>
+                </div>
+              </NavLink>
+            )}
+
             <NavLink to="tickets">
               <div className="AD-li">
                 <img
@@ -82,11 +82,10 @@ function AdminSidebar() {
                   style={{ width: "15%" }}
                   className="icon"
                 />
-                 <span className="text-style">Tickets</span>
-                
+                <span className="text-style">Tickets</span>
               </div>
             </NavLink>
-            <NavLink to="createTicket">
+            {/* <NavLink to="tickets/createTicket">
               <div className="AD-li">
                 <img
                   src={TicketIcon}
@@ -97,20 +96,21 @@ function AdminSidebar() {
                  <span className="text-style">Create Ticket</span>
                 
               </div>
-            </NavLink>
-            <NavLink to="viewDept">
-              <div className="AD-li">
-                <img
-                  src={DepartmentIcon}
-                  alt="Description"
-                  style={{ width: "15%" }}
-                  className="icon"
-                />
-                 <span className="text-style">Departments</span>
-                
-              </div>
-            </NavLink>
-            <NavLink to="changePassword">
+            </NavLink> */}
+            {localStorage.getItem("Admin_Role") === "admin" && (
+              <NavLink to="viewDept">
+                <div className="AD-li">
+                  <img
+                    src={DepartmentIcon}
+                    alt="Description"
+                    style={{ width: "15%" }}
+                    className="icon"
+                  />
+                  <span className="text-style">Departments</span>
+                </div>
+              </NavLink>
+            )}
+            {/* <NavLink to="changePassword">
               <div className="AD-li">
                 <img
                   src={PasswordChangeIcon}
@@ -118,10 +118,9 @@ function AdminSidebar() {
                   style={{ width: "15%" }}
                   className="icon"
                 />
-                 <span className="text-style">Change Password</span>
-                
+                <span className="text-style">Change Password</span>
               </div>
-            </NavLink>
+            </NavLink> */}
             <div className="AD-li-logout" onClick={openConfirmBox}>
               LogOut
             </div>

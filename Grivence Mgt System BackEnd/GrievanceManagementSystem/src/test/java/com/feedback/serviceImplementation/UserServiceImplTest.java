@@ -1,13 +1,16 @@
-package com.feedback.serviceImplementation;
+ package com.feedback.serviceImplementation;
 
 
 import static org.junit.Assert.assertThrows;
 import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.ArgumentMatchers.any;
+import static org.mockito.ArgumentMatchers.anyString;
 import static org.mockito.Mockito.never;
 import static org.mockito.Mockito.times;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
+
+import java.nio.charset.StandardCharsets;
 import java.util.Arrays;
 import java.util.Base64;
 import java.util.List;
@@ -31,6 +34,8 @@ import com.feedback.payloads.user_dto.AddUserDto;
 import com.feedback.payloads.user_dto.PasswordChangeDtoIn;
 import com.feedback.payloads.user_dto.UserProfileDtoOut;
 import com.feedback.payloads.user_dto.GetAllUsersDtoOut;
+import com.feedback.payloads.user_dto.LoginDtoIn;
+import com.feedback.payloads.user_dto.LoginDtoOut;
 import com.feedback.repository.DepartmentRepository;
 import com.feedback.repository.UserRepository;
 import com.feedback.service.UserService;
@@ -159,67 +164,11 @@ public void testCheckAlreadyExist_UserDoesNotExist() {
 }
 
   @Test
-  public void testValidPasswordAndUserFound() {
-    User u1 = new User();
-    u1.setUserName("admin@nucleusteq.com");
-    u1.setPassword("admin");
-    u1.setfinalPassword(false);
-    
-    when(userRepository.getUserByUsername("admin@nucleusteq.com")).thenReturn(u1);
-    String result = userService.getByUserAndPassword("admin@nucleusteq.com", "admin");
-    assertEquals("false", result);
-  }
-
-  @Test
   public void testUserNotFound() {
+    LoginDtoIn loginDtoIn = new LoginDtoIn("YWRtaW5AbnVjbGV1c3RlcS5jb20=", "QWRtaW5AMTIz");
     when(userRepository.getUserByUsername("nonExistentUser")).thenReturn(null);
-    String result = userService.getByUserAndPassword("nonExistentUser", "password");
-    assertEquals("false", result);
-  }
-
-  @Test
-  void testGetByUserAndPassword_UserExists() {
-      String userName = "jme@nucleusteq.com";
-      String password = "cGFzc3dvcmRAYTIz";
-      User u1 = new User();
-      u1.setUserName(userName);
-      u1.setPassword(password);
-      u1.setUserType(ERole.admin);
-      u1.setfinalPassword(false);
-
-      when(userRepository.getUserByUsername(userName)).thenReturn(u1);
-
-      String result = userService.getByUserAndPassword(userName, password);
-      assertEquals("false", result);
-//      assertEquals("true_admin_cp", result);  -> not working
-  }
-
-  @Test
-  void testGetByUserAndPassword_UserDoesNotExist() {
-      String userName = "testUser";
-      String password = "testPassword";
-
-      when(userRepository.getUserByUsername(userName)).thenReturn(null);
-
-      String result = userService.getByUserAndPassword(userName, password);
-
-      assertEquals("false", result);
-  }
-
-  @Test
-  void testGetByUserAndPassword_IncorrectPassword() {
-      String userName = "testUser";
-      String password = "incorrectPassword";
-      User u1 = new User();
-      u1.setUserName(userName);
-      u1.setPassword("correctPassword");
-      u1.setUserType(ERole.admin);
-
-      when(userRepository.getUserByUsername(userName)).thenReturn(u1);
-
-      String result = userService.getByUserAndPassword(userName, password);
-
-      assertEquals("false", result);
+    LoginDtoOut result = userService.getByUserAndPassword(loginDtoIn);
+    assertEquals(null, result);
   }
 
   @Test
@@ -247,10 +196,6 @@ public void testCheckAlreadyExist_UserDoesNotExist() {
       verify(userRepository, never()).deleteById(userId);
   }
 
-  
-  
-  
-  
   @Test
   void testGetByUserByUserName_UserExists() {
       String userName = "jme@nucleusteq.com";
@@ -289,22 +234,6 @@ public void testCheckAlreadyExist_UserDoesNotExist() {
   }
 
   @Test
-  void testGetByUserAndPassword() {
-      User user = new User();
-      user.setUserName("jagat");
-      user.setPassword("password123");
-      user.setUserType(ERole.admin);
-      
-      Boolean boolean1 = false;
-      when(userRepository.existsByUserName("jagat")).thenReturn(boolean1);
-     when(userRepository.getUserByUsername("jagat")).thenReturn(user);
-
-      String result = userService.getByUserAndPassword("jagat", "password123");
-
-      assertEquals("false", result);
-  }
-
-  @Test
   void testPasswordChangedSuccess() {
       User user = new User();
       user.setUserName("am1lQG51Y2xldXN0ZXEuY29t");
@@ -325,55 +254,127 @@ public void testCheckAlreadyExist_UserDoesNotExist() {
   }
 
   @Test
-  public void testGetByUserAndPassword_Success_ChangePassword() {
-
-      String userName = "am1lQG51Y2xldXN0ZXEuY29t";
-      String password = "testPassword";
-
-      User mockUser = new User();
-      mockUser.setUserName(userName);
-      mockUser.setPassword(password);
-      mockUser.setUserType(ERole.admin);
-      mockUser.setfinalPassword(false);
-
-      when(userRepository.existsByUserName(userName)).thenReturn(true);
-      when(userRepository.getUserByUsername(userName)).thenReturn(mockUser);
-
-      // Act
-      String result = userService.getByUserAndPassword(userName, password);
-
-      // Assert
-      assertEquals("true_admin_cp", result);
-  }
-
-  @Test
-  public void testGetByUserAndPassword_Success_NoChangePassword() {
-      String userName = "am1lQG51Y2xldXN0ZXEuY29t";
-      String password = "testPassword";
-
-      User mockUser = new User();
-      mockUser.setUserName(userName);
-      mockUser.setPassword(password);
-      mockUser.setUserType(ERole.admin);
-      mockUser.setfinalPassword(true);
-
-      when(userRepository.existsByUserName(userName)).thenReturn(true);
-      when(userRepository.getUserByUsername(userName)).thenReturn(mockUser);
-
-      String result = userService.getByUserAndPassword(userName, password);
-
-      assertEquals("true_admin", result);
-  }
-
-  @Test
   public void testGetByUserAndPassword_ExceptionOccurs() {
-      String userName = "am1lQG51Y2xldXN0ZXEuY29t";
-      String password = "testPassword";
+      String encodedEmail = Base64.getEncoder().encodeToString("admin@nucleusteq.com".getBytes(StandardCharsets.UTF_8));
+      String encodedPassword = Base64.getEncoder().encodeToString("QWRtaW5AMTIz".getBytes(StandardCharsets.UTF_8));
 
-      when(userRepository.existsByUserName(userName)).thenThrow(new RuntimeException("Database connection failed"));
+      LoginDtoIn validLogin = new LoginDtoIn(encodedEmail, encodedPassword);
 
-      String result = userService.getByUserAndPassword(userName, password);
+      // Mock userRepository behavior
+      when(userRepository.existsByUserName(anyString())).thenReturn(true);
+      when(userRepository.getUserByUsername(anyString())).thenThrow(new RuntimeException("Something went wrong."));
 
-      assertEquals("Error : Database connection failed", result);
-  } 
+      LoginDtoOut result = userService.getByUserAndPassword(validLogin);
+
+      // Assert that the result is null when an exception occurs
+      assertNull(result);
+  }
+ 
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  @Test
+  void testGetByUserAndPassword_ValidCredentials() {
+      String encodedEmail = Base64.getEncoder().encodeToString("admin@nucleusteq.com".getBytes(StandardCharsets.UTF_8));
+      String encodedPassword = Base64.getEncoder().encodeToString("Admin@123".getBytes(StandardCharsets.UTF_8));
+
+      Department department = new Department(1, "HR");
+      LoginDtoIn validLogin = new LoginDtoIn(encodedEmail, encodedPassword);
+      User user = new User(1, "Jagat", "admin@nucleusteq.com", "QWRtaW5AMTIz", ERole.admin, true, null, null, department);
+
+      when(userRepository.existsByUserName("admin@nucleusteq.com")).thenReturn(true);
+      when(userRepository.getUserByUsername("admin@nucleusteq.com")).thenReturn(user);
+
+      LoginDtoOut result = userService.getByUserAndPassword(validLogin);
+
+      assertNotNull(result);
+      assertEquals("Jagat", result.getName());
+      assertEquals("admin@nucleusteq.com", result.getUserName());
+      assertEquals(encodedPassword, result.getPassword());
+      assertEquals("admin", result.getUserType());
+      assertEquals("true", result.getFinalPassword());
+      assertEquals("HR", result.getDepartmentName());
+  }
+
+  @Test
+  void testGetByUserAndPassword_InvalidUser() {
+      String encodedEmail = Base64.getEncoder().encodeToString("jme@nucleusteq.com".getBytes(StandardCharsets.UTF_8));
+      String encodedPassword = Base64.getEncoder().encodeToString("jme@1234".getBytes(StandardCharsets.UTF_8));
+
+      LoginDtoIn invalidLogin = new LoginDtoIn(encodedEmail, encodedPassword);
+
+      when(userRepository.existsByUserName(anyString())).thenReturn(false);
+
+      LoginDtoOut result = userService.getByUserAndPassword(invalidLogin);
+
+      assertNull(result);
+  }
+
+  @Test
+  void testGetByUserAndPassword_InvalidPassword() {
+      String encodedEmail = Base64.getEncoder().encodeToString("admin@nucleusteq.com".getBytes(StandardCharsets.UTF_8));
+      String encodedPassword = Base64.getEncoder().encodeToString("InvalidPassword".getBytes(StandardCharsets.UTF_8));
+
+      LoginDtoIn invalidLogin = new LoginDtoIn(encodedEmail, encodedPassword);
+
+      User user = new User();
+      user.setUserName("admin@nucleusteq.com");
+      user.setPassword(encodedPassword);
+
+      when(userRepository.existsByUserName(anyString())).thenReturn(true);
+      when(userRepository.getUserByUsername(anyString())).thenReturn(user);
+
+      LoginDtoOut result = userService.getByUserAndPassword(invalidLogin);
+
+      assertNull(result);
+  }
+
+  @Test
+  void testGetByUserAndPassword_IncorrectPassword() {
+      String encodedEmail = Base64.getEncoder().encodeToString("admin@nucleusteq.com".getBytes(StandardCharsets.UTF_8));
+      String encodedPassword = Base64.getEncoder().encodeToString("IncorrectPassword".getBytes(StandardCharsets.UTF_8));
+
+      LoginDtoIn invalidLogin = new LoginDtoIn(encodedEmail, encodedPassword);
+
+      User user = new User();
+      user.setName("Jagat");
+      user.setUserName("admin@nucleusteq.com");
+      user.setPassword("QWRtaW5AMTIz"); // Correct password
+      user.setUserType(ERole.admin);
+      user.setfinalPassword(true);
+
+      when(userRepository.existsByUserName(anyString())).thenReturn(true);
+      when(userRepository.getUserByUsername(anyString())).thenReturn(user);
+
+      LoginDtoOut result = userService.getByUserAndPassword(invalidLogin);
+
+      assertNull(result);
+  }
+
+  @Test
+  void testGetByUserAndPassword_UserDoesNotExist() {
+      String encodedEmail = Base64.getEncoder().encodeToString("admin@nucleusteq.com".getBytes(StandardCharsets.UTF_8));
+      String encodedPassword = Base64.getEncoder().encodeToString("IncorrectPassword".getBytes(StandardCharsets.UTF_8));
+
+      LoginDtoIn invalidLogin = new LoginDtoIn(encodedEmail, encodedPassword);
+
+      when(userRepository.getUserByUsername("admin@nucleusteq.com")).thenReturn(null);
+
+      LoginDtoOut result = userService.getByUserAndPassword(invalidLogin);
+
+      assertEquals(null, result);
+  }
 }

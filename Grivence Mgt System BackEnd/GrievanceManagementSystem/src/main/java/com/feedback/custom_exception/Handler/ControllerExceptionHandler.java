@@ -26,7 +26,6 @@ public class ControllerExceptionHandler {
      * @return departmentNotFoundException
      */
     @ResponseStatus(HttpStatus.NOT_FOUND)
-//    @org.springframework.web.bind.annotation.ExceptionHandler(DepartmentNotFoundException.class)
     public String departmentNotFoundException(
             final DepartmentNotFoundException ex) {
         return ex.getMessage();
@@ -38,7 +37,6 @@ public class ControllerExceptionHandler {
      * @return userNotFoundException
      */
     @ResponseStatus(HttpStatus.NOT_FOUND)
-//    @org.springframework.web.bind.annotation.ExceptionHandler(UserNotFoundException.class)
     public String userNotFoundException(final UserNotFoundException ex) {
         return ex.getMessage();
     }
@@ -49,7 +47,6 @@ public class ControllerExceptionHandler {
      * @return TicketNotFoundException
      */
     @ResponseStatus(HttpStatus.NOT_FOUND)
-//    @org.springframework.web.bind.annotation.ExceptionHandler(TicketNotFoundException.class)
     public String ticketNotFoundException(final TicketNotFoundException ex) {
         return ex.getMessage();
     }
@@ -61,7 +58,8 @@ public class ControllerExceptionHandler {
      */
     @ResponseStatus(HttpStatus.NOT_FOUND)
     @ExceptionHandler(MethodArgumentNotValidException.class)
-    public Map<String, String> handleMethodArgumentNotValidException(final MethodArgumentNotValidException ex) {
+    public Map<String, String> handleMethodArgumentNotValidException(
+          final MethodArgumentNotValidException ex) {
         Map<String, String> resMap = new HashMap<>();
          ex.getAllErrors().forEach(error -> {
              String fieldNameString = ((FieldError) error).getField();

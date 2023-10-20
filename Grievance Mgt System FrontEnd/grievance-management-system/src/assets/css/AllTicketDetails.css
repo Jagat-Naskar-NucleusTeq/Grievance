@@ -2,8 +2,9 @@ table {
   width: 100%;
   border-collapse: collapse;
   margin-bottom: 20px;
-  width: 50vw;
-  height: 50vh;
+  width: 70vw;
+  height: fit-content;
+  /* height: 50vh; */
 }
 
 th,
@@ -26,7 +27,7 @@ button {
 }
 
 button.edit-btn {
-  background-color: #4caf4f1f;
+  background-color: #2a312a63;
   color: black;
   border: solid 1px black;
   height: 30px;
@@ -34,7 +35,7 @@ button.edit-btn {
 }
 
 button.expand-btn {
-  background-color: #00808017;
+  background-color: #25363650;
   color: #000000;
   border: solid 1px black;
   height: 30px;
@@ -77,6 +78,12 @@ button.expand-btn {
   margin: 2%;
 }
 
+.paging-btn:disabled {
+  background-color: rgba(78, 71, 71, 0.795);
+  color: black;
+  cursor: not-allowed;
+}
+
 .full-details .all-button .AT-allTickets,
 .AT-deptTickets,
 .AT-myTickets {
@@ -84,9 +91,10 @@ button.expand-btn {
   margin-left: 2vh;
   margin-right: 3vh;
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
-  height: 6vh;
+  /* height: 6vh; */
   color: white;
-  background-color: #0f0925;
+  background-color: #2a292e;
+  height: auto;
 }
 
 @media (max-width: 767px) {
@@ -97,6 +105,23 @@ button.expand-btn {
 }
 
 button.active {
-  background-color: #3d0852;
-  color: white;
+  background-color: #e8e8e8;
+  color: rgb(0, 0, 0);
+  font-weight: bold;
+  border: 1px solid black;
+}
+
+.AT-addticket-btn {
+  border: 1px solid white;
+  display: inline-block;
+  margin: 10px;
+  padding: 10px 20px;
+  background-color: #0f0925;
+  color: #ffffff;
+  border-radius: 5px;
+  text-decoration: none;
+  text-align: center;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  margin-top: 9vh;
 }

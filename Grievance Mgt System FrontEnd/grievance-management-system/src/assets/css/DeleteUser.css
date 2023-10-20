@@ -3,7 +3,8 @@
 }
 
 .user-table {
-  width: 100%;
+  /* width: 90%; */
+
   border-collapse: collapse;
   border-spacing: 0;
   border: 1px solid #ddd;
@@ -47,7 +48,11 @@
 }
 
 .delete-button:hover {
-  background-color: #ff473a;
+  background-color: #d9b3b0;
+}
+.delete-button:disabled {
+  background-color: rgba(112, 112, 111, 0.616); 
+  cursor: not-allowed;
 }
 
 .Data-not-available {
